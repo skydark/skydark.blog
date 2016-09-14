@@ -4,7 +4,7 @@ $('.js-toggle-next').click(function(){
 }) ;
 $('.js-toggle-next').filter('.dropdown').append($('<b class="caret"></b>'));
 $('.js-toggle-next').not('.show').next().hide();
-$('.main-content a').each(function(){
+$('.main-article a').each(function(){
 	var href = $(this).attr('href');
 	if (href) {
 		if(href.indexOf('#') == 0 || href.indexOf('/') == 0){
