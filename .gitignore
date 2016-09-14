@@ -1,5 +1,6 @@
 pelican.pid
 srv.pid
+.venv
 Makefile
 output
 content/private
