@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Skydark's blog</title><link href="http://blog.skydark.info/" rel="alternate"></link><link href="http://blog.skydark.info/feeds/python.atom.xml" rel="self"></link><id>http://blog.skydark.info/</id><updated>2013-07-03T00:00:00+08:00</updated><entry><title>用python给图像自动裁边</title><link href="http://blog.skydark.info/python/2013/07/03/autocrop/" rel="alternate"></link><published>2013-07-03T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2013-07-03:python/2013/07/03/autocrop/</id><summary type="html">&lt;p&gt;因为最近入了一只kpw的缘故，开始关心以前不大关心的东西了，譬如epub，譬如标题。&lt;/p&gt;
+&lt;p&gt;现成的裁边软件是有的，而且还有不少。
+不过秉着热衷于瞎造轮子的优良传统，我还是打算冲动地自己用&lt;a href="http://www.pythonware.com/products/pil"&gt;PIL&lt;/a&gt;玩一下。
+从某些方面讲不去找文献就动手也是很有问题的，但这里不是都说了是玩么……&lt;/p&gt;
+&lt;h2&gt;样本&lt;/h2&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWxJ7yH/CPFlR.jpg" alt="样本1"&gt;&lt;/p&gt;
+&lt;h2&gt;难点&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;本身扫描质量偏低，不是很干净；&lt;/li&gt;
+&lt;li&gt;右上角的大片黑色阴影；&lt;/li&gt;
+&lt;li&gt;右边的书缝线；&lt;/li&gt;
+&lt;li&gt;左边的一列空白不应被裁去；&lt;/li&gt;
+&lt;li&gt;最上方的漫画名可选裁去。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;思路&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;找出背景色。&lt;/p&gt;
+&lt;p&gt;收集最边缘的一圈宽度为&lt;code&gt;edge&lt;/code&gt;(默认为5)个像素的点的颜色，找出最常出现的颜色。&lt;/p&gt;
+&lt;p&gt;考虑到漫画的特殊性，直接将颜色转化为灰度，提高重复的次数。&lt;/p&gt;
+&lt;p&gt;尝试过将灰度值都近似为5的倍数以进一步提高重复率以及方便之后的处理，但提升不明显就取消了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;消除背景色。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;ImageChops.difference&lt;/code&gt;比较灰度图和纯背景色之间的差别，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWDgEHe/IjwnE.jpg]" alt="消除背景色后"&gt;&lt;/p&gt;
+&lt;p&gt;好处是现在背景色已经是黑色了，但直接使用&lt;code&gt;.getbbox&lt;/code&gt;取图像边界还是取不出来，因为右上角的大污点还在……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;取边缘。&lt;/p&gt;
+&lt;p&gt;污点是一大团不好处理，想到取边缘使一大团变成一条边，这样消除容易些。&lt;/p&gt;
+&lt;p&gt;简单地高斯模糊，然后用PIL自带的边缘检测，最后用中值滤一下噪点，效果如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWDfdPN/nMIIF.jpg" alt="过滤后"&gt;&lt;/p&gt;
+&lt;p&gt;嗯，污点直接不见了，很赞。虽然右边那条书缝还是很坚持……&lt;/p&gt;
+&lt;p&gt;发现PIL里想用canny边缘检测还要自己实现，嫌麻烦外加现在的实验效果还好就懒得弄了，
+ 不清楚会不会效果更好些。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;取边界。&lt;/p&gt;
+&lt;p&gt;现在开始简单粗暴地取边界。现以上边界为例。&lt;/p&gt;
+&lt;p&gt;自上而下逐行扫描像素点，参数有四个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;threshold&lt;/code&gt;: 颜色阈值，当当前点灰度值大于此值时不认为它是背景。这本扫的比较模糊，设在了15上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;max_error&lt;/code&gt;: 当一行中不是背景的点的比例大于此数值时认为这一行应该不是背景，视为error.
+因为已经取过边缘，所以这个值应该很小，这里取了0.01.值太大会把如页码等细节视为背景吃掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;suppress&lt;/code&gt;: 当连续如此多行都error时认为达到正文区域。
+扫右边缘时超过类似书缝这样的宽度就足够了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;max_edge_per&lt;/code&gt;: 最大边缘百分比，当扫描行数超过此比例时直接停止。&lt;/p&gt;
+&lt;p&gt;每次找到一个方向的边界后就把确定是边界的点涂黑，比如右侧的一列如果先检测到并涂黑的话，就不会影响到上下方向的检测了。
+原则上应该每个方向都这样涂黑迭代下去直到稳定的，至少应该来两圈，但是我懒所以只走了一圈，估计两圈的话效果会好些。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;裁！&lt;/p&gt;
+&lt;p&gt;咔嚓！&lt;/p&gt;
+&lt;p&gt;最终效果如图(&lt;code&gt;max_error=0.01, threshold=15, suppress=5, max_edge_per=0.1&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWDgm3l/cI0wN.jpg" alt="效果"&gt;&lt;/p&gt;
+&lt;p&gt;还不错？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;代码&lt;/h2&gt;
+&lt;p&gt;源码已放在&lt;a href="https://github.com/skydark/playground/blob/master/autocrop.py"&gt;github&lt;/a&gt;上。
+如果碰巧有人有兴趣请随意。&lt;/p&gt;
+&lt;h2&gt;实验&lt;/h2&gt;
+&lt;p&gt;自玩性质，没可能也没兴趣与其他实现比较了……&lt;/p&gt;
+&lt;p&gt;下面是几个测试图(原图在上)：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWDboF/nybWZ.jpg" alt="1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWCUUe/tJupo.jpg" alt="2"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWD2wJ/DMaPH.jpg" alt="1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWDbgm/ueamI.jpg" alt="2"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWDOl8/wYTDB.jpg" alt="1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWE0Go/Dzajo.jpg" alt="2"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWDSmj/u0ZGN.png" alt="1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWDy4z/y4XBa.png" alt="2"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;黑边太大，把suppress提高到了10：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWCsMj/QzX9T.jpg" alt="1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pic.yupoo.com/skydark/CYWWD2oc/dJY6Y.jpg" alt="2"&gt;&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+$('.entry-content').find('img').css('border', '5px solid lightblue').css('max-width', '685px');
+&lt;/script&gt;</summary><category term="python"></category><category term="programming"></category><category term="dip"></category></entry><entry><title>于是实验室的电脑一直跑在10M上……</title><link href="http://blog.skydark.info/python/2011/12/16/10m/" rel="alternate"></link><published>2011-12-16T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-12-16:python/2011/12/16/10m/</id><summary type="html">&lt;p&gt;RT，那是个千兆网卡……= =&lt;/p&gt;
+&lt;p&gt;于是经历了更换驱动-&amp;gt;更新内核-&amp;gt;内核太新编译不了显卡驱动又降了个稍旧的-&amp;gt;换网线-&amp;gt;换网口终于成功，于是答案是最后一个……(求兔斯基以头抢砖表情)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;本周倒是完全照着计划来了，除了模式识别的论文阅读，战斗力十足的吉源君课上就做出了几乎完整的ppt，让我狂汗不已……(继续兔斯基以头抢砖表情)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;明天(今天)北京的高中同学聚会，于是集合地点不知道怎么走，去问小师妹，被师兄师姐各种BS了一顿……喂喂喂，我不就是死宅了四年了么……&lt;/p&gt;
+&lt;p&gt;当然这就意味着明天不会有啥输出了，考虑到一共还有两周时间，有三门考试一门英语口语一个论文一个大项目一个助教期末监考批卷子，三门考试有千页无 水ppt的数据库与知识库，有只上了一半课以内容零散著称并且已经在project上坑了我了的计算语言学，有谁都不知道难度的算法，下周还要正常上课一 周，突然感觉会死……&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;作为数理逻辑助教，为了方便给同学期末弄课件，用bottle临时搭了个站点，刷刷就写出来了，真的是太简洁了……&lt;/p&gt;
+&lt;p&gt;也是因为在宿舍连这个站点太慢才怀疑并发现实验室电脑网速有问题的，虽然最根本的问题在于在用bottle自己的单进程服务，然而MathJax各种绘图连接太多……后来换了server就好了……&lt;/p&gt;
+&lt;p&gt;当然在线版课件颇蛋碎就是了……&lt;/p&gt;
+</summary><category term="python"></category><category term="学业"></category><category term="PC"></category></entry><entry><title>中秋</title><link href="http://blog.skydark.info/python/2011/09/12/rnote/" rel="alternate"></link><published>2011-09-12T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-09-12:python/2011/09/12/rnote/</id><summary type="html">&lt;p&gt;RT，虽然没感觉就是= =&lt;/p&gt;
+&lt;p&gt;昨天和高中同学聚了一次……
+东哥还是一如既往地稳健，健健内功不减当年，安东对pku非常兴奋，至于鑫爷……
+一抖就是个大内幕啊XD&lt;/p&gt;
+&lt;p&gt;最近在用Karrigell做上学期就想折腾的笔记软件，
+虽然前些天看GAE一度考虑用Django，不过果然我不想花太多时间……= =&lt;/p&gt;
+&lt;p&gt;就模仿这个blog现在的风格做了……&lt;/p&gt;
+</summary><category term="生活"></category><category term="python"></category></entry><entry><title>结果又和mink大撞上了……</title><link href="http://blog.skydark.info/python/2011/04/18/hi-mink/" rel="alternate"></link><published>2011-04-18T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-04-18:python/2011/04/18/hi-mink/</id><summary type="html">&lt;p&gt;RT，最早在智器粉丝团碰到mink大的时候，他在研究E17,于是我也蛋疼的写了点东西……&lt;/p&gt;
+&lt;p&gt;结果最近在研究PySide+QML的时候，又撞回&lt;a href="http://blog.csdn.net/mink365"&gt;mink大的博客&lt;/a&gt;了XD……&lt;/p&gt;
+&lt;p&gt;好吧，顺便汗一个下午一直在想怎样在Python中返回一个dict给QML用，
+结果各种不幸，竟然还碰到了Segment fault……
+然后一下午的成果是发现自己被坑了：
+&lt;a href="http://groups.google.com/group/pyside/browse_thread/thread/cc6b07c89dd67be0"&gt;http://groups.google.com/group/pyside/browse_thread/thread/cc6b07c89dd67be0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;……= =||||&lt;/p&gt;
+&lt;p&gt;P.S.:发现自己的拖延症和逃避心理越来越严重了，
+昨晚在Netwalker上过了夜明的菲娜线（好吧，221这个到底裁了没……），
+还在为两位的认真和坚决感动，今天瞧瞧自己……还是如故么……&lt;/p&gt;
+</summary><category term="pyside"></category><category term="python"></category></entry><entry><title>卧勒个去！</title><link href="http://blog.skydark.info/python/2011/01/14/wtf/" rel="alternate"></link><published>2011-01-14T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-01-14:python/2011/01/14/wtf/</id><summary type="html">&lt;p&gt;查了一晚上加一上午的bug，然后我现在觉得很有可能是我用的e库太旧了……&lt;/p&gt;
+&lt;p&gt;V5和PC上不一致就罢了，PC上text_set莫名其妙地段错误算啥，
+关掉后台预分割后还是会在update_screen后0.X秒莫名其妙地段错误，
+而且只有第一次载入并且书签在那里时会这样，
+第二次无事，从头载入无事，GB2312无事(关键是我在内部转过，最终结果都是utf8...)，
+V5上mink的svn版无事……XD&lt;/p&gt;
+&lt;p&gt;算了……&lt;/p&gt;
+</summary><category term="e17"></category><category term="python"></category></entry><entry><title>试了下cython包装epdf，还有SDL</title><link href="http://blog.skydark.info/python/2011/01/08/cython-epdf-sdl/" rel="alternate"></link><published>2011-01-08T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-01-08:python/2011/01/08/cython-epdf-sdl/</id><summary type="html">&lt;p&gt;cython真是个好东西，用来包装c库确实省时省力……&lt;/p&gt;
+&lt;p&gt;epdf似乎说法是被E17项目遗弃改成eyesight了？
+忘了在哪里似乎扫到了这么眼，看了下eyesight，
+现阶段似乎是把pdf,dvi,ps的后端整合到一起了……
+嘛，先不管了，完全照着python-evas的源码照葫芦画瓢地写了个货，
+it works我就已经泪流满面了，
+虽然只去包装了smart_pdf,document,page，而且包装完了仍然是C风格，
+完全不pythonic啊……&lt;/p&gt;
+&lt;p&gt;至于SDL嵌入窗口(呃，显然，是打算ONS嵌入窗口，虽然其实完全没有实际意义啊嗷嗷！= =)，一开始以为比较容易:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;SDL_WINDOWID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;the_xid_of_embbed_xwindow ./onscripter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后发现input完全传不过去……&lt;/p&gt;
+&lt;p&gt;最后解决办法是改ONS的源码，原理如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xid&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;SDL_SysWMinfo&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;SDL_VERSION&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// this is important!&lt;/span&gt;
+    &lt;span class="n"&gt;SDL_GetWMInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lock_func&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="c1"&gt;//XUnmapWindow(info.info.x11.display, info.info.x11.window);&lt;/span&gt;
+    &lt;span class="c1"&gt;//XReparentWindow(info.info.x11.display, info.info.x11.window, xid, 0, 0);&lt;/span&gt;
+    &lt;span class="n"&gt;XReparentWindow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wmwindow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unlock_func&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;虽然一开始会突然显示一个ONS窗口……&lt;/p&gt;
+&lt;p&gt;ref:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://sdl.beuc.net/sdl.wiki/FAQ_GUI"&gt;http://sdl.beuc.net/sdl.wiki/FAQ_GUI&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://old.nabble.com/getting-X11-%28or-windows%29-events-when-SDL_WINDOWID-is-set-td17059020.html"&gt;http://old.nabble.com/getting-X11-%28or-windows%29-events-when-SDL_WINDOWID-is-set-td17059020.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.hu.freepascal.org/lists/fpc-pascal/2007-November/015709.html"&gt;http://www.hu.freepascal.org/lists/fpc-pascal/2007-November/015709.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;呃，P.S.:google的时候不小心看到了这个：
+&lt;a href="http://www.rpgchina.net/read-htm-tid-25470.html"&gt;http://www.rpgchina.net/read-htm-tid-25470.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;泪流满面地近距离围观john_he大……&lt;/p&gt;
+</summary><category term="e17"></category><category term="python"></category><category term="ons"></category></entry><entry><title>一张图</title><link href="http://blog.skydark.info/python/2010/12/28/Christina/" rel="alternate"></link><published>2010-12-28T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2010-12-28:python/2010/12/28/Christina/</id><summary type="html">&lt;p&gt;&lt;img src="http://skydblog.appspot.com/media/aghza3lkYmxvZ3IMCxIFTWVkaWEYkU4M/Screenshot-Christina.jpg" alt="Christina"&gt;&lt;/p&gt;
+</summary><category term="e17"></category><category term="python"></category></entry><entry><title>无勒个题</title><link href="http://blog.skydark.info/python/2010/12/26/christina-wc/" rel="alternate"></link><published>2010-12-26T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2010-12-26:python/2010/12/26/christina-wc/</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;skydark@skydark-laptop:~/projects/christina$ wc *.py cmodel/*.py *.xml
+  &lt;span class="m"&gt;250&lt;/span&gt;   &lt;span class="m"&gt;659&lt;/span&gt;  &lt;span class="m"&gt;7627&lt;/span&gt; animator.py
+  &lt;span class="m"&gt;42&lt;/span&gt;   &lt;span class="m"&gt;108&lt;/span&gt;  &lt;span class="m"&gt;1385&lt;/span&gt; ChAppFrame.py
+  &lt;span class="m"&gt;74&lt;/span&gt;   &lt;span class="m"&gt;201&lt;/span&gt;  &lt;span class="m"&gt;2738&lt;/span&gt; ChAppView.py
+  &lt;span class="m"&gt;98&lt;/span&gt;   &lt;span class="m"&gt;240&lt;/span&gt;  &lt;span class="m"&gt;3133&lt;/span&gt; ChButtonBar.py
+  &lt;span class="m"&gt;202&lt;/span&gt;   &lt;span class="m"&gt;553&lt;/span&gt;  &lt;span class="m"&gt;7141&lt;/span&gt; ChWindow.py
+  &lt;span class="m"&gt;9&lt;/span&gt;     &lt;span class="m"&gt;7&lt;/span&gt;   &lt;span class="m"&gt;124&lt;/span&gt; common.py
+  &lt;span class="m"&gt;14&lt;/span&gt;    &lt;span class="m"&gt;16&lt;/span&gt;   &lt;span class="m"&gt;156&lt;/span&gt; error.py
+  &lt;span class="m"&gt;15&lt;/span&gt;    &lt;span class="m"&gt;32&lt;/span&gt;   &lt;span class="m"&gt;314&lt;/span&gt; model.py
+  &lt;span class="m"&gt;197&lt;/span&gt;   &lt;span class="m"&gt;679&lt;/span&gt;  &lt;span class="m"&gt;7648&lt;/span&gt; mouser.py
+  &lt;span class="m"&gt;437&lt;/span&gt;  &lt;span class="m"&gt;1301&lt;/span&gt; &lt;span class="m"&gt;14027&lt;/span&gt; parser.py
+  &lt;span class="m"&gt;163&lt;/span&gt;   &lt;span class="m"&gt;393&lt;/span&gt;  &lt;span class="m"&gt;4908&lt;/span&gt; player.py
+  &lt;span class="m"&gt;67&lt;/span&gt;   &lt;span class="m"&gt;371&lt;/span&gt;  &lt;span class="m"&gt;3111&lt;/span&gt; test_parser.py
+  &lt;span class="m"&gt;121&lt;/span&gt;   &lt;span class="m"&gt;409&lt;/span&gt;  &lt;span class="m"&gt;3843&lt;/span&gt; util.py
+  &lt;span class="m"&gt;358&lt;/span&gt;   &lt;span class="m"&gt;944&lt;/span&gt; &lt;span class="m"&gt;12473&lt;/span&gt; widget.py
+  &lt;span class="m"&gt;193&lt;/span&gt;   &lt;span class="m"&gt;519&lt;/span&gt;  &lt;span class="m"&gt;6610&lt;/span&gt; cmodel/fs.py
+  &lt;span class="m"&gt;221&lt;/span&gt;   &lt;span class="m"&gt;745&lt;/span&gt;  &lt;span class="m"&gt;7408&lt;/span&gt; cmodel/image.py
+  &lt;span class="m"&gt;0&lt;/span&gt;     &lt;span class="m"&gt;0&lt;/span&gt;     &lt;span class="m"&gt;0&lt;/span&gt; cmodel/__init__.py
+  &lt;span class="m"&gt;117&lt;/span&gt;   &lt;span class="m"&gt;233&lt;/span&gt;  &lt;span class="m"&gt;3766&lt;/span&gt; cmodel/media.py
+  &lt;span class="m"&gt;29&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;  &lt;span class="m"&gt;1475&lt;/span&gt; fs.xml
+  &lt;span class="m"&gt;37&lt;/span&gt;   &lt;span class="m"&gt;120&lt;/span&gt;  &lt;span class="m"&gt;1830&lt;/span&gt; image.xml
+  &lt;span class="m"&gt;36&lt;/span&gt;   &lt;span class="m"&gt;125&lt;/span&gt;  &lt;span class="m"&gt;1539&lt;/span&gt; media.xml
+  &lt;span class="m"&gt;35&lt;/span&gt;    &lt;span class="m"&gt;81&lt;/span&gt;  &lt;span class="m"&gt;1070&lt;/span&gt; test.xml
+  &lt;span class="m"&gt;2715&lt;/span&gt;  &lt;span class="m"&gt;7838&lt;/span&gt; &lt;span class="m"&gt;92326&lt;/span&gt; 总用量
+&lt;/pre&gt;&lt;/div&gt;
+</summary><category term="e17"></category></entry><entry><title>蛋痛地写了个parser...</title><link href="http://blog.skydark.info/python/2010/12/21/christina-parser/" rel="alternate"></link><published>2010-12-21T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2010-12-21:python/2010/12/21/christina-parser/</id><summary type="html">&lt;p&gt;RT，昨晚加今天早上，今早主要是加上运算及优先级，本来想严格照着编译原理来的，后来心想反正大概意图心里有底，就照着感觉来了，昨晚一口气写了300行，一次运行除了一点syntax error竟然直接通过了，泪流满面啊，这是彩票概率事件么...（捶地）&lt;/p&gt;
+&lt;p&gt;P.S.:写完了发现果然是激情产物，实际在Project christina中...会用上么...（继续黑子捶地貌）&lt;/p&gt;
+</summary><category term="e17"></category><category term="python"></category></entry><entry><title>被Elementary折腾的虚了……</title><link href="http://blog.skydark.info/python/2010/12/14/try-elementary/" rel="alternate"></link><published>2010-12-14T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2010-12-14:python/2010/12/14/try-elementary/</id><summary type="html">&lt;p&gt;RT，test blog......&lt;/p&gt;
+&lt;p&gt;最近在用Python-elementary写给SmartQ V5测试玩的东西，
+被折磨的一塌糊涂，各种奇怪的bug
+（Button的on_mouse_up_add会收到三个完全相同的event，
+table没有unpack，progressbar只有方向为垂直的时候才能全条捕获mouse event，
+etc......），各种文档丢失......&lt;/p&gt;
+&lt;p&gt;另外连VLC的时候也各种欢乐，V5和PC上的VLC用的rc还不一样，相比而言V5的倒是好处理的多......&lt;/p&gt;
+&lt;p&gt;相比之下此前各种连不上还算小事了XD：
+&lt;a href="http://forum.ubuntu.org.cn/viewtopic.php?f=63&amp;amp;t=308440"&gt;在Ubuntu中文的提问&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;嘛，虽然说折腾也是乐趣嘛，囧。&lt;/p&gt;
+</summary><category term="e17"></category><category term="python"></category><category term="数码"></category></entry></feed>

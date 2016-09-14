@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>实妹相伴的大泉君 ONS移植版 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>实妹相伴的大泉君 ONS移植版</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<h2 id="_1">移植作品公共声明</h2>
+<p>自主规制，见谅。</p>
+<script type="text/javascript">
+$('.entry-content').hide();
+$(document).ready(function(){
+    $('.entry-content').children(':gt(1)').hide();
+    $('.entry-content').show();
+});
+</script>
+
+<hr />
+<ol>
+<li>仅供个人研究使用，无担保，谢绝商业行为，包括使用商业化引擎运行。</li>
+<li>转载望注明出处，以方便处理bug.</li>
+<li>求助可在此评论，考虑到大多数bug已有解决方案，请求助前确认自己是否仔细阅读内容。</li>
+<li>请不要让我知道你是从某个贴吧名是ons加两个汉字的贴吧下载的。对彼此心情有好处。</li>
+</ol>
+<hr />
+<p>首发：
+<a href="http://bbs.gfan.com/viewthread.php?tid=1289754">机锋</a></p>
+<p>防止被HX，在自己这里留个备份……</p>
+<hr />
+<p>实妹相伴下的大泉君是日本ALcot游戏社于2010年5月28日制作发售的一款***向游戏（与妹妹一起生活ADV）(机锋屏蔽的好！)(所以备份我也保持屏蔽了吧XD)。</p>
+<p>一部精致而温馨的小品剧~</p>
+<hr />
+<p>感谢妹乃萌汉化组的辛苦汉化，原发布贴地址在<a href="http://bbs.sumisora.org/read.php?tid=10971357">这里</a>。</p>
+<blockquote>
+<p>程序：zeas，Amaf</p>
+<p>翻译：aoi_kaze（com）风来（mai）麟（mik）yellowmice（sio）千年之夏（sio）H工口工H（H）</p>
+<p>润色：LoVe_Mu（com）AmaF（mik）14（mai&amp;sio）</p>
+<p>校对：fafa（1轮）14（2轮）</p>
+<p>修图：lchkyo</p>
+<p>OP字幕：工口梨深（字幕特效）车芸（翻译）</p>
+<p>吉祥物&amp;公车：amemiya</p>
+<p>勘误：zeas</p>
+</blockquote>
+<p><img alt="Title" src="http://ldouhg.bay.livefilestore.com/y1pgSCjBMCNYE9OScH11XRSLrbbN3I1UhgFc8uV8eWp-AqSBpp0Ld24D64IIJbdb8LsP-u6uxQ-0ESmp6tLM8bwL8v7eSg2uKEJ/screenshot5.jpg?psid=1" /></p>
+<p>移植是在自己心情烦躁的时候做的(呃，可以理解为连续两周想出活出不了活，所以自爆了= =\|\|)，边移植边重温了一遍，现在已经被治愈了XD不过因为是烦躁状态，所以做的比较粗糙，界面简化，很多特效也丢失了，有爱的话请务必在PC上再重温一遍啊XD</p>
+<p>无论如何，如果有人愿意转载本帖，请注明原始出处，否则汇报bug实在不方便……= =</p>
+<p>注：ONS指onscripter，是galgame引擎nscripter的开源重制版，最大的优点是其可移植性，无论你是使用windows, linux, android, wm, ce, psp, pda, iphone, etc... 甚至诺亚舟学习机，都可以用它来跑游戏。</p>
+<hr />
+<h2 id="_2">故事简介</h2>
+<p>这个世界上，有两种类型的哥哥——­</p>
+<p>第一种，对现实中的妹妹已经彻底绝望，以至于哪怕是在游戏中也燃不起对妹妹的爱。­</p>
+<p>第二种，正因为对现实中的妹妹已经绝望，才更要在游戏的世界中寻找理想妹妹。­</p>
+<p>而这个故事所要讲述的，正是后者。­</p>
+<p>这是关于一个在受尽现实妹妹那「恶心」、「不像样」之类的攻击，却依旧在美少女游戏中寻求理想妹妹，随处可见的平凡哥哥，那充满血泪、汗水，以及其他糟糕液体的故事。­</p>
+<p>主人公大泉涼，是一个在无数美少女游戏中与妹妹相爱的纯粹的哥哥。­</p>
+<p>这样的他，深深迷上了某一个游戏里边的妹妹。­</p>
+<p>喜欢的声优，加上喜欢的原画家，还有那专为哥哥打造的稍稍有点H的妹妹。­</p>
+<p>而他那现实中的妹妹——栞，对于他这个沉迷游戏的哥哥却是如同看待肮脏物品般的相待。­</p>
+<p>相反地，游戏中的妹妹——麻衣，则是绝不会那样子看待自己的。­</p>
+<p>一起洗澡，牵着手一起上学，那些都是现实中所没有的。­</p>
+<p>就在某一天的夜里，涼做了一个不可思议的梦。­</p>
+<p>用甜蜜声音以「哥哥」叫自己的，正是之前在游戏中相爱的理想中的妹妹——麻衣。­</p>
+<p>第二天，更加不可思议的事情发生了。­</p>
+<p>「哥哥，起来啦。诶，哥～哥。」­</p>
+<p>身体被轻轻摇动着，睁开沉重的眼睑，映在眼前的居然是——­</p>
+<p>「早上好，哥哥♪」­</p>
+<p>「麻……麻衣!?」­</p>
+<p>这个骑在身上叫自己起床的，正是和游戏里的角色一模一样的女孩子呀。</p>
+<hr />
+<h2 id="_3">游戏下载</h2>
+<ul>
+<li>
+<p>模拟器请自行搜索下载最新版，推荐使用<a href="http://portal.bakerist.info/node/251">面包工坊的版本</a>。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/share/link?shareid=163498&amp;uk=1124565063">脚本文件(5月3日0.05版)</a></p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807910_3236578514">图像文件,请重命名为<code>arc.nsa</code></a></p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807561_3474499221">字体文件</a> 其实你硬盘上任何一个中文字体改名为default.ttf都可以用。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807910_3517237881">音乐音效</a>（88M）</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807910_102826906">语音文件</a>（218M，可选）</p>
+<p>在SD卡上ons目录下新建一个目录（名字随便），将脚本文件解压进去，将字体文件、图像文件、音乐音效、语音文件(可选)复制进去即可游戏。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807910_836277180">视频</a>（83M）</p>
+<p>PC上使用ONS运行时如果需要播放视频，请将这个压缩包解压进游戏目录，因为原作分辨率较高，这些视频是我把PC原版文件重压后得到的，直接从原作中复制出来也可以用。</p>
+<p>这个Android版ONS不能播放mpeg所以拷了也没用……
+新版本的ONS可以跑视频，欢迎测试过的朋友汇报结果XD</p>
+</li>
+</ul>
+<hr />
+<h2 id="_4">使用说明</h2>
+<p>（摘自<a href="http://bbs.gfan.com/android-327827-1-1.html">炮神原帖</a>）</p>
+<p>把游戏目录放到SD卡的ons目录下</p>
+<p>右边的E代表ESC按键，S代表skip，O是啥不知道</p>
+<p>摁E可以调出游戏的菜单</p>
+<p>保存进度：用游戏菜单里的保存进度</p>
+<p>退出：用游戏菜单里的退出， 或者摁home返回主屏幕再杀掉</p>
+<hr />
+<p>如果你是1024x600分辨率等大分辨率机型，或者想使用PC版ONS运行，可以使用800x600分辨率的游戏资源，下载时使用下面的资源即可：</p>
+<p><a href="http://pan.baidu.com/share/link?shareid=163497&amp;uk=1124565063">800x600版脚本文件</a></p>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807910_3948019784">800x600版图像文件（230M）</a></p>
+<p>值得注意的是目前有四位朋友汇报使用3月22日及之后版本的新版ONS运行这里的800x600版游戏在开启自动缩放后无法正常读档，但这个问题我和natdon君均无法重现，可能是部分机型的问题，所以如果你的机型分辨率没有达到800x600以上，推荐不要使用这里的800x600资源。</p>
+<p>感谢sherlook君的详细的PM反馈和natdon君的协助，12507君的回复，以及xu900501君和Just·V·Britan的测试反馈！</p>
+<hr />
+<h2 id="_5">截图</h2>
+<p><img alt="麻衣" src="http://ldouhg.bay.livefilestore.com/y1ppySHFfm2Wxcl1P7hXxfTI-B4PSNgM0aDvTbqJAHbq5OFTSH_MOEw7k5tjvQSOS2IQgLYLsv4y1pev8dKTFlnNNdKZDViu67V/screenshot7.jpg?psid=1" /></p>
+<p><img alt="栞" src="http://ldouhg.bay.livefilestore.com/y1ptOXoHhoRm8h19hbXHETOl9IQPJ6KgTUhULzeTHPJjmK8D39nzjwzqAVWMRCGTnCGi3W3zNlESC9AWqP43RXjwOmzv4P_1ymd/screenshot8.jpg?psid=1" /></p>
+<p><img alt="美纪" src="http://ldouhg.bay.livefilestore.com/y1paK1e8ypzBlgTqSM4JlgfiFPQEx30Myut6JOHU_ieFsJYckjxPzC1u339QwKnvWceCLb5dTFm-2UFtZJ56KZMIMvNlHsCW3PM/screenshot6.jpg?psid=1" /></p>
+<p>以上，祝各位good luck，有bug欢迎汇报，版本号0.05中……</p>
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

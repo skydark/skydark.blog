@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>非单调逻辑 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!--[if lt IE 9]>
+<script src="http://blog.skydark.info/theme/reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>非单调逻辑</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-03-21T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年03月21日
+        </span>
+        </header>
+
+<p><a class="btn btn-primary" id="lets-reveal">转换为幻灯片</a></p>
+<hr>
+        <div class="entry-content">
+        <h1 id="start">Start</h1>
+<p>XX</p>
+<p>SMS 11011100XX</p>
+<p>XX at gmail</p>
+<hr />
+<h1 id="背景">背景</h1>
+<h2 id="背景-1">背景</h2>
+<ol type="1">
+<li><div class="slider">
+人工智能-&gt; 常识推理形式化
+</div>
+<div class="slider-notes">
+thinking/acting humanly/rationally
+</div></li>
+<li>常识推理的特点
+<ul>
+<li><p>众多的例外</p>
+<blockquote>
+<p>“鸟会飞”：企鹅、鸵鸟、幼鸟、死鸟、玩具鸟等一干群众泪奔中。</p>
+</blockquote></li>
+<li><p>对环境的依存性</p>
+<blockquote>
+<p>“常在河边走，哪能不湿鞋”：表达的是一种经验。</p>
+</blockquote></li>
+</ul></li>
+</ol>
+<hr />
+<div class="tip">
+<p>对比数学和物理定律。</p>
+</div>
+<p>为形式地表述常识，并在常识间进行有效的形式推理，20世纪70年代人们提出了<strong>非单调逻辑</strong>。</p>
+<hr />
+<h1 id="单调性与非单调性">单调性与非单调性</h1>
+<h2 id="单调性">单调性</h2>
+<div class="def" markdown="1">
+<p>逻辑系统 FS 是<strong>单调的</strong>， 如果对 FS 的任意公式集合 <span class="math inline"><em>Γ</em><sub>1</sub>, <em>Γ</em><sub>2</sub></span>, <span class="math inline"><em>Γ</em><sub>1</sub> ⊆ <em>Γ</em><sub>2</sub></span> 蕴涵<span class="math inline"><em>T</em><em>h</em>(<em>Γ</em><sub>1</sub>)⊆<em>T</em><em>h</em>(<em>Γ</em><sub>2</sub>)</span>. 其中<span class="math inline"><em>T</em><em>h</em>(<em>Γ</em>)</span>表示<span class="math inline"><em>Γ</em></span>的演绎结果集合<span class="math inline">{<em>A</em>|<em>Γ</em>⊢<sub><em>F</em><em>S</em></sub><em>A</em>}</span>.</p>
+</div>
+<ul>
+<li><p>之前讨论的所有逻辑 <span class="slider">都是单调的</span> <span class="slider-notes">包括包含不一致的情况。</span></p></li>
+<li><p>但是<span class="slider">常识推理不具有单调性</span><backquote class="slider-notes">a 会飞吗？；a 是鸟-&gt;会；a 是鸵鸟-&gt;不会</backquote></p></li>
+<li><p>常识推理的这种特性称为<strong>非单调性</strong>(与单调性的定义对应)</p></li>
+</ul>
+<div class="def" markdown="1">
+<p>逻辑系统 FS 是<strong>非单调的</strong>, 如果存在公式集合<span class="math inline"><em>Γ</em><sub>1</sub>, <em>Γ</em><sub>2</sub></span>, <span class="math inline"><em>Γ</em><sub>1</sub> ⊊ <em>Γ</em><sub>2</sub></span> 但<span class="math inline"><em>T</em><em>h</em>(<em>Γ</em><sub>1</sub>)⊈<em>T</em><em>h</em>(<em>Γ</em><sub>2</sub>)</span>.</p>
+</div>
+<ul>
+<li>具有非单调性的推理称为<strong>非单调推理</strong>, 使用非单调推理的逻辑系统称为 <span class="slider"><strong>非单调逻辑</strong></span> <span class="slider-notes">在不完全的知识上推理</span></li>
+</ul>
+<hr />
+<h1 id="非单调逻辑的产生">非单调逻辑的产生</h1>
+<h2 id="非单调逻辑的产生-1">非单调逻辑的产生</h2>
+<ul>
+<li><p>封闭世界假设/ PLANNER 系统</p>
+<blockquote>
+<p>缺点: 需要保证可判定性/小心循环论证！</p>
+</blockquote></li>
+<li><p>用逻辑演算刻划状态转移</p>
+<blockquote>
+<p>STRIPS 系统</p>
+</blockquote>
+<ul>
+<li>一个动作的描述分为三部分：Action, Precondition, Effect</li>
+<li>添加表和删除表指 Effect 中的正文字和负文字。</li>
+<li>书上的例子</li>
+</ul></li>
+</ul>
+<h2 id="几种非单调逻辑系统">几种非单调逻辑系统</h2>
+<ol type="1">
+<li><p>赖特(Reiter)的<em>缺席推理逻辑</em></p></li>
+<li><p>麦克德莫特(McDermott)和多伊尔(Doyle)的<em>非单调逻辑系统</em></p></li>
+<li><p>麦卡锡(McCarthy)的<em>限定理论</em></p></li>
+</ol>
+<h1 id="缺席推理逻辑">缺席推理逻辑</h1>
+<div class="ex" markdown="1">
+<ol type="1">
+<li>已知鸟会飞，但只有鸵鸟不会飞</li>
+<li>据说企鹅是鸟，得出企鹅会飞</li>
+<li>又知道企鹅不会飞，不再推出企鹅会飞</li>
+</ol>
+</div>
+<h3 id="形式规则">形式规则</h3>
+<p><br /><span class="math display">$$\frac{Bird(x):Mfly(x)}{fly(x)}$$</span><br /></p>
+<hr />
+<h2 id="缺席推理规则的一般形式">缺席推理规则的一般形式</h2>
+<p><br /><span class="math display">$$\frac{\alpha(\vec x):M\beta_1(\vec x),\dots,M\beta_m(\vec x)}{w(\vec x)}$$</span><br /></p>
+<ul>
+<li><span class="math inline">$\alpha(\vec x)$</span>: <em>先决条件</em></li>
+<li><span class="math inline">$\beta_i(\vec x)$</span>: <em>缺席条件</em></li>
+<li><span class="math inline">$w(\vec x)$</span>: <em>结论</em></li>
+<li>M: 常读作<em>可能</em>, <span class="math inline">$M\beta_i(\vec x)$</span>表示就现有知识而言<span class="math inline">$\beta_i(\vec x)$</span><strong>可能</strong>成立， 即<span class="math inline">$\lnot\beta_i(\vec x)$</span>尚未出现(缺席)。</li>
+</ul>
+<blockquote>
+<p>如果缺席规则中不含自由变元，则称该规则为<em>闭规则</em>。</p>
+</blockquote>
+<h2 id="缺席理论的定义">缺席理论的定义</h2>
+<div class="def" markdown="1">
+<p>一个<em>缺席推理逻辑理论</em>(简称缺席理论或理论)由以下两部分组成：</p>
+<ol type="1">
+<li>缺席推理规则集 D;</li>
+<li>公式集 W，它是已知的或约定的事实集合。</li>
+</ol>
+<p>缺席理论常用二元矢<span class="math inline">&lt;<em>D</em>, <em>W</em>&gt;</span> 表示。 当 D 中所有规则是闭规则时，称理论<span class="math inline">&lt;<em>D</em>, <em>W</em>&gt;</span>为<em>闭理论</em>。</p>
+</div>
+<p>缺席理论是<strong>非单调的</strong>。</p>
+<hr />
+<h2 id="缺席理论的推出">缺席理论的“推出”</h2>
+<div class="def" markdown="1">
+<p>设 <span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>是闭缺席理论，<span class="math inline"><em>Γ</em></span>为<em>关于 D 的一个算子</em>， <span class="math inline"><em>Γ</em></span>作用于任意命题集合 S, 其值为满足下列三个性质的<strong>最小</strong>命题集合<span class="math inline"><em>Γ</em>(<em>S</em>)</span>：</p>
+<ul>
+<li>
+<span class="slider"><span class="math inline"><em>W</em> ⊆ <em>Γ</em>(<em>S</em>)</span></span><span class="slider-notes">已知事实均成立。</span>
+</li>
+<li>
+<span class="slider"> <span class="math inline"><em>T</em><em>h</em>(<em>Γ</em>(<em>S</em>)) = <em>Γ</em>(<em>S</em>)</span>, 这里的<span class="math inline"><em>T</em><em>h</em>(<em>Γ</em>(<em>S</em>))</span>为命题集<span class="math inline">{<em>A</em>|<em>Γ</em>(<em>S</em>)⊢<sub><em>F</em><em>S</em><em>F</em><em>C</em></sub><em>A</em>}</span> </span><span class="slider-notes"> 在经典逻辑的推出下封闭。 </span>
+</li>
+<li>
+<span class="slider"> 若 D 中有规则<span class="math inline">$\frac{\alpha:M\beta_1,\dots,M\beta_m}{w}$</span>， 且<span class="math inline"><em>α</em> ∈ <em>Γ</em>(<em>S</em>),¬<em>β</em><sub>1</sub>, …, ¬<em>β</em><sub><em>m</em></sub> ∉ <em>S</em></span>， 则<span class="math inline"><em>w</em> ∈ <em>Γ</em>(<em>S</em>)</span>. </span><span class="slider-notes"> 包含缺席规则获得的知识。 </span>
+</li>
+</ul>
+</div>
+<div class="def" markdown="1">
+<p>命题集合E成为关于 D 的算子<span class="math inline"><em>Γ</em></span>的<em>固定点</em>(fixed points)，如果<span class="math inline"><em>Γ</em>(<em>E</em>)=<em>E</em></span>. 此时又称 E 为<span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>的一个<em>扩充</em>。</p>
+</div>
+<hr />
+<div class="def">
+<p>如果命题 A 包含在缺席理论<span class="math inline"><em>Δ</em></span>的一个扩充中，那么称 A 在<span class="math inline"><em>Δ</em></span>中可推出，记为 <span class="slider"><span class="math inline">$\sdash_\Delta$</span></span> <span class="slider-notes">表示非单调推出</span></p>
+</div>
+<hr />
+<h2 id="缺席理论的扩充的性质">缺席理论的扩充的性质</h2>
+<p>并非所有缺席理论都有扩充，并非有扩充的缺席理论只有惟一的扩充。 参考书上的三个例子。</p>
+<div class="example">
+<ul>
+<li>
+无扩充<br /> <span class="math inline">$D=\{\frac{:MA}{\lnot A}\}, W=\emptyset$</span>
+</li>
+<li>
+唯一扩充<br /> <span class="math inline">$D=\{\frac{:MA}{\lnot B},\frac{:MB}{\lnot C},\frac{:MC}{\lnot F}\}, W=\emptyset$</span> <br /> <span class="math inline"><em>E</em> = <em>T</em><em>h</em>({¬<em>B</em>, ¬<em>F</em>})</span>
+</li>
+<li>
+多个扩充<br /> <span class="math inline">$D=\{\frac{:MA}{A},\frac{B:MC}{C},\frac{F\lor A:ME}{E},\frac{C\land E:M\lnot A,M(F\lor A)}{G}\}$</span>, <span class="math inline"><em>W</em> = {<em>B</em>, <em>C</em> → <em>F</em> ∨ <em>A</em>, <em>A</em> ∧ <em>C</em> → ¬<em>E</em>}</span> <br /> <span class="math inline"><em>E</em><sub>1</sub> = <em>T</em><em>h</em>(<em>W</em> ∪ {<em>A</em>, <em>C</em>}), <em>E</em><sub>2</sub> = <em>T</em><em>h</em>(<em>W</em> ∪ {<em>A</em>, <em>E</em>}), <em>E</em><sub>3</sub> = <em>T</em><em>h</em>(<em>W</em> ∪ {<em>C</em>, <em>E</em>, <em>G</em>})</span>
+</li>
+</ul>
+</div>
+<hr />
+<div class="prop">
+<p>设 E 为一阶命题集，<span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>为一闭的缺席理论。 递归定义<span class="math inline"><em>E</em><sub><em>i</em></sub>(<em>i</em> = 1, 2, ⋯)</span>如下： <br /><span class="math display"><em>E</em><sub>0</sub> = <em>W</em></span><br /> <br /><span class="math display">$$E_{i+1}=Th(E_i)\cup\{w|\frac{\alpha:M\beta_1,\dots,M\beta_m}{w}\in D,
+\alpha\in E_i,\lnot\beta_1,\dots,\lnot\beta_m\not\in E\}$$</span><br /></p>
+<p>则 E 为<span class="math inline"><em>Δ</em></span>的一个扩充当且仅当<span class="math inline">$E=\bigcup_{i=0}^{\infty}E_i$</span>.</p>
+</div>
+<div class="cor">
+<p>闭缺席理论<span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>有不一致扩充 E, 当且仅当W不一致。</p>
+</div>
+<div class="prop">
+<p>设<span class="math inline"><em>Δ</em><sub>1</sub> = &lt;<em>D</em><sub>1</sub>, <em>W</em><sub>1</sub>&gt;</span>, <span class="math inline"><em>Δ</em><sub>2</sub> = &lt;<em>D</em><sub>2</sub>, <em>W</em><sub>2</sub>&gt;</span>均为缺席理论， 且<span class="math inline"><em>W</em><sub>1</sub> ⊆ <em>W</em><sub>2</sub></span>. 若<span class="math inline"><em>Δ</em><sub>2</sub></span>的扩充都是一致的，则<span class="math inline"><em>Δ</em><sub>1</sub></span>的扩充也是一致的。</p>
+</div>
+<div class="prop">
+<p>设 E, F 为闭缺席理论<span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>的两个扩充， 如果<span class="math inline"><em>E</em> ⊆ <em>F</em></span>, 则<span class="math inline"><em>E</em> = <em>F</em></span>.</p>
+</div>
+<hr />
+<h2 id="规范缺席推理">规范缺席推理</h2>
+<div class="def">
+<p>一个缺席理论<span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span>称为是<em>规范的</em>，如果 D 中缺席规则均为 <span class="slider">如下形式：</span> <span class="slider-notes">和封闭世界假设的关联</span> <br /><span class="math display">$$\frac{\alpha(\vec x):M w(\vec x)}{w(\vec x)}$$</span><br /></p>
+<p>它们被称为规范(缺席推理)规则。</p>
+</div>
+<p>闭规范缺席理论有很多漂亮的结果：</p>
+<ul>
+<li>闭规范缺席理论总有扩充。</li>
+<li>如果 E, F 同为一闭规范缺席理论的扩充，且 $E\neq F$，则 $E\cup F$ 是不一致的。</li>
+<li>设 $\Delta=\lt D,W\gt$ 为闭规范缺席理论，$D'\subseteq D$, 且 $E'_1$ 和 $E'_2$ 为 $\lt D',W\gt$ 的 <span class="slider">两个不同扩充</span> <span class="slider-notes"> 只谈一个扩充 $E'_1$, 如下的$E_1$也是存在的。这里强调的是扩充的<strong>数量</strong>的单调性。 </span> ，则 $\Delta$ 必有不同扩充 $E_1$ 和 $E_2$， 使 $E'_1\subseteq E_1, E'_2\subseteq E_2$.</li>
+</ul>
+<p>闭规范缺席理论的扩充的大小，随闭规范缺席规则数目的增加而单调不减。</p>
+<hr />
+<h2 id="缺席理论的形式证明">缺席理论的形式证明</h2>
+<div class="def">
+<p>设 <span class="math inline"><em>Δ</em> = &lt;<em>D</em>, <em>W</em>&gt;</span> 为闭规范缺席理论，令 <br /><span class="math display"><em>P</em>(<em>D</em>)={<em>α</em>|<em>α</em>为<em>D</em>中规则的先决条件}</span><br /> <br /><span class="math display"><em>C</em>(<em>D</em>)={<em>w</em>|<em>w</em>为<em>D</em>中规则的结论}</span><br /></p>
+<p>称一阶命题 <span class="math inline"><em>β</em></span> 有 <span class="math inline"><em>Δ</em></span> 中的一个(缺席)<em>证明</em>， 如果存在 D 的有穷子集的有穷序列 <span class="math inline"><em>D</em><sub>0</sub>, <em>D</em><sub>1</sub>, …, <em>D</em><sub><em>k</em></sub></span>, 使得</p>
+<ol>
+<li>
+<span class="math inline"><em>W</em> ∪ <em>C</em>(<em>D</em><sub>0</sub>)⊢<sub><em>F</em><em>S</em><em>F</em><em>C</em></sub><em>β</em></span>.
+</li>
+<li>
+对于整数 <span class="math inline"><em>i</em></span>, <span class="math inline">1 ≤ <em>i</em> ≤ <em>k</em></span>, 及 <span class="math inline"><em>P</em>(<em>D</em><sub><em>i</em> − 1</sub>)</span> 中每一个 <span class="math inline"><em>α</em></span>, <span class="math inline"><em>W</em> ∪ <em>C</em>(<em>D</em><sub><em>i</em></sub>)⊢<sub><em>F</em><em>S</em><em>F</em><em>C</em></sub><em>α</em></span>.
+<div class="tip">
+<p>证明序列中前面的先决条件逐个被后头的结论支持。</p>
+</div>
+</li>
+<li>
+<span class="math inline"><em>D</em><sub><em>k</em></sub> = <em>ϕ</em></span>.
+</li>
+<li>
+<span class="math inline">$W\cup \bigcup_{i=0}^{k}{C(D_i)}$</span> 可满足。
+</li>
+</ol>
+</div>
+<hr />
+<h2 id="缺席证明的消解方法">缺席证明的消解方法</h2>
+<ol type="1">
+<li>构造 S 包括所有 W 中的命题，待证命题否定的子句，以及所有规则的结果子句 $(c_i, \{\delta\})$, 其中 $\delta=\frac{\alpha:Mw}{w}\in D, c_i\textrm{是} w\textrm{的子句}$。</li>
+<li>对 S 消解导出空子句。</li>
+<li>消解过程中使用的结果子句所在的规则构成 $D_0$, 接下来继续消解证明 $D_0$ 中所有规则的先决条件，直到消解过程中不需要使用规则的结果子句，消解结束。</li>
+</ol>
+<div class="ex">
+<p>见书例11.6。</p>
+</div>
+<hr />
+<h2 id="缺席推理的局限性">缺席推理的局限性</h2>
+<ol type="1">
+<li><p>存在闭规范缺席理论是完全不可判定的。</p>
+<blockquote>
+<p>所以上面的消解算法不可能是完备的。</p>
+<p>尽管如此，上述方法仍然是有力的。</p>
+</blockquote></li>
+<li><p>语义研究进展不足。</p></li>
+</ol>
+<hr />
+<h1 id="非单调逻辑">非单调逻辑</h1>
+<h2 id="非单调逻辑-1">非单调逻辑</h2>
+<div class="ex" markdown="1">
+<p>设理论 T 有以下三条公理：</p>
+<ol type="1">
+<li><span class="math inline">正值中午 ∧ <em>M</em>(出太阳)→出太阳</span>, 模态词 M 表示与当前已推得的定理相容。</li>
+<li>正值中午</li>
+<li><span class="math inline">日食 → ¬(<em>出</em><em>太</em><em>阳</em>)</span></li>
+</ol>
+<p>则在 T 中可证</p>
+<p><code>4. 出太阳</code></p>
+<p>但若将</p>
+<p><code>5. 日食</code></p>
+<p>加入公理，则 4. 不再可证。</p>
+</div>
+<div class="tip">
+<p>与缺席推理的不同： MA 的地位不同。</p>
+</div>
+<hr />
+<h2 id="非单调逻辑系统">非单调逻辑系统</h2>
+<div class="tip">
+<p>M的意义：<br /><span class="math display">$$\textrm{如果}\not\vdash\lnot A, \textrm{则}~\sdash MA$$</span><br /></p>
+</div>
+<p>将加入模态词 M 的一阶谓词演算系统记为 FC， 将允许使用 M 的一阶公式全体记为 $L_{FC}$， 对任何公式集 $\Gamma\subseteq L_{FC}$, $Th(\Gamma)=\{A|\Gamma\vdash_{FC}A\}$.</p>
+<div class="def">
+<p>对任何公式集 <span class="math inline"><em>Γ</em> ⊆ <em>L</em><sub><em>F</em><em>C</em></sub></span> 定义<em>算子 <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span></em>, 对任意公式集 <span class="math inline"><em>S</em> ⊆ <em>L</em><sub><em>F</em><em>C</em></sub></span></p>
+<p><br /><span class="math display"><em>N</em><em>M</em><sub><em>Γ</em></sub>(<em>S</em>)=<em>T</em><em>h</em>(<em>Γ</em> ∪ <em>A</em><sub><em>s</em><sub><em>Γ</em></sub></sub>(<em>S</em>))</span><br /></p>
+<p>其中 <span class="math inline"><em>A</em><sub><em>s</em><sub><em>Γ</em></sub></sub>(<em>S</em>)</span> 称为 S 的 <span class="slider"><em>假设集</em></span> <span class="slider-notes">与 S 相容的所有假设</span> 。</p>
+<p><br /><span class="math display"><em>A</em><sub><em>s</em><sub><em>Γ</em></sub></sub>(<em>S</em>)={<em>M</em><em>Q</em>|<em>Q</em> ∈ <em>L</em><sub><em>F</em><em>C</em></sub> ∧ ¬<em>Q</em> ∉ <em>S</em>}</span><br /></p>
+<p>令</p>
+<p><br /><span class="math display"><em>T</em><em>H</em>(<em>Γ</em>)=⋂({<em>L</em><sub><em>F</em><em>C</em></sub>}∪{<em>S</em>|<em>N</em><em>M</em><sub><em>Γ</em></sub>(<em>S</em>)=<em>S</em>})</span><br /></p>
+<p>如果 <span class="slider"><span class="math inline"><em>P</em> ∈ <em>T</em><em>H</em>(<em>Γ</em>)</span></span> <span class="slider-notes"> 这里 <span class="math inline">⋂<em>C</em> = {<em>x</em>|∀<em>S</em>(<em>S</em> ∈ <em>C</em> → <em>x</em> ∈ <em>S</em>)}</span>. 即元素交。<br /> 即是说， <span class="math inline"><em>T</em><em>H</em>(<em>Γ</em>)</span> 表示的是 <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 的 <span class="slider">所有固定点的交</span> <span class="slider-notes"><span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 的最小不动点</span> 。 当 <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 无固定点时， <span class="math inline"><em>T</em><em>H</em>(<em>Γ</em>)</span> 是全体 FC 公式。 </span> , 那么称 P 可由 <span class="math inline"><em>Γ</em></span> <em>非单调地推出</em>( <span class="slider">可证</span> <span class="slider-notes">与缺席推理理论不同，要求 P 在<strong>所有</strong>固定点中，后者只需<strong>某个</strong>。</span> )， 并记为 <span class="math inline">$\Gamma\sdash P$</span>.</p>
+</div>
+<hr />
+<figure>
+<img src="/images/logic/nm.jpg" alt="示意图" /><figcaption>示意图</figcaption>
+</figure>
+<center>
+关系示意图
+</center>
+<hr />
+<h2 id="非单调逻辑系统扩充的性质">非单调逻辑系统扩充的性质</h2>
+<p>与缺省逻辑里的 $\Gamma$ 算子一样， $NM_\Gamma$ 算子的固定点也未必存在，存在也未必唯一。</p>
+<div class="ex">
+<p>书上的一些例子：</p>
+<ul>
+<li>
+<span class="math inline"><em>Γ</em> = <em>F</em><em>C</em> ∪ {<em>M</em><em>C</em> → ¬<em>C</em>}</span>, <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 没有固定点。
+</li>
+<li>
+<span class="math inline"><em>Γ</em> = <em>F</em><em>C</em> ∪ {<em>A</em> ∧ <em>M</em><em>B</em> → <em>B</em>, <em>C</em> ∧ <em>M</em><em>D</em> → <em>D</em>, <em>A</em> ∨ <em>C</em>}</span>, <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 有唯一固定点。
+</li>
+<li>
+<span class="math inline"><em>Γ</em> = <em>F</em><em>C</em> ∪ {<em>M</em><em>C</em> → ¬<em>D</em>, <em>M</em><em>D</em> → ¬<em>C</em>}</span>, <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 有两个固定点。
+</li>
+</ul>
+<p>甚至可能有无穷个固定点。</p>
+</div>
+<hr />
+<h2 id="非单调逻辑系统固定点的性质">非单调逻辑系统固定点的性质</h2>
+<div class="prop">
+<p>设 <span class="math inline"><em>Q</em><sub>1</sub>, <em>Q</em><sub>2</sub>, <em>Q</em><sub>3</sub>, ⋯, </span> 是 <span class="math inline"><em>L</em><sub><em>F</em><em>C</em></sub></span> 的一个枚举， <span class="math inline"><em>Γ</em> ⊆ <em>L</em><sub><em>F</em><em>C</em></sub></span>. 令</p>
+<p><br /><span class="math display"><em>Γ</em><sub>0</sub> = <em>Γ</em></span><br /> <br /><span class="math display">$$
+\Gamma_{i+1} = \left\{\begin{array}{ll}
+L_{FC} &amp;amp; \textrm{如果有} P\in L_{FC} 
+\textrm{使} MP\in\Gamma_i \textrm{且} \Gamma_i\vdash\lnot P\\
+\Gamma_i\cup\{MQ_i\} &amp;amp; \textrm{如果}\Gamma_i\cup\{Q_i\}\textrm{一致}\\
+\Gamma_i &amp;amp; \textrm{否则}\\
+\end{array}\right.
+$$</span><br /></p>
+<p>置 <span class="math inline">$\Gamma_\infty=\bigcup_{i=0}^\infty{\Gamma_i}$</span>, 则 <span class="math inline">$\Gamma\sdash P$</span> 当且仅当对 <span class="math inline"><em>L</em><sub><em>F</em><em>C</em></sub></span> 的每一枚举，均有 <span class="math inline"><em>Γ</em><sub>∞</sub>⊢<sub><em>F</em><em>C</em></sub><em>P</em></span>.</p>
+</div>
+<div class="prop">
+<p>存在 <span class="math inline"><em>Γ</em>′⊆<em>Γ</em></span>, <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 有固定点，但 <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em>′</sub></span> 无固定点。 (对比定理 11.2)</p>
+<p>如果 <span class="math inline"><em>F</em><sub>1</sub>, <em>F</em><sub>2</sub></span> 均为 <span class="math inline"><em>N</em><em>M</em><sub><em>Γ</em></sub></span> 的固定点，且 <span class="math inline"><em>F</em><sub>1</sub> ⊆ <em>F</em><sub>2</sub></span>, 则 <span class="math inline"><em>F</em><sub>1</sub> = <em>F</em><sub>2</sub></span>. (对比定理 11.3)</p>
+</div>
+<p>对应于闭规范缺席理论的非单调理论不一定有扩充。</p>
+<hr />
+<h2 id="非单调逻辑系统的形式证明">非单调逻辑系统的形式证明</h2>
+<p>非单调命题逻辑的可证性是可判定的。但一般地，非单调逻辑的可证性是不可判定的。</p>
+<p>下面的算法类似于命题演算的真值表方法。</p>
+<ol type="1">
+<li><p>要证 $\Gamma\sdash A$, 对使 $\Gamma\to A$ 假的一切可能情况列表。</p></li>
+<li><p>表的第一列为 $\Gamma$ 中的公式，它们总取值为 1. 第二列为待证公式 A 的表，称为 t 表， A 总取值为 0，由 $\Gamma$ 和 A 的值计算子公式的真值。 当 t 中出现取值为 0 的 MB 形公式时，建立以 $\Gamma\to\lnot B$ 为目标的新表。</p></li>
+<li><p>对表各分支如下标记(称为适当的) <span class="slider">open</span> <span class="slider-notes">无法否证 B, 所以 MB 可以满足</span> 或 <span class="slider">closed</span> <span class="slider-notes">矛盾，反证成功</span> ：</p>
+<ol type="1">
+<li>当 $\Gamma\sdash \lnot B$ 的表标记open时，对每一表中的 MB 标记为 1.</li>
+<li>表的分支标记为 closed 当且仅当该分支中有公式同时标记了 0 和 1. 一分支标记为 open 当且仅当该分支不能被标记为 closed.</li>
+</ol></li>
+<li><p>$\Gamma\to A$ 当且仅当在所有适当标记中，t 均被标记为 closed.</p></li>
+</ol>
+<div class="ex">
+<p>见书上的两个例子。</p>
+</div>
+<hr />
+<h2 id="加贝的语义解释">加贝的语义解释</h2>
+<p>加贝 (Gabbay) 对非单调逻辑作了 <span class="slider">直觉主义的语义解释</span> <span class="slider-notes">“Hi, 小朋友们大家好，还记得我是谁吗？”——克里普克 P.103</span> ：</p>
+<div class="def">
+<p><br /><span class="math display">$$\models_{\mathscr K}^k MA \textrm{当且仅当存在}l\geq k\textrm{使}\models_{\mathscr K}^l A$$</span><br /></p>
+</div>
+<div class="ex">
+<p><br /><span class="math display">⊨<em>M</em><em>A</em> ∨ ¬<em>A</em></span><br /> <br /><span class="math display">⊨¬<em>M</em><em>A</em> ↔ ¬<em>A</em></span><br /> <br /><span class="math display">⊨(<em>M</em><em>A</em> → <em>B</em>)↔(¬<em>A</em> ∨ <em>B</em>)</span><br /> <br /><span class="math display">⊨(<em>M</em><em>C</em> → ¬<em>C</em>)↔¬<em>C</em></span><br /></p>
+</div>
+<hr />
+<h2 id="加贝语义的非单调可证性">加贝语义的非单调可证性</h2>
+<div class="def">
+<p>设 <span class="math inline"><em>A</em>, <em>B</em> ∈ <em>L</em><sub><em>F</em><em>C</em></sub></span>, B 由 A <strong>非单调可证</strong>( <span class="math inline">$A\sdash B$</span> )指存在公式序列 <br /><span class="math display"><em>C</em><sub>0</sub> = <em>A</em>, <em>C</em><sub>1</sub>, <em>C</em><sub>2</sub>, ⋯, <em>C</em><sub><em>n</em></sub> = <em>B</em></span><br /> 以及称为额外假设的公式 <br /><span class="math display"><em>M</em><em>X</em><sub>1</sub><sup>1</sup>, ⋯, <em>M</em><em>X</em><sub><em>k</em>(1)</sub><sup>1</sup>; <em>M</em><em>X</em><sub>1</sub><sup>2</sup>, ⋯, ⋯, <em>M</em><em>X</em><sub><em>k</em>(2)</sub><sup>2</sup>; ⋯; <em>M</em><em>X</em><sub>1</sub><sup><em>n</em></sup>, ⋯, <em>M</em><em>X</em><sub><em>k</em>(<em>n</em>)</sub><sup><em>n</em></sup></span><br /> 使得 <br /><span class="math display">$$C_{i-1}\land\bigwedge_{j=1}^{k(i)}MX_j^i\models C_i(i=1,2,\cdots,n)$$</span><br /></p>
+</div>
+<div class="ex">
+<p>如果 <span class="math inline"><em>A</em> ∧ <em>M</em><em>B</em> ⊨ <em>C</em></span> 并且 <span class="math inline"><em>C</em> ∧ <em>M</em><em>D</em> ⊨ <em>E</em></span>, 那么 <span class="math inline">$A\sdash C$</span>, <span class="math inline">$C\sdash E$</span>, 从而易证 <span class="math inline">$A\sdash E$</span>, 因为 <br /><span class="math display"><em>A</em>, <em>C</em>, <em>E</em></span><br /> <br /><span class="math display"><em>M</em><em>B</em>; <em>M</em><em>D</em></span><br /> 即为上面非单调可证需要的公式序列和额外假设公式。</p>
+</div>
+<hr />
+<p>加贝语义中的 $\sdash$ 对比 M &amp; D 的定义中的 $\sdash$ 要更符合直观：</p>
+<ul>
+<li>加贝语义中有 $M(A\land B)\sdash MA$ 和 $\lnot MA\sdash\lnot A$</li>
+<li>加贝语义中 $MC\land\lnot C$ 不一致</li>
+</ul>
+<p>但加贝的讨论局限于命题演算中。</p>
+<div class="tip" markdown="1">
+<p>TMS(真值维持系统)：</p>
+<ul>
+<li>记录每条信念的依赖关系</li>
+<li>当新信念否定了旧信念时，回溯依赖关系消除不一致</li>
+</ul>
+</div>
+<hr />
+<h1 id="限定逻辑">限定逻辑</h1>
+<p>将已发现的具有某些性质的客体视为具有该性质的全部客体， 直至具有该性质的其它客体被发现时修改这一看法。</p>
+<p>Idea: 奥卡姆剃刀(Occam principle)</p>
+<p>麦卡锡并未引入新的算子或逻辑符号，只是在经典逻辑框架内研究适合表示非单调性的特殊推理形式。</p>
+<hr />
+<h2 id="限定">限定</h2>
+<div class="def">
+<p>n 元谓词 P 在一阶公式 A(P) 中的<em>限定</em>是指如下的公式模式 <br /><span class="math display">$$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$$</span><br /></p>
+<p><span class="math inline"><em>A</em>(<em>Φ</em>)</span> 表示将 A 中所有 P 的出现替换为公式 <span class="math inline"><em>Φ</em></span>.</p>
+</div>
+<ul>
+<li><span class="slider"><em>想表达什么？</em></span> <span class="slider-notes"> 所谓对公式 A 的限定就是：<br />
+如果用谓词 $\Phi$ 满足 P 满足的条件( A )， 并且满足 $\Phi$ 的客体都满足 P， 则满足 P 的客体都满足 $\Phi$ 。 </span></li>
+</ul>
+<div class="ex">
+<p>见书上例子：方块世界和数学归纳法。</p>
+</div>
+<hr />
+<h2 id="域限定">域限定</h2>
+<p>假设个体域为 $\{x|P(x)\}$, 则任意公式 A 中的量词可如下改变，A 的意义不变：</p>
+<ul>
+<li>A 中的 $\exists x B(x)$, 可改为 $\exists x(P(x)\land B(x))$.</li>
+<li>A 中的 $\forall x B(x)$, 可改为 $\forall x(P(x)\to B(x))$.</li>
+</ul>
+<p>公式 A 的<em>域限定</em>指对 A 中 P 作限定，即</p>
+<p>
+<br /><span class="math display"><em>A</em><sup><em>Φ</em></sup> → ∀<em>x</em><em>Φ</em>(<em>x</em>)</span><br />
+</p>
+<p>其中 $A^\Phi$ 表示将 A 中 $\exists x B(x)$ 改为 $\exists x(\Phi(x)\land B(x))$, $\forall x C(x)$ 改为 $\forall x(\Phi(x)\to C(x))$ 后所得的公式。</p>
+<p>意义：若 A 在论域 $\{x|\Phi(x)\}$ 中为真，则所有满足 A 的个体都满足 $\Phi(x)$.</p>
+<div class="ex">
+<p>令 B(x) 表示 x 是渡河工具，<span class="math inline"><em>Φ</em>(<em>x</em>)</span> 表示 x 是船。 A 为 <span class="math inline">∀<em>x</em><em>B</em>(<em>x</em>)</span>. 对 A 用 <span class="math inline"><em>Φ</em>(<em>x</em>)</span> 做限定，得 <br /><span class="math display">∀<em>x</em>(<em>Φ</em>(<em>x</em>)→<em>B</em>(<em>x</em>)) → ∀<em>x</em><em>Φ</em>(<em>x</em>)</span><br /> 由于 <span class="math inline"><em>Φ</em>(<em>x</em>)→<em>B</em>(<em>x</em>)</span> 为真，故 <span class="math inline">∀<em>x</em><em>Φ</em>(<em>x</em>)</span> 为真，即所有渡河工具都是船。</p>
+</div>
+<hr />
+<h2 id="限定论可证">限定论可证</h2>
+<div class="def">
+<p>对任意公式 A, 令 <span class="math inline"><em>Ω</em>(<em>A</em>)={[<em>A</em><sup><em>Φ</em></sup> → ∀<em>x</em><em>Φ</em>(<em>x</em>)]<sup>0</sup>|<em>Φ</em>为任一含自由变元<em>x</em>的一阶公式}</span>. 这里 <span class="math inline"><em>B</em><sup>0</sup></span>表示 B 的全称封闭式。又令 <br /><span class="math display"><em>M</em><em>C</em>(<em>A</em>)=<em>Ω</em>(<em>A</em>)∪{<em>A</em>},</span><br /> <span class="math inline"><em>M</em><em>C</em>(<em>A</em>)</span> 称为 A 的<em>最小完备集</em>。</p>
+</div>
+<div class="space">
+
+</div>
+<div class="def">
+<p>如果 <span class="math inline"><em>M</em><em>C</em>(<em>A</em>)⊢<sub><em>F</em><em>S</em><em>F</em><em>C</em></sub><em>B</em></span>, 则称一阶公式 B 由一阶公式 A <em>限定论可证</em>，记为 <span class="math inline">$A\sdash_{mc}B$</span>.</p>
+</div>
+<div class="ex">
+<p>限定一阶语言仅含一个一元谓词 P(x), 有 <span class="math inline">$\exists x P(x)\sdash_{mc}\forall x P(x)$</span>.</p>
+</div>
+<p>限定论可证的非单调性：当限定被取消或改变时。</p>
+<hr />
+<h2 id="限定理论的语义">限定理论的语义</h2>
+<div class="def">
+<p>设 <span class="math inline"><em>Γ</em></span> 为一阶命题集，称结构 <span class="math inline">𝔄 = &lt;<em>U</em>, <em>I</em>&gt;</span> 为 <span class="math inline"><em>Γ</em></span> 的<em>最小模型</em>， 如果</p>
+<ul>
+<li>
+对每个 <span class="math inline"><em>A</em> ∈ <em>Γ</em>, ⊨<sub>𝔄</sub><em>A</em></span>.
+</li>
+<li>
+对 <span class="math inline">𝒰</span> 的任一子结构 <span class="math inline">𝔄′= &lt; <em>U</em>′,<em>I</em>′&gt;(<em>U</em>′⊂<em>U</em>, <em>I</em>′=<em>I</em>∣<sub><em>U</em>′</sub>, <em>I</em>∣<sub><em>U</em>′</sub></span> 表示将解释 I 限于 <span class="math inline"><em>U</em>′</span>, 例如对一元谓词 P, <span class="math inline"><em>I</em>∣<sub><em>U</em>′</sub>(<em>P</em>)=<em>I</em>(<em>P</em>)∩<em>U</em>′)</span> 存在 <span class="math inline"><em>A</em> ∈ <em>Γ</em></span>, 使 <span class="math inline">$\not\models_{\mathfrak{A}'} A$</span>.
+</li>
+</ul>
+</div>
+<div class="space">
+
+</div>
+<div class="def">
+<p>称一阶命题 B 为一阶命题集 <span class="math inline"><em>Γ</em></span> 的<em>最小逻辑结果</em>, 记为 <span class="math inline"><em>Γ</em>⊨<sub><em>m</em><em>c</em></sub><em>B</em></span>, 如果 B 在所有 <span class="math inline"><em>Γ</em></span> 的最小模型中均真。</p>
+</div>
+<div class="ex">
+<p>见书上例子。</p>
+</div>
+<hr />
+<div class="ex">
+<p><span class="math inline"><em>Γ</em><sub>1</sub> = ∅</span>, 其最小模型为所有个体域为幺元集的结构， 有 <br /><span class="math display"><em>Γ</em><sub>1</sub>⊨<sub><em>m</em><em>c</em></sub>∀<em>x</em>∀<em>y</em>(<em>x</em> = <em>y</em>)</span><br />.</p>
+<p><span class="math inline"><em>Γ</em><sub>2</sub> = {∃<em>x</em>∃<em>y</em>(<em>x</em> ≠ <em>y</em>)}</span>, 其最小模型为所有个体域含有两个元素的结构， 有 <br /><span class="math display">$$\Gamma_2\not\models_{mc}\forall x\forall y(x=y)$$</span><br />.</p>
+</div>
+<p>上面例子说明 $\models_{mc}$ 不是单调的。</p>
+<hr />
+<h2 id="限定可证性的合理性和完备性">限定可证性的合理性和完备性</h2>
+<div class="prop">
+<p>对任何一阶命题 A, B, 如果 <span class="math inline">$A\sdash_{mc} B$</span>, 则 <span class="math inline"><em>A</em>⊨<sub><em>m</em><em>c</em></sub><em>B</em></span>.</p>
+</div>
+<div class="pf">
+<p>设 <span class="math inline">𝔄 = &lt;<em>U</em>, <em>I</em>&gt;</span> 为 A 的最小模型，C 为 <span class="math inline"><em>Ω</em>(<em>A</em>)</span> 中的任一公式。 先证 <span class="math inline">⊨<sub>𝔄</sub><em>C</em></span>.</p>
+<p>只需证 <span class="math inline">⊨<sub>𝔄</sub>[<em>A</em><sup><em>Φ</em></sup> → ∀<em>x</em><em>Φ</em>(<em>x</em>)]<sup>0</sup></span>. 将论域限定到满足 <span class="math inline"><em>Φ</em></span> 的个体集上即可。</p>
+<p>再证 <span class="math inline"><em>A</em>⊨<sub><em>m</em><em>c</em></sub><em>B</em></span>. 将 <span class="math inline">$\sdash_{mc}$</span> 转化到 FSFC上即可。</p>
+</div>
+<div class="space">
+
+</div>
+<div class="prop">
+<p>限定可证性不具有完备性。</p>
+</div>
+<div class="pf">
+<p>考虑例 11.18.</p>
+</div>
+<hr />
+<h2 id="性质限定">性质限定</h2>
+<p>“船可以渡河”：</p>
+<ul>
+<li>域限定：只有船可以渡河</li>
+<li>性质限定：船只能渡河</li>
+</ul>
+<div class="def">
+<p>设 <span class="math inline">$A(\vec P)$</span> 为一二阶公式， <span class="math inline">$\vec P$</span> 为一组谓词变元 <span class="math inline"><em>P</em><sub>0</sub>, …, <em>P</em><sub><em>n</em></sub></span> 的缩写。 又设 <span class="math inline">$E(\vec P, \vec x)$</span> 是含自由谓词变元 <span class="math inline"><em>P</em><sub>0</sub>, …, <em>P</em><sub><em>n</em></sub></span> 和个体变元 <span class="math inline"><em>x</em><sub>1</sub>, …, <em>x</em><sub><em>m</em></sub></span> 的二阶公式。称下列二阶公式为 <span class="math inline">$E(\vec P, \vec x)$</span> 关于 <span class="math inline">$A(\vec P)$</span> 的<em>性质限定</em>：</p>
+<p><span class="slider"><span class="math inline">$A(\vec P)\land\forall\vec{P'}(A(\vec{P'})\land\forall{\vec x}(E(\vec{P'}, \vec x)\to E(\vec P, \vec x))\to\forall \vec x(E(\vec{P'},\vec x)\leftrightarrow E(\vec P, \vec x)))$</span></span> <span class="slider-notes">对比限定的原始形式：<span class="math inline">$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$</span>　 口</span></p>
+</div>
+<div class="ex">
+<p>令 E(Q, x) 表示 “x 具有性质 Q”，P 表示“能渡河”的性质，A(Q) 表示“Q 是船的性质”， 若接受 A(P)，则 E(Q, x) 关于 A(P) 的性质限定为：</p>
+<p><span class="slider"><span class="math inline">∀<em>P</em>′(<em>A</em>(<em>P</em>′) ∧ ∀<em>x</em>(<em>E</em>(<em>P</em>′,<em>x</em>)→<em>E</em>(<em>P</em>, <em>x</em>)) → ∀<em>x</em>(<em>E</em>(<em>P</em>′,<em>x</em>)↔<em>E</em>(<em>P</em>, <em>x</em>)))</span></span> <span class="slider-notes">如果一个船的性质是“能渡河”的子属性，则这个性质就是“能渡河”。</span></p>
+</div>
+<hr />
+<h3 id="性质限定续">性质限定(续)</h3>
+<div class="def">
+<p><span class="math inline">$A(\vec P), \vec P$</span> 的意义同定义 11.15,称下列二阶公式为 A 中 <em>谓词变元 <span class="math inline"><em>P</em><sub>0</sub></span> 具有 <span class="math inline"><em>P</em><sub>1</sub>, ⋯, <em>P</em><sub><em>n</em></sub></span> 的限定</em>， 记为 <span class="math inline"><em>C</em><em>i</em><em>r</em><em>c</em><em>u</em><em>m</em>(<em>A</em>; <em>P</em><sub>0</sub>, <em>P</em><sub>1</sub>, ⋯, <em>P</em><sub><em>n</em></sub>)</span>：</p>
+<p>
+<span class="slider"><span class="math inline">$A(\vec P)\land \forall\vec{P'}(A(\vec{P'})\land\forall\vec{x}(P_0'(\vec x)\to P_0(x))\to\forall\vec x(P_0'(\vec x)\leftrightarrow P_0(\vec x)))$</span></span> <span class="slider-notes">继续对比限定的原始形式：<span class="math inline">$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$</span>　 口</span>
+</p>
+</div>
+<div class="ex">
+<p>A(D, L) 表示如下事实： <br /><span class="math display">∀<em>x</em>(<em>D</em><em>x</em> ↔ ¬<em>L</em><em>x</em>)∧<em>L</em><em>a</em> ∧ <em>D</em><em>b</em> ∧ <em>R</em><em>c</em> ∧ (<em>a</em> ≠ <em>b</em> ∧ <em>a</em> ≠ <em>c</em> ∧ <em>b</em> ≠ <em>c</em>)</span><br /> 其中 Dx 表示 x 死了， Lx 表示 x 活着，Rx 表示 x 是兔子， 想要限定“全部死了的客体就是已知死了的客体(即 b)”。 只用之前的限定方法限定 D，由于无法推出 <span class="math inline">¬<em>D</em><em>c</em>(<em>L</em><em>c</em>)</span>，无法得到我们想要的结果。 用性质限定，得到 <br /><span class="math display">$$\forall x(P_0(x)\leftrightarrow\lnot P_1(x))\land P_1(a)\land P_0(b)\land Rc\land (a\neq b\land a\neq c\land b\neq c)\land \forall x(P_0(x)\to Dx)\\
+\to\forall x(P_0(x)\leftrightarrow Dx)$$</span><br /> 令 <span class="math inline"><em>P</em><sub>0</sub>(<em>x</em>)</span> 为 <span class="math inline"><em>x</em> = <em>b</em></span>, <span class="math inline"><em>P</em><sub>1</sub>(<em>x</em>)</span> 为 <span class="math inline"><em>x</em> ≠ <em>b</em></span>，即得 <br /><span class="math display">∀<em>x</em>(<em>x</em> = <em>b</em> ↔ <em>D</em><em>x</em>)</span><br /> 即得我们想要的结果。</p>
+</div>
+<hr />
+<h2 id="性质限定的可满足性">性质限定的可满足性</h2>
+<p>如果 $A(P)$ 的限定是可满足的，那么 $A(P)$ 也是可满足的，但反之不然。</p>
+<div class="ex">
+<p>见书上例 11.21</p>
+</div>
+<div class="prop">
+<p>如果 <span class="math inline">$A(\vec P)$</span> 为一可满足的 <span class="slider">全称命题</span> <span class="slider-notes">前束范式中不含存在量词</span> ，那么 <span class="math inline">$Circum(A(\vec P), \vec P)$</span> 也是可满足的。</p>
+</div>
+<hr />
+<h2 id="限定理论的应用前景">限定理论的应用前景</h2>
+<p>Frame problem: 在动作后状态的改变只局限在动作影响到的部分上。</p>
+<hr />
+<h1 id="thank-you">Thank you!</h1>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/test.html" class="label"><i class="icon-tag"></i>test</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/logic.html" class="label"><i class="icon-tag"></i>logic</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ai.html" class="label"><i class="icon-tag"></i>AI</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  /*showProcessingMessages: false,*/
+	  jax: ["input/TeX", "output/HTML-CSS"],
+	  TeX: {
+		TagSide: "left",
+		Macros: {
+		  /*RR: '{\\bf R}',
+		  bold: ['{\\bf #1}',1]*/
+		  sdash: '{|\\!\\!\\!\\sim}'
+		}
+	  },
+	  tex2jax: {
+		  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		  processEscapes: true
+	  }
+	});
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript"
+		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="http://blog.skydark.info/theme/reveal.js/lib/js/head.min.js"></script>
+<script src="http://blog.skydark.info/theme/reveal.js/js/reveal.js"></script>
+
+<script>
+$('#lets-reveal').click(function() {
+  var slides = $('<div class="slides">');
+  $('.entry-content').children('hr,h1,h2,h3,h4').each(function() {
+    var header = $(this);
+    var section = header.is('hr') ? header.nextUntil('hr,h1,h2,h3,h4'): header.nextUntil('hr,h1,h2,h3,h4').andSelf();
+    section.wrapAll('<section>').parent().appendTo(slides);
+  });
+  var theme = "simple";
+  $('head')
+    .append('<link rel="stylesheet" href="http://blog.skydark.info/theme/reveal.js/css/reveal.css" type="text/css" />')
+    .append('<link rel="stylesheet" href="http://blog.skydark.info/theme/reveal.js/css/theme/'+theme+'.css" type="text/css" id="theme" />')
+    .append('<link rel="stylesheet" href="http://blog.skydark.info/theme/reveal.js/lib/css/zenburn.css" type="text/css" />')
+    .append('<link rel="stylesheet" href="http://blog.skydark.info/theme/css/slide.css" type="text/css" />');
+
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'http://blog.skydark.info/theme/reveal.js/css/print/pdf.css' : 'http://blog.skydark.info/theme/reveal.js/css/print/paper.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+	
+  $('body').html(slides.wrap($('<div class="reveal">')).parent());
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true },
+			{ src: 'plugin/notes/notes.js', async: true }
+		]
+	});
+});
+</script>
+  </body>
+</html>

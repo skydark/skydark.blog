@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>秽翼的尤斯蒂娅 ONS移植版 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>秽翼的尤斯蒂娅 ONS移植版</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<h2 id="_1">移植作品公共声明</h2>
+<p>自主规制，见谅。</p>
+<script type="text/javascript">
+$('.entry-content').hide();
+$(document).ready(function(){
+    $('.entry-content').children(':gt(1)').hide();
+    $('.entry-content').show();
+});
+</script>
+
+<hr />
+<ol>
+<li>仅供个人研究使用，无担保，谢绝商业行为，包括使用商业化引擎运行。</li>
+<li>转载望注明出处，以方便处理bug.</li>
+<li>求助可在此评论，考虑到大多数bug已有解决方案，请求助前确认自己是否仔细阅读内容。</li>
+<li>请不要让我知道你是从某个贴吧名是ons加两个汉字的贴吧下载的。对彼此心情有好处。</li>
+</ol>
+<hr />
+<p>首发：
+<a href="http://bbs.sumisora.org/read.php?tid=11004749">澄空</a></p>
+<p>机锋首发贴在发布一年后被路过的实习纠察警告并删除233</p>
+<p>防止被HX，在自己这里留个备份……</p>
+<hr />
+<p>ONS指ONScripter，以模拟NScripter为初衷的开源GALGame引擎，虽然功能上比较简单，但其跨平台性比较好。</p>
+<p>制作这个版本的目的是为了能在更多的移动设备上体验秽翼的魅力。(我承认每次看到各种平台上跑gal都先介绍月姬和水仙比较眼馋……)</p>
+<p>已经实际测试可运行的平台：Android, S60V5, Linux, iOS</p>
+<hr />
+<h2 id="_2">运行截图</h2>
+<p><img alt="Title" src="http://pic.yupoo.com/skydark/Bfa9COQg/RKNAT.jpg" /></p>
+<p><img alt="开头" src="http://pic.yupoo.com/skydark/Bfa9D6ke/SgnTK.jpg" /></p>
+<p><img alt="序章Eris" src="http://pic.yupoo.com/skydark/Bfa9DdNS/HRXLD.jpg" /></p>
+<p><img alt="选项" src="http://pic.yupoo.com/skydark/BfaaEsSS/UgNtm.jpg" /></p>
+<p><img alt="Appendix" src="http://pic.yupoo.com/skydark/Bfa9E1zz/p57XP.jpg" /></p>
+<p><img alt="CGMode" src="http://pic.yupoo.com/skydark/Bfa9E9NV/3mT7L.jpg" /></p>
+<p><img alt="Music" src="http://pic.yupoo.com/skydark/Bfa9DvNE/tgEaD.jpg" /></p>
+<p><img alt="Scene" src="http://pic.yupoo.com/skydark/Bfa9DnT4/7t3Z2.jpg" /></p>
+<hr />
+<h2 id="bug">Bug 修复</h2>
+<ul>
+<li>
+<p>若CG鉴赏模式缺少最后一张图片、BG显示不正常，请参考<a href="http://tieba.baidu.com/p/1294493256?pid=15559399869&amp;cid=0#15559399869">这个贴吧回复</a>。
+该贴吧回复该层的楼中楼中也有打开全CG的办法。</p>
+</li>
+<li>
+<p>若全通后Tia的CG第一行第四位缺失，那是枫笛汉化版就有的bug.</p>
+</li>
+<li>
+<p>若提亚线结局时最后看不到提亚说的话，请如下修改脚本(开始游戏前修改应是可行的，目前没有发现有不良影响)：</p>
+<blockquote>
+<p>在22.txt中查找*b__screenmsg_1，将紧接着两行后的<code>return</code>修改为：</p>
+<div class="highlight"><pre><span></span>print 1:click:return
+</pre></div>
+
+
+<p>可以使得在显示tiya说话的图片的时候暂停。
+如果已经存过档，需要提醒的是修改脚本文件会影响读档。</p>
+</blockquote>
+</li>
+<li>
+<p>关于BGM循环，现在是只播放loop部分不播放head部分的。在支持<code>loopbgm</code>命令的ONS版本上可以如下修改(感谢<em>Tony Beta Lambda</em>在评论中提醒并给出修补方法)：</p>
+<blockquote>
+<p>在37.txt中<code>*b_BgmPlay</code>段中(17行开始)，将(21行开始)：</p>
+<div class="highlight"><pre><span></span>fileconv_ex $1001, &quot;bgm_&quot;, %1002, 4, &quot;_loop.ogg&quot;
+bgm $1001
+</pre></div>
+
+
+<p>修改为</p>
+<div class="highlight"><pre><span></span>fileconv_ex $1001, &quot;bgm_&quot;, %1002, 4, &quot;_loop.ogg&quot;
+fileconv_ex $1002, &quot;bgm_&quot;, %1002, 4, &quot;_head.ogg&quot;
+loopbgm $1002, $1001
+</pre></div>
+
+
+<p>对应的，下面<code>*b_BgmStop</code>段中的<code>bgmstop</code>也要改成<code>loopbgmstop</code>.</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="_3">游戏文件</h2>
+<p>解压(如果是压缩文件)/复制下载好的游戏文件到你硬盘上的某个目录下，我们假设其名字为eustia。游戏文件包括：</p>
+<ul>
+<li>
+<p>脚本文件: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_2485463969">eustia-test0.04.7z</a></p>
+</li>
+<li>
+<p>字体文件，或重命名任意你喜欢的ttf字体亦可: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807561_3474499221">default.ttf</a></p>
+</li>
+<li>
+<p>图像文件: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_2526025782">arc.nsa</a></p>
+</li>
+<li>
+<p>声音文件: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_4158882318">arc1.nsa</a></p>
+</li>
+<li>
+<p>语音文件, 可选: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_1196000886">arc2.nsa</a></p>
+</li>
+<li>
+<p>视频文件, 可选: <a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_505710848">video.rar</a></p>
+</li>
+</ul>
+<p>如果你是Android平台,请安装
+<a href="http://pan.baidu.com/netdisk/singlepublic?fid=907105_3678419696">ONScripter-GBK.apk</a> (此为0619版，可自行搜索新版本使用)，并在SD卡建立ONS的文件夹，将游戏目录复制到这里。</p>
+<p>如果需要最新的模拟器，推荐使用<a href="http://portal.bakerist.info/node/251">面包工坊的版本</a>。
+由于新版模拟器对宽屏模式的支持方式不同，你需要在游戏目录里新建一个“ons.wide”文件，再修改屏幕比例为16:9，以避免黑边的出现。</p>
+<p>如果你是S60平台，请参考<a href="http://www.opda.net.cn/thread-587174-1-1.html">这里</a>和<a href="http://kdays.cn/days/read.php?tid=67001">这里</a>。</p>
+<p>如果你需要在win下运行，可以使用<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_2166340977">win版的ons-gbk</a> ，解压到游戏目录，运行其中run.bat即可使用宽屏模式运行。
+如果使用其它版本的onscripter，请注意在20110416版之前它是不支持宽屏模式的。</p>
+<p><a href="http://code.google.com/p/onscripter/source/checkout">这里</a>是源代码。感谢最早给onscripter添加gbk支持的John_HE大，以及将其添加进20110416版的kid组的natdon君。</p>
+<p>如果你是其它平台的使用者，欢迎反馈使用效果XD</p>
+<p>注意：如果你的ONS支持宽屏模式，请打开此模式以获得理想效果，实际显示分辨率将为800x450，推荐设备分辨率为800x480。</p>
+<p>Enjoy~~</p>
+<hr />
+<h2 id="_4">致谢</h2>
+<p>感谢澄空汉化了体验版，让我能提前触摸到这部优秀的作品，也让我不禁产生了移植的想法。</p>
+<p>同样的理由感谢七濑Kaede几个月前在贴吧用的秽翼的签名图XD</p>
+<p>感谢枫笛汉化组汉化了正式版，感谢你们(用让几乎所有人都吃了一惊的速度)让更多人能够了解这部美妙的作品，也感谢你们<a href="http://bbs.sumisora.org/read.php?tid=11002048">对移植的慷慨支持</a>，期待在大家的支持建议和批评中，你们最终能让秽翼的汉化完满地还原作品本身的魅力。(P.S.私人吐槽:个人感觉最大的bug其实是版本号XD)</p>
+<p>感谢TLWiki的Kingshriek大提供的<a href="http://tlwiki.tsukuru.info/index.php?title=File:Bgi_asdis.zip">python版bgi反汇编工具</a>，我是基于此工具进行改造完成的移植，如果没有这么清晰的源码，我一定会绕上很大的弯路，十分感谢您。</p>
+<p>感谢Android Galgame研究组的各位的支持，感谢H大的沟通联络，感谢H和Gungnir、飞肉、HY等等的测试，还有其他各位组员，非常感谢。</p>
+<p>感谢米炮白翅膀和壕三的支持和关注，并特别感谢辉神的爱的力量，我也爱你嗷嗷！</p>
+<hr />
+<h2 id="_5">其它说明</h2>
+<ol>
+<li>
+<p>如果你从其它地方下载了之前移植版本的秽翼，请注意这次发生变化的文件是脚本文件和图像文件两部分。如果你不想下载900M+的图像文件，可以用<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_3480070335">这个压缩包</a>代替，解压进原游戏目录即可，当然不要忘记仍然要更新脚本。</p>
+</li>
+<li>
+<p>系统方面，截图演示的即为全部已实现部分了，考虑到秽翼的系统确实nice，我承认这是一件憾事，这也是我命名版本号为0.04的原因。另外标题画面中的continue目前临时对应的是quick load功能。</p>
+</li>
+<li>
+<p>缺部分效果。之前移植时虚拟机/wine跑不了脏翅膀本体，我是在实体机录像后对照的(动力之二)；现在wine可以有概率地启动成功……另外有些触发条件是个人猜测的(指appendix和omake出现的触发条件，不是指攻略路线)——无论如何，欢迎发表对比意见。</p>
+</li>
+<li>
+<p>原作也提供了普屏模式，效果个人不太欣赏但可接受。如果你非常需要(比如你的ONS不支持宽屏模式)，请将90.txt开头的<code>numalias WIDESCREEN_MODE</code>后头的1改成0并重新开始游戏。</p>
+</li>
+<li>
+<p>字体大小是根据原作处理的。如果随意更改字体可能会出现文字溢出等无法预料的情况。如果你非常需要(比如你的机型尺寸比较小)，请在22.txt中查找<code>*b_Size</code>，后头接着的<code>mov %1002, XX</code>就是对应的字体大小设置。其中<code>if %1001 = 5 mov %1002, 28</code>对应的是默认大小。另外，字体大小的设置在每个脚本文件的开始处，因此修改后读取存档不会立刻生效。</p>
+</li>
+<li>
+<p>如需开启跳章节功能请将90.txt中的<code>numalias DEBUG_MODE_EX</code>后头的0改成1。另外请注意开启跳章节时会跳过章节中的选择项(如果有的话)，故请小心。</p>
+</li>
+<li>
+<p>如果你对脚本文件中10.txt的生成感兴趣，可以参考<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_2799048044">这里</a>。当然实际上改的很糟糕，边用边改，理解完全是错误的，只是恰好work了而已，所以也算不上“可以参考”了……基于python2.6,执行格式是<code>python bgidis.py aiy*</code>，然后会生成<code>aiy*.bss</code>，合并即得10.txt. 注意aiy40300反编译会出错，是因为用来确定脚本结束位置的1B000000定位错误，未修正，直接修改/删除掉脚本最末尾出现的1B000000可以解决。</p>
+</li>
+<li>
+<p>我的水平非常有限，挨骂在所难免，有bug欢迎汇报，直接回复本帖或mailto:skydarkever at gmail.com均可。</p>
+</li>
+<li>
+<p>附<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_2939352988">日文脚本下载</a>，解压替换掉游戏中的10.txt即可。但你仍需要GBK版的模拟器运行。如果需要在日文原版引擎上运行，请自行转码为Shift-JIS.</p>
+</li>
+<li>
+<p>附<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807495_3351837790">游戏文本</a>。</p>
+</li>
+</ol>
+<p>感谢大家的支持，祝各位无论何地都能感受到八月充满诚意的新作的魅力。</p>
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

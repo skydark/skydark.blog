@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>分类 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>分类</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<div class="tabcontent-wrapper">
+
+<ul class="nav nav-tabs">
+<li><a data-toggle="tab" href="#ACG-ref">ACG <span class="small-counter">21</span></a></li>
+<li><a data-toggle="tab" href="#life-ref">life <span class="small-counter">22</span></a></li>
+<li><a data-toggle="tab" href="#linux-ref">linux <span class="small-counter">4</span></a></li>
+<li><a data-toggle="tab" href="#mobile-ref">mobile <span class="small-counter">3</span></a></li>
+<li><a data-toggle="tab" href="#PC-ref">PC <span class="small-counter">4</span></a></li>
+<li><a data-toggle="tab" href="#programming-ref">programming <span class="small-counter">9</span></a></li>
+<li><a data-toggle="tab" href="#python-ref">python <span class="small-counter">10</span></a></li>
+<li><a data-toggle="tab" href="#test-ref">test <span class="small-counter">5</span></a></li>
+<li><a data-toggle="tab" href="#thinking-ref">thinking <span class="small-counter">1</span></a></li>
+<li><a data-toggle="tab" href="#transplant-ref">transplant <span class="small-counter">12</span></a></li>
+</ul>
+
+<div class="tab-content">
+<div id="ACG-ref" class="tab-pane">
+<p><a href="/category/acg.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2012年12月25日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/12/25/yue-zhuo-new-demo/'>鸑鷟 摩耶之纱 女警篇 DEMO</a>
+  </li>
+  <li>
+    <span>2012年12月24日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/12/24/fate-stay-china/'>丑小鸭的天鹅湖</a>
+  </li>
+  <li>
+    <span>2012年09月11日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/09/11/snowtrap_final/'>雪之本境解境篇</a>
+  </li>
+  <li>
+    <span>2012年06月29日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/06/29/crimson-imprint/'>赤印</a>
+  </li>
+  <li>
+    <span>2012年06月06日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/06/06/11eyes/'>为了朋友和明日 - 11eyes</a>
+  </li>
+  <li>
+    <span>2012年05月13日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/05/13/ljv-sptime/'>临界V</a>
+  </li>
+  <li>
+    <span>2012年03月03日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/03/03/sora-no-kiseki-ova2/'>关于空轨OVA2……</a>
+  </li>
+  <li>
+    <span>2012年02月15日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/02/15/why-3days-is-better-than-X/'>为什么我在Galgame吧推荐3days</a>
+  </li>
+  <li>
+    <span>2012年01月21日</span>
+    <a data-original-title="" target="_blank" href='acg/2012/01/21/happy-birthday-nana!/'>奈奈生日快乐！</a>
+  </li>
+  <li>
+    <span>2011年11月06日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/11/06/sora-no-kiseki-ova/'>空轨这OVA要闹哪样……</a>
+  </li>
+  <li>
+    <span>2011年10月30日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/10/30/10-years-after/'>留给10年后的自己</a>
+  </li>
+  <li>
+    <span>2011年10月02日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/10/02/fate-zero/'>Fate Zero</a>
+  </li>
+  <li>
+    <span>2011年07月24日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/07/24/my-wife/'>助手生日快乐！</a>
+  </li>
+  <li>
+    <span>2011年07月23日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/07/23/sgkq/'>SGKQ神同人竟然有人翻译了！</a>
+  </li>
+  <li>
+    <span>2011年06月10日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/06/10/demonophobia/'>早栗妹子你好~</a>
+  </li>
+  <li>
+    <span>2011年04月07日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/04/07/9baka/'>绯月.苍雪</a>
+  </li>
+  <li>
+    <span>2011年04月04日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/04/04/my-christina/'>石头门！</a>
+  </li>
+  <li>
+    <span>2011年03月25日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/03/25/headless-sister/'>神MAD</a>
+  </li>
+  <li>
+    <span>2011年03月10日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/03/10/galgame/'>于是通了刻痕和沙耶……</a>
+  </li>
+  <li>
+    <span>2011年01月10日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/01/10/2011.1.11-infinity/'>2011.1.11 Infinity</a>
+  </li>
+  <li>
+    <span>2011年01月03日</span>
+    <a data-original-title="" target="_blank" href='acg/2011/01/03/2011.1.11/'>马上要2011.1.11了啊</a>
+  </li>
+</ul></div>
+<div id="life-ref" class="tab-pane">
+<p><a href="/category/life.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2016年01月09日</span>
+    <a data-original-title="" target="_blank" href='life/2016/01/09/new-post/'> 2015</a>
+  </li>
+  <li>
+    <span>2012年11月28日</span>
+    <a data-original-title="" target="_blank" href='life/2012/11/28/back-to-sicp/'>重温 SICP</a>
+  </li>
+  <li>
+    <span>2012年11月24日</span>
+    <a data-original-title="" target="_blank" href='life/2012/11/24/the_end_of_lab/'>搬离实验室</a>
+  </li>
+  <li>
+    <span>2012年08月19日</span>
+    <a data-original-title="" target="_blank" href='life/2012/08/19/legendary-swordsman/'>笑傲江湖</a>
+  </li>
+  <li>
+    <span>2012年04月18日</span>
+    <a data-original-title="" target="_blank" href='life/2012/04/18/dream/'>dream</a>
+  </li>
+  <li>
+    <span>2012年01月07日</span>
+    <a data-original-title="" target="_blank" href='life/2012/01/07/rate-my-life/'>Rate My Life</a>
+  </li>
+  <li>
+    <span>2012年01月07日</span>
+    <a data-original-title="" target="_blank" href='life/2012/01/07/these-f-days/'>好久没post了，总结下最近的状况</a>
+  </li>
+  <li>
+    <span>2011年12月11日</span>
+    <a data-original-title="" target="_blank" href='life/2011/12/11/mad/'>我想我是疯了……</a>
+  </li>
+  <li>
+    <span>2011年11月19日</span>
+    <a data-original-title="" target="_blank" href='life/2011/11/19/dead/'>要死了</a>
+  </li>
+  <li>
+    <span>2011年10月25日</span>
+    <a data-original-title="" target="_blank" href='life/2011/10/25/hb-to-zm/'>那谁，生日快乐，你懂的</a>
+  </li>
+  <li>
+    <span>2011年09月24日</span>
+    <a data-original-title="" target="_blank" href='life/2011/09/24/mountain/'>和师兄战香山</a>
+  </li>
+  <li>
+    <span>2011年09月20日</span>
+    <a data-original-title="" target="_blank" href='life/2011/09/20/i-hate-it/'>入学体检</a>
+  </li>
+  <li>
+    <span>2011年08月31日</span>
+    <a data-original-title="" target="_blank" href='life/2011/08/31/hi-school/'>开学相关</a>
+  </li>
+  <li>
+    <span>2011年08月04日</span>
+    <a data-original-title="" target="_blank" href='life/2011/08/04/app/'>假期在家访问app突然抽搐了……</a>
+  </li>
+  <li>
+    <span>2011年07月17日</span>
+    <a data-original-title="" target="_blank" href='life/2011/07/17/no-progress/'>最近又没啥进展……</a>
+  </li>
+  <li>
+    <span>2011年07月10日</span>
+    <a data-original-title="" target="_blank" href='life/2011/07/10/i-am-dead/'>今天搬宿舍要死了……</a>
+  </li>
+  <li>
+    <span>2011年06月26日</span>
+    <a data-original-title="" target="_blank" href='life/2011/06/26/ljl/'>祝LJL同学生日快乐！</a>
+  </li>
+  <li>
+    <span>2011年05月27日</span>
+    <a data-original-title="" target="_blank" href='life/2011/05/27/desktop/'>一张渣桌面</a>
+  </li>
+  <li>
+    <span>2011年02月16日</span>
+    <a data-original-title="" target="_blank" href='life/2011/02/16/600/'>小屋聚了个会……</a>
+  </li>
+  <li>
+    <span>2011年02月12日</span>
+    <a data-original-title="" target="_blank" href='life/2011/02/12/my-dear-sister/'>陪妹妹逛了一天</a>
+  </li>
+  <li>
+    <span>2011年01月15日</span>
+    <a data-original-title="" target="_blank" href='life/2011/01/15/gohome/'>于是要回家了……</a>
+  </li>
+  <li>
+    <span>2011年01月04日</span>
+    <a data-original-title="" target="_blank" href='life/2011/01/04/cuptool/'>大条了</a>
+  </li>
+</ul></div>
+<div id="linux-ref" class="tab-pane">
+<p><a href="/category/linux.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2013年06月04日</span>
+    <a data-original-title="" target="_blank" href='linux/2013/06/04/embed-terminal/'>将终端嵌入桌面</a>
+  </li>
+  <li>
+    <span>2012年04月26日</span>
+    <a data-original-title="" target="_blank" href='linux/2012/04/26/arch-64-bit/'>升级64位Arch</a>
+  </li>
+  <li>
+    <span>2012年04月06日</span>
+    <a data-original-title="" target="_blank" href='linux/2012/04/06/nitrotasks/'>Nitrotasks</a>
+  </li>
+  <li>
+    <span>2011年10月14日</span>
+    <a data-original-title="" target="_blank" href='linux/2011/10/14/arch/'>试了下arch……</a>
+  </li>
+</ul></div>
+<div id="mobile-ref" class="tab-pane">
+<p><a href="/category/mobile.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2012年09月14日</span>
+    <a data-original-title="" target="_blank" href='mobile/2012/09/14/smartqt20/'>智器T20</a>
+  </li>
+  <li>
+    <span>2011年11月08日</span>
+    <a data-original-title="" target="_blank" href='mobile/2011/11/08/ac100/'>新入了个ac100</a>
+  </li>
+  <li>
+    <span>2011年03月05日</span>
+    <a data-original-title="" target="_blank" href='mobile/2011/03/05/pc-z1/'>搞了台PC-Z1</a>
+  </li>
+</ul></div>
+<div id="PC-ref" class="tab-pane">
+<p><a href="/category/pc.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2013年11月05日</span>
+    <a data-original-title="" target="_blank" href='pc/2013/11/05/n56/'>新电脑，华硕N56VV</a>
+  </li>
+  <li>
+    <span>2011年10月06日</span>
+    <a data-original-title="" target="_blank" href='pc/2011/10/06/goodbye-jobs/'>老乔走好</a>
+  </li>
+  <li>
+    <span>2011年08月08日</span>
+    <a data-original-title="" target="_blank" href='pc/2011/08/08/play-on-me/'>电脑莫名其妙地坏了，又莫名其妙地好了……</a>
+  </li>
+  <li>
+    <span>2011年06月05日</span>
+    <a data-original-title="" target="_blank" href='pc/2011/06/05/virus/'>中招了= =||</a>
+  </li>
+</ul></div>
+<div id="programming-ref" class="tab-pane">
+<p><a href="/category/programming.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2013年05月29日</span>
+    <a data-original-title="" target="_blank" href='programming/2013/05/29/backup-gr-archives/'>备份 Google Reader 保存下来的网站历史存档</a>
+  </li>
+  <li>
+    <span>2013年02月24日</span>
+    <a data-original-title="" target="_blank" href='programming/2013/02/24/top-down-parser/'>使用 Python 简单的自顶向下解析</a>
+  </li>
+  <li>
+    <span>2012年11月14日</span>
+    <a data-original-title="" target="_blank" href='programming/2012/11/14/aqua_notes/'>Aqualang Notes</a>
+  </li>
+  <li>
+    <span>2012年08月21日</span>
+    <a data-original-title="" target="_blank" href='programming/2012/08/21/shaarli/'>shaarli</a>
+  </li>
+  <li>
+    <span>2012年06月28日</span>
+    <a data-original-title="" target="_blank" href='programming/2012/06/28/newlisp/'>newLISP 是如何令我惊愕忘形的</a>
+  </li>
+  <li>
+    <span>2012年06月15日</span>
+    <a data-original-title="" target="_blank" href='programming/2012/06/15/why-lisp/'>为什么 Lisp 经久不衰</a>
+  </li>
+  <li>
+    <span>2012年03月23日</span>
+    <a data-original-title="" target="_blank" href='programming/2012/03/23/play-with-jekyll/'>Play with Jekyll</a>
+  </li>
+  <li>
+    <span>2011年10月25日</span>
+    <a data-original-title="" target="_blank" href='programming/2011/10/25/rip-mcc/'>上帝看来很缺程序员……</a>
+  </li>
+  <li>
+    <span>2011年10月13日</span>
+    <a data-original-title="" target="_blank" href='programming/2011/10/13/rip,-r/'>RIP, R</a>
+  </li>
+</ul></div>
+<div id="python-ref" class="tab-pane">
+<p><a href="/category/python.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2013年07月03日</span>
+    <a data-original-title="" target="_blank" href='python/2013/07/03/autocrop/'>用python给图像自动裁边</a>
+  </li>
+  <li>
+    <span>2011年12月16日</span>
+    <a data-original-title="" target="_blank" href='python/2011/12/16/10m/'>于是实验室的电脑一直跑在10M上……</a>
+  </li>
+  <li>
+    <span>2011年09月12日</span>
+    <a data-original-title="" target="_blank" href='python/2011/09/12/rnote/'>中秋</a>
+  </li>
+  <li>
+    <span>2011年04月18日</span>
+    <a data-original-title="" target="_blank" href='python/2011/04/18/hi-mink/'>结果又和mink大撞上了……</a>
+  </li>
+  <li>
+    <span>2011年01月14日</span>
+    <a data-original-title="" target="_blank" href='python/2011/01/14/wtf/'>卧勒个去！</a>
+  </li>
+  <li>
+    <span>2011年01月08日</span>
+    <a data-original-title="" target="_blank" href='python/2011/01/08/cython-epdf-sdl/'>试了下cython包装epdf，还有SDL</a>
+  </li>
+  <li>
+    <span>2010年12月28日</span>
+    <a data-original-title="" target="_blank" href='python/2010/12/28/Christina/'>一张图</a>
+  </li>
+  <li>
+    <span>2010年12月26日</span>
+    <a data-original-title="" target="_blank" href='python/2010/12/26/christina-wc/'>无勒个题</a>
+  </li>
+  <li>
+    <span>2010年12月21日</span>
+    <a data-original-title="" target="_blank" href='python/2010/12/21/christina-parser/'>蛋痛地写了个parser...</a>
+  </li>
+  <li>
+    <span>2010年12月14日</span>
+    <a data-original-title="" target="_blank" href='python/2010/12/14/try-elementary/'>被Elementary折腾的虚了……</a>
+  </li>
+</ul></div>
+<div id="test-ref" class="tab-pane">
+<p><a href="/category/test.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2012年03月21日</span>
+    <a data-original-title="" target="_blank" href='test/2012/03/21/nml/'>非单调逻辑</a>
+  </li>
+  <li>
+    <span>2012年03月15日</span>
+    <a data-original-title="" target="_blank" href='test/2012/03/15/passwd/'> 测试密码功能</a>
+  </li>
+  <li>
+    <span>2012年03月08日</span>
+    <a data-original-title="" target="_blank" href='test/2012/03/08/hello-world/'>Hello, world! (你好，世界！)</a>
+  </li>
+  <li>
+    <span>2011年10月16日</span>
+    <a data-original-title="" target="_blank" href='test/2011/10/16/i-am/'>普鲁斯特问卷</a>
+  </li>
+  <li>
+    <span>2010年12月11日</span>
+    <a data-original-title="" target="_blank" href='test/2010/12/11/welcome-to-micolog/'>欢迎使用Micolog</a>
+  </li>
+</ul></div>
+<div id="thinking-ref" class="tab-pane">
+<p><a href="/category/thinking.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2012年05月11日</span>
+    <a data-original-title="" target="_blank" href='thinking/2012/05/11/ai/'>有关 AI 的辩论研讨会记录</a>
+  </li>
+</ul></div>
+<div id="transplant-ref" class="tab-pane">
+<p><a href="/category/transplant.html" class="external">单独页面</a></p>
+<ul>
+  <li>
+    <span>2012年06月25日</span>
+    <a data-original-title="" target="_blank" href='transplant/2012/06/25/transplant/'>我的移植汇总贴</a>
+  </li>
+  <li>
+    <span>2012年04月23日</span>
+    <a data-original-title="" target="_blank" href='transplant/2012/04/23/something-about-onscripter/'>ONS的两三点评价</a>
+  </li>
+  <li>
+    <span>2012年03月11日</span>
+    <a data-original-title="" target="_blank" href='transplant/2012/03/11/why-things-go-wrong/'>Why Things Go Wrong</a>
+  </li>
+  <li>
+    <span>2011年07月02日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/07/02/eustia-ch/'>脏翅膀汉化了！</a>
+  </li>
+  <li>
+    <span>2011年07月01日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/07/01/pgm/'>昨天在PGM上耗的时间太多了……</a>
+  </li>
+  <li>
+    <span>2011年06月19日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/06/19/eustia/'>考试，聚餐，脏翅膀</a>
+  </li>
+  <li>
+    <span>2011年06月13日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/06/13/fog/'>雾之本境</a>
+  </li>
+  <li>
+    <span>2011年06月03日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/06/03/snowtrap/'>雪之本境移植纪念</a>
+  </li>
+  <li>
+    <span>2011年05月15日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/05/15/psp-ons/'>PSP ONS移植……</a>
+  </li>
+  <li>
+    <span>2011年05月01日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/05/01/real-sister/'>实妹相伴的大泉君</a>
+  </li>
+  <li>
+    <span>2011年04月28日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/04/28/no-time-to-waste/'>于是一周费掉了……</a>
+  </li>
+  <li>
+    <span>2011年01月28日</span>
+    <a data-original-title="" target="_blank" href='transplant/2011/01/28/3days/'>3days</a>
+  </li>
+</ul></div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+$(".tabcontent-wrapper>ul.nav-tabs a:first").tab('show');
+$(document).ready(function(){
+  var href = '#'+decodeURIComponent(window.location.href).split('#').slice(-1);
+  $(".tabcontent-wrapper>ul.nav-tabs a[href='"+href+"']").click();
+});
+</script>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

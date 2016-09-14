@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>赤印 CG 100% 补丁 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>赤印 CG 100% 补丁</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<p>本来发在赤印吧，度娘吞了我3楼后继续怒吞我2l的无数次回复(只是贴了它们自家的网盘地址好么)，印象中度娘不吞我自家后院地址，尝试一下。</p>
+<p>总之，<strong><em>度娘SB</em></strong>.</p>
+<hr>
+<p><img src="/images/game/cifix.jpg" alt="效果"></p>
+<hr>
+<h2>下载地址</h2>
+<p><a href="http://pan.baidu.com/s/1c0YnHeS">http://pan.baidu.com/s/1c0YnHeS</a></p>
+<h2>补丁功能</h2>
+<p>修复原版游戏 CG 完成度最高为 99% 的 bug.</p>
+<p>含官方补丁内容。</p>
+<p>对于此补丁不做任何担保，请注意备份。</p>
+<h2>安装说明</h2>
+<p>解压缩后将解压后文件夹中的内容拷贝至游戏根目录（即与运行文件“Crimson Imprint.exe”同一目录）下，替换原文件即可。</p>
+<p>补丁成功后游戏程序框体左上角会显示Vermeil Prologue 赤印|Crimson Imprint Ver1.01+CG patch。</p>
+<h2>使用说明</h2>
+<p>对于已 CG 99% 的玩家，重新通过一次序章即可(准确地说，只要重新经过序章的结尾部分并等待其返回到标题画面即可)。
+结束后 CG 会显示为 100%.</p>
+<p>缺失的那张 CG 是一开始空洗澡的一大堆 CG 中的某一张，虽然看过但是因为 bug 不会出现在 CG 列表中。
+总之，和 CG 鉴赏最后那几乎一整页空白无关，那里本来就没有 CG.</p>
+<p>觉得有解释不清的地方请留言。祝好。</p>
+
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

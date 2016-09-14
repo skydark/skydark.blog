@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>升级64位Arch | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>升级64位Arch</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-04-26T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年04月26日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p>上次 <code>pacman -Syu</code> 后出现了奇怪的现象，系统会不定时的突然死掉，
+表现为突然程序一个接一个的崩掉，几秒钟后键盘鼠标也崩掉，只能电源键了……</p>
+<p>然后查了 message.log, 提示是 <em>Memory Out</em>, 我当时狂汗不已，机子内存4G，32位PAE，我记得死机前内存占用都是不到1.5G的……</p>
+<p>最后看 <code>free -l</code>，猜测是因为我的Low Memory只有不到900M，
+然后不知为何 update 后 Firefox 开始吃 Low Memory，最后 <a href="http://www.redhat.com/archives/taroon-list/2007-August/msg00006.html">oom-killer</a> 开始大杀特杀:</p>
+<blockquote><p>When low memory is exhausted, it doesn't matter how much high memory is
+available, the oom-killer will begin whacking processes to keep the
+server alive.</p>
+</blockquote>
+<p>最后想了想，还是直接升级64位系统好了:</p>
+<blockquote><p>If possible, upgrade to 64-bit Linux.  This is the best solution because
+<em>all</em> memory becomes low memory.  If you run out of low memory in this
+case, then you're <em>really</em> out of memory. ;-)</p>
+</blockquote>
+<p>关于迁移到64位系统，照着<a href="https://wiki.archlinux.org/index.php/Migrating_Between_Architectures_Without_Reinstalling_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#.E6.96.B9.E6.B3.95_2:_.E4.BB.8E.E6.AD.A3.E5.9C.A8.E8.BF.90.E8.A1.8C.E7.9A.84.E7.B3.BB.E7.BB.9F">Archlinux Wiki</a>做：</p>
+<ol>
+<li><p>确认 CPU 支持64位，确认 <code>/var/cache/pacman/pkg</code> 空间足够。</p>
+</li>
+<li><p>保留旧软件包以备回退，并准备好32位的 busybox:</p>
+
+<pre><code> # pacman -Sw $(comm -23 &lt;(pacman -Qq) &lt;(pacman -Qmq))
+ # pacman -S busybox</code></pre>
+</li>
+<li><p>改变 pacman 架构:</p>
+
+<pre><code> # sed -i -e s/'Architecture = auto'/'Architecture = x86_64'/g /etc/pacman.conf #并确认 mirrorlist 中使用 $arch 而不是 i686 指定架构
+ # pacman -Syy</code></pre>
+</li>
+<li><p>下载新软件包:</p>
+
+<pre><code> # pacman -Sw $(pacman -Qq|sed '/^lib32-/ d')</code></pre>
+</li>
+<li><p>安装64位内核和32位glibc兼容:</p>
+
+<pre><code> # pacman -S linux
+ # pacman -Sf lib32-glibc</code></pre>
+<p>重启检查是否安装64位内核成功:</p>
+
+<pre><code> $ uname -m
+ x86_64</code></pre>
+<p>64位内核可以运行32位程序，因此系统看起来很正常。
+ 但是当更新 x86_64 仓库中的软件的时候会出问题，因此要将现有的软件都替换为64位版本。</p>
+</li>
+<li><p>安装64位pacman:</p>
+
+<pre><code> # pactree -l pacman | pacman -S -</code></pre>
+<div class="alert alert-danger">
+ <strong>注意这条命令执行完后整个系统就只有 bash、pacman 和 busybox 可以用了，下面的操作必须一气呵成不能中断！</strong>
+ </div><p>另外如果有人是对照这个文章/wiki原文进行迁移的，<em>请看完再动手!</em></p>
+</li>
+<li><p>安装其他软件包:</p>
+
+<pre><code> # pacman -S $(pacman -Qq)</code></pre>
+<p>在我这边这里出了意外，因为 <code>pacman -Qq</code> 会将 aur 里的软件包也列出来，这些在 <code>pacman -S</code> 的时候显然会引发找不到错误。
+ 于是我很正常的想用输出重定向到文件，然后编辑文件删掉多余包的办法——<em>然而现在vi已经不可用了</em>。
+ 我还看过 wiki 里关于 Arch64 的<a href="https://wiki.archlinux.org/index.php/Arch64_FAQ_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">FAQ</a>里面提到的一个<a href="https://bbs.archlinux.org/viewtopic.php?id=64485">帖子</a>，作者是这样做的:</p>
+
+<pre><code> # pacman -Qqe | grep -vx "$(pacman -Qqm)" &gt; /backup_dir/pacman.lst
+ # pacman -Qqm &gt; /backup_dir/aur.lst</code></pre>
+<p>然而不幸的是<em>grep现在也不能用</em>，所以我就用 busybox 代替 grep，发现 busybox 版的 grep 不支持 -x 参数……
+ (P.S.: 我当时竟然只想到了用 busybox 替代 grep，没想到用 busybox 替代 vi, 也没有想到用 <code>/lib/ld-linux.so.2</code> 执行，FML……)
+ 总之我也不知道我最后怎么得到了一个这样的 pacman.lst，总之得到了一个，于是我的杯具就是从这里上演的……因为这样得到的 <code>pacman.lst</code> 实际上是有问题的，</p>
+<div class="alert alert-danger">
+ <strong>FAQ 里引用的那文的作者是重新装 Arch 64 然后恢复原有软件，我现在是更新系统现有的全部软件包，这两个是有差别的。</strong>
+ </div><div class="alert alert-info">
+ 现在让我做的话，我会在步骤6之前就执行 <code>pacman -Qq | grep -vx "$(pacman -Qqm)" &gt; pacman.lst</code>, 然后这一步用 <code>pacman -S $(cat pacman.lst)</code>.
+ </div></li>
+<li><p>正常情况下这个时候重启就可以了。我因为上面所说的杯具，重启之后就 Kernel panic 了，
+ 提示 No init found，我一开始以为是 grub 配置错了，总之各种乱搞，最后发现 No init found 很有可能不是真的没有 init，而是 init 执行不起来……</p>
+<p>还好这个时候机器上还有个 Ubuntu 10.04 备用，试图 chroot，结果发现32位系统没法 chroot 到64位上……</p>
+<p>于是又赶紧下了一个64位的 ArchISO，grub 挂载进入 live 环境，chroot，发现 /usr/bin 下还有千余个32位程序，/usr/lib 下有万余个32位动态链接库(尽管算上了软链接)。
+ 然后试着 <code>pacman -S gtk</code>，终于发现问题，底下依赖的动态链接库还是32位的，所以装不上，再对比 pacman.lst，终于发现步骤7里强调的那段。
+ 于是这次我是有正常的 vi 和 grep 的(退出 chroot 就有)，重新安装一次，终于成功了……</p>
+<p>另外不得不说 chroot 太方便了，和直接进了那个系统一样。</p>
+</li>
+</ol>
+<p>重启后终于看到了 X，然后就是各种 yaourt，注意64位的 <code>/etc/makepkg.conf</code> 和原来有所不同，应对照 <code>/etc/makepkg.conf.pacnew</code> 修改，才能正常的用 yaourt 编译 aur 中的软件。</p>
+<p>flash 自动装好了，B站无压力。
+rvm 里的 ruby 要重新编译一遍。
+wine 抽搐了，我没有64位win7的dll，正打算回退到32位的wine上……</p>
+<p>总之这次迁移64位系统纠结了很久，结果发现是个好傻的问题，人生就是充满了233啊233……</p>
+<p>并特别感谢<a href="https://plus.google.com/106325773445721438941">朱晋玄</a>的帮助！</p>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/linux.html" class="label"><i class="icon-tag"></i>linux</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/arch.html" class="label"><i class="icon-tag"></i>arch</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

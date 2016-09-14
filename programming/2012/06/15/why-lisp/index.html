@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>为什么 Lisp 经久不衰 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>为什么 Lisp 经久不衰</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-06-15T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年06月15日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <div markdown="1" class="alert alert-danger">
+<strong><em>Warning:</em></strong>
+
+你将看到的是毫无价值的胡言乱语，现在按 Ctrl-W 还来得及！</div><hr>
+<div class="alert alert-warning">
+我警告过你了。</div><hr>
+<p><div id='toc-here'></div></p>
+<hr>
+<p>其实一开始想拟的题目是“为何程序员都应该了解 Lisp”，然后仔细考虑了一下：</p>
+<ol>
+<li><p>我不是程序员。实际上，我连码农都不是。更准确地，我没记得自己写过啥实际可用的东西。我唯一算能用的语言是 python.</p>
+</li>
+<li><p>我不了解 Lisp. 大三下半年听裘宗燕教授讲过一学期的 SICP，虽然<a rel="tooltip" title="大学的考试大家都懂的">成绩倒说的过去</a>，但实际上确实很多地方啪啪啪的就过去了，而且习题做的极少，我是很怀疑自己还记得多少真谛的。而且 SICP 是<a rel="tooltip" title="虽然现在改 python 了">以 Scheme 为工具</a>，以讲程序设计思想为主，并且<a rel="tooltip" title="如果不是这样，就更说明我没仔细看书了">刻意避开了宏</a>。除此之外，我对 Lisp 的理解基本都是因为兴趣无意中看到的各种文章。所以事实上，我的确是不了解 Lisp 的。</p>
+</li>
+<li><p>我甚至并没有打算继续深入 Lisp. 我认为 Lisp 是必须了解的程序语言之一，但我不认为必须要学会 Lisp，尽管如果我心血来潮可能会试着读一下 On Lisp. 我是说，心血来潮的话。</p>
+</li>
+</ol>
+<p>所以以自己的实力来说，写这样一篇文章显然是在胡说八道；
+而胡说八道放在公开的地方(虽然这里我不以为算太公开就是了……)等于立活靶子。
+不过我想，给将来的自己留点反思和笑料总是好的。
+上面说这么多废话的目的就是强调，这篇文章是为了给自己吐槽的。
+所以总之，别当真。</p>
+<p>附：下面主要使用 Scheme.</p>
+<hr>
+<h2>历史悠久的 Lisp</h2>
+<p>1958年诞生的 Lisp 是至今仍被人们广泛使用的高级语言中资历第二老的前辈(第一是1957年诞生的 Fortran)。
+它的设计者，今年刚逝世的人工智能之父 John McCarthy，最初是在一篇谈论计算理论的论文中设计了 Lisp，并仅仅将它当作一种计算模型.
+出乎 J. McCarthy 的意料，他的学生意识到这种理论模型完全可以实现为一个真正的程序语言，并真正实现了 Lisp 的编译器。</p>
+<p>Lisp 诞生的时代仍然是过程式语言的天下，在这种情况下横空而出的 Lisp 显得格外不可思议。
+超前许多的 Lisp 在近代对编程语言的影响愈发深远——if-then-else、递归、动态类型、垃圾收集、一类函数、惰性求值、闭包……
+实际上，很多优秀的近代语言都在追求用更让程序员习惯的语法来实现 Lisp 最常用的功能。
+最具有代表性的例子大概是 Ruby，Ruby 是如此的借鉴和接近 Lisp，以至于可以将 Ruby 视为一种包装了优美语法糖的裁剪过的 Lisp 方言——<a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/179642">MatzLisp</a>.</p>
+<p>但实话实说，Lisp 的思想虽然与当时的高级语言如此格格不入，其实也并不是一件特别值得惊奇的事情——因为 Lisp 一开始就不是为具体的一台机器设计的。
+<em>Lisp 并不是程序语言，而是数学模型。</em>
+而当时的其他程序语言并不是如此，它们是基于机器模型设计的。
+“程序语言是表达人的思想的，而不是表达机器的操作的”这样的想法，在当时硬件紧缺的时代并没有得到重视。
+J. McCarthy 一开始就超脱机器思考问题，是 Lisp 超前于同时代其他程序语言的关键。</p>
+<p>Lisp 的背后是数学，是递归论和 lambda 演算。
+一门程序语言能保持50余年的兴旺实属不易，而这样的事情对于数学来说反而并不奇怪。
+J. McCarthy 是在深刻理解<em>计算</em>的本质后设计的 Lisp 语言，它经久不衰是必然的。</p>
+<hr>
+<h2>简单优雅的 Lisp</h2>
+<p>假如评选世界上形式最简单易学的程序语言的话，Lisp 应该能排到前列——如果不是最前面的话。</p>
+<p>事实上，直到写这篇胡言乱语之时，我才意识到 Lisp 是我了解的第一门计算机语言。</p>
+<p>我小学五年级的时候曾经买过一本(实际上是上下两册)名为《数学游戏》的书，它是《科学美国人》杂志上有关数学部分的文章的集锦。
+在那本书上有很多关于计算机的内容，其中有连续若干篇(大概3篇，记不清了)文章介绍了 Lisp 语言，顺便示范了怎样求解阶乘和汉诺塔。
+那时连计算机什么样子都没见过的我不仅看的津津有味，而且还真的看懂了。
+考虑到我一向愚笨，这大概能说明 Lisp 有多简练。</p>
+<p>但为什么我一直没有意识到自己了解的第一门语言是 Lisp 而不是 Basic 或 Foxbase 呢？
+一个很好的理由是：那时对数学最感兴趣的我，根本没有把这门语言视为计算机语言，而确实地如那本书的标题所言，将其视为了一种“数学游戏”。
+数学追求的是简单优雅的至美(“我的工作总是努力将真与美统一起来；但是，如果只能选择其中之一，那么我选择美。”——H. Weyl)，对计算机毫无背景的我能从 Lisp 上嗅到这种味道。</p>
+<p>Lisp 使用 S-表达式来存储代码和数据。
+不严格地说，S-表达式就是符号或者符号/S-表达式的列表(用括号包起来并用空格分开每个元素)罢了。基本上只要见过 Lisp 程序的人都能读——这里是说能读出层次，而不是读出含义。</p>
+<p>而在 S-表达式之上，我们只需要定义：</p>
+<ol>
+<li>atom, eq: 对原子符号的判断;</li>
+<li>car, cdr, cons: 对 S-表达式的操作;</li>
+<li>quote: 对数据的标记;</li>
+<li>cond: 条件判断;</li>
+<li>lambda, label: 对函数的构建和标记。</li>
+</ol>
+<p>就能实现一个最基本的 Lisp 解释器了。
+SICP 中就用 Scheme 实现了一个 Scheme 解释器。
+实际上，在很多近代高级语言中，实现一个最最基本的 Lisp 解释器都不必花太多精力。</p>
+<p>然而，设计简单并不意味着能力弱。
+我们知道，即使是一个只能做加一减一和条件跳转的计算系统也可以是图灵完备的。
+Lisp 不仅是图灵完备的，而且还能很容易的实现自己。
+而对比图灵机模型，实现通用图灵机却相当艰辛。
+那是因为通用图灵机将图灵机视为数字，然后大量工作都在对这个数字做 parse；
+而 Lisp 告诉我们，只要代码和数据都使用同一个模型同一套处理方法，做这些事情易如反掌。
+Lisp 的简单优雅由此可见一斑。</p>
+<hr>
+<h2>没有语法的 Lisp</h2>
+<p>见过的对 Lisp 的抱怨中最常见的就是“Lisp 的语法咋这么别扭呢”、“那堆括号不会觉得密集恐惧症么”等等。
+但实际上，我们通常认为 <em>Lisp 是弱语法的</em>，或者可以更通俗地直接当作没有语法的。</p>
+<p>关于 Lisp “语法”的意见，一方面是关于 S-表达式的括号的意见，一方面是关于 S-表达式的前缀表示法的意见——简单地说，都是关于 S-表达式的意见。</p>
+<p>但是事实上，S-表达式与其说是 Lisp 程序的<em>语法</em>，不如说是 Lisp 程序的<em>存储格式</em>。</p>
+<p>我们对比一下，
+大多数程序语言使用纯文本保存源代码，
+而来自数学的 Lisp 本来就使用 S-表达式 表示源代码，只是我们不得不再次将其转换为纯文本进行读写罢了。
+J. McCarthy 一开始关心的就是计算本身，设计的本来就是一种抽象模型，根本就没有考虑过 parse 的事情。
+就像 RDF，它本来也只是一个关系模型而已，只是恰好选择了用 XML 表示而已。
+它完全可以用其他方式表示，只是可读性的差别罢了。
+Lisp 也是类似的。</p>
+<p>事实上，Lisp 和 XML 之间有很清晰的关系。
+<a href="http://www.defmacro.org/ramblings/lisp.html">这篇</a>介绍 Lisp 的文章(很容易找到中文版)一开始就从 XML 入手，然后告诉大家 XML 和 S-表达式本质上是很接近的。
+纯文本格式通常描述平坦结构，基于纯文本的 XML 和 S-表达式表达的则是一种层次结构。
+只是 XML 更侧重于数据，而 S-表达式既可能是数据，也可能是代码——考虑到语法总是用来表达语义的，而单纯的一个 S-表达式你根本无从判断它是代码还是数据，所以将 S-表达式视为存储格式而非语法是恰当的。</p>
+<hr>
+<p>现在站在 S-表达式的层面上来看 Lisp 的语法，那么 Lisp 的语法只剩下前面构造 Lisp 使用的几个关键词(各种方言有自己的扩展所以还有更多的一些词)。
+但是通过 Lisp 的宏，你甚至可以重定义其中的一些关键词。
+所以 Lisp 的语法是非常弱的。
+如果经常在宏上工作，你甚至意识不到 Lisp 语法的存在。</p>
+<p>S-表达式实际上相当于一棵被解析过的语法树。
+更进一步，我们考虑任意一种编译语言(解释语言等其实也是类似的，这里为了方便而已)：</p>
+<ol>
+<li><p>S-表达式可以用来表示<em>任何</em>语言的语法树；</p>
+</li>
+<li><p>一个编译器(的后端)将代码树翻译为机器代码，这个过程是可计算的——显然，否则这个编译器就无法实现；</p>
+</li>
+<li><p>这个翻译过程可以用 Lisp 实现，因为 Lisp 是图灵完备的。</p>
+</li>
+</ol>
+<p>这意味着：你可以将任何语言的语法树不加修改的直接传递给 Lisp，而 Lisp 自然的视之为数据进行处理，翻译为 Lisp 代码执行。
+更进一步的：</p>
+<p>4.这个翻译过程可以用 Lisp 的宏实现。</p>
+<p>这就意味着，你甚至不需要将这棵语法树当作数据处理，<em>直接当作代码执行</em>都是可行的。
+所以说，Lisp <em>没有语法</em>，它天然是构建 DSL 的终极武器。</p>
+<p>对于其他语言来讲，构建元语言的步骤也是类似的。
+我们拿以元编程能力为豪的 Ruby 为例(再次提醒，Ruby 继承了 80% 的 Lisp)。
+Ruby 可以使用<em>自己的语法</em>构建一套外表非常漂亮的 DSL.
+但是问题就在于，你<em>只能</em>使用 Ruby 的语法——无论它看起来多么赏心悦目，它还是 Ruby 的那套语法。
+关键点是，只能使用固定的语法实际上也就意味着只能表达固定语法所能表达的语义。</p>
+<p>比如说在没有 Until 的 Python 中，如果需要添加能表达 Until 语义的关键词，就不得不修改 Python 的语法。
+在 Ruby 中，如果我们假设 Ruby 删掉了 Until，那么可以通过 Block 显得优雅的实现它。它是基于 Block 的特性实现的。
+这也就意味着 Block 的局限也会限制这种语法的表达。我们再看另一个例子。</p>
+<p>我们试着构造一个 or 函数，它的含义正如其名。
+我们希望 <code>or(False, True, 1 + 0) = True</code>.
+这很容易，大多数高级语言都可以完成。</p>
+<p>好，现在我们希望这个 or 具有短路求值的功效，
+即 <code>or(False, True, 1/0) = True</code> 而不是出错。
+这意味着我们要对每个参数进行惰性求值。
+如果语言没有内置惰性求值，我们就不得不自己实现它，但这往往会破坏代码的外观。</p>
+<p>简单起见，拿 Ruby 为例，在 Ruby 中我能想到的最好的实现方法是：</p>
+<p>提醒：我的 Ruby 和 Scheme 水平堪忧。
+{:.alert .alert-warning}</p>
+<ol>
+<li>自己实现一个惰性求值函数 lazy，它接受一个 Block 并将其保存下来(P.S.: Scheme 的标准文档中提供了一个 lazy 的宏实现，也可以与这里做对比，但我想没这个例子这么突出，因为 Block 确实是一个很漂亮的语法形式);</li>
+<li>对 or 的每个参数用 lazy 和 Block 包装起来——为什么不能直接把每个参数用 Block 包装起来然后 or 保存下来惰性求值？因为 Ruby 只能显示地接受单个 Block。通过保存 Block 为 Proc 可以存储多个 Block——而这正是 lazy 函数做的事情。</li>
+</ol>
+<p>所以用 Ruby 实现的话，最终短路求值的 or 将被写成(暂且不提 lazy 的实现)：</p>
+<div class="highlight"><pre><span></span><span class="n">or_new</span><span class="p">(</span><span class="n">lazy</span><span class="p">{</span><span class="kp">false</span><span class="p">},</span> <span class="n">lazy</span><span class="p">{</span><span class="kp">true</span><span class="p">},</span> <span class="n">lazy</span><span class="p">{</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">})</span>
+</pre></div>
+<p>(Ruby 中 or 是关键字且不能更改，这里改叫 or_new)</p>
+<p>很明显的，Ruby 的语法限制了表达能力。</p>
+<p>来看一下无语法的 Lisp. 我们只需要把上面那句话的翻译成 S-表达式表示的语法树(scheme 中已经有 or 了，所以这里叫做 or-new 避免混淆，但你仍然可以直接定义成 or)：</p>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">or-new</span> <span class="no">#f</span> <span class="no">#t</span> <span class="p">(</span><span class="nb">/ </span><span class="mi">1</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+<p>然后想想怎么定义 or 宏：</p>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define-syntax </span><span class="nv">or-new</span>
+  <span class="p">(</span><span class="k">syntax-rules </span><span class="p">()</span>
+    <span class="p">((</span><span class="nf">or-new</span> <span class="nv">exp1</span><span class="p">)</span> <span class="nv">exp1</span><span class="p">)</span>
+    <span class="p">((</span><span class="nf">or-new</span> <span class="nv">exp1</span> <span class="nv">exp2</span> <span class="o">...</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">if </span><span class="nv">exp1</span>
+          <span class="no">#t</span>
+          <span class="p">(</span><span class="nf">or-new</span> <span class="nv">exp2</span> <span class="o">...</span><span class="p">)))))</span>
+</pre></div>
+<p>It works!</p>
+<p>更进一步，你甚至可以用 Lisp 写出这样的东西然后拿宏去解析它：</p>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">sql</span> <span class="nv">select</span> <span class="nv">count</span> <span class="p">(</span> <span class="nv">*</span> <span class="p">)</span>
+            <span class="nv">from</span> <span class="nv">some-table</span>
+            <span class="nv">where</span> <span class="nv">column1</span> <span class="nv">=</span> <span class="s">&quot;Yes&quot;</span>
+            <span class="k">and </span><span class="nv">column2</span> <span class="nv">like</span> <span class="s">&quot;some%string%&quot;</span><span class="p">)</span>
+</pre></div>
+<p>或者甚至用 <code>sqrt(x) = 3</code> 来表示 <code>x</code> 的值为 9，这在其他语言中简直<a href="http://lists.warhead.org.uk/pipermail/iwe/2005-July/000130.html">匪夷所思</a>。</p>
+<p>记住：Lisp 中没有任何语法限制框住你，因为 Lisp 只有一种语法——那就是没有语法！</p>
+<hr>
+<h2>擅长抽象的 Lisp</h2>
+<p>一个语言(不仅是程序语言，也包括自然语言)的表达能力体现在很多方面。
+而表达能力中最重要的一点是<em>抽象能力</em>。</p>
+<p>所谓语言的抽象能力，就是表示从一类问题和模式中挖掘出的本质的能力。
+一方面，要有能表示的能力；另一方面，要表示的足够清晰简洁。
+汇编语言的抽象能力是很低的，因为它下放的层次太低，过于接近机器而远离人类的思维。
+假如我们一直在使用汇编语言来编写程序，难以想象现在这些面向对象、异常处理等思想会从中诞生，因为我们大多数时间都会在细节的泥沼中挣扎。
+一个人使用的程序语言的抽象能力，实际上影响了他思考问题的方式。</p>
+<p>Lisp 中一切都是 S-表达式，因此一切都是平等的，无论是原子、列表、函数、过程，甚至宏。</p>
+<p>在 Lisp 中，函数与一般的列表没有什么区别，它可以被当作函数的参数，可以被当作返回值，可以赋值为变量，可以存储到数据结构中，这被称作是“一类函数”。
+这在一些语言中难以实现也难以理解。
+在 C 中，一类函数实际上是函数指针，但是 C 中代码与数据界线分明，很多人理解函数指针、理解回调的时候都会感到这是一个很大的槛。
+而在 Lisp 中这却自然到不能再自然——函数也是个 S-表达式，与一般的表达式没什么区别，仅此而已。</p>
+<p>Lisp 的闭包也是自然的，它实际上是一个来自数学和逻辑的概念。
+拿一个 Python 程序为例：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">return</span> <span class="n">g</span>
+</pre></div>
+<p>我们执行 <code>h = f(1)</code>，它返回一个函数，这个函数是</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+<p>看到问题了吗？这里 <code>x</code> 取什么值根本不知道，这种变元即为自由变元，这样的函数返回了也无法求值。</p>
+<p>所以我们把“ <code>x</code> 的值是 1 ”这件事情也悄悄地绑在返回的函数上，把自由变元封闭成约束变元，这个函数将来就可以正常求值了，这种把自由变元也闭合起来的函数就是(静态作用域的)闭包。</p>
+<p>当然 Python 的闭包实际上与真正的闭包还有一些差距，与它的对象可变性有关。
+Anyway, 这种时候还是让 Java 程序员们对闭包纠结和争执去吧。
+如果语言没有这种抽象能力，使用语言的时候自然也不会用这种方式思考，自然也不会觉得这种能力有用了。</p>
+<hr>
+<p>除了抽象函数之外，我们还可以抽象过程。
+在 Lisp 中常被称作 call/cc，即 call-with-current-continuation, scheme 要求实现的功能之一，在部分没有内置支持的 Lisp 中可以直接用宏实现出来。</p>
+<p>call/cc 将当前的执行过程抽象为一个符号，然后传给一个函数计算。
+简单地说，程序执行过程实际上就是当前位于代码中的哪个位置，加上当前的环境状况而以。而执行程序的时候，就是位置的改变和环境的改变。
+如果我们允许函数自己保存或修改这些参数，决定下一步执行哪里，就可以随意控制程序的执行过程了。
+这就意味着，虽然在 Lisp 中没有循环、没有异常处理、没有 break、没有 return……等等各种控制结构，这都没有关系，我们都可以用 call/cc 来抽象并实现它。</p>
+<hr>
+<p>宏实际上就是一种转换固定代码模式的能力，它能抽象出程序的组织方式，并且用最简单和自然的方式表达出来。
+对应到数学中，这实际上就是我们在证明定理时做的符号变换和指代。</p>
+<p>程序的组织方式中最经典的例子是设计模式。
+有些设计模式是好的被经验所验证的思考问题的方式，而更多的设计模式实际上是程序语言抽象能力缺陷的体现——一种代码组合经常以类似的方式出现，程序语言却没有能力把它抽象成更简单的形式，不得不 Repeat Yourself，进而就变成了设计模式。</p>
+<p>当然，宏是一个大杀器。
+所谓能力越大责任越大，使用宏的第一原则就是<em>不要使用它</em>。</p>
+<p>当然不是说 Lisp 的宏本身有很大的危险。
+和 C 的宏不同，Lisp 的宏非常安全，一方面它直接基于语法树，而不是 C 这样经过一次 parse，所以不会像 C 那样因为缺少括号等问题导致混淆；另一方面，卫生宏的存在也使得宏替换的安全性有理论保证。
+在很多语言中，代码动态转换是非常危险的，只有 Lisp 除外。</p>
+<p>宏就像一把屠龙刀，很多时候能用一类函数解决的问题就不应该使用宏，而这种情况往往占了大多数。
+但是不要忘了，程序设计中的龙可不少——龙书的封面就是例子。
+如果只知道一类函数而不知道宏，就容易在面对龙的时候缺乏灵活性。
+就好像面对火龙只知道用剑，却没有注意到它的头顶有一块摇摇欲坠的巨石一样。</p>
+<hr>
+<p>更多的现代程序语言在更适合纯文本的表述与抽象能力之间进行折衷，即追求形式美与表达力的结合。</p>
+<p>形式美是多种多样的，
+追求精炼的喜欢 Perl，
+追求清晰的喜欢 Python，
+追求灵动的喜欢 Ruby……
+这些都是程序语言的“形”，它们哪种更美因人而异，并没有哪个具有真正意义上的绝对优势。</p>
+<p>而它们的表达能力却都逐渐向 Lisp 靠拢。
+例如 Ruby 的 Block，实际上是对一种最常见的介于一类函数和宏模式之间的抽象——这种宏不对传进的代码做处理，与一般的闭包差距也只有很小的一点(主要原因是 Block 中默认不是 Local Variable，以及同时打包了部分控制流)。
+松本行弘也在他的书中说道，Ruby 引入块就是为了高阶函数，而高阶函数中大部分是只有一个函数参数的，于是他便将这种最常用的形式用更美观的方式包装成了 Block.
+只是受限于其纯文本的语法，不得不受到了限制，一方面是数量限制，另一方面是一定要显示地标记为块结构，而不能像宏那样不留痕迹，同样还有运行开销的问题。</p>
+<p>当一门语言的设计逐渐不以机器为主导而以人的思维为指导时，
+这门语言就愈发接近计算的本质——而 Lisp 本来就是以此为指导思想设计的语言。</p>
+<p>Lisp 彻底超脱了 plain text，通过 S-表达式与宏来实现了二者的统一。
+Lisp 通过丢弃程序语言的“形”，来真正展现程序语言的“神”。
+站在抽象表达能力顶端的 Lisp 对于现代程序语言来说是一座早就确立的灯塔，自然不会轻易衰落。</p>
+<hr>
+<h2>无处不在的 Lisp</h2>
+<p>一种程序语言的兴起往往与很多语言之外的因素相关，比如它首先依托的项目，它得到的经济支持，早期关注者的影响力，杀手级的应用，是否恰好顺应了当时机器的发展与程序员的思维水平，库的丰富程度等等。
+然而 Lisp 与其它语言不同，它比起一门程序语言，更应该视为一种数学模型和一种思想。
+Lisp 和它的思想不会消亡，只会更加广泛地融入到各种现代程序语言中。
+试着去体会 Lisp 的精髓，对程序与计算的思考会更加深刻。</p>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/programming.html" class="label"><i class="icon-tag"></i>programming</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ruby.html" class="label"><i class="icon-tag"></i>ruby</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/lisp.html" class="label"><i class="icon-tag"></i>lisp</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>工具 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li class="active"><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>工具</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<div id="tabcontent-wrapper">
+<h2 id="_1">程序</h2>
+<h3 class="hide" id="_2">前端</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference">JSRef</a></li>
+<li><a href="http://jsfiddle.net">JsFiddle</a></li>
+<li><a href="http://runjs.cn/">RunJS</a></li>
+<li><a href="http://browsershots.org/">Browser Shots</a></li>
+<li><a href="javascript:(function(){document.body.appendChild(document.createElement('script')">Jash</a>.src='http://www.billyreisinger.com/jash/source/latest/Jash.js';})(); "js终端调试器")</li>
+<li><a href="http://haslayout.net/css/" title="IE快来战个痛">HasLayout</a></li>
+<li><a href="http://www.virtuosimedia.com/dev/css/ultimate-ie6-cheatsheet-how-to-fix-25-internet-explorer-6-bugs" title="IE6 itself is a bug">IE6 Cheatsheet</a></li>
+<li><a href="http://www.lipsum.com/">Lorem Ipsum</a></li>
+<li><a href="http://api.jquery.com/">jQuery API</a></li>
+<li><a href="http://dart.lidian.info/">DartWiki</a></li>
+<li><a href="http://www.w3cfuns.com">W3CFuns</a></li>
+<li><a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">HowBrowsersWorks</a> <a href="http://blog.jobbole.com/12749/">中文版</a></li>
+<li><a href="http://www.lavishbootstrap.com/">LavishBootstrap</a></li>
+<li><a href="http://timeline.verite.co/examples/user-interface/">Timeline Example</a></li>
+<li><a href="http://jetstrap.com/">JetStrap</a></li>
+</ul>
+<h3 class="hide" id="w3school"><a href="http://www.w3school.com.cn">W3School</a></h3>
+<ul>
+<li><a href="http://www.w3school.com.cn/js/">js</a></li>
+<li><a href="http://www.w3school.com.cn/js/jsref_obj_string.asp">jsref</a></li>
+<li><a href="http://www.w3school.com.cn/jquery/jquery_ref_manipulation.asp">jQuery</a></li>
+<li><a href="http://www.w3school.com.cn/php/php_ref_string.asp">php</a></li>
+<li><a href="http://www.w3school.com.cn/sql/sql_quickref.asp">SQL</a></li>
+<li><a href="http://www.w3school.com.cn/css/css_classification.asp">css</a></li>
+</ul>
+<h3 class="hide" id="_3">工具</h3>
+<ul>
+<li><a href="http://chaous.com/markdown/">Markdown Editor</a></li>
+<li><a href="http://rishida.net/tools/conversion">Unicode Converter</a></li>
+<li><a href="http://codepad.org">Codepad</a></li>
+<li><a href="http://ideone.com">IDEOne</a></li>
+<li><a href="http://compilr.com/">Compilr</a></li>
+<li><a href="http://people.csail.mit.edu/pgbovine/python/">Online Python Tutor</a></li>
+<li><a href="http://myv.im">Online VIM</a></li>
+<li><a href="https://gitcafe.com/">GitCafe</a></li>
+<li><a href="https://www.gitshell.com/">GitShell</a></li>
+<li><a href="http://pyjaco.org/demo">Pyjaco</a></li>
+<li><a href="http://rubyfiddle.com/">RubyFiddle</a></li>
+</ul>
+<h3 id="blog">blog</h3>
+<ul>
+<li><a href="http://norvig.com">norvig</a></li>
+<li><a href="http://blog.codingnow.com">云风</a></li>
+<li><a href="http://weibo.com/2388714105">云风微博</a></li>
+<li><a href="http://rednaxelafx.javaeye.com">rednaxelafx</a></li>
+</ul>
+<h3 class="hide" id="_4">书.教程</h3>
+<ul>
+<li><a href="http://progit.org/book/zh/">ProGit</a></li>
+<li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book</a></li>
+<li><a href="http://c2.com/cgi/wiki?FindPage">C2Wiki</a></li>
+<li><a href="http://kramdown.rubyforge.org/syntax.html">Kramdown Syntax</a></li>
+<li><a href="http://learncodethehardway.org/">Learn Code The Hard Way</a></li>
+<li><a href="http://woodpecker.org.cn/diveintopython3/">DiveIntoPython3</a></li>
+<li><a href="http://python3porting.com/bookindex.html">Python3Porting</a></li>
+<li><a href="http://wiki.woodpecker.org.cn/moin/">啄木鸟</a></li>
+<li><a href="http://tkinter.unpythonic.net/wiki/">Tkinter wiki</a></li>
+<li><a href="http://www.ituring.com.cn/">图灵社区</a></li>
+<li><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a></li>
+<li><a href="http://www.cn-cuckoo.com/deconstructed/">JS库解构</a></li>
+<li><a href="http://www.haskell.org/tutorial/">Haskell Tutorial</a></li>
+<li><a href="https://rwh.readthedocs.org/en/latest/index.html">Real World Haskell(zh)</a></li>
+<li><a href="http://learnyouahaskell-zh-tw.csie.org/zh-cn/chapters.html">Haskell 趣学指南</a></li>
+<li><a href="http://twitter.github.io/effectivescala/index-cn.html">Effective Scala</a></li>
+<li><a href="http://jfine.bitbucket.org/docs/js4py/">JavaScript for Pythoner</a></li>
+</ul>
+<h3 id="_5">程序语言</h3>
+<ul>
+<li><a href="http://compilers.pydata.org/">CPython Compilers</a></li>
+<li><a href="http://www.pltgames.com/">PLT Games</a></li>
+<li><a href="http://esolangs.org/wiki/Main_Page">Esolang</a></li>
+<li><a href="http://www.codecodex.com/wiki/Main_Page">CodeCodex</a></li>
+<li><a href="http://rosettacode.org/wiki/Rosetta_Code">RosettaCode</a></li>
+</ul>
+<h3 class="hide" id="lisp">Lisp</h3>
+<ul>
+<li><a href="http://lisp.org.cn/wiki/">Lisp 中文维基</a></li>
+<li><a href="http://community.schemewiki.org/">Schemewiki</a></li>
+<li><a href="http://www.newlisp.org/index.cgi?Documentation">Documention</a></li>
+<li><a href="http://newlispfanclub.alh.net/forum/">Forum</a></li>
+<li><a href="http://www.newlisp.org/downloads/manual_frame.html">Manual</a></li>
+<li><a href="http://www.newlisp.org/CodePatterns-cn.html">CodePattern</a></li>
+<li><a href="http://en.wikibooks.org/wiki/Introduction_to_newLISP">Introduction to newLISP</a></li>
+<li><a href="http://www.newlisp.org/MemoryManagement.html">MemoryManagement</a></li>
+<li><a href="http://www.rundragonfly.com/">DragonFly</a></li>
+<li><a href="http://my.opera.com/freewinger/blog/">Winger(黄登)</a></li>
+</ul>
+<hr />
+<h2 id="_6">移植</h2>
+<h3 id="onscripter">ONScripter</h3>
+<ul>
+<li><a href="http://onscripter.sourceforge.jp/onscripter.html">ONScripter</a></li>
+<li><a href="http://onscripter.sourceforge.jp/android/">ONScripter-Android</a></li>
+<li><a href="http://unclemion.com/onscripter/">Uncle Mion</a></li>
+<li><a href="http://blog.163.com/john_he_/">JohnHE</a></li>
+<li><a href="http://www.rpgchina.net/read-htm-tid-26878.html">JohnHE's work</a></li>
+<li><a href="http://code.google.com/p/onscripter/">ACGF-ONScripter</a></li>
+<li><a href="http://www.kaede-software.com/">KrJava</a></li>
+</ul>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://nscripter.insani.org/reference/">Ref-EN</a></li>
+<li><a href="http://senzogawa.s90.xrea.com/reference/NScrAPI.html">NScrAPI-JP</a></li>
+<li><a href="http://unclemion.com/onscripter/api/NScrAPI.html">NScrAPI-EN</a></li>
+<li><a href="http://code.google.com/p/kr2doc-cn/">Kr2Doc-cn</a></li>
+</ul>
+<h3 class="hide" id="japanese-works">Japanese Works</h3>
+<ul>
+<li><a href="http://harupspgame.blog64.fc2.com/">Haru PSP Game</a></li>
+<li><a href="http://briefcase.yahoo.co.jp/bc/qmbqmbqm/lst?.dir=/">Haru Files</a></li>
+<li><a href="http://savaiv.blog81.fc2.com/">Savaiv</a></li>
+<li><a href="http://nanajigen.mad.buttobi.net">七次元</a></li>
+<li><a href="http://ameblo.jp/mdash/theme-10007280942.html">mdash</a></li>
+<li><a href="http://izuno.blog22.fc2.com/blog-entry-168.html">izuno</a></li>
+</ul>
+<h3 class="hide" id="sites">Sites</h3>
+<ul>
+<li><a href="http://tlwiki.org">TLWiki</a></li>
+<li><a href="https://haibara4cgrip.wordpress.com/">Haibara</a></li>
+<li><a href="http://asmodean.reverse.net/pages/tools_index.html">Asmodean</a></li>
+<li><a href="http://anime.geocities.jp/notazsite1/soft/index.html">notaエロゲ研究室</a></li>
+<li><a href="https://www.yukict.com/bbs/forumdisplay.php?fid=69">飞雪crass版</a></li>
+<li><a href="http://www.yayabo.cn/">掌家</a></li>
+<li><a href="http://www.iacger.com">萌动</a></li>
+<li><a href="http://vndb.org">Vndb</a></li>
+<li><a href="http://www.libsdl.org/">SDL</a></li>
+<li><a href="http://recrit.game-ss.com/">Recrit</a></li>
+<li><a href="http://user.gamez.com.tw/forum-477-1.html">铁傲</a></li>
+<li><a href="http://konachan.com/">Konachan</a></li>
+</ul>
+<h3 class="hide" id="friends">Friends</h3>
+<ul>
+<li><a href="http://www.bakerist.info/">Bakerist</a></li>
+<li><a href="http://icemaple.info/">冰枫</a></li>
+<li><a href="http://ori0n.co.de/">Orion</a></li>
+<li><a href="http://kobato.us/">小鸠</a></li>
+<li><a href="http://hi.baidu.com/new/toktc">Toktc</a></li>
+<li><a href="http://kidgal.blog.163.com/">Kidgal</a></li>
+<li><a href="http://rof.blog.lc/">ROF</a></li>
+</ul>
+<h3 class="hide" id="tools">Tools</h3>
+<ul>
+<li><a href="http://wks.arai-kibou.ru/animed.php?p=compat">AnimeED</a></li>
+<li><a href="http://vn.i-forge.net/tools/">VNTools</a></li>
+<li><a href="http://www.renpy.org/">Renpy</a></li>
+<li><a href="http://kikyou.info/tvp/">Kr</a></li>
+<li><a href="http://wks.arai-kibou.ru/ae.php">WinKillerStudio</a></li>
+<li><a href="http://dev.haeleth.net/rldev.shtml">RLdev</a></li>
+<li><a href="http://www.elliotglaysher.org/rlvm/contributing.html">RLvm</a></li>
+<li><a href="http://studiomikan.net/kas/">KAS</a></li>
+<li><a href="http://www.ies-net.com/?page_id=24">Artemis</a></li>
+<li><a href="http://hi.baidu.com/wen11panic/blog/category/reinforcezwei%20pc%BB%F2psp%B6%CBavg32%D2%FD%C7%E6">Reinforce</a></li>
+</ul>
+<hr />
+<h2 id="_7">游戏</h2>
+<h3 class="hide" id="_8">同人</h3>
+<ul>
+<li><a href="http://chii.in/index/566">国产同人整理</a></li>
+<li><a href="http://kcddp.keyfc.net/bbs/">KCDDP</a></li>
+<li><a href="http://www.doujingame.cn/">CAC</a></li>
+<li><a href="http://bbs.doujingame.cn/forum.php">CAC BBS</a></li>
+<li><a href="http://onlinegalgame.com/">online galgame</a></li>
+<li><a href="http://nvlmaker.codeplex.com/">NVL</a></li>
+<li><a href="http://gamediy.net">无双</a></li>
+<li><a href="http://www.gaooo.net/">gaooo</a></li>
+<li><a href="http://www.nvlmaker.net/material.html">素材 by NVLMaker</a></li>
+<li><a href="http://k-project.kevinblog.net/">K-project</a></li>
+</ul>
+<h3 id="yb">YB</h3>
+<ul>
+<li><a href="http://www.youth-bloom.cn/">Youth Bloom</a></li>
+<li><a href="http://weibo.com/youthbloom">YB 微博</a></li>
+<li><a href="http://blog.sina.com.cn/bloomworks">YB Blog</a></li>
+<li><a href="http://hi.baidu.com/uu22">U2</a></li>
+<li><a href="http://weibo.com/yukihuri">雪降微博</a></li>
+<li><a href="http://blog.sina.com.cn/u/1447214807">尸体</a></li>
+<li><a href="http://blog.sina.com.cn/u/1503415752">王少则</a></li>
+</ul>
+<h3 id="_9">团体</h3>
+<ul>
+<li><a href="http://blog.sina.com.cn/sptime">sptime</a></li>
+<li><a href="http://blog.sina.com.cn/u/1451957597" title="刻痕">冰璃</a></li>
+<li><a href="http://angelsblue.cn/" title="刻痕">蓝天使</a></li>
+<li><a href="http://www.xyygame.net/">星月夜</a></li>
+<li><a href="http://www.teamlock.net/">TeamLock</a></li>
+<li><a href="http://www.gamemastercn.com/">GameMaster</a></li>
+<li><a href="http://moria-game.com/zh/main/">Moria</a></li>
+<li><a href="http://melodyofiris.com">虹色旋律</a></li>
+</ul>
+<h3 class="hide" id="hsp">HSP</h3>
+<ul>
+<li><a href="http://hsp.tv/">HSP</a></li>
+<li><a href="http://dev.onionsoft.net/trac/">OpenHSP</a></li>
+<li><a href="http://lhsp.s206.xrea.com/index.en.html">BasicHelp</a></li>
+<li><a href="http://peppermint.jp/products/hsp/">OpenHSPNDS</a></li>
+<li><a href="http://hspdev-wiki.net/?OpenHSP%2FLinux">OpenHSPwiki</a></li>
+</ul>
+<h3 class="hide" id="_10">其他</h3>
+<ul>
+<li><a href="http://wfunion.net/UM-forum/index.php">不沉之月</a></li>
+<li><a href="http://www.palx.org/">仙剑技术论坛</a></li>
+<li><a href="http://bbs.seikuu.com/index.php">星空</a></li>
+<li><a href="http://www.joyoland.com/bbs/forum.php">欢乐百世</a></li>
+<li><a href="http://www.vsgame.com.cn/bbs/index.php">天下格斗同人堂</a></li>
+<li><a href="http://bbs.kidfanschannel.net/discuz/forum.php">KFC</a></li>
+<li><a href="http://weibo.com/kidsfc">KFC 微博</a></li>
+<li><a href="http://game.ali213.net/forum-255-1.html">游侠实况</a></li>
+<li><a href="http://bbs.acgfuture.com/forum.php">ACGF</a></li>
+<li><a href="http://ayuanx.webs.com/">AyuanX</a></li>
+</ul>
+<hr />
+<h2 id="_11">学术</h2>
+<ul>
+<li><a href="http://scholar.google.com">Google Scholar</a></li>
+<li><a href="http://www.lib.pku.edu.cn">图书馆</a></li>
+<li><a href="http://www.wikipedia.org/">Wikipedia</a></li>
+<li><a href="http://g.wanfangdata.com.cn/">万方</a></li>
+<li><a href="http://www.cnki.net/">中国知网</a></li>
+<li><a href="http://www.nlc.gov.cn/">国家图书馆</a></li>
+<li><a href="http://plato.stanford.edu/">SEP</a></li>
+<li><a href="http://zh.numberempire.com/">数学工具</a></li>
+<li><a href="http://www.wikicfp.com/cfp/">CallForPaper</a></li>
+<li><a href="http://llcc.pku.edu.cn/llcc/">北大语言逻辑认知计算跨学科论坛</a></li>
+<li><a href="http://www.gutenberg.org/wiki/Main_Page">Project Gutenberg: eBooks</a></li>
+<li><a href="http://www.wdl.org/zh/">数字图书馆</a></li>
+<li><a href="http://webdemo.visionobjects.com/equation.html?locale=zh_CN">Web Equation</a></li>
+<li><a href="http://detexify.kirelabs.org/classify.html">Detexify</a></li>
+</ul>
+<h3 id="logic">Logic</h3>
+<ul>
+<li><a href="http://www.is.pku.edu.cn/~lz/cindex.html">Boss</a></li>
+<li><a href="http://www.cis.temple.edu/~wangp/">Pei Wang</a></li>
+<li><a href="http://www.phil.pku.edu.cn/personal/wangyj/index.html">Wang YJ</a></li>
+</ul>
+<hr />
+<h2 id="_12">其他</h2>
+<h3 id="acg">ACG</h3>
+<ul>
+<li><a href="http://wiki.nanohas.com/">NanohaWiki</a></li>
+<li><a href="http://www.ls-zone.cn/SupportUrl.html">在线动漫地址</a></li>
+<li><a href="http://hloli.net/hoi">Hoi</a></li>
+<li><a href="http://hloli.appspot.com/mangasearch">漫画搜索</a></li>
+<li><a href="http://kukubird.sinaapp.com/">酷酷鸟</a></li>
+<li><a href="https://www.google.com/cse/home?cx=002948535609514911011:ls5mhwb6sqa&amp;hl=zh-CN">漫画自定义搜索</a></li>
+<li><a href="http://www.kcjc.net/">四散的尘埃</a></li>
+<li><a href="http://www.lightnovel.cn/forum-194-1.html">轻国epub</a></li>
+</ul>
+<h3 id="ac100">AC100</h3>
+<ul>
+<li><a href="http://bbs.gfan.com/android-1091641-1-1.html">炮神</a></li>
+<li><a href="https://wiki.ubuntu.com/ARM/TEGRA/AC100">Ubuntu Wiki</a></li>
+<li><a href="http://ac100.grandou.net/">Wiki</a></li>
+<li><a href="http://ac100.gudinna.com/README/">Ubuntu 10.10 on AC100</a></li>
+<li><a href="http://www.cslog.cn/Content/toshiba-ac100-ubuntu/">船长日志</a></li>
+</ul>
+<h3 id="_13">娱乐</h3>
+<ul>
+<li><a href="http://nyanit.com/">Nyanit</a></li>
+<li><a href="http://us.akinator.com">猜人</a></li>
+<li><a href="http://you.0w0.ca/marisa/">白丝魔理沙</a></li>
+<li><a href="http://code.google.com/p/grass-mud-horse/">草泥马语</a></li>
+</ul>
+<h3 id="_14">其他工具</h3>
+<ul>
+<li><a href="http://arm.konnichi.com/">Arch Rollback Machine</a></li>
+<li><a href="http://www.avivadirectory.com/bethebot/">Be the bot</a></li>
+<li><a href="http://howsecureismypassword.net/">HowSecureIsMyPassword</a></li>
+<li><a href="http://fanghexie.sinaapp.com/">网络发言HX器</a></li>
+<li><a href="http://keyfc.laputachen.com/bbs/tools/tudoucode.aspx">佛说</a></li>
+<li><a href="http://goo.gl/">Google short url</a></li>
+<li><a href="https://github.com/blog/985-git-io-github-url-shortener">git.io</a></li>
+<li><a href="http://jpg.to/">jpg.to</a></li>
+<li><a href="https://burnnote.com">Burn Note</a></li>
+<li><a href="http://www.rainymood.com/">RainyMood</a></li>
+<li><a href="http://skydark.ys168.com">My ys168</a></li>
+<li><a href="http://www.michaelv.org/">Win32</a></li>
+<li><a href="https://www.gittip.com/">gittip</a></li>
+<li><a href="http://www.cs.cmu.edu/~chuck/lennapg/">Lenna</a></li>
+<li><a href="http://www.simplecd.me/">SimpleCD</a></li>
+<li><a href="http://www.bttiantang.com/">BT天堂</a></li>
+<li><a href="http://musopen.org/">MusOpen</a></li>
+<li><a href="http://www.greatfirewallofchina.org/">G</a></li>
+<li><a href="http://www.blockedinchina.net/">BlockInC</a></li>
+<li><a href="https://www.stypi.com">Stypi</a></li>
+</ul>
+<hr />
+</div>
+<script type="text/javascript">
+var navtab = $('<ul class="nav nav-tabs" id="tabs"></ul>');
+var navcontainer = $('<div class="tab-content"></div>');
+$('#tabcontent-wrapper>h2').each(function(index){
+  var tabid = 'tab-'+index;
+  $(this).clone().wrapInner('<a>').children().unwrap()
+      .attr('href', '#'+tabid)
+    .wrap('<li>').parent()
+    .appendTo(navtab).html();
+  $(this).nextUntil('h2').last().filter('hr').remove();
+  $(this).nextUntil('h2').andSelf()
+    .wrapAll('<div>')
+    .parent()
+    .attr('id', tabid)
+    .appendTo(navcontainer).html();
+});
+navcontainer.find('div>h3').addClass('js-toggle-next dropdown').filter(':not(.hide)').addClass('show').end().removeClass('hide');
+$('#tabcontent-wrapper').empty().append(navtab).append(navcontainer);
+$(".tab-content a").attr('target', '_blank').tooltip();
+if (!($.browser.msie && ($.browser.version == "6.0"))) {
+    $("#tabs>li>a").attr("data-toggle", "tab");
+    $(".tab-content>div").addClass("tab-pane");
+    $(".tab-content>div.tab-pane>h2").remove();
+    $(".tab-content>div.tab-pane>ul").addClass("nav nav-list");
+    $("#tabs a:first").tab('show');
+    var href = '/'+decodeURIComponent(window.location.href).split('/').slice(-1);
+    $(document).ready(function(){
+        $("#tabs a[href='"+href+"']").click();
+    });
+}
+</script>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

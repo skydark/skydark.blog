@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Skydark's blog</title><link href="http://blog.skydark.info/" rel="alternate"></link><link href="http://blog.skydark.info/feeds/test.atom.xml" rel="self"></link><id>http://blog.skydark.info/</id><updated>2012-03-21T00:00:00+08:00</updated><entry><title>非单调逻辑</title><link href="http://blog.skydark.info/test/2012/03/21/nml/" rel="alternate"></link><published>2012-03-21T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-03-21:test/2012/03/21/nml/</id><summary type="html">&lt;h1 id="start"&gt;Start&lt;/h1&gt;
+&lt;p&gt;XX&lt;/p&gt;
+&lt;p&gt;SMS 11011100XX&lt;/p&gt;
+&lt;p&gt;XX at gmail&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id="背景"&gt;背景&lt;/h1&gt;
+&lt;h2 id="背景-1"&gt;背景&lt;/h2&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;div class="slider"&gt;
+人工智能-&amp;gt; 常识推理形式化
+&lt;/div&gt;
+&lt;div class="slider-notes"&gt;
+thinking/acting humanly/rationally
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;常识推理的特点
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;众多的例外&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“鸟会飞”：企鹅、鸵鸟、幼鸟、死鸟、玩具鸟等一干群众泪奔中。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对环境的依存性&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“常在河边走，哪能不湿鞋”：表达的是一种经验。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;div class="tip"&gt;
+&lt;p&gt;对比数学和物理定律。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;为形式地表述常识，并在常识间进行有效的形式推理，20世纪70年代人们提出了&lt;strong&gt;非单调逻辑&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id="单调性与非单调性"&gt;单调性与非单调性&lt;/h1&gt;
+&lt;h2 id="单调性"&gt;单调性&lt;/h2&gt;
+&lt;div class="def" markdown="1"&gt;
+&lt;p&gt;逻辑系统 FS 是&lt;strong&gt;单调的&lt;/strong&gt;， 如果对 FS 的任意公式集合 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; ⊆ &lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt; 蕴涵&lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;)⊆&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;)&lt;/span&gt;. 其中&lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;)&lt;/span&gt;表示&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;的演绎结果集合&lt;span class="math inline"&gt;{&lt;em&gt;A&lt;/em&gt;|&lt;em&gt;Γ&lt;/em&gt;⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;S&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;A&lt;/em&gt;}&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;之前讨论的所有逻辑 &lt;span class="slider"&gt;都是单调的&lt;/span&gt; &lt;span class="slider-notes"&gt;包括包含不一致的情况。&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;但是&lt;span class="slider"&gt;常识推理不具有单调性&lt;/span&gt;&lt;backquote class="slider-notes"&gt;a 会飞吗？；a 是鸟-&amp;gt;会；a 是鸵鸟-&amp;gt;不会&lt;/backquote&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;常识推理的这种特性称为&lt;strong&gt;非单调性&lt;/strong&gt;(与单调性的定义对应)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="def" markdown="1"&gt;
+&lt;p&gt;逻辑系统 FS 是&lt;strong&gt;非单调的&lt;/strong&gt;, 如果存在公式集合&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; ⊊ &lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt; 但&lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;)⊈&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;具有非单调性的推理称为&lt;strong&gt;非单调推理&lt;/strong&gt;, 使用非单调推理的逻辑系统称为 &lt;span class="slider"&gt;&lt;strong&gt;非单调逻辑&lt;/strong&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;在不完全的知识上推理&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h1 id="非单调逻辑的产生"&gt;非单调逻辑的产生&lt;/h1&gt;
+&lt;h2 id="非单调逻辑的产生-1"&gt;非单调逻辑的产生&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;封闭世界假设/ PLANNER 系统&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;缺点: 需要保证可判定性/小心循环论证！&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;用逻辑演算刻划状态转移&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;STRIPS 系统&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;一个动作的描述分为三部分：Action, Precondition, Effect&lt;/li&gt;
+&lt;li&gt;添加表和删除表指 Effect 中的正文字和负文字。&lt;/li&gt;
+&lt;li&gt;书上的例子&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="几种非单调逻辑系统"&gt;几种非单调逻辑系统&lt;/h2&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;赖特(Reiter)的&lt;em&gt;缺席推理逻辑&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;麦克德莫特(McDermott)和多伊尔(Doyle)的&lt;em&gt;非单调逻辑系统&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;麦卡锡(McCarthy)的&lt;em&gt;限定理论&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="缺席推理逻辑"&gt;缺席推理逻辑&lt;/h1&gt;
+&lt;div class="ex" markdown="1"&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;已知鸟会飞，但只有鸵鸟不会飞&lt;/li&gt;
+&lt;li&gt;据说企鹅是鸟，得出企鹅会飞&lt;/li&gt;
+&lt;li&gt;又知道企鹅不会飞，不再推出企鹅会飞&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;h3 id="形式规则"&gt;形式规则&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;$$\frac{Bird(x):Mfly(x)}{fly(x)}$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席推理规则的一般形式"&gt;缺席推理规则的一般形式&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;$$\frac{\alpha(\vec x):M\beta_1(\vec x),\dots,M\beta_m(\vec x)}{w(\vec x)}$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math inline"&gt;$\alpha(\vec x)$&lt;/span&gt;: &lt;em&gt;先决条件&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math inline"&gt;$\beta_i(\vec x)$&lt;/span&gt;: &lt;em&gt;缺席条件&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math inline"&gt;$w(\vec x)$&lt;/span&gt;: &lt;em&gt;结论&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;M: 常读作&lt;em&gt;可能&lt;/em&gt;, &lt;span class="math inline"&gt;$M\beta_i(\vec x)$&lt;/span&gt;表示就现有知识而言&lt;span class="math inline"&gt;$\beta_i(\vec x)$&lt;/span&gt;&lt;strong&gt;可能&lt;/strong&gt;成立， 即&lt;span class="math inline"&gt;$\lnot\beta_i(\vec x)$&lt;/span&gt;尚未出现(缺席)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果缺席规则中不含自由变元，则称该规则为&lt;em&gt;闭规则&lt;/em&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="缺席理论的定义"&gt;缺席理论的定义&lt;/h2&gt;
+&lt;div class="def" markdown="1"&gt;
+&lt;p&gt;一个&lt;em&gt;缺席推理逻辑理论&lt;/em&gt;(简称缺席理论或理论)由以下两部分组成：&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;缺席推理规则集 D;&lt;/li&gt;
+&lt;li&gt;公式集 W，它是已知的或约定的事实集合。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缺席理论常用二元矢&lt;span class="math inline"&gt;&amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt; 表示。 当 D 中所有规则是闭规则时，称理论&lt;span class="math inline"&gt;&amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;为&lt;em&gt;闭理论&lt;/em&gt;。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;缺席理论是&lt;strong&gt;非单调的&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席理论的推出"&gt;缺席理论的“推出”&lt;/h2&gt;
+&lt;div class="def" markdown="1"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;是闭缺席理论，&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;为&lt;em&gt;关于 D 的一个算子&lt;/em&gt;， &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;作用于任意命题集合 S, 其值为满足下列三个性质的&lt;strong&gt;最小&lt;/strong&gt;命题集合&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)&lt;/span&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;span class="slider"&gt;&lt;span class="math inline"&gt;&lt;em&gt;W&lt;/em&gt; ⊆ &lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class="slider-notes"&gt;已知事实均成立。&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="slider"&gt; &lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)) = &lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)&lt;/span&gt;, 这里的&lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;))&lt;/span&gt;为命题集&lt;span class="math inline"&gt;{&lt;em&gt;A&lt;/em&gt;|&lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;S&lt;/em&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;A&lt;/em&gt;}&lt;/span&gt; &lt;/span&gt;&lt;span class="slider-notes"&gt; 在经典逻辑的推出下封闭。 &lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="slider"&gt; 若 D 中有规则&lt;span class="math inline"&gt;$\frac{\alpha:M\beta_1,\dots,M\beta_m}{w}$&lt;/span&gt;， 且&lt;span class="math inline"&gt;&lt;em&gt;α&lt;/em&gt; ∈ &lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;),¬&lt;em&gt;β&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, …, ¬&lt;em&gt;β&lt;/em&gt;&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;/sub&gt; ∉ &lt;em&gt;S&lt;/em&gt;&lt;/span&gt;， 则&lt;span class="math inline"&gt;&lt;em&gt;w&lt;/em&gt; ∈ &lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt;)&lt;/span&gt;. &lt;/span&gt;&lt;span class="slider-notes"&gt; 包含缺席规则获得的知识。 &lt;/span&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="def" markdown="1"&gt;
+&lt;p&gt;命题集合E成为关于 D 的算子&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;的&lt;em&gt;固定点&lt;/em&gt;(fixed points)，如果&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;(&lt;em&gt;E&lt;/em&gt;)=&lt;em&gt;E&lt;/em&gt;&lt;/span&gt;. 此时又称 E 为&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;的一个&lt;em&gt;扩充&lt;/em&gt;。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;如果命题 A 包含在缺席理论&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;/span&gt;的一个扩充中，那么称 A 在&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;/span&gt;中可推出，记为 &lt;span class="slider"&gt;&lt;span class="math inline"&gt;$\sdash_\Delta$&lt;/span&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;表示非单调推出&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席理论的扩充的性质"&gt;缺席理论的扩充的性质&lt;/h2&gt;
+&lt;p&gt;并非所有缺席理论都有扩充，并非有扩充的缺席理论只有惟一的扩充。 参考书上的三个例子。&lt;/p&gt;
+&lt;div class="example"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+无扩充&lt;br /&gt; &lt;span class="math inline"&gt;$D=\{\frac{:MA}{\lnot A}\}, W=\emptyset$&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+唯一扩充&lt;br /&gt; &lt;span class="math inline"&gt;$D=\{\frac{:MA}{\lnot B},\frac{:MB}{\lnot C},\frac{:MC}{\lnot F}\}, W=\emptyset$&lt;/span&gt; &lt;br /&gt; &lt;span class="math inline"&gt;&lt;em&gt;E&lt;/em&gt; = &lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;({¬&lt;em&gt;B&lt;/em&gt;, ¬&lt;em&gt;F&lt;/em&gt;})&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+多个扩充&lt;br /&gt; &lt;span class="math inline"&gt;$D=\{\frac{:MA}{A},\frac{B:MC}{C},\frac{F\lor A:ME}{E},\frac{C\land E:M\lnot A,M(F\lor A)}{G}\}$&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;W&lt;/em&gt; = {&lt;em&gt;B&lt;/em&gt;, &lt;em&gt;C&lt;/em&gt; → &lt;em&gt;F&lt;/em&gt; ∨ &lt;em&gt;A&lt;/em&gt;, &lt;em&gt;A&lt;/em&gt; ∧ &lt;em&gt;C&lt;/em&gt; → ¬&lt;em&gt;E&lt;/em&gt;}&lt;/span&gt; &lt;br /&gt; &lt;span class="math inline"&gt;&lt;em&gt;E&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; = &lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;W&lt;/em&gt; ∪ {&lt;em&gt;A&lt;/em&gt;, &lt;em&gt;C&lt;/em&gt;}), &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt; = &lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;W&lt;/em&gt; ∪ {&lt;em&gt;A&lt;/em&gt;, &lt;em&gt;E&lt;/em&gt;}), &lt;em&gt;E&lt;/em&gt;&lt;sub&gt;3&lt;/sub&gt; = &lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;W&lt;/em&gt; ∪ {&lt;em&gt;C&lt;/em&gt;, &lt;em&gt;E&lt;/em&gt;, &lt;em&gt;G&lt;/em&gt;})&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;设 E 为一阶命题集，&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;为一闭的缺席理论。 递归定义&lt;span class="math inline"&gt;&lt;em&gt;E&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt;&lt;/sub&gt;(&lt;em&gt;i&lt;/em&gt; = 1, 2, ⋯)&lt;/span&gt;如下： &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;E&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt; = &lt;em&gt;W&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;$$E_{i+1}=Th(E_i)\cup\{w|\frac{\alpha:M\beta_1,\dots,M\beta_m}{w}\in D,
+\alpha\in E_i,\lnot\beta_1,\dots,\lnot\beta_m\not\in E\}$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;则 E 为&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;/span&gt;的一个扩充当且仅当&lt;span class="math inline"&gt;$E=\bigcup_{i=0}^{\infty}E_i$&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="cor"&gt;
+&lt;p&gt;闭缺席理论&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;有不一致扩充 E, 当且仅当W不一致。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;设&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;W&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;&amp;gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;, &lt;em&gt;W&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&amp;gt;&lt;/span&gt;均为缺席理论， 且&lt;span class="math inline"&gt;&lt;em&gt;W&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; ⊆ &lt;em&gt;W&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;. 若&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;的扩充都是一致的，则&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;&lt;/span&gt;的扩充也是一致的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;设 E, F 为闭缺席理论&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;的两个扩充， 如果&lt;span class="math inline"&gt;&lt;em&gt;E&lt;/em&gt; ⊆ &lt;em&gt;F&lt;/em&gt;&lt;/span&gt;, 则&lt;span class="math inline"&gt;&lt;em&gt;E&lt;/em&gt; = &lt;em&gt;F&lt;/em&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="规范缺席推理"&gt;规范缺席推理&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;一个缺席理论&lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt;称为是&lt;em&gt;规范的&lt;/em&gt;，如果 D 中缺席规则均为 &lt;span class="slider"&gt;如下形式：&lt;/span&gt; &lt;span class="slider-notes"&gt;和封闭世界假设的关联&lt;/span&gt; &lt;br /&gt;&lt;span class="math display"&gt;$$\frac{\alpha(\vec x):M w(\vec x)}{w(\vec x)}$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;它们被称为规范(缺席推理)规则。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;闭规范缺席理论有很多漂亮的结果：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;闭规范缺席理论总有扩充。&lt;/li&gt;
+&lt;li&gt;如果 E, F 同为一闭规范缺席理论的扩充，且 $E\neq F$，则 $E\cup F$ 是不一致的。&lt;/li&gt;
+&lt;li&gt;设 $\Delta=\lt D,W\gt$ 为闭规范缺席理论，$D'\subseteq D$, 且 $E'_1$ 和 $E'_2$ 为 $\lt D',W\gt$ 的 &lt;span class="slider"&gt;两个不同扩充&lt;/span&gt; &lt;span class="slider-notes"&gt; 只谈一个扩充 $E'_1$, 如下的$E_1$也是存在的。这里强调的是扩充的&lt;strong&gt;数量&lt;/strong&gt;的单调性。 &lt;/span&gt; ，则 $\Delta$ 必有不同扩充 $E_1$ 和 $E_2$， 使 $E'_1\subseteq E_1, E'_2\subseteq E_2$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;闭规范缺席理论的扩充的大小，随闭规范缺席规则数目的增加而单调不减。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席理论的形式证明"&gt;缺席理论的形式证明&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt; = &amp;lt;&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;W&lt;/em&gt;&amp;gt;&lt;/span&gt; 为闭规范缺席理论，令 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;)={&lt;em&gt;α&lt;/em&gt;|&lt;em&gt;α&lt;/em&gt;为&lt;em&gt;D&lt;/em&gt;中规则的先决条件}&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;C&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;)={&lt;em&gt;w&lt;/em&gt;|&lt;em&gt;w&lt;/em&gt;为&lt;em&gt;D&lt;/em&gt;中规则的结论}&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;称一阶命题 &lt;span class="math inline"&gt;&lt;em&gt;β&lt;/em&gt;&lt;/span&gt; 有 &lt;span class="math inline"&gt;&lt;em&gt;Δ&lt;/em&gt;&lt;/span&gt; 中的一个(缺席)&lt;em&gt;证明&lt;/em&gt;， 如果存在 D 的有穷子集的有穷序列 &lt;span class="math inline"&gt;&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;, &lt;em&gt;D&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, …, &lt;em&gt;D&lt;/em&gt;&lt;sub&gt;&lt;em&gt;k&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt;, 使得&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;&lt;em&gt;W&lt;/em&gt; ∪ &lt;em&gt;C&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;)⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;S&lt;/em&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;β&lt;/em&gt;&lt;/span&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+对于整数 &lt;span class="math inline"&gt;&lt;em&gt;i&lt;/em&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;1 ≤ &lt;em&gt;i&lt;/em&gt; ≤ &lt;em&gt;k&lt;/em&gt;&lt;/span&gt;, 及 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt; − 1&lt;/sub&gt;)&lt;/span&gt; 中每一个 &lt;span class="math inline"&gt;&lt;em&gt;α&lt;/em&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;W&lt;/em&gt; ∪ &lt;em&gt;C&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt;&lt;/sub&gt;)⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;S&lt;/em&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;α&lt;/em&gt;&lt;/span&gt;.
+&lt;div class="tip"&gt;
+&lt;p&gt;证明序列中前面的先决条件逐个被后头的结论支持。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;&lt;em&gt;D&lt;/em&gt;&lt;sub&gt;&lt;em&gt;k&lt;/em&gt;&lt;/sub&gt; = &lt;em&gt;ϕ&lt;/em&gt;&lt;/span&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;$W\cup \bigcup_{i=0}^{k}{C(D_i)}$&lt;/span&gt; 可满足。
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席证明的消解方法"&gt;缺席证明的消解方法&lt;/h2&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;构造 S 包括所有 W 中的命题，待证命题否定的子句，以及所有规则的结果子句 $(c_i, \{\delta\})$, 其中 $\delta=\frac{\alpha:Mw}{w}\in D, c_i\textrm{是} w\textrm{的子句}$。&lt;/li&gt;
+&lt;li&gt;对 S 消解导出空子句。&lt;/li&gt;
+&lt;li&gt;消解过程中使用的结果子句所在的规则构成 $D_0$, 接下来继续消解证明 $D_0$ 中所有规则的先决条件，直到消解过程中不需要使用规则的结果子句，消解结束。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;见书例11.6。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="缺席推理的局限性"&gt;缺席推理的局限性&lt;/h2&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;存在闭规范缺席理论是完全不可判定的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所以上面的消解算法不可能是完备的。&lt;/p&gt;
+&lt;p&gt;尽管如此，上述方法仍然是有力的。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;语义研究进展不足。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h1 id="非单调逻辑"&gt;非单调逻辑&lt;/h1&gt;
+&lt;h2 id="非单调逻辑-1"&gt;非单调逻辑&lt;/h2&gt;
+&lt;div class="ex" markdown="1"&gt;
+&lt;p&gt;设理论 T 有以下三条公理：&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;span class="math inline"&gt;正值中午 ∧ &lt;em&gt;M&lt;/em&gt;(出太阳)→出太阳&lt;/span&gt;, 模态词 M 表示与当前已推得的定理相容。&lt;/li&gt;
+&lt;li&gt;正值中午&lt;/li&gt;
+&lt;li&gt;&lt;span class="math inline"&gt;日食 → ¬(&lt;em&gt;出&lt;/em&gt;&lt;em&gt;太&lt;/em&gt;&lt;em&gt;阳&lt;/em&gt;)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;则在 T 中可证&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;4. 出太阳&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;但若将&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;5. 日食&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;加入公理，则 4. 不再可证。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="tip"&gt;
+&lt;p&gt;与缺席推理的不同： MA 的地位不同。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="非单调逻辑系统"&gt;非单调逻辑系统&lt;/h2&gt;
+&lt;div class="tip"&gt;
+&lt;p&gt;M的意义：&lt;br /&gt;&lt;span class="math display"&gt;$$\textrm{如果}\not\vdash\lnot A, \textrm{则}~\sdash MA$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;将加入模态词 M 的一阶谓词演算系统记为 FC， 将允许使用 M 的一阶公式全体记为 $L_{FC}$， 对任何公式集 $\Gamma\subseteq L_{FC}$, $Th(\Gamma)=\{A|\Gamma\vdash_{FC}A\}$.&lt;/p&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;对任何公式集 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt; ⊆ &lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 定义&lt;em&gt;算子 &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt;&lt;/em&gt;, 对任意公式集 &lt;span class="math inline"&gt;&lt;em&gt;S&lt;/em&gt; ⊆ &lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;(&lt;em&gt;S&lt;/em&gt;)=&lt;em&gt;T&lt;/em&gt;&lt;em&gt;h&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt; ∪ &lt;em&gt;A&lt;/em&gt;&lt;sub&gt;&lt;em&gt;s&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/sub&gt;(&lt;em&gt;S&lt;/em&gt;))&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;其中 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt;&lt;sub&gt;&lt;em&gt;s&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/sub&gt;(&lt;em&gt;S&lt;/em&gt;)&lt;/span&gt; 称为 S 的 &lt;span class="slider"&gt;&lt;em&gt;假设集&lt;/em&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;与 S 相容的所有假设&lt;/span&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;A&lt;/em&gt;&lt;sub&gt;&lt;em&gt;s&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/sub&gt;(&lt;em&gt;S&lt;/em&gt;)={&lt;em&gt;M&lt;/em&gt;&lt;em&gt;Q&lt;/em&gt;|&lt;em&gt;Q&lt;/em&gt; ∈ &lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt; ∧ ¬&lt;em&gt;Q&lt;/em&gt; ∉ &lt;em&gt;S&lt;/em&gt;}&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;令&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;H&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;)=⋂({&lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;}∪{&lt;em&gt;S&lt;/em&gt;|&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;(&lt;em&gt;S&lt;/em&gt;)=&lt;em&gt;S&lt;/em&gt;})&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;如果 &lt;span class="slider"&gt;&lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt; ∈ &lt;em&gt;T&lt;/em&gt;&lt;em&gt;H&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt; 这里 &lt;span class="math inline"&gt;⋂&lt;em&gt;C&lt;/em&gt; = {&lt;em&gt;x&lt;/em&gt;|∀&lt;em&gt;S&lt;/em&gt;(&lt;em&gt;S&lt;/em&gt; ∈ &lt;em&gt;C&lt;/em&gt; → &lt;em&gt;x&lt;/em&gt; ∈ &lt;em&gt;S&lt;/em&gt;)}&lt;/span&gt;. 即元素交。&lt;br /&gt; 即是说， &lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;H&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;)&lt;/span&gt; 表示的是 &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的 &lt;span class="slider"&gt;所有固定点的交&lt;/span&gt; &lt;span class="slider-notes"&gt;&lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的最小不动点&lt;/span&gt; 。 当 &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 无固定点时， &lt;span class="math inline"&gt;&lt;em&gt;T&lt;/em&gt;&lt;em&gt;H&lt;/em&gt;(&lt;em&gt;Γ&lt;/em&gt;)&lt;/span&gt; 是全体 FC 公式。 &lt;/span&gt; , 那么称 P 可由 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt; &lt;em&gt;非单调地推出&lt;/em&gt;( &lt;span class="slider"&gt;可证&lt;/span&gt; &lt;span class="slider-notes"&gt;与缺席推理理论不同，要求 P 在&lt;strong&gt;所有&lt;/strong&gt;固定点中，后者只需&lt;strong&gt;某个&lt;/strong&gt;。&lt;/span&gt; )， 并记为 &lt;span class="math inline"&gt;$\Gamma\sdash P$&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;figure&gt;
+&lt;img src="/images/logic/nm.jpg" alt="示意图" /&gt;&lt;figcaption&gt;示意图&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;center&gt;
+关系示意图
+&lt;/center&gt;
+&lt;hr /&gt;
+&lt;h2 id="非单调逻辑系统扩充的性质"&gt;非单调逻辑系统扩充的性质&lt;/h2&gt;
+&lt;p&gt;与缺省逻辑里的 $\Gamma$ 算子一样， $NM_\Gamma$ 算子的固定点也未必存在，存在也未必唯一。&lt;/p&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;书上的一些例子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt; = &lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; ∪ {&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; → ¬&lt;em&gt;C&lt;/em&gt;}&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 没有固定点。
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt; = &lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; ∪ {&lt;em&gt;A&lt;/em&gt; ∧ &lt;em&gt;M&lt;/em&gt;&lt;em&gt;B&lt;/em&gt; → &lt;em&gt;B&lt;/em&gt;, &lt;em&gt;C&lt;/em&gt; ∧ &lt;em&gt;M&lt;/em&gt;&lt;em&gt;D&lt;/em&gt; → &lt;em&gt;D&lt;/em&gt;, &lt;em&gt;A&lt;/em&gt; ∨ &lt;em&gt;C&lt;/em&gt;}&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 有唯一固定点。
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt; = &lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; ∪ {&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; → ¬&lt;em&gt;D&lt;/em&gt;, &lt;em&gt;M&lt;/em&gt;&lt;em&gt;D&lt;/em&gt; → ¬&lt;em&gt;C&lt;/em&gt;}&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 有两个固定点。
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;甚至可能有无穷个固定点。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="非单调逻辑系统固定点的性质"&gt;非单调逻辑系统固定点的性质&lt;/h2&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;&lt;em&gt;Q&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;Q&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;, &lt;em&gt;Q&lt;/em&gt;&lt;sub&gt;3&lt;/sub&gt;, ⋯, &lt;/span&gt; 是 &lt;span class="math inline"&gt;&lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的一个枚举， &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt; ⊆ &lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt;. 令&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt; = &lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;$$
+\Gamma_{i+1} = \left\{\begin{array}{ll}
+L_{FC} &amp;amp;amp; \textrm{如果有} P\in L_{FC} 
+\textrm{使} MP\in\Gamma_i \textrm{且} \Gamma_i\vdash\lnot P\\
+\Gamma_i\cup\{MQ_i\} &amp;amp;amp; \textrm{如果}\Gamma_i\cup\{Q_i\}\textrm{一致}\\
+\Gamma_i &amp;amp;amp; \textrm{否则}\\
+\end{array}\right.
+$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;置 &lt;span class="math inline"&gt;$\Gamma_\infty=\bigcup_{i=0}^\infty{\Gamma_i}$&lt;/span&gt;, 则 &lt;span class="math inline"&gt;$\Gamma\sdash P$&lt;/span&gt; 当且仅当对 &lt;span class="math inline"&gt;&lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的每一枚举，均有 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;∞&lt;/sub&gt;⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;P&lt;/em&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;存在 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;′⊆&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 有固定点，但 &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;′&lt;/sub&gt;&lt;/span&gt; 无固定点。 (对比定理 11.2)&lt;/p&gt;
+&lt;p&gt;如果 &lt;span class="math inline"&gt;&lt;em&gt;F&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;F&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt; 均为 &lt;span class="math inline"&gt;&lt;em&gt;N&lt;/em&gt;&lt;em&gt;M&lt;/em&gt;&lt;sub&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的固定点，且 &lt;span class="math inline"&gt;&lt;em&gt;F&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; ⊆ &lt;em&gt;F&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;, 则 &lt;span class="math inline"&gt;&lt;em&gt;F&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; = &lt;em&gt;F&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/span&gt;. (对比定理 11.3)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;对应于闭规范缺席理论的非单调理论不一定有扩充。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="非单调逻辑系统的形式证明"&gt;非单调逻辑系统的形式证明&lt;/h2&gt;
+&lt;p&gt;非单调命题逻辑的可证性是可判定的。但一般地，非单调逻辑的可证性是不可判定的。&lt;/p&gt;
+&lt;p&gt;下面的算法类似于命题演算的真值表方法。&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;&lt;p&gt;要证 $\Gamma\sdash A$, 对使 $\Gamma\to A$ 假的一切可能情况列表。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;表的第一列为 $\Gamma$ 中的公式，它们总取值为 1. 第二列为待证公式 A 的表，称为 t 表， A 总取值为 0，由 $\Gamma$ 和 A 的值计算子公式的真值。 当 t 中出现取值为 0 的 MB 形公式时，建立以 $\Gamma\to\lnot B$ 为目标的新表。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对表各分支如下标记(称为适当的) &lt;span class="slider"&gt;open&lt;/span&gt; &lt;span class="slider-notes"&gt;无法否证 B, 所以 MB 可以满足&lt;/span&gt; 或 &lt;span class="slider"&gt;closed&lt;/span&gt; &lt;span class="slider-notes"&gt;矛盾，反证成功&lt;/span&gt; ：&lt;/p&gt;
+&lt;ol type="1"&gt;
+&lt;li&gt;当 $\Gamma\sdash \lnot B$ 的表标记open时，对每一表中的 MB 标记为 1.&lt;/li&gt;
+&lt;li&gt;表的分支标记为 closed 当且仅当该分支中有公式同时标记了 0 和 1. 一分支标记为 open 当且仅当该分支不能被标记为 closed.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;$\Gamma\to A$ 当且仅当在所有适当标记中，t 均被标记为 closed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;见书上的两个例子。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="加贝的语义解释"&gt;加贝的语义解释&lt;/h2&gt;
+&lt;p&gt;加贝 (Gabbay) 对非单调逻辑作了 &lt;span class="slider"&gt;直觉主义的语义解释&lt;/span&gt; &lt;span class="slider-notes"&gt;“Hi, 小朋友们大家好，还记得我是谁吗？”——克里普克 P.103&lt;/span&gt; ：&lt;/p&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;$$\models_{\mathscr K}^k MA \textrm{当且仅当存在}l\geq k\textrm{使}\models_{\mathscr K}^l A$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span class="math display"&gt;⊨&lt;em&gt;M&lt;/em&gt;&lt;em&gt;A&lt;/em&gt; ∨ ¬&lt;em&gt;A&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;⊨¬&lt;em&gt;M&lt;/em&gt;&lt;em&gt;A&lt;/em&gt; ↔ ¬&lt;em&gt;A&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;⊨(&lt;em&gt;M&lt;/em&gt;&lt;em&gt;A&lt;/em&gt; → &lt;em&gt;B&lt;/em&gt;)↔(¬&lt;em&gt;A&lt;/em&gt; ∨ &lt;em&gt;B&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;⊨(&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt; → ¬&lt;em&gt;C&lt;/em&gt;)↔¬&lt;em&gt;C&lt;/em&gt;&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="加贝语义的非单调可证性"&gt;加贝语义的非单调可证性&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt;, &lt;em&gt;B&lt;/em&gt; ∈ &lt;em&gt;L&lt;/em&gt;&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt;, B 由 A &lt;strong&gt;非单调可证&lt;/strong&gt;( &lt;span class="math inline"&gt;$A\sdash B$&lt;/span&gt; )指存在公式序列 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;C&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt; = &lt;em&gt;A&lt;/em&gt;, &lt;em&gt;C&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, &lt;em&gt;C&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt;, ⋯, &lt;em&gt;C&lt;/em&gt;&lt;sub&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sub&gt; = &lt;em&gt;B&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; 以及称为额外假设的公式 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;1&lt;/sup&gt;, ⋯, &lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;&lt;em&gt;k&lt;/em&gt;(1)&lt;/sub&gt;&lt;sup&gt;1&lt;/sup&gt;; &lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;, ⋯, ⋯, &lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;&lt;em&gt;k&lt;/em&gt;(2)&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;; ⋯; &lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sup&gt;, ⋯, &lt;em&gt;M&lt;/em&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;&lt;em&gt;k&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;)&lt;/sub&gt;&lt;sup&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sup&gt;&lt;/span&gt;&lt;br /&gt; 使得 &lt;br /&gt;&lt;span class="math display"&gt;$$C_{i-1}\land\bigwedge_{j=1}^{k(i)}MX_j^i\models C_i(i=1,2,\cdots,n)$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;如果 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt; ∧ &lt;em&gt;M&lt;/em&gt;&lt;em&gt;B&lt;/em&gt; ⊨ &lt;em&gt;C&lt;/em&gt;&lt;/span&gt; 并且 &lt;span class="math inline"&gt;&lt;em&gt;C&lt;/em&gt; ∧ &lt;em&gt;M&lt;/em&gt;&lt;em&gt;D&lt;/em&gt; ⊨ &lt;em&gt;E&lt;/em&gt;&lt;/span&gt;, 那么 &lt;span class="math inline"&gt;$A\sdash C$&lt;/span&gt;, &lt;span class="math inline"&gt;$C\sdash E$&lt;/span&gt;, 从而易证 &lt;span class="math inline"&gt;$A\sdash E$&lt;/span&gt;, 因为 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;A&lt;/em&gt;, &lt;em&gt;C&lt;/em&gt;, &lt;em&gt;E&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;M&lt;/em&gt;&lt;em&gt;B&lt;/em&gt;; &lt;em&gt;M&lt;/em&gt;&lt;em&gt;D&lt;/em&gt;&lt;/span&gt;&lt;br /&gt; 即为上面非单调可证需要的公式序列和额外假设公式。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;p&gt;加贝语义中的 $\sdash$ 对比 M &amp;amp; D 的定义中的 $\sdash$ 要更符合直观：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加贝语义中有 $M(A\land B)\sdash MA$ 和 $\lnot MA\sdash\lnot A$&lt;/li&gt;
+&lt;li&gt;加贝语义中 $MC\land\lnot C$ 不一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但加贝的讨论局限于命题演算中。&lt;/p&gt;
+&lt;div class="tip" markdown="1"&gt;
+&lt;p&gt;TMS(真值维持系统)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;记录每条信念的依赖关系&lt;/li&gt;
+&lt;li&gt;当新信念否定了旧信念时，回溯依赖关系消除不一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h1 id="限定逻辑"&gt;限定逻辑&lt;/h1&gt;
+&lt;p&gt;将已发现的具有某些性质的客体视为具有该性质的全部客体， 直至具有该性质的其它客体被发现时修改这一看法。&lt;/p&gt;
+&lt;p&gt;Idea: 奥卡姆剃刀(Occam principle)&lt;/p&gt;
+&lt;p&gt;麦卡锡并未引入新的算子或逻辑符号，只是在经典逻辑框架内研究适合表示非单调性的特殊推理形式。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="限定"&gt;限定&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;n 元谓词 P 在一阶公式 A(P) 中的&lt;em&gt;限定&lt;/em&gt;是指如下的公式模式 &lt;br /&gt;&lt;span class="math display"&gt;$$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$$&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt;(&lt;em&gt;Φ&lt;/em&gt;)&lt;/span&gt; 表示将 A 中所有 P 的出现替换为公式 &lt;span class="math inline"&gt;&lt;em&gt;Φ&lt;/em&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="slider"&gt;&lt;em&gt;想表达什么？&lt;/em&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt; 所谓对公式 A 的限定就是：&lt;br /&gt;
+如果用谓词 $\Phi$ 满足 P 满足的条件( A )， 并且满足 $\Phi$ 的客体都满足 P， 则满足 P 的客体都满足 $\Phi$ 。 &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;见书上例子：方块世界和数学归纳法。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="域限定"&gt;域限定&lt;/h2&gt;
+&lt;p&gt;假设个体域为 $\{x|P(x)\}$, 则任意公式 A 中的量词可如下改变，A 的意义不变：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A 中的 $\exists x B(x)$, 可改为 $\exists x(P(x)\land B(x))$.&lt;/li&gt;
+&lt;li&gt;A 中的 $\forall x B(x)$, 可改为 $\forall x(P(x)\to B(x))$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;公式 A 的&lt;em&gt;域限定&lt;/em&gt;指对 A 中 P 作限定，即&lt;/p&gt;
+&lt;p&gt;
+&lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;A&lt;/em&gt;&lt;sup&gt;&lt;em&gt;Φ&lt;/em&gt;&lt;/sup&gt; → ∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;其中 $A^\Phi$ 表示将 A 中 $\exists x B(x)$ 改为 $\exists x(\Phi(x)\land B(x))$, $\forall x C(x)$ 改为 $\forall x(\Phi(x)\to C(x))$ 后所得的公式。&lt;/p&gt;
+&lt;p&gt;意义：若 A 在论域 $\{x|\Phi(x)\}$ 中为真，则所有满足 A 的个体都满足 $\Phi(x)$.&lt;/p&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;令 B(x) 表示 x 是渡河工具，&lt;span class="math inline"&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 表示 x 是船。 A 为 &lt;span class="math inline"&gt;∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;B&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt;. 对 A 用 &lt;span class="math inline"&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 做限定，得 &lt;br /&gt;&lt;span class="math display"&gt;∀&lt;em&gt;x&lt;/em&gt;(&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)→&lt;em&gt;B&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)) → ∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt; 由于 &lt;span class="math inline"&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)→&lt;em&gt;B&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 为真，故 &lt;span class="math inline"&gt;∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 为真，即所有渡河工具都是船。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="限定论可证"&gt;限定论可证&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;对任意公式 A, 令 &lt;span class="math inline"&gt;&lt;em&gt;Ω&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)={[&lt;em&gt;A&lt;/em&gt;&lt;sup&gt;&lt;em&gt;Φ&lt;/em&gt;&lt;/sup&gt; → ∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)]&lt;sup&gt;0&lt;/sup&gt;|&lt;em&gt;Φ&lt;/em&gt;为任一含自由变元&lt;em&gt;x&lt;/em&gt;的一阶公式}&lt;/span&gt;. 这里 &lt;span class="math inline"&gt;&lt;em&gt;B&lt;/em&gt;&lt;sup&gt;0&lt;/sup&gt;&lt;/span&gt;表示 B 的全称封闭式。又令 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)=&lt;em&gt;Ω&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)∪{&lt;em&gt;A&lt;/em&gt;},&lt;/span&gt;&lt;br /&gt; &lt;span class="math inline"&gt;&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)&lt;/span&gt; 称为 A 的&lt;em&gt;最小完备集&lt;/em&gt;。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="space"&gt;
+
+&lt;/div&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;如果 &lt;span class="math inline"&gt;&lt;em&gt;M&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)⊢&lt;sub&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;S&lt;/em&gt;&lt;em&gt;F&lt;/em&gt;&lt;em&gt;C&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;B&lt;/em&gt;&lt;/span&gt;, 则称一阶公式 B 由一阶公式 A &lt;em&gt;限定论可证&lt;/em&gt;，记为 &lt;span class="math inline"&gt;$A\sdash_{mc}B$&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;限定一阶语言仅含一个一元谓词 P(x), 有 &lt;span class="math inline"&gt;$\exists x P(x)\sdash_{mc}\forall x P(x)$&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;限定论可证的非单调性：当限定被取消或改变时。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="限定理论的语义"&gt;限定理论的语义&lt;/h2&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt; 为一阶命题集，称结构 &lt;span class="math inline"&gt;𝔄 = &amp;lt;&lt;em&gt;U&lt;/em&gt;, &lt;em&gt;I&lt;/em&gt;&amp;gt;&lt;/span&gt; 为 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt; 的&lt;em&gt;最小模型&lt;/em&gt;， 如果&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+对每个 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt; ∈ &lt;em&gt;Γ&lt;/em&gt;, ⊨&lt;sub&gt;𝔄&lt;/sub&gt;&lt;em&gt;A&lt;/em&gt;&lt;/span&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+对 &lt;span class="math inline"&gt;𝒰&lt;/span&gt; 的任一子结构 &lt;span class="math inline"&gt;𝔄′= &amp;lt; &lt;em&gt;U&lt;/em&gt;′,&lt;em&gt;I&lt;/em&gt;′&amp;gt;(&lt;em&gt;U&lt;/em&gt;′⊂&lt;em&gt;U&lt;/em&gt;, &lt;em&gt;I&lt;/em&gt;′=&lt;em&gt;I&lt;/em&gt;∣&lt;sub&gt;&lt;em&gt;U&lt;/em&gt;′&lt;/sub&gt;, &lt;em&gt;I&lt;/em&gt;∣&lt;sub&gt;&lt;em&gt;U&lt;/em&gt;′&lt;/sub&gt;&lt;/span&gt; 表示将解释 I 限于 &lt;span class="math inline"&gt;&lt;em&gt;U&lt;/em&gt;′&lt;/span&gt;, 例如对一元谓词 P, &lt;span class="math inline"&gt;&lt;em&gt;I&lt;/em&gt;∣&lt;sub&gt;&lt;em&gt;U&lt;/em&gt;′&lt;/sub&gt;(&lt;em&gt;P&lt;/em&gt;)=&lt;em&gt;I&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;)∩&lt;em&gt;U&lt;/em&gt;′)&lt;/span&gt; 存在 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt; ∈ &lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt;, 使 &lt;span class="math inline"&gt;$\not\models_{\mathfrak{A}'} A$&lt;/span&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="space"&gt;
+
+&lt;/div&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;称一阶命题 B 为一阶命题集 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt; 的&lt;em&gt;最小逻辑结果&lt;/em&gt;, 记为 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;⊨&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;B&lt;/em&gt;&lt;/span&gt;, 如果 B 在所有 &lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;/span&gt; 的最小模型中均真。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;见书上例子。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt; = ∅&lt;/span&gt;, 其最小模型为所有个体域为幺元集的结构， 有 &lt;br /&gt;&lt;span class="math display"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;⊨&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;&lt;/sub&gt;∀&lt;em&gt;x&lt;/em&gt;∀&lt;em&gt;y&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt; = &lt;em&gt;y&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;&lt;em&gt;Γ&lt;/em&gt;&lt;sub&gt;2&lt;/sub&gt; = {∃&lt;em&gt;x&lt;/em&gt;∃&lt;em&gt;y&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt; ≠ &lt;em&gt;y&lt;/em&gt;)}&lt;/span&gt;, 其最小模型为所有个体域含有两个元素的结构， 有 &lt;br /&gt;&lt;span class="math display"&gt;$$\Gamma_2\not\models_{mc}\forall x\forall y(x=y)$$&lt;/span&gt;&lt;br /&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;上面例子说明 $\models_{mc}$ 不是单调的。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id="限定可证性的合理性和完备性"&gt;限定可证性的合理性和完备性&lt;/h2&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;对任何一阶命题 A, B, 如果 &lt;span class="math inline"&gt;$A\sdash_{mc} B$&lt;/span&gt;, 则 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt;⊨&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;B&lt;/em&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="pf"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;𝔄 = &amp;lt;&lt;em&gt;U&lt;/em&gt;, &lt;em&gt;I&lt;/em&gt;&amp;gt;&lt;/span&gt; 为 A 的最小模型，C 为 &lt;span class="math inline"&gt;&lt;em&gt;Ω&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;)&lt;/span&gt; 中的任一公式。 先证 &lt;span class="math inline"&gt;⊨&lt;sub&gt;𝔄&lt;/sub&gt;&lt;em&gt;C&lt;/em&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;只需证 &lt;span class="math inline"&gt;⊨&lt;sub&gt;𝔄&lt;/sub&gt;[&lt;em&gt;A&lt;/em&gt;&lt;sup&gt;&lt;em&gt;Φ&lt;/em&gt;&lt;/sup&gt; → ∀&lt;em&gt;x&lt;/em&gt;&lt;em&gt;Φ&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt;)]&lt;sup&gt;0&lt;/sup&gt;&lt;/span&gt;. 将论域限定到满足 &lt;span class="math inline"&gt;&lt;em&gt;Φ&lt;/em&gt;&lt;/span&gt; 的个体集上即可。&lt;/p&gt;
+&lt;p&gt;再证 &lt;span class="math inline"&gt;&lt;em&gt;A&lt;/em&gt;⊨&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;B&lt;/em&gt;&lt;/span&gt;. 将 &lt;span class="math inline"&gt;$\sdash_{mc}$&lt;/span&gt; 转化到 FSFC上即可。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="space"&gt;
+
+&lt;/div&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;限定可证性不具有完备性。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="pf"&gt;
+&lt;p&gt;考虑例 11.18.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="性质限定"&gt;性质限定&lt;/h2&gt;
+&lt;p&gt;“船可以渡河”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;域限定：只有船可以渡河&lt;/li&gt;
+&lt;li&gt;性质限定：船只能渡河&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;设 &lt;span class="math inline"&gt;$A(\vec P)$&lt;/span&gt; 为一二阶公式， &lt;span class="math inline"&gt;$\vec P$&lt;/span&gt; 为一组谓词变元 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;, …, &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的缩写。 又设 &lt;span class="math inline"&gt;$E(\vec P, \vec x)$&lt;/span&gt; 是含自由谓词变元 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;, …, &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 和个体变元 &lt;span class="math inline"&gt;&lt;em&gt;x&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, …, &lt;em&gt;x&lt;/em&gt;&lt;sub&gt;&lt;em&gt;m&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的二阶公式。称下列二阶公式为 &lt;span class="math inline"&gt;$E(\vec P, \vec x)$&lt;/span&gt; 关于 &lt;span class="math inline"&gt;$A(\vec P)$&lt;/span&gt; 的&lt;em&gt;性质限定&lt;/em&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;span class="slider"&gt;&lt;span class="math inline"&gt;$A(\vec P)\land\forall\vec{P'}(A(\vec{P'})\land\forall{\vec x}(E(\vec{P'}, \vec x)\to E(\vec P, \vec x))\to\forall \vec x(E(\vec{P'},\vec x)\leftrightarrow E(\vec P, \vec x)))$&lt;/span&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;对比限定的原始形式：&lt;span class="math inline"&gt;$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$&lt;/span&gt;　 口&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;令 E(Q, x) 表示 “x 具有性质 Q”，P 表示“能渡河”的性质，A(Q) 表示“Q 是船的性质”， 若接受 A(P)，则 E(Q, x) 关于 A(P) 的性质限定为：&lt;/p&gt;
+&lt;p&gt;&lt;span class="slider"&gt;&lt;span class="math inline"&gt;∀&lt;em&gt;P&lt;/em&gt;′(&lt;em&gt;A&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;′) ∧ ∀&lt;em&gt;x&lt;/em&gt;(&lt;em&gt;E&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;′,&lt;em&gt;x&lt;/em&gt;)→&lt;em&gt;E&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;, &lt;em&gt;x&lt;/em&gt;)) → ∀&lt;em&gt;x&lt;/em&gt;(&lt;em&gt;E&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;′,&lt;em&gt;x&lt;/em&gt;)↔&lt;em&gt;E&lt;/em&gt;(&lt;em&gt;P&lt;/em&gt;, &lt;em&gt;x&lt;/em&gt;)))&lt;/span&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;如果一个船的性质是“能渡河”的子属性，则这个性质就是“能渡河”。&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h3 id="性质限定续"&gt;性质限定(续)&lt;/h3&gt;
+&lt;div class="def"&gt;
+&lt;p&gt;&lt;span class="math inline"&gt;$A(\vec P), \vec P$&lt;/span&gt; 的意义同定义 11.15,称下列二阶公式为 A 中 &lt;em&gt;谓词变元 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;&lt;/span&gt; 具有 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, ⋯, &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sub&gt;&lt;/span&gt; 的限定&lt;/em&gt;， 记为 &lt;span class="math inline"&gt;&lt;em&gt;C&lt;/em&gt;&lt;em&gt;i&lt;/em&gt;&lt;em&gt;r&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;&lt;em&gt;u&lt;/em&gt;&lt;em&gt;m&lt;/em&gt;(&lt;em&gt;A&lt;/em&gt;; &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;, &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;, ⋯, &lt;em&gt;P&lt;/em&gt;&lt;sub&gt;&lt;em&gt;n&lt;/em&gt;&lt;/sub&gt;)&lt;/span&gt;：&lt;/p&gt;
+&lt;p&gt;
+&lt;span class="slider"&gt;&lt;span class="math inline"&gt;$A(\vec P)\land \forall\vec{P'}(A(\vec{P'})\land\forall\vec{x}(P_0'(\vec x)\to P_0(x))\to\forall\vec x(P_0'(\vec x)\leftrightarrow P_0(\vec x)))$&lt;/span&gt;&lt;/span&gt; &lt;span class="slider-notes"&gt;继续对比限定的原始形式：&lt;span class="math inline"&gt;$A(\Phi)\land\forall\vec x(\Phi(\vec x)\to P(\vec x))\to\forall\vec x(P(\vec x)\to\Phi(\vec x))$&lt;/span&gt;　 口&lt;/span&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;A(D, L) 表示如下事实： &lt;br /&gt;&lt;span class="math display"&gt;∀&lt;em&gt;x&lt;/em&gt;(&lt;em&gt;D&lt;/em&gt;&lt;em&gt;x&lt;/em&gt; ↔ ¬&lt;em&gt;L&lt;/em&gt;&lt;em&gt;x&lt;/em&gt;)∧&lt;em&gt;L&lt;/em&gt;&lt;em&gt;a&lt;/em&gt; ∧ &lt;em&gt;D&lt;/em&gt;&lt;em&gt;b&lt;/em&gt; ∧ &lt;em&gt;R&lt;/em&gt;&lt;em&gt;c&lt;/em&gt; ∧ (&lt;em&gt;a&lt;/em&gt; ≠ &lt;em&gt;b&lt;/em&gt; ∧ &lt;em&gt;a&lt;/em&gt; ≠ &lt;em&gt;c&lt;/em&gt; ∧ &lt;em&gt;b&lt;/em&gt; ≠ &lt;em&gt;c&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt; 其中 Dx 表示 x 死了， Lx 表示 x 活着，Rx 表示 x 是兔子， 想要限定“全部死了的客体就是已知死了的客体(即 b)”。 只用之前的限定方法限定 D，由于无法推出 &lt;span class="math inline"&gt;¬&lt;em&gt;D&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;(&lt;em&gt;L&lt;/em&gt;&lt;em&gt;c&lt;/em&gt;)&lt;/span&gt;，无法得到我们想要的结果。 用性质限定，得到 &lt;br /&gt;&lt;span class="math display"&gt;$$\forall x(P_0(x)\leftrightarrow\lnot P_1(x))\land P_1(a)\land P_0(b)\land Rc\land (a\neq b\land a\neq c\land b\neq c)\land \forall x(P_0(x)\to Dx)\\
+\to\forall x(P_0(x)\leftrightarrow Dx)$$&lt;/span&gt;&lt;br /&gt; 令 &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 为 &lt;span class="math inline"&gt;&lt;em&gt;x&lt;/em&gt; = &lt;em&gt;b&lt;/em&gt;&lt;/span&gt;, &lt;span class="math inline"&gt;&lt;em&gt;P&lt;/em&gt;&lt;sub&gt;1&lt;/sub&gt;(&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt; 为 &lt;span class="math inline"&gt;&lt;em&gt;x&lt;/em&gt; ≠ &lt;em&gt;b&lt;/em&gt;&lt;/span&gt;，即得 &lt;br /&gt;&lt;span class="math display"&gt;∀&lt;em&gt;x&lt;/em&gt;(&lt;em&gt;x&lt;/em&gt; = &lt;em&gt;b&lt;/em&gt; ↔ &lt;em&gt;D&lt;/em&gt;&lt;em&gt;x&lt;/em&gt;)&lt;/span&gt;&lt;br /&gt; 即得我们想要的结果。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="性质限定的可满足性"&gt;性质限定的可满足性&lt;/h2&gt;
+&lt;p&gt;如果 $A(P)$ 的限定是可满足的，那么 $A(P)$ 也是可满足的，但反之不然。&lt;/p&gt;
+&lt;div class="ex"&gt;
+&lt;p&gt;见书上例 11.21&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="prop"&gt;
+&lt;p&gt;如果 &lt;span class="math inline"&gt;$A(\vec P)$&lt;/span&gt; 为一可满足的 &lt;span class="slider"&gt;全称命题&lt;/span&gt; &lt;span class="slider-notes"&gt;前束范式中不含存在量词&lt;/span&gt; ，那么 &lt;span class="math inline"&gt;$Circum(A(\vec P), \vec P)$&lt;/span&gt; 也是可满足的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id="限定理论的应用前景"&gt;限定理论的应用前景&lt;/h2&gt;
+&lt;p&gt;Frame problem: 在动作后状态的改变只局限在动作影响到的部分上。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id="thank-you"&gt;Thank you!&lt;/h1&gt;
+</summary><category term="test"></category><category term="logic"></category><category term="AI"></category></entry><entry><title>测试密码功能</title><link href="http://blog.skydark.info/test/2012/03/15/passwd/" rel="alternate"></link><published>2012-03-15T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-03-15:test/2012/03/15/passwd/</id><summary type="html">&lt;div id="pec-encrypted-content" style="display:none"&gt;LLJI9lTQSsHB61algdLf8Q==;KqvZmAp7P06yXQjAdSxiJkmfZDWU0hKO1CRhvKUI271Pw0ke+M4thwbN7GqhuhIKVfWvu81RT/Wg3nr9iTef7yRv71/th/a+RPifuetKpY1b/CysOdN3kzrs+2DsXp46U+Er8DMzudStzpE0dz9Z6IG79IEnWvEDmT+XtXey2OCWafTak1lmzOrGpI5Xhtbm/knBBBkKTo5L1R5n/C4gKu/bSkuL1vOWA/TRnpKJFHYNDBvDJZy06/9gpqUNTEJTDRtHSau39C8ZTcFp0IhJPZCMvNGAYEcGLAqpc/yu2cEV+eNm25reB72tpcX4wOUyqrB+klIeO1ggiaos0GWwH/MrMPZN1ArA9MgygtPlAgU0q/ecVkl2qY6nOoUOQavV3WDDahIuStBMr/tI6/sHHfIItTTusty4RumHZmaaO6IYMOddv3IfLSJ11t2hUx1DX1Q+iWOOe9jAyfgBu6eeGY90X7gMx4dhHbKO3sq/oY53l1clQOSES0aJouv6xv3yC61TJXGHl3PyHfvoVzO9jFScskuEIH9mTrdnq2eJ6ILSSs8k26ErdQzlN1t7+awG6m4OD2ykJadlCFUYgCZJ0YoZ5WPY/zFo0JXcLVxzbswUQ2u/hrwR42j00ie6lr10fN1O4FxTrdQCcmVsPh1aMahnfTWSgUPTvj96/Tm6nPY=;^&lt;/div&gt;
+&lt;div id="pec-decrypted-content"&gt;
+    &lt;h4&gt;&lt;i&gt;&lt;/i&gt;&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;form id="pec-decrypt-form" class="form-inline"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="pec-content-password" class="control-label"&gt;请输入密码（提示：密码是test）&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="pec-content-password" placeholder="Password" /&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;button type="submit" id="pec-decrypt-content" class="btn btn-primary"&gt;解密&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"&gt;&lt;/script&gt;
+
+
+&lt;script type="text/javascript"&gt;
+    (function () {
+        var strip_padding = function (padded_content, padding_char) {
+            /*
+             * Strips the padding character from decrypted content.
+             */
+            for (var i = padded_content.length; i &gt; 0; i--) {
+                if (padded_content[i-1] !== padding_char) {
+                    return padded_content.slice(0, i);
+                }
+            }
+        };
+
+        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
+            /*
+             * Decrypts the content from the ciphertext bundle.
+             */
+            var key = CryptoJS.MD5(password),
+                iv = CryptoJS.enc.Base64.parse(iv_b64),
+                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
+                bundle = {
+                    key: key,
+                    iv: iv,
+                    ciphertext: ciphertext
+                };
+
+            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
+
+            try {
+                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
+            }
+            catch (err) {
+                // encoding failed; wrong password
+                return false;
+            }
+        };
+
+        var init_decryptor = function() {
+            var decrypt_btn = document.getElementById('pec-decrypt-content'),
+                password_input = document.getElementById('pec-content-password'),
+                encrypted_content = document.getElementById('pec-encrypted-content'),
+                decrypted_content = document.getElementById('pec-decrypted-content'),
+                decrypt_form = document.getElementById('pec-decrypt-form');
+
+            decrypt_btn.addEventListener('click', function () {
+                // grab the ciphertext bundle
+                var parts = encrypted_content.innerHTML.split(';');
+
+                // decrypt it
+                var content = decrypt_content(
+                    password_input.value,
+                    parts[0],
+                    parts[1],
+                    parts[2]
+                );
+
+                if (content) {
+                    // success; display the decrypted content
+                    decrypted_content.innerHTML = content;
+                    decrypt_form.parentNode.removeChild(decrypt_form);
+                    encrypted_content.parentNode.removeChild(encrypted_content);
+
+                    // any post processing on the decrypted content should be done here
+                }
+                else {
+                    // ¯\_(ツ)_/¯
+                    password_input.value = '';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', init_decryptor);
+    })();
+&lt;/script&gt;</summary><category term="test"></category></entry><entry><title>Hello, world! (你好，世界！)</title><link href="http://blog.skydark.info/test/2012/03/08/hello-world/" rel="alternate"></link><published>2012-03-08T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-03-08:test/2012/03/08/hello-world/</id><summary type="html">
+&lt;h2 id="test1"&gt;Test1&lt;/h2&gt;
+
+&lt;h3 id="test2"&gt;Test2&lt;/h3&gt;
+
+&lt;p&gt;尝试从GAE转移到github上，测试用意。&lt;/p&gt;
+
+&lt;p&gt;Add: 感觉不错，打算常驻了，迁移的时候顺便整理下以前的东西，发现太私人了……
+&lt;span class="label label-warning"&gt;测试&lt;strong&gt;span&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div class="label label-danger"&gt;
+  &lt;p&gt;测试&lt;em&gt;div&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href="http://appblog.skydark.info"&gt;My old blog&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Test Python Code:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;&lt;span class="line-numbers"&gt;&lt;a href="#n1" name="n1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span style="color:#080;font-weight:bold"&gt;import&lt;/span&gt; &lt;span style="color:#B44;font-weight:bold"&gt;girlfriend&lt;/span&gt;
+&lt;span class="line-numbers"&gt;&lt;a href="#n2" name="n2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span style="color:#080;font-weight:bold"&gt;del&lt;/span&gt; girlfriend
+&lt;span class="line-numbers"&gt;&lt;a href="#n3" name="n3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span style="color:#080;font-weight:bold"&gt;def&lt;/span&gt; &lt;span style="color:#06B;font-weight:bold"&gt;helloworld&lt;/span&gt;():
+&lt;span class="line-numbers"&gt;&lt;a href="#n4" name="n4"&gt;4&lt;/a&gt;&lt;/span&gt;    print(&lt;span style="background-color:hsla(0,100%,50%,0.05)"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style="color:#D20"&gt;Hello, world!&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;&lt;a href="#n5" name="n5"&gt;5&lt;/a&gt;&lt;/span&gt;    print(&lt;span style="background-color:hsla(0,100%,50%,0.05)"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style="color:#D20"&gt;你好，世界&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;&lt;a href="#n6" name="n6"&gt;6&lt;/a&gt;&lt;/span&gt;helloworld()
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="test"></category></entry><entry><title>普鲁斯特问卷</title><link href="http://blog.skydark.info/test/2011/10/16/i-am/" rel="alternate"></link><published>2011-10-16T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-10-16:test/2011/10/16/i-am/</id><summary type="html">&lt;p&gt;RT, 偶然看到的，遂回答一下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;你认为最完美的快乐是怎样的？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最希望拥有哪种才华？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最恐惧的是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你目前的心境怎样？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;还在世的人中你最钦佩的是谁？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为自己最伟大的成就是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你自己的哪个特点让你最觉得痛恨？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢的旅行是哪一次？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最痛恨别人的什么特点？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最珍惜的财产是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最奢侈的是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为程度最浅的痛苦是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为哪种美德是被过高的评估的？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢的职业是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你对自己的外表哪一点不满意？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最后悔的事情是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;还在世的人中你最鄙视的是谁？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢男性身上的什么品质？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你使用过的最多的单词或者是词语是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢女性身上的什么品质？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最伤痛的事是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最看重朋友的什么特点？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你这一生中最爱的人或东西是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你希望以什么样的方式死去？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;何时何地让你感觉到最快乐？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你可以改变你的家庭一件事，那会是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你能选择的话，你希望让什么重现？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你的座右铭是什么？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;!--more--&gt;
+现在的我的回答：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;你认为最完美的快乐是怎样的？&lt;/p&gt;
+&lt;p&gt;自由地做自己想做的事情&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最希望拥有哪种才华？&lt;/p&gt;
+&lt;p&gt;创造性的头脑&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最恐惧的是什么？&lt;/p&gt;
+&lt;p&gt;困在回忆的迷宫中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你目前的心境怎样？&lt;/p&gt;
+&lt;p&gt;浮躁&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;还在世的人中你最钦佩的是谁？&lt;/p&gt;
+&lt;p&gt;云风/汉公/dwing？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为自己最伟大的成就是什么？&lt;/p&gt;
+&lt;p&gt;活着&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你自己的哪个特点让你最觉得痛恨？&lt;/p&gt;
+&lt;p&gt;散漫拖延&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢的旅行是哪一次？&lt;/p&gt;
+&lt;p&gt;无，因为不喜欢旅行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最痛恨别人的什么特点？&lt;/p&gt;
+&lt;p&gt;指指点点&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最珍惜的财产是什么？&lt;/p&gt;
+&lt;p&gt;真心朋友，无论性别，无论次元&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最奢侈的是什么？&lt;/p&gt;
+&lt;p&gt;有大把的时间，和可以利用这大把时间的动力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为程度最浅的痛苦是什么？&lt;/p&gt;
+&lt;p&gt;肉体损伤&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你认为哪种美德是被过高的评估的？&lt;/p&gt;
+&lt;p&gt;谦虚。不是因为谦虚有什么不对的，而是因为1.  这应该是里所应当的;2. 有时候不是谦虚，是真心话……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢的职业是什么？&lt;/p&gt;
+&lt;p&gt;自由的程序员&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你对自己的外表哪一点不满意？&lt;/p&gt;
+&lt;p&gt;全部。非要说的话，眼睛&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最后悔的事情是什么？&lt;/p&gt;
+&lt;p&gt;浪费了大把的时间，而且有时还浪费时间幻想&amp;ldquo;如果&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;还在世的人中你最鄙视的是谁？&lt;/p&gt;
+&lt;p&gt;靠出格事情炒作自己的人&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢男性身上的什么品质？&lt;/p&gt;
+&lt;p&gt;有责任感，懂得承诺，豪爽&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你使用过的最多的单词或者是词语是什么？&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;= =&amp;rdquo;.  好吧，英文可能是just，中文最近应该是&amp;ldquo;弱爆了&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最喜欢女性身上的什么品质？&lt;/p&gt;
+&lt;p&gt;坚强体贴独立&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最伤痛的事是什么？&lt;/p&gt;
+&lt;p&gt;做了数不清的傻事&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你最看重朋友的什么特点？&lt;/p&gt;
+&lt;p&gt;多建议，少干涉，谈的来&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你这一生中最爱的人或东西是什么？&lt;/p&gt;
+&lt;p&gt;我很没良心，所以谈最爱的时候实在不知道怎么回答……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你希望以什么样的方式死去？&lt;/p&gt;
+&lt;p&gt;身边无牵无挂，安静地睡去&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;何时何地让你感觉到最快乐？&lt;/p&gt;
+&lt;p&gt;真要说的话……面对二次元的她的时候&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你可以改变你的家庭一件事，那会是什么？&lt;/p&gt;
+&lt;p&gt;让父母更健康&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你能选择的话，你希望让什么重现？&lt;/p&gt;
+&lt;p&gt;不选择，我害怕&amp;ldquo;如果&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你的座右铭是什么？&lt;/p&gt;
+&lt;p&gt;talk less, read much, do more&amp;mdash;&amp;mdash;但是一直没有做到。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="生活"></category></entry><entry><title>欢迎使用Micolog</title><link href="http://blog.skydark.info/test/2010/12/11/welcome-to-micolog/" rel="alternate"></link><published>2010-12-11T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2010-12-11:test/2010/12/11/welcome-to-micolog/</id><summary type="html">&lt;p&gt;欢迎使用micolog. 这是您的第一篇博客. 您可以修改或删除这篇文章，开始您精彩的独立Blog之旅。&lt;/p&gt;
+</summary><category term="test"></category></entry></feed>

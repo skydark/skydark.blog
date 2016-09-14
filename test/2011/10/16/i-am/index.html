@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>普鲁斯特问卷 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>普鲁斯特问卷</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2011-10-16T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2011年10月16日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p>RT, 偶然看到的，遂回答一下：</p>
+<ol>
+<li><p>你认为最完美的快乐是怎样的？</p>
+</li>
+<li><p>你最希望拥有哪种才华？</p>
+</li>
+<li><p>你最恐惧的是什么？</p>
+</li>
+<li><p>你目前的心境怎样？</p>
+</li>
+<li><p>还在世的人中你最钦佩的是谁？</p>
+</li>
+<li><p>你认为自己最伟大的成就是什么？</p>
+</li>
+<li><p>你自己的哪个特点让你最觉得痛恨？</p>
+</li>
+<li><p>你最喜欢的旅行是哪一次？</p>
+</li>
+<li><p>你最痛恨别人的什么特点？</p>
+</li>
+<li><p>你最珍惜的财产是什么？</p>
+</li>
+<li><p>你最奢侈的是什么？</p>
+</li>
+<li><p>你认为程度最浅的痛苦是什么？</p>
+</li>
+<li><p>你认为哪种美德是被过高的评估的？</p>
+</li>
+<li><p>你最喜欢的职业是什么？</p>
+</li>
+<li><p>你对自己的外表哪一点不满意？</p>
+</li>
+<li><p>你最后悔的事情是什么？</p>
+</li>
+<li><p>还在世的人中你最鄙视的是谁？</p>
+</li>
+<li><p>你最喜欢男性身上的什么品质？</p>
+</li>
+<li><p>你使用过的最多的单词或者是词语是什么？</p>
+</li>
+<li><p>你最喜欢女性身上的什么品质？</p>
+</li>
+<li><p>你最伤痛的事是什么？</p>
+</li>
+<li><p>你最看重朋友的什么特点？</p>
+</li>
+<li><p>你这一生中最爱的人或东西是什么？</p>
+</li>
+<li><p>你希望以什么样的方式死去？</p>
+</li>
+<li><p>何时何地让你感觉到最快乐？</p>
+</li>
+<li><p>如果你可以改变你的家庭一件事，那会是什么？</p>
+</li>
+<li><p>如果你能选择的话，你希望让什么重现？</p>
+</li>
+<li><p>你的座右铭是什么？</p>
+</li>
+</ol>
+<p><!--more-->
+现在的我的回答：</p>
+<ol>
+<li><p>你认为最完美的快乐是怎样的？</p>
+<p>自由地做自己想做的事情</p>
+</li>
+<li><p>你最希望拥有哪种才华？</p>
+<p>创造性的头脑</p>
+</li>
+<li><p>你最恐惧的是什么？</p>
+<p>困在回忆的迷宫中</p>
+</li>
+<li><p>你目前的心境怎样？</p>
+<p>浮躁</p>
+</li>
+<li><p>还在世的人中你最钦佩的是谁？</p>
+<p>云风/汉公/dwing？</p>
+</li>
+<li><p>你认为自己最伟大的成就是什么？</p>
+<p>活着</p>
+</li>
+<li><p>你自己的哪个特点让你最觉得痛恨？</p>
+<p>散漫拖延</p>
+</li>
+<li><p>你最喜欢的旅行是哪一次？</p>
+<p>无，因为不喜欢旅行</p>
+</li>
+<li><p>你最痛恨别人的什么特点？</p>
+<p>指指点点</p>
+</li>
+<li><p>你最珍惜的财产是什么？</p>
+<p>真心朋友，无论性别，无论次元</p>
+</li>
+<li><p>你最奢侈的是什么？</p>
+<p>有大把的时间，和可以利用这大把时间的动力</p>
+</li>
+<li><p>你认为程度最浅的痛苦是什么？</p>
+<p>肉体损伤</p>
+</li>
+<li><p>你认为哪种美德是被过高的评估的？</p>
+<p>谦虚。不是因为谦虚有什么不对的，而是因为1.  这应该是里所应当的;2. 有时候不是谦虚，是真心话……</p>
+</li>
+<li><p>你最喜欢的职业是什么？</p>
+<p>自由的程序员</p>
+</li>
+<li><p>你对自己的外表哪一点不满意？</p>
+<p>全部。非要说的话，眼睛</p>
+</li>
+<li><p>你最后悔的事情是什么？</p>
+<p>浪费了大把的时间，而且有时还浪费时间幻想&ldquo;如果&rdquo;</p>
+</li>
+<li><p>还在世的人中你最鄙视的是谁？</p>
+<p>靠出格事情炒作自己的人</p>
+</li>
+<li><p>你最喜欢男性身上的什么品质？</p>
+<p>有责任感，懂得承诺，豪爽</p>
+</li>
+<li><p>你使用过的最多的单词或者是词语是什么？</p>
+<p>&ldquo;= =&rdquo;.  好吧，英文可能是just，中文最近应该是&ldquo;弱爆了&rdquo;</p>
+</li>
+<li><p>你最喜欢女性身上的什么品质？</p>
+<p>坚强体贴独立</p>
+</li>
+<li><p>你最伤痛的事是什么？</p>
+<p>做了数不清的傻事</p>
+</li>
+<li><p>你最看重朋友的什么特点？</p>
+<p>多建议，少干涉，谈的来</p>
+</li>
+<li><p>你这一生中最爱的人或东西是什么？</p>
+<p>我很没良心，所以谈最爱的时候实在不知道怎么回答……</p>
+</li>
+<li><p>你希望以什么样的方式死去？</p>
+<p>身边无牵无挂，安静地睡去</p>
+</li>
+<li><p>何时何地让你感觉到最快乐？</p>
+<p>真要说的话……面对二次元的她的时候</p>
+</li>
+<li><p>如果你可以改变你的家庭一件事，那会是什么？</p>
+<p>让父母更健康</p>
+</li>
+<li><p>如果你能选择的话，你希望让什么重现？</p>
+<p>不选择，我害怕&ldquo;如果&rdquo;</p>
+</li>
+<li><p>你的座右铭是什么？</p>
+<p>talk less, read much, do more&mdash;&mdash;但是一直没有做到。</p>
+</li>
+</ol>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/sheng-huo.html" class="label"><i class="icon-tag"></i>生活</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

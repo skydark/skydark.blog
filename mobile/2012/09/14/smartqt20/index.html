@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>智器T20 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>智器T20</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-09-14T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年09月14日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <h2>动机</h2>
+<p>开学后迎来新舍友，比我大6岁，所以“不如你们年轻人那么经得起折腾”(大概是原话的等价说法)，晚上睡眠比我早不少而且非常不抗干扰。
+于是我现在就拿伊苏7(买了还没玩233)的大盒子挡在电脑屏幕侧面遮光(而且键盘和鼠标的声音还是要避免的)，效果还不错。</p>
+<p>几天前心想，要么试试干脆窝在被窝里远程。
+手头的AC100其实服役良好——除了连不上我笔记本建的Adhoc网络……
+于是好奇用意，去微博问了下炮神最近有啥能用来用的跑Ubuntu的机器(也就是非纯玩物性质的，很多说“能”跑Ubuntu的手机基本没法真正拿来用)。
+果不其然炮神推荐了智器T20(以及只有壕会推荐的华硕TF201……).
+其实本来只是打算打探下现在的市场情况，然后炮神接着表示自己手头恰好有台智器借给他的，于是我果断选择接盘XD</p>
+<p>炮神实验室在物美那边，赶过去等了一会儿，看到一个面带壕者之气笑容如阳光般灿烂的帅哥迎面走来，果断刺瞎并怒拜之<img src="/images/bq/bai.gif" alt="跪拜">
+炮神最近也在通雪本解境篇中，跟我小聊了下机器和解境篇就去物美壕の采购了，但炮神亲切而高大的背影已经深深烙刻在吾心中……(以下省略感言60万字)</p>
+<h2>初试</h2>
+<p>想想自己也好久没碰智器的新产品了(其实是所有数码产品基本都没怎么尝鲜了，手头经常服役的就是上课用的AC100和看片用的智器V5)，作为现在还挂着个智器粉丝团超版号的家伙感到压力很大。</p>
+<p>初拿到手的感觉是有点沉，炮神也提醒过所以算有心理准备了，不过感觉快和AC100有一拼了，AC100可是带键盘的。
+后来一查参数，AC100有860g，T20给的参数是730g……
+考虑到AC100一般是放桌上/腿上用的，长时间举着T20对妹子可能有压力……</p>
+<p>沉归沉，东西是对的起这个重量的，1.5G的双核 TI OMAP4460, 1G 内存，16G 闪存，10寸 1280x800 的多点电容 IPS 屏，7500mAh 的电池……
+我是不知道现在数码圈里对配置讲究到啥程度啦，但这和我这正在服役的 1G Tegra2 + 512M 内存的 AC100 比算是碾压了。
+对比 AC100 跑 Ubuntu 的实力，我对 T20 是很放心的。</p>
+<p>官方 Ubuntu 下载在<a href="http://www.smartdevices.com.cn/support/download/T20/FirmWare/201206/14-1684.html">这里</a>，是和 Android 系统捆在一起的。
+文件比较大，系统镜像解压后有3G.
+安装照着说明来就可以了，很顺利。
+不过因为我不怎么用 Android，所以也懒得去尝试新的 Android 固件能不能和这个固件一样与 Ubuntu 和平共处了。</p>
+<p>另外官方俩提示：</p>
+<blockquote><ol>
+<li><p>每次启动Ubuntu系统前，必须插入含有uImage文件的TF卡，否则Ubuntu系统将无法启动。</p>
+</li>
+<li><p>Ubuntu系统可以触摸使用。因Ubuntu下部分窗口按钮较小，为了更好的体验效果，建议连接鼠标操作。</p>
+</li>
+</ol>
+</blockquote>
+<p>装完 Android 后先试了下，4.0的系统(最新固件是4.1的)，我承认我个人原因确实对 Android 用不习惯，不过在复制 Ubuntu 镜像的时候打了会儿小鸟还是蛮惬意的。</p>
+<p>另外这机器确实屏幕<em>相当不错</em>，可惜我卡上大多数视频分辨率不高，用的时候感觉有点浪费这块高分 IPS 好屏了XD</p>
+<h2>Ubuntu</h2>
+<p>接了炮神的T20，当然是奔着 Ubuntu 去的。
+而 Ubuntu 没网显然是不行的，于是不幸的是 T20 和 AC100 一样不认我笔记本建的 Adhoc 网络……</p>
+<p>关于无线网络这块儿纠结了我一晚上，于是实验结果是：</p>
+<ol>
+<li>我笔记本建立的网络 T20 和 AC100 都无视了；</li>
+<li>祭出智器 Q5 竟然建立了我笔记本和 AC100 都能识别的网络，不过奇怪的是 T20 无法连接它；</li>
+<li>之前买了块水星的 MW150U 无线网卡，用网上说的关于 hostapd 的各种文章试了一遍，都无法建立 AC100 和 T20 能连的网络；</li>
+<li>最后解决方案：在 VBox 的XP虚拟机中挂上那块 MW150U，然后装上买它的时候的那张驱动盘里的软件，成功打开 AC100 和 T20 都能连上的网络……#FML</li>
+</ol>
+<p>总之这只是我这边的纠结情况233333
+有网络之后生活就幸福了，在虚拟机里用 putty 和 winscp 就可以免去前期调教的各种烦恼了——呃，但是得先在 T20 上装上 ssh 服务……
+本以为这种东西他们一定会留着的，结果竟然没有自带，虽然 apt-get 一个很容易就是了。</p>
+<p>机子里一开始装的是 Unity，开机占用350M+?我没仔细看。
+AC100 一开始装 Ubuntu 也是 Unity，但它只有 512M 的内存，所以这简直是自杀行为，想用还是得上 LXDE.
+对比 T20 在 Ubuntu 下总内存大约有 700 M+, 大概剩下的是给硬解视频用了？
+不过 T20 跑 Unity 没觉得太慢，大致和 AC100 跑 LXDE 相当，看得出硬件配置摆在那里。
+不过老实说，Unity 这货虽然确实在界面上给平板做了不少优化，但是很多地方还是坑爹向，所以我干脆切回 LXDE 重新调教去了。</p>
+<p>装 LXDE 直接参考 AC100 的攻略：<a href="http://ac100.grandou.net/ubuntu_deubuntuization">http://ac100.grandou.net/ubuntu_deubuntuization</a>
+不过我没装 nodm/tint2 之类的东西。
+把<code>/etc/X11/default-display-manager</code>改为<code>/usr/sbin/lxdm</code>，然后把<code>/etc/lxdm</code>下的配置文件对应改改就好。
+然后记得删除<code>~/.dmrc</code>，不然开机会报错再继续。
+开机内存占用大约 130M，速度非常爽快，还是很愉悦的。</p>
+<p>然后就是调教之旅。
+因为电容屏的原因，小按钮(比如刚装上 Unity 的时候窗口左上角的X)基本没法点，这也是官方推荐外接鼠标的原因。
+不过因为习惯了用电阻屏的智器 V5 的原因，我早已完全习惯手指(准确地说，手指甲)控制触屏了。
+于是就把所有字体和高度都调大了，然后基本就可以用手指上了——当然手指甲还是不行的。</p>
+<p>原来默认的自动隐藏的滚动条是要做死，在触屏机上完全没法用，怒删之：
+<code>sudo apt-get remove overlay-scrollbar liboverlay-scrollbar3-0.2-0 liboverlay-scrollbar-0.2-0</code></p>
+<p>然后把滚动条调粗、按钮调大，编辑<code>~/.gtkrc-2.0</code>(没有就新建一个)，内容：</p>
+
+<pre><code>style "my-scroll-bar" {
+    GtkScrollbar::slider_width = 40
+}
+widget_class "*Scrollbar" style "my-scroll-bar"
+gtk-icon-sizes="gtk-menu=32,32:gtk-small-toolbar=32,32:gtk-large-toolbar=32,32:gtk-dnd=32,32"</code></pre>
+<p>然后用<code>xev</code>查三个按键的keycode，分别是115(电源键)、122(音量减)、123(音量加)。
+用<code>xmodmap</code>将它们映射到<code>Meta(Alt)</code>,<code>Prior(PageUp)</code>,<code>Next(PageDown)</code>上。
+这套按键本是 Q5 和 V5 上的，不得不承认这种安排确实非常合适，Alt 本来默认就可以用来拖动窗口，而 Alt 作为组合键也可以配合两个翻页键用。</p>
+<p>然后在 Openbox 的配置里加了一个 Alt + 鼠标左键 模拟鼠标右键的功能。
+用<code>xdotool</code>很容易实现，我以前在 Q5/V5 上的时候还不知道<code>xdotool</code>，所以自己写了一个类似的东西，放到 T20 上编译了也还能用。
+用来弥补 T20 没法直接触屏右键还不错(Q5/V5 上长按左键就可以模拟右键了，好像调X配置也可以？我又懒了……)。
+不过别忘了电源键长按20s会强制断电。</p>
+<p>屏幕键盘<code>onboard</code>还可以，不过还是怀念当年 V5 上那个全屏透明键盘。
+V5 因为性能问题调出那个键盘有时会卡，但是 T20 绝对不会有这问题了。
+那种键盘在这个屏幕上大概可以做到盲打了。不知道智器有没有兴趣移过来了。</p>
+<p>单独提到屏幕键盘还有个原因，就是<code>fcitx</code>输入法与<code>onboard</code>不能配合，使用<code>onboard</code>无法在<code>fcitx</code>里输入中文。
+本来想把那要死的<code>ibus</code>切换成<code>fcitx</code>，结果因此作罢(V5 那个触屏键盘是基于<code>matchbox-keyboard</code>的，当年和<code>fcitx</code>配合的很好)。
+其实显然智器也尝试过这事，<code>apt-get</code>的时候能注意到<code>fcitx-modules</code>啥的没卸干净……
+好在 T20 的性能不是问题，用<code>ibus</code>倒也暂时无恙。</p>
+<p>卸 Unity 前在<code>gnome-control-center</code>里能找到屏幕亮度调节，换 LXDE 后不知道咋调节屏幕亮度了，以为往/sys/class/backlight/... echo就行，结果发现完全没效果……</p>
+<p>视频播放器原先的<code>totem</code>是效果不错的，不过全屏后性能有些下降。
+<code>gnome-mplayer</code>性能不错但不能缩放画面。
+<code>vlc</code>和<code>smplayer</code>大概需要好好调一下设置才能用，我懒得调就又卸了。
+感觉比 Android 下视频性能要差些，不过比几乎我平时放在卡上看的都不能放的 AC100 那是好上太多太多了(虽然 AC100 用 chromium 看 youtube 啥的还是能看的)……
+嘛，其实智器是很重视视频性能的，毕竟当年 Q5 在这上面栽过跟头，我相信 Android 下能力应该是妥妥的。
+另外 Ubuntu 下声音只在耳机里有。</p>
+<p>浏览器自带了 FF 和 Chrome. 因为平时用 FF 所以就试了试 FF，性能确实没压力——不过还是希望智器能把之前的屏幕键盘弄过来啊23333……
+网络跑的妥妥的，连接和速度都很稳定。
+另外从方便角度考虑，推荐试试<code>midori</code>，轻量而且界面摸起来更方便。</p>
+<p>最后谈一下备份。
+T20的Ubuntu很好备份，就是复制到<code>/mnt/sdcard</code>的那个<code>ubuntu.img</code>，那实际上是一个硬盘映像，可以直接拿<code>fdisk</code>看分区，也可以当作 loop 设备 mount 的(不过要加偏移，见<a href="http://www.andremiller.net/content/mounting-hard-disk-image-including-partitions-using-linux">http://www.andremiller.net/content/mounting-hard-disk-image-including-partitions-using-linux</a>)。
+所以这里干脆把自己折腾了两下的系统放出来算了，免得后来人麻烦。
+下载是：<a href="http://pan.baidu.com/share/link?shareid=32966&amp;uk=1124565063">http://pan.baidu.com/share/link?shareid=32966&amp;uk=1124565063</a>
+和官方 Ubuntu 一个刷机办法，和官方不一样的就是<code>ubuntu.img</code>，详情见官方固件说明吧。</p>
+<p>上两张图看效果：</p>
+<p><img src="/images/misc/T20lxde.jpg" alt="LXDE桌面">
+<img src="/images/misc/T20lxdefm.jpg" alt="文件管理器"></p>
+<h2>结语</h2>
+<p>老实说，T20 跑 Ubuntu 确实很轻松愉快。
+我拿 AC100 都基本当工作用小本了，相比之下 T20 跑起来更轻松而且娱乐性也更好，这个性能和这个屏幕不跑桌面确实蛮浪费的。
+总之，如果冲着 Ubuntu 去，肯花点心思调教，T20 应该是个不错而且实用的选择。</p>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/mobile.html" class="label"><i class="icon-tag"></i>mobile</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/linux.html" class="label"><i class="icon-tag"></i>linux</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>3days ONS 移植版 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>3days ONS 移植版</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<h2 id="_1">移植作品公共声明</h2>
+<p>自主规制，见谅。</p>
+<script type="text/javascript">
+$('.entry-content').hide();
+$(document).ready(function(){
+    $('.entry-content').children(':gt(1)').hide();
+    $('.entry-content').show();
+});
+</script>
+
+<hr />
+<ol>
+<li>仅供个人研究使用，无担保，谢绝商业行为，包括使用商业化引擎运行。</li>
+<li>转载望注明出处，以方便处理bug.</li>
+<li>求助可在此评论，考虑到大多数bug已有解决方案，请求助前确认自己是否仔细阅读内容。</li>
+<li>请不要让我知道你是从某个贴吧名是ons加两个汉字的贴吧下载的。对彼此心情有好处。</li>
+</ol>
+<hr />
+<p>首发：
+<a href="http://bbs.gfan.com/viewthread.php?tid=637440">机锋</a>
+<a href="http://bbs.zhiqifans.com/thread-34893-1-1.html">智器</a></p>
+<p>防止被HX，在自己这里留个备份……</p>
+<hr />
+<p>3days 〜満ちてゆく刻の彼方で〜 是LASS在2004年发售的一款以猎奇为噱头以轮回为特点的纯爱系18XGalgame.（咳咳……我是不是太絮叨了……）（P.S.:11eyes是LASS继承3days的世界观制作的续作，也许更出名些……）</p>
+<p>移植ONS版，菜B一只，蛋疼的随手作品，不知道发哪里好，所以就跟随炮神脚步了XD</p>
+<p>注：ONS指onscripter，是galgame引擎nscripter的开源重制版，最大的优点是其可移植性，无论你是使用windows, linux, android, wm, ce, psp, pda, iphone, etc... 甚至诺亚舟学习机，都可以用它来跑游戏。</p>
+<p><img alt="血腥模式警告" src="http://public.bay.livefilestore.com/y1pB-U87Rxp156uOm8ncxnkwLbKHgNMJlSM6fNlq3kv9r8UK-kjX0-MrY1JPwV8jKU_1238_IWGJEdyvI7fQ9b9Dw/screenshot2.jpg?psid=1" /></p>
+<hr />
+<p>使用3月编译的新版ONS+最新3days脚本的时候，文字会消失，在向natdon君索要了新版ons源码测试后初步认定是新版ONS对textbtnwait也触发了erasetextwindow，如果你在使用新版ONS(3月22日及之后)，可以通过将脚本60.txt中</p>
+<div class="highlight"><pre><span></span>amsp layer_pagebtn, %1, %2:vsp layer_pagebtn, 1
+</pre></div>
+
+
+<p>这句(请利用文本编辑器的查找功能)紧接着的下一行的<code>erasetextwindow 1</code>移动到<code>textbtnwait %BtnRes</code>(离的很近，当然仍然推荐查找功能)这句的下一行即可。</p>
+<p>旧脚本放在下面的历史脚本更新中了。</p>
+<hr />
+<h2 id="_2">故事简介</h2>
+<p>男主角 高梨亮 在10月16日早晨起床，在和青梅竹马女主角 藤见环 上学的路上发现了学校里出名的学姐的尸体，随后听说她是被无固定目标杀人犯分尸杀死；</p>
+<p>10月17日两人又再次目睹同校女生跳楼自杀；</p>
+<p>到10月18日晚上，在俩人缠绵之时，头戴面具的黑衣男子突然出现，亮的眼中最后目睹到的是，自己青梅竹马被残忍杀死的样子……</p>
+<p>突然男主角惊醒，看到日历的日期是，10月16日……</p>
+<p>是梦，还是真实？不断轮回的三日中，为了跳出悲惨的结末，男主角奋力寻找拯救她们的办法，最终将会在一次次死亡轮回中，凑齐打开真实之门的关键，揭开背后的真相……</p>
+<hr />
+<h2 id="_3">游戏下载</h2>
+<ul>
+<li>
+<p>主程序（炮神原帖里那个，现在已经有更新了，需要新版的请追<a href="http://bbs.gfan.com/android-327827-1-1.html">炮神原帖</a>）<a href="http://portal.bakerist.info/node/251">面包工坊的版本</a>是最新的。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/share/link?shareid=6972&amp;uk=1124565063/">脚本文件</a>(2012/08/26 0.1314159版)</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_3823193133">图像</a>（168M）</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807561_3474499221">字体文件</a>（我的疏忽……一开始忘记了……虽然其实随便找一个中文字体改名为default.ttf就可以用的）：</p>
+<p>在SD卡上ons目录下新建一个目录（名字随便），将脚本文件解压进去，将图像文件复制进去，然后复制字体文件进去即可游戏。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_2358954209">音乐</a>（50M）</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_2452522568">语音</a>（400M）</p>
+<p>如果需要音乐和人物语音，请将这两个文件命名为arc1.nsa, arc2.nsa放入游戏目录。</p>
+</li>
+<li>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_511493750">OP</a>（100M）</p>
+<p>PC上使用ONS运行时如果需要播放OP，请将这个文件放入游戏目录，实际上这个文件就是PC原版的OP文件。</p>
+<p>旧版Android版ONS不能播放mpeg所以拷了也没用……</p>
+<p>但是个人非常喜欢OP音乐，如果3days的BGM给50分的话，这个OP我给90分……</p>
+<p>这个OP的播放位置是最初的三天轮回结束的时候，可以玩完第一个三天后自己打开OP播放一下……</p>
+</li>
+</ul>
+<p>如果想在Windows上玩，请下载以下两个压缩文件中的任意一个，解压到游戏目录中，运行其中的exe文件即可：</p>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_4285520317">NScripter2.94chs</a>
+<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_1848000979">ONScripter20100919(2.94)</a></p>
+<p>如果想要800x600版，与顶楼不同的是<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_4266462850">图片文件，请下载后重命名为<code>arc.nsa</code></a>和<a href="http://pan.baidu.com/share/link?shareid=6971&amp;uk=1124565063/">脚本文件</a>，其他的声音视频等是共通的。</p>
+<p>800x600版主要目的是给PC的（还原PC版效果），也不排除大屏高分辨率Android平板使用。</p>
+<p>祝各位good luck，有bug欢迎汇报，版本号0.131415中……</p>
+<hr />
+<h2 id="_4">使用说明</h2>
+<p>（摘自<a href="http://bbs.gfan.com/android-327827-1-1.html">炮神原帖</a>）</p>
+<p>把游戏目录放到SD卡的ons目录下</p>
+<p>右边的E代表ESC按键，S代表skip，O是啥不知道</p>
+<p>摁E可以调出游戏的菜单</p>
+<p>保存进度：用游戏菜单里的保存进度</p>
+<p>退出：用游戏菜单里的退出， 或者摁home返回主屏幕再杀掉</p>
+<hr />
+<h2 id="_5">移植说明</h2>
+<ol>
+<li>
+<p>原汉化版中有几个比较伤感的错误，1是存档可能读不了，2是进入真实之门后剧情不翻页……这也是我做这个的动力之一，这个ONS移植版不会有这种问题了……</p>
+</li>
+<li>
+<p>另外是不断轮回的三天中显然会有重复剧情，萌到翻的辉神评价：“以skip为主要流程”……所以为了方便轮回，我加入了skip段落功能，点击主界面的Setting按钮可以切换开启/关闭，开启后效果如下：</p>
+<p><img alt="跳过章节" src="http://public.bay.livefilestore.com/y1prCFhnQzy7zyrgcKo0DApgTh_FNDMqDxjrGbHS-H9l-tmfmO6tq5AGyXi5jwM5sKFupwDT9Q14rxvugk1_QxK8g/screenshot17.jpg?psid=1" /></p>
+</li>
+<li>
+<p>这个游戏想玩通一个Good End至少需要死9次……如果想玩通全部GE，或者收集全CG那就更不知道要死几次了……百度百科里有攻略（P.S.:据说写攻略的家伙就是某个死了300多次才开启了真实之门的贴吧吧友……），没有耐心的朋友可以参考，我在我的测试机子上依照它和上面的skip功能完成了全结局……（注意，该攻略中“断末魔”结局的选项和汉化版有出入，攻略中“叫住”那项汉化版里翻译的是“大喊”）</p>
+</li>
+</ol>
+<p>参考：
+<a href="http://bbs.gfan.com/android-327827-1-1.html">炮神原帖</a></p>
+<p>感谢米炮的GBK版ONS，信米炮啥都有啊XD！</p>
+<hr />
+<h2 id="pc">对比PC版截图</h2>
+<p><img alt="时钟破碎对比" src="http://ldouhg.bay.livefilestore.com/y1pVOEtJrcnb1bLYQml5_NhbVovx7CdbBTsaK0xMb1m11yMBjp5BLAMCdHwL5XxPRoCNPgt5vtaCkoHqqDzPk1RyC6uqcmKbbhj/Screenshot-compare2.jpg?psid=1" /></p>
+<p><img alt="美柚回想" src="http://public.bay.livefilestore.com/y1pyrd6Y4aY6lS-otR2aRga6EAYbeab894M2g_JgGgYj2uWnqttD4pHR792GXzbjEh2H17WukFkpf9UK-Ir1Zvb5Q/screenshot4.jpg?psid=1" /></p>
+<p><img alt="ED" src="http://public.bay.livefilestore.com/y1pFVtmYvwn2jkxSLIErfvR9E2f5BrI1jz3whuTAPZvzgIMpZ0CPy_t1bOiy1u5MjeK2sV0OsQ1Prz-62iQWsRaFQ/screenshot11.png?psid=1" /></p>
+<p><img alt="CGMode" src="http://public.bay.livefilestore.com/y1pPd0FlfPWIVsStBxf32ePAoM_txp0T_Q40q33uEMffhkfP3YQfshq58cwkElNYgicn9xuNlh3yPlXzthPI3OMEw/screenshot19.jpg?psid=1" /></p>
+<p><img alt="右键菜单对比" src="http://public.bay.livefilestore.com/y1pUAa-KAUJJ6Wi4-jLVy2dZloe3dGWFExTWu9kJPPsYQRTFxxgFmEQ2Qzg2Ato4dFeQulAa_7zYLMVDSxLWZs_Fg/Screenshot.jpg?psid=1" /></p>
+<p><img alt="存档对比" src="http://public.bay.livefilestore.com/y1puAXfdzJrMNFDeHoqGyb_lX6ON7Hi6LUMiNWlJqvFB91SUyPIYm9MKYnPNYIMCHHJ4Kux-0X0kY9xSVr_gzg1_g/Screenshot-3.jpg?psid=1" /></p>
+<hr />
+<h2 id="_6">历史脚本</h2>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_2788888868">2月10日0.09b脚本</a></p>
+<p><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_3901102827">2月20日0.11脚本</a></p>
+<p>如果需要知道脚本是怎样生成的，以及改分辨率重新打包等问题，也许可以参考
+<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807912_1517196851">这里</a>
+（是0.09版本时候的了，也许不完全对新版有效，但参考价值还是有的……）</p>
+<hr />
+<h2 id="_7">更新记录</h2>
+<p>已经补充上了字体文件，因为缺字体自动退出打不开游戏的朋友不好意思，可以看一下下载部分的更新（感谢archer1202君的提醒）。</p>
+<p>2月9日更新，修正部分立绘错误，但因为会导致存档不兼容（每次更新都会如此），如果已玩一定时间，请斟酌……目前发现由此导致的错误点有一处，在10.txt中搜索<code>t_ko_01.img #07</code>，将#07改成#01即可。</p>
+<p>2月10日更新，修正杀戮者章节的一个跳出错误，如果使用老版本发生这个错误，可以跳过该章节，或者查找10.txt中“越来越刺眼”这句话，把那行中多出的N多空格删掉。</p>
+<p>2月20日更新脚本添加即时选择系统特效，添加选择对话框效果，添加时钟效果（感谢百度3days吧米老鬼君的提醒），调整立绘显示部分。</p>
+<p>2月22日更新脚本添加Save/Load界面，完善右键菜单，修正一些细微的bug，流程图变为存档相关（即原PC版效果），完成EDStaff滚动动画，改善对nscripter的兼容度。
+另，由于在一定程度上已比较接近于PC版原版效果，基本停止功能更新，主要以修复bug为主。</p>
+<p>2月25/26日更新脚本完善文本框界面，对scene图标微调，对一些全屏光线效果模拟。</p>
+<p>2月27日修正汉化版中后宫End处乱码bug，感谢百度3days吧whaleboss君的提醒。</p>
+<p>3月1日细微调整至PC版效果。</p>
+<p>2012/08/26 修正路线bug，感谢PyMO版移植者Smileの寂寞。</p>
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

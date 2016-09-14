@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Skydark's blog - acg | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>Skydark 的胡言乱语  <small>This is a blog just for fun.</small></h1>
+</div>
+<div class="logo"><img src="/images/logo.jpg"></div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<h2 id="index-slogan">你看到的都是幻觉</h2>
+<hr id="index-line" />
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/acg/2011/06/10/demonophobia/">早栗妹子你好~</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-06-10T00:00:00+08:00">
+                2011年06月10日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/life/2011/05/27/desktop/">一张渣桌面</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-05-27T00:00:00+08:00">
+                2011年05月27日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/acg/2011/04/07/9baka/">绯月.苍雪</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-04-07T00:00:00+08:00">
+                2011年04月07日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/acg/2011/04/04/my-christina/">石头门！</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-04-04T00:00:00+08:00">
+                2011年04月04日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/acg/2011/03/25/headless-sister/">神MAD</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-03-25T00:00:00+08:00">
+                2011年03月25日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="http://blog.skydark.info/acg/2011/03/10/galgame/">于是通了刻痕和沙耶……</a></h1>
+            <footer class="index-post-info">
+
+            <span class="published" title="2011-03-10T00:00:00+08:00">
+                2011年03月10日
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p></p></div>
+        </div>
+    </div>
+
+<div class="span8">
+<div class="pagination pull-right">
+<ul>
+        <li class="prev"><a href="http://blog.skydark.info/tag/acg.html">&larr; Previous</a></li>
+        <li class=""><a href="http://blog.skydark.info/tag/acg.html">1</a></li>
+        <li class="active"><a href="http://blog.skydark.info/tag/acg2.html">2</a></li>
+        <li class="next disabled"><a href="#">&rarr; Next</a></li>
+</ul>
+</div>
+</div>
+</div>
+          </div>
+<div class="span4 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/acg.html">acg <span class="small-counter">21</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/sheng-huo.html">生活 <span class="small-counter">21</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/xue-ye.html">学业 <span class="small-counter">14</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ons.html">ons <span class="small-counter">13</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/python.html">python <span class="small-counter">12</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/programming.html">programming <span class="small-counter">11</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/pc.html">PC <span class="small-counter">8</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/linux.html">linux <span class="small-counter">7</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/e17.html">e17 <span class="small-counter">6</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/test.html">test <span class="small-counter">5</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/sptime.html">sptime <span class="small-counter">4</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/arch.html">arch <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/infinity.html">infinity <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/gui-quan-zhen-luan.html">贵圈真乱 <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/3days.html">3days <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/mobile.html">mobile <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ai.html">AI <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/lass.html">lass <span class="small-counter">3</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/sister.html">sister <span class="small-counter">2</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/lisp.html">lisp <span class="small-counter">2</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ruby.html">ruby <span class="small-counter">2</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/type-moon.html">type-moon <span class="small-counter">2</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/pgm.html">pgm <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/shell.html">shell <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/pyside.html">pyside <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/logic.html">logic <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/php.html">php <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/yi-hua.html">汉化 <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/git.html">git <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/aqua.html">aqua <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/dip.html">dip <span class="small-counter">1</span></a>
+    </li>
+    <li class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/shu-ma.html">数码 <span class="small-counter">1</span></a>
+    </li>
+<li class="clearfix"></li>
+
+<li class="dsq-widget-title nav-header">最近回复</li>
+<li id="recentcomments" class="dsq-widget">
+  <script type="text/javascript" src="http://skydblog.disqus.com/recent_comments_widget.js?num_items=4&amp;hide_avatars=0&amp;avatar_size=24&amp;excerpt_length=50"></script>
+</li>
+<li><small><a class="pull-right" href="http://disqus.com/">Powered by Disqus</a></small><span class="clearfix"></span></li>
+
+<li class="nav-header"><h4><i class="icon-external-link"></i>Friend Links</h4></li>
+    <li><a href="http://icemaple.info">远凌风</a></li>
+    <li><a href="http://ori0n.co.de">暗夜北辰</a></li>
+    <li><a href="http://www.is.pku.edu.cn/~hutingting/">恶意卖萌的小师妹</a></li>
+    <li><a href="http://kobato.us">小鸠的部屋</a></li>
+    <li><a href="http://reverland.org">Reverland的行知阁</a></li>
+
+<li class="nav-header"><a href="http://github.com/skydark">My Github Repos</a></li>
+<li>
+  <ul id="github_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+</li>
+<script type="text/javascript" src="http://blog.skydark.info/theme/js/github.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    github.showRepos({
+      user: "skydark",
+      count: 7,
+      skip_forks: true,
+      target: '#github_repos'
+    });
+  });
+</script>
+
+
+</ul></div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

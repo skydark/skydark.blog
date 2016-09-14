@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Play with Jekyll | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>Play with Jekyll</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-03-23T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年03月23日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p><div id="toc-here"></div></p>
+<hr>
+<h2>动机</h2>
+<p><a href="http://appblog.skydark.info">原先的blog</a>是使用<a href="http://micolog.xuming.net">micolog</a>搭建在 GAE 上的。
+但是随着 GAE 免费配额方案的改变，加上徐明对 micolog 的维护逐渐停滞，感觉有转移出去的必要了。</p>
+<p>感谢 V2EXer <a href="http://www.yangzhiping.com">阳志平</a>的博文：<a href="http://www.yangzhiping.com/tech/wordpress-to-jekyll.html">告别wordpress，拥抱jekyll</a>，
+和<a href="http://www.yangzhiping.com/tech/writing-space.html">理想的写作环境：git+github+markdown+jekyll</a>，
+最终促使我做出了使用 Jekyll 将 blog 迁移到 github 上的决定。</p>
+<p>Jekyll 有很多吸引我的地方，比如：</p>
+<ol>
+<li>基于 git，天然的版本控制能力;</li>
+<li>基于 markdown，干净利落，方便处理，配合 git，写文章只需要 vim 足矣;</li>
+<li>直接可放在 github 上，无需担心空间和维护问题;</li>
+<li>轻量纯静态，方便迁移，无需担心安全问题;</li>
+<li>可定制性强，只要是静态的就可以。如果在 github 以外的空间存放生成好的站点，添加后端代码也是可行的。</li>
+</ol>
+<p>最终迁移是在妇女节进行的(……)。总的来说很顺利。</p>
+<p>P.S.: 阳志平是位心理学工作者，也是位 Ruby 爱好者。他的文章写的干净利落，思路清晰，思考深刻。我很欣赏他的文章。</p>
+<h2>搭建</h2>
+<p>应该强调的是，这篇文章只是想留下做私人笔记，不能算是教程。
+如果需要教程，可以参考阳志平先生的那几篇文章。</p>
+<p>那么开始，首先当然需要一个 github 帐号，自然还有 git.</p>
+<h3>git</h3>
+<p>git 是一个<em>版本控制软件</em>，作用是记录你对一个项目的所有<em>修改历史</em>。
+我以前也只是将它用来备份自己写的一些垃圾而已，所以并不算熟悉。
+关于学习 git，个人推荐<a href="http://progit.org/book/zh/">这本书</a>。
+当然，更关键的还是<strong>先用起来</strong>。</p>
+<h3>github</h3>
+<p>有关<a href="http://github.com">github</a>，
+阳志平先生的<a href="http://www.yangzhiping.com/tech/github.html">这篇博文</a>让我觉得已经不必介绍的更多了。</p>
+<p>关于 github 的影响力，简单地看看本文里多少软件的链接出自 github 就知道了，其中有些还是有 github 但我贴了其他地址的。</p>
+<p>关于 github 的配置如果还有不明白的地方，看它官网的 help 足矣。</p>
+<h3>jekyll bootstrap</h3>
+<p><a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>
+是一个对生成<em>静态 blog 类站点</em>的工具 Jekyll 的一个包装。
+对于快速上手而言，它能减少很多麻烦。
+如果只是想快速在 github 上搭建一个 blog，照着它主页说的走一遍非常容易。<br>
+另外就像它的名字一样， Jekyll Bootstrap 默认是基于<a href="http://twitter.github.com/bootstrap/">bootstrap</a>的主题，twitter一贯的清新风格。</p>
+<h3>ruby</h3>
+<p>当然，为了在本地生成和预览结果，需要安装 jekyll，也就是说需要首先安装 ruby.</p>
+<p>Ruby 据说在 Mac 下工作最好，Linux 也不错，Windows 不敢恭维。</p>
+<p>总而言之，还是推荐使用 <a href="http://beginrescueend.com/">rvm</a> 安装 ruby.</p>
+<p>淘宝提供了 rubygems 的<a href="http://ruby.taobao.org/">镜像源</a>，
+可有效加速 gem 的安装，强力推荐。</p>
+<h3>jekyll</h3>
+<blockquote><p>Jekyll is a simple, blog aware, static site generator.</p>
+</blockquote>
+<p><a href="https://github.com/mojombo/jekyll/wiki">Jekyll</a>
+由两个部分协同工作，
+一边是将标记语言(Textile, Markdown)转换为 html 语言的转换器，
+另一边是模板引擎 <a href="https://github.com/shopify/liquid/wiki">Liquid</a> 。</p>
+<p>本地安装 Jekyll 只需要运行:</p>
+
+<pre><code>gem install jekyll</code></pre>
+<p>即可。</p>
+<h2>配置</h2>
+<p>Jekyll Bootstrap 的首页已经将主要需要配置的部分说明的很清楚了，像评论申请一个 <a href="http://disqus.com">disqus</a> 帐号就行。
+这里说一些可能需要额外提醒的部分。</p>
+<h3>github 支持</h3>
+<p>如果需要将页面放在 github 上，那么需要注意 github 上：</p>
+<ol>
+<li>不支持自定义插件，因此需要特殊处理的页面最好自己写进 Rakefile 里;</li>
+<li>有些微妙的地方与本地不同。在我这里，如果使用中文的 markdown 文件名，最后生成的站点路径将找不到，而 github 上可以; 如果在 liquid 中使用 split filter，本地可以正常应用，而 github 上不可以。也可能是因为两边使用的 jekyll 版本有别？</li>
+</ol>
+<h3>markdown 引擎</h3>
+<p>Jekyll 可以使用的 markdown 引擎至少有
+<a href="http://maruku.rubyforge.org/index.html">maruku</a>,
+<a href="https://github.com/rtomayko/rdiscount">rdiscount</a>,
+<a href="http://kramdown.rubyforge.org">kramdown</a>.
+我列举的顺序就是我尝试的顺序。</p>
+<ul>
+<li>maruku 是默认的 markdown 引擎。优点是语法灵活，支持很多扩展特性。缺点一个是慢(据说，我并没有太深刻的体会)，一个是<em>含中文的列表经常会解析出错</em>，比如<a href="/ACG/2012/03/03/sora-no-kiseki-ova2">这篇空轨OVA2的感想</a>，如果使用 markdown 的标准语法写，被 maruku 解析后开头的12345就会乱掉，变成12125之类的东西……</li>
+<li>rdiscount 是 C 实现的 markdown 引擎，优点不用说也知道就是快。缺点就是完全以实现标准 markdown 句法为目标，完全不支持扩充句法。</li>
+<li>kramdown 是我目前在用的 markdown 引擎，速度按照其首页的说法是 maruku 的4倍。支持一些扩充句法，我认为足够了。</li>
+</ul>
+<p>安装不同的引擎很容易，<code>gem install &lt;引擎名&gt;</code>，然后对照着编辑<code>_config.yml</code>即可。</p>
+<h3>语法高亮</h3>
+<p>就说一句，需要安装 pygment，并找一个高亮用的 css 文件。
+我是从阳志平先生的站点上 fork 过来的。</p>
+<h2>其他功能</h2>
+<p>kramdown 支持的 markdown 语法可以在其网站上<a href="http://kramdown.rubyforge.org/syntax.html">找到</a>，
+虽然我没在里头看到<code>{: toc}</code>这种用法——这就是本文开头的目录生成的方法。</p>
+<p><a href="http://stackoverflow.com/questions/tagged/jekyll">stackoverflow</a>
+自然也是个去提高经验值的好去处。</p>
+<p>最近评论在 disqus 网站上有提供代码，Google Plus 按钮亦同。</p>
+<p>主页的分页可以查 jekyll 的 paginate 支持。
+主页和侧栏的编排一看源码便知，也没有花太多精力，因此不再赘述。</p>
+<h3>友情链接</h3>
+<p>一开始不清楚 yaml 的表示方法，
+然后忘记了 jekyll 只是一个模板语言，因此<em>就算看起来再怎么像 ruby，也没有 ruby 的完整功能</em>。
+因此用 ruby 的语法各种试各种报错，最初版本里循环也写的超难看。
+后来用 yaml 在 page 的开头表示成：</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">links</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="s">&quot;https://plus.google.com/117704226616638577311&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;My</span><span class="nv"> </span><span class="s">Google</span><span class="nv"> </span><span class="s">Plus&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://icemaple.info&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;远凌风&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="s">&quot;http://ori0n.co.de&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;暗夜北辰&quot;</span>
+</pre></div>
+<p>就可以遍历生成了。</p>
+<h3>github 仓库</h3>
+<p>显示 github 仓库状态的 javascript 文件 fork 自<a href="https://github.com/dementrock/dementrock.github.com/blob/master/javascripts/github.js">这里</a>。
+稍作修改，改为使用v3的API.</p>
+<h3>加密</h3>
+<p>注意 jekyll 是一个<em>静态站点生成器</em>，因此至少也会把密文暴露出来。
+这一点上的确很遗憾。
+如果不是发布在 github 上，自己写后端代码会更安全些。</p>
+<p>现在的实现方式是 post 前手动执行 rake，将文章用 ruby 加密。
+然后在网页端用 javascript 解密。</p>
+<p>解密使用了<a href="https://github.com/mdp/gibberish-aes">Gibberish-AES</a>
+这个 javascript 写的 AES 库。
+为什么选择了这个库？
+<a href="http://stackoverflow.com/questions/8080525/js-ruby-aes-256-symmetry">因为</a>：</p>
+<blockquote><p>In the end I used Gibberish AES which has both a Ruby and JavaScript implementation written by the same author</p>
+</blockquote>
+<p>原先实现它自己写了一个 jekyll 的 filter 插件，它在本地工作的很好，但是扔到 github 上的时候就发生了杯具——
+github 不支持自定义插件(安全原因)。
+所以最终实现为了一个 rake 的 task.
+原理很简单，就是把原先使用插件渲染的过程手动执行一遍。
+之前看过 ruby 的书，但是基本没有实战过(没需求的缘故，平时都用 python)。
+这次也算是有点小收获。</p>
+<p>关于这类问题的解决方案，
+网上还有说不 push 原始仓库而去 push 本地生成的站点的。
+只能说这种方法不符合我的哲学，不然我就去选择用 <a href="https://github.com/imathis/octopress">octopress</a> 了。</p>
+<p>最后顺便吐槽一句，也许是我还不熟悉的缘故，但我目前感觉
+irb 和 ipython 真的不在一个档次上……</p>
+<h3>slide</h3>
+<p>上学期英语口语课以及高级逻辑学课上用基于 python 的 <a href="https://github.com/adamzap/landslide">landslide</a> 做了两个 slide.
+基于 html5 的效果确实不错——老实说，除了要自己带一个浏览器外真的很理想——学校里那堆反人类的 IE6 大家都懂的，还不如自己随手用 pyqt 写的一个临时 webkit 浏览器靠谱。</p>
+<p>给 blog 添加 slide 功能的动机之一是看到了<a href="http://bmcmurray.github.com/hekyll/">这个项目</a>。
+出于好玩，本想直接拿来用。
+不过实际操作时才发现这个项目写 slide 要分成好几个文件，让我觉得很疼，所以最后思量了一下，打算根据 landslide 来自己做一个。</p>
+<p>当时用 landslide 的时候并没怎么在意它是怎么工作的，基本上拿来用就是(虽然为了处理一些公式也手动写了个 python 程序来预处理，其中还包括一个方便写 div 的 markdown 扩充预处理)。
+这次其实也没有仔细研究。
+它的核心其实在 javascript 部分。
+用于生成页面的 base.html 其实也是个模板文件，格式和 liquid 很像，所以移植从思路上没大有难度。</p>
+<p>结果最纠结的地方还是在 liquid 的表现力上，反复的用 capture ……
+可能是因为之前用过的 web 框架是 Karrigell 和 bottle，
+感觉写法被受限的这么严重的感觉好微妙(Karrigell 支持的模板方式略多……)，
+有点让我想起以前用 ONS 写 Fate 的时候……</p>
+<p>其间也发现了 <code>split</code> filter 只在本地有效，在 github 上无效的现象。
+最终靠 javascript 在载入时重新编排页面内容，完成了 Table of Contents 和页码显示部分。
+这么想来，其实我一开始在生成端就干脆不对页面处理，全交给 javascript 来做也可以啊……突然感到 bgm38 了……</p>
+<p>当然顺便加了 MathJax 支持，在页面的 head 里加几句就可以，和当时给 landslide 加的方法差不多，MathJax 还是很好用的。</p>
+<h3>有关 git</h3>
+<p>想学习一个东西，就应该<a href="http://www.yangzhiping.com/tech/learn-program-psychology.html">进入学习区学习它</a>。</p>
+<p>前两天系里发来通知，说是可以申请系里的主页空间。因此当时就想可以用同一份仓库来做这个事情。</p>
+<p>原来的分支只有 master(除了加 feature 的时候会分出临时分支)，
+在此之上新建了一个 is 分支，用来放系里的主页；
+新建了一个 dev 分支，用来保存这个 blog 和系里的主页共同的部分。</p>
+<p>dev 分支是从原 master 分支分叉后删掉多余部分改出来的。
+原 master 分支被我直接备份出去，然后从 dev 分支重新分出来新 master 分支，
+然后再将备份重新复制回来提交……
+虽然很不科学，但在这个场合应该是合适的。因为之前没有考虑过分支问题，和 dev 有关的提交与只与 master 有关的提交的历史混在一起，分离太繁琐。</p>
+<p>is 分支很容易，直接从 dev 分支分出来即可。</p>
+<p>将来 dev 分支进展的话，master 分支可以 merge dev 分支，is 那边要上传 <code>_site</code> 生成目录，直接 rebase 就可以了。</p>
+<p>merge 和 rebase 的最大区别在于，前者是<strong>在不改变过去的前提下从两个分支创造共同的未来</strong>, 而后者是<strong>改变过去后重新来过以改变现在</strong>。
+因为 rebase 会改变历史，因此不应该在公开仓库上使用(嘛，虽然不会有人 clone 并提交这个页面吧，所以其实也可以 rebase，只是每次要加 force 参数不舒服……);
+但也因为 rebase 不会产生新分支，因此适合给其他人的项目提交补丁或新特性，提交后维护者只需要直接采纳前进就可以，就不必合并并留下分支记录了。</p>
+<h2>总结</h2>
+<p>使用 Jekyll 搭建博客拥有非常多的优点，
+譬如版本控制、markdown、轻量、静态、可定制、geek。
+只要安心看说明，使用门槛其实并不太高。
+我觉得是一种很适合喜欢生活里充满乐趣和安逸的人的选择。</p>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ruby.html" class="label"><i class="icon-tag"></i>ruby</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/git.html" class="label"><i class="icon-tag"></i>git</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/programming.html" class="label"><i class="icon-tag"></i>programming</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

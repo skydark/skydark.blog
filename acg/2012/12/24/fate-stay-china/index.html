@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>丑小鸭的天鹅湖 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>丑小鸭的天鹅湖</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-12-24T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年12月24日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p>其实打通有几周了，但是这个月状态有问题……(老板：“作死……”)</p>
+<p>感谢<a href="http://icemaple.info/">冰枫</a>推荐，让我接触到这款<strong><em>诚意满满</em></strong>的作品。
+没错，我觉得这是我最想给的评价。</p>
+<p><img src="/images/game/teh.jpg" alt="Cover"></p>
+<p>尽管如此，首先还是得说，光盘又喜闻乐见的打不开，然后又喜闻乐见的拜托室友了2333
+虽然他读起来也困难但最终好歹还是把文件都拷出来了。
+之前赤印雪本解也都是这样，还是压力蛮大的。</p>
+<p>我想我没透，或者只是闪烁其词了一下，提了一下但应该没影响的那种，但愿……</p>
+<h2>音画效果</h2>
+<p>CG质量还是蛮不错的(画风有别是因为画师不同?总之还好啦)，不过立绘个别表情略别扭。
+第一次玩的时候最大的感慨是：<strong>两位女主的衣服好多！</strong>
+呃，不是说穿的太多铁壁防阵啦233
+就是立绘着装的确种类蛮多的，而且都蛮适合蛮喜欢的，画师辛苦了～</p>
+<p>BGM有些还是不错的，要说最大的问题就是有时候安静的时间有点长，该BGM出马的地方没有，配合上有点问题。
+此外结局前飙泪的BGM刚好在刻痕1里听过，对我个人而言稍微影响了下泪点2333</p>
+<p>丑小鸭的组图演出是最大亮点之一，效果绝赞，有种看大片的感觉XD
+十分惊叹 krkr2 能够玩出这么<strong>惊艳</strong>的效果，大呼过瘾的同时也深感佩服。</p>
+<p>缺点是组图演出部分不能存档也不方便 skip(见下)，而每当临近结局时演出段落就大增……
+另外感觉演出中的部分人物和立绘出入有点大。</p>
+<p>顺便说一句虚拟机里玩看不了视频，我是等我有心情回 Win 下才补完结局动画的……(但是结局动画里带着一点剧情……)
+ED 歌曲确实不错。</p>
+<h2>系统</h2>
+<p>自由行动模式和 PDA 设定很赞，不影响剧情走向但是的确很有趣。
+自由行动模式估计还是顾忌难度问题(无论是对制作本身还是对玩家攻略)，除了了解一些枝节情报外并无它用，稍微有点可惜。
+PDA 里面的内容则非常充实，比如每天的 KUSO 新闻、各色诡异的魔法、甚至还有充满各种冷neta的微博……能在一些小细节上琢磨这么多实在是诚意满满啊！</p>
+<p>虽然细节诚意满满，值得注意的地方也还是有的，比如 auto 没做按钮，skip 似乎也不大好用。</p>
+<p>另外扯远一句，在我接触的国产GAL中，肯在 skip 上下功夫的似乎不多——虽然完全可以理解啦。
+对比 Fate, Fate 里演出效果众多，但在 skip 的时候都会高速跳过；
+而国产GAL似乎都会仍然把演出按原定效果完成，对演出众多的游戏来说，skip 的效果就打了折扣。
+嘛，虽然我承认我移植的时候 skip 也一向偷懒就是了2333</p>
+<p>此外，对比赤印存档太多，丑小鸭这么丰富的剧情配上这点存档<strong>根本不够用好吗</strong>！<img src="/images/bq/roulian.gif" alt="揉脸"></p>
+<h2>剧情</h2>
+<p>对于玩过 Fate 的人来说，如果说一周目天鹅之海线给人的感觉是 Fate 线的黄金别离的话，那么二周目丑小鸭涅槃线就是 HF 线的春天再临了。
+也就是说一周目用一个美好的爱情故事展开设定，二周目则去揭露背后的真相。</p>
+<p>一周目引入了这个“有中国特色的魔法师社会”的设定，老实说这种轻松的设定实在是欢乐啊我喜欢XD</p>
+<p><img src="/images/game/tehxxjc.jpg" alt="X教"></p>
+<p>最喜欢的是火星散兵坑的心理刻画。实在是太有共鸣了。</p>
+<p>另外一周目男主其实不是火星对吧(点头)XD</p>
+<p>一周目很果断的直接打通了GE，然后顺路回去回收了两个BE.
+老实说，一周目给我的感觉是，“这个游戏确实不错，汐妹子也好棒好棒的，虽然好多地方还可以挖掘，结局也不难猜到，但是这样结束了也是良作了”。
+看到CG列表一大半空白，于是心想可以推妹线了，进入了二周目——然后我发现我果然图样图森破2333</p>
+<p>二周目一开始因为妹妹也在的关系完全偏离了一周目的世界线，之后随着事态愈发不可收拾，整个事件背后的阴谋和脉络逐渐显露出来。</p>
+<p>最不可思议的就是在一周目中大量的疑惑在二周目几乎都有自然的解释，一开始觉得很不自然的设定竟然也是有解的，
+甚至还有一部分(我认为很有价值的一部分，老实说有点映射现在贵圈的感觉口胡)在 ED 后也补完了，
+可以想见为了构筑整个世界观做出了多大的努力，真心诚意满满啊！</p>
+<p>妹线我最不适应的地方是收尾有点突然……当然汐线也有这个问题，但是妹线给我的感觉是明明刚才妹妹还在崩溃的边缘，然后哥哥奔赴战场，然后结局，然后两人就已经OK了……
+呃，总让我感到没法释怀有没有，总觉得妹妹还是那个状态我心里一下子转不过来很难受好吗，明明是 Happy End 为什么有种淡淡的不安感，又不是在玩狂父……</p>
+<p><img src="/images/game/tehsiskill.jpg" alt="妹杀233"></p>
+<p>嗯，我为啥截了张序章的图?(误导向)</p>
+<hr>
+<p>还有一些剧本上安排不妥的地方，比如视角切换有点随性了，包括结局也是第三视角——虽然我倒是挺喜欢啦，比如风色幻想一代的结局那种(虽然我猜其实是模仿 Fate 春天再临)。
+虽然并不难搞明白，但是如果是第三方视角的话，还是加个 interlude 或者效果提示一下比较好。</p>
+<p>汐的性格一直给人感觉有点混杂，当然她城府比较深(另外感觉汐在妹线中的表现更令人动容些)。
+校园配角性格很突出，不过可能因为出境率的问题，并没能留下完整的人物形象。
+比如卢卡和DJ学长，回想起来性格是很鲜明啦，但是干了啥似乎没啥感觉，尤其到了妹线后期火星远离学园生活后……嘛，虽然对比 Fate 也是这么处理的啦……
+好在非校园配角爱憎分明反而让人印象深刻，话说回来好多汉子，果然是 Fate 系的风格么远目……</p>
+<p>不过总的来说，剧情我想打高分，贴近现实的世界观、有感染力的故事、不同信念的碰撞——我发现我真的一直在类比 FSN 呢。</p>
+<h2>诚意满满</h2>
+<p>回头看了下自己的胡言乱语，感觉批评反而占了不少篇幅摔……
+但是认真地说，这款游戏真心让我眼前大亮，非常非常喜欢的游戏。
+倒不如说，若不是因为做的实在太有诚意，怎么可能会去在细节上那么在意呢？</p>
+<p><img src="/images/game/tehed.jpg" alt="ED"></p>
+<p>嗯，还有什么要说的么？</p>
+<p><strong><em>对于这么一款充满中国特色魔法主义的诚意满满的作品，真心不推荐对不起自己良心啊XD</em></strong></p>
+
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li class="active">
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/acg.html" class="label"><i class="icon-tag"></i>acg</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

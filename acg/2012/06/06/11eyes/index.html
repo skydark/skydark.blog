@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>为了朋友和明日 - 11eyes | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>为了朋友和明日 - 11eyes</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-06-06T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年06月06日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p class="alert alert-danger">您即将看到的部分有严重的 11eyes 剧透。</p>
+<p class="js-toggle-next alert dropdown">题外</p>
+<div class="alert alert-info">
+最近身体状态奇差无比，这两天也正在拉肚子，大脑也是停转状态，挽……
+
+呆子前天从11区飞回来，拉着于孙子晚上一起搓了顿。在11区呆了N久日语竟然还是没啥长进= =||
+
+据孙子说中科院最近跳了一个(好像还是在提前发现异常派专人严加看管的情况下跑到西单跳的……)，结果他们领导动员所有人一起开会教育，这尼玛越教育越能逼出问题吧233……
+</div>
+
+<p>11eyes 是上周末通的，kdays 版的汉化，十分感谢汉化组，另外自动更新这点太赞了。</p>
+<p>我应该是在去年暑假看过动画版，不过当时因为某些原因身心俱疲，应该是看的很不仔细，反正通的时候我感觉我被剧透的部分不算太多，所以通完后又去回顾了一下动画版。
+得出结论就是：</p>
+<p class="alert alert-warning">动画世界全是幻觉无误(#FML)！</p>
+<p>简单地比较吧，动画版看完了毫无感觉以至于一年后都记不得多少剧透，游戏版玩完后热血沸腾了好久以至于到今天才能缓过来写感想。</p>
+<p>从整个剧本的节奏来说，相比与后面激烈的战斗，前头的日常似乎拖的太长了点。
+还好推过前作 3days， 还算比较适应。
+尤其是看到雪子的时候，我极度担心她被 3days 里的月子灵魂附体进行绝大多数都与主题无关的长篇大论，还好她最终还算是忍住了= =
+不过即使是 3days，引入主要角色(除开门后才得知本体的人物)也只花了3天而已，11eyes 里引入单个我方角色都得差不多用3天吧汗……</p>
+<p>分支点比较清晰，日常选项基本偏向谁都能看出来(除了栞那个，要亲自把猴子送到保健室才有可能后来打开与栞 H 的选项，只是为了知道“创可贴赛高”么233)，战斗选项虽然不是特别明显，但选错马上就死所以也好推进。</p>
+<p>Cross Vision 系统一开始不知道干啥的，后来发现的确是个不错的系统。
+老实说有些 CV 里才能看到的剧情放到主线里插述也未尝不可(甚至不看是很大的损失)，不过总的来说这样既可以节约主线长度并保持节奏，也能保证剧本的完整性。
+只是比较麻烦的是只有标题画面的 CV 是全局的，游戏进行中的 CV 只能看到当前线路中打开的 CV，对收集全 CV 来说很麻烦。</p>
+<p>最奇怪的地方是，自己高中在集训队寂寞的时候曾经想过一个剧本(后来终究还是没那么寂寞就放弃了)，然后玩 11eyes 的时候发现重合度蛮高的，就算考虑上去年曾经看过的已经忘的差不多的幻觉动画版，推的时候还是基本上该猜的都猜出来了，甚至包括最后菊理卖队友的原因(虽然我承认在 CV 里看到菊理卖队友的感觉和加速世界三四卷里看到千百合的感觉一样，虽然知道肯定有用意但是还是想摔啊233)……没准太王道剧情了？当然主角最终发现是反派的确是比较少有的设定，所以这个撞的我非常意外，而我玩游戏时才意识到更是非常意外……</p>
+<hr />
+<p>驱哥在动画版中莫名其妙地从可不杀人士变成了必须干掉的关键人物。
+相比之下，我果然还是更喜欢在游戏中为了朋友放弃安全的身份选择战斗的驱。</p>
+<p>驱哥前半段过的可谓相当憋屈，有无论如何都要保护的人，却完全没有力量，甚至和小混混打架都无能为力。维拉德质问驱是否需要力量的时候，我感觉自己的想法和驱是完全同步的。
+驱后来的成长历程虽然飞速甚至有些作弊，但又不显过于突兀。</p>
+<p>而全篇最燃的部分，莫过于驱在最后面对魔女时劫之眼全开的那段战斗了，可以与 Fate HF 线里士郎面对黑化B叔使用射杀百头那段相媲美了。“只要有使之死亡的可能，就一定要在所有可能中找出并使它成为事实”，当驱最终达到那种可能时，魔女也释然地死在了作为维拉德的他的怀中。</p>
+<hr />
+<p>水奈濑由佳应该是游戏与动画版差距最大的一个人物了。
+动画版我除了主角一行是反派，以及美玲学姐是正宫外(严肃貌)，唯一记得清楚的就是由佳那黑到不能再黑的嫉妒心了。
+本来继承自 3days 中环那样的青梅竹马属性+主角地位+软妹子全开+惊人半球应该是会有不少人气的，但嫉妒心这一项就让她和环的地位明显拉开了。</p>
+<p>而且由佳的能力在前期一直处于完全沉默状态，后期虽然呈现出来也没有做到稳定发挥，而且还是不分敌我的技能，在整个队伍里确实地位尴尬。</p>
+<p>老实说，游戏版里的由佳虽然对驱与自己距离拉远感到嫉妒，但是完全没有动画版那么夸张。
+动画版中给美玲的茶中放利器、对队友的伤害毫不关心，完全是在塑造一个反面形象。
+而游戏版中，无论由佳怎样嫉妒，她仍然是重视大家的，只是希望驱能更多看自己一些罢了，从某些角度来说算是稍微热烈点的少女心罢了，至少并没有什么邪念。</p>
+<p>当然，考虑到动画版中刻意让由佳看到了群众喜闻乐见的补魔场景(雾)，没准游戏里要是添加这样的分支的话由佳也会黑，虽然我觉得还是不会像动画那样黑到比包大人还黑……</p>
+<p>另外不管哪条线都要(哪怕是在幻觉里)和由佳H一次是闹哪样……(我个人感觉还是美玲和菊理的更实用些摔)</p>
+<hr />
+<p>草壁美玲是正宫毫无疑问继续严肃貌=。=</p>
+<p>团队的绝对领导与定心丸。与敌人正攻的主要战力。驱的老师。严肃的思考与对话方式。</p>
+<p>面对绝对实力差时也会颤抖的少女。为了得到父亲认可而拼命苦练的少女。懵懂地爱慕着驱的少女。偶尔会困惑和娇羞的少女。</p>
+<p>我方团队中最值得信赖的人，却也是一团隐藏着自己少女心的烈火。
+在早期，美玲体现的更多的是她的可靠与坚强。在每场与黑骑士的殊死搏斗中，美玲都起到了至关重要的作用。
+然而，即便再强，她也是一名普通不过的女孩子，也喜欢可爱的猫咪，也为女仆装羞涩。
+而当残酷的事实将她压的喘不过气来，当她双目无神的时候，屏幕前的我和驱一样感到心痛不已。
+不过果然，美玲学姐还是会像以前那样站起来的。</p>
+<p>当草壁美玲最终选择作为一位女人，宁可被噬身也要用童子切安纲击败草壁操的时候，这团火焰用生命燃烧出了最炫目的光辉。</p>
+<p>——我果然还是最喜欢坚强不屈的少女了么。</p>
+<hr />
+<p>橘菊理姐姐作为隐藏结局主角在公共线远没有其他人抢镜。
+在战斗中最前线的往往是美玲和雪子，菊理总是站在后方支援，最常见的就是在必要的时刻出来减缓敌方行动力、关键时刻替队友做防护、战后护理。
+假如菊理不存在的话，至少美玲的行动要顾虑更多。</p>
+<p>在日常中，菊理给人的感觉是超可爱体贴，是绝好的妻子形象。
+在我心目中她比由佳可爱的多，大概仅次于美玲。</p>
+<p>不过总是举着牌子表达自己心意的她，比其他人更容易隐藏自己内心的想法。很多时候她想的很多，却最终只写下寥寥数语。比其他人更爱别人，也比其他人更寂寞。
+这样的她最终成为拯救所有人的神，最合适也最让人心痛。
+很高兴和感谢 LASS 最终还是给默默地爱着所有人——尤其是“他”——的菊理安排了一个最美好的结局。</p>
+<hr />
+<p>雪子和贤久这一对，初感觉怪怪的，但又感觉很合适。</p>
+<p>雪子在动画版里给我留下的唯一印象就是电波女，电波女太让人头疼了……
+在游戏中她冷酷的眼神和残忍的过去给我留下的印象却更深一些。
+还有一处印象深刻的地方是她刺向给她披外衣的驱之后的表情。
+当时自己心里突然就对造成这样状况的草壁操的强烈的恨意——对雪子来说，本来到此时她的幸福才刚要开始。</p>
+<p>之前一直听过忘却之剑，却不知道这首歌是在雪子和贤久相杀时播放的。
+动漫歌曲最吸引人的地方在于，它们背后都是有故事的。
+当自己知道这背后的故事后，再听同样的曲子，感触却更加深刻了。
+这段在 CV 里的剧情我觉得完全应该放在主线上。</p>
+<p>彩子老师在动画版中几乎没啥存在感，游戏中才知道她和贤久二人即是母子，也是恋人的关系。想想彩子和两人构成三口之家(?)的感觉，突然觉得很有趣。</p>
+<p>贤久是个好基友，真的。在选择雪子线通关的时候我感觉自己非常抗拒，尤其看到贤久对基友抢走自己心爱之人仍然致以祝福的时候。
+还是那么说，虽然感觉两人配一对怪怪的，但果然他俩才是最合适的啊。</p>
+<hr />
+<p>百野栞在动画中完全是酱油。游戏中一方面惊讶于其战斗力，一方面惊讶于其创可贴= =</p>
+<p>黑骑士在动画中给我留下印象的只有草壁操，因为剩下几位都是被秒的命，不得不说这极不科学。</p>
+<p>游戏中每次与黑骑士的遭遇都是一场至燃的生死战，哪怕是第一个黑骑士，主角一行三位战力全力围攻，最后拿下的也颇为惨重。
+而在动画版中，感觉黑骑士的战力和普通人类无异；事实上，草壁的惊人能力也完全看不出来，搞得感觉所有的战斗都是普通的打斗，只是对手形态不够雅观罢了……</p>
+<p>至于游戏中每次出现都会给局势带来巨大转折的草壁操(第一次单独出现使得主角全员不能移动心态直接从乐观降到谷底，第二次直接导致主角阵营破裂，第三次斩断美玲的两把爱剑，第四次直接宣告主角一行是恶)，在动画中也只是比其他黑骑士更优雅罢了，其魄力完全没有反映出来。</p>
+<p>不得不说，对手不够强大怎么能烘托主角的强大啊233</p>
+<hr />
+<p>结果感觉自己完全没怎么说感受，完全在吐槽动画版么……果然我不应该用自己不擅长的方式表达自己的感觉的……</p>
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li class="active">
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/acg.html" class="label"><i class="icon-tag"></i>acg</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/lass.html" class="label"><i class="icon-tag"></i>lass</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

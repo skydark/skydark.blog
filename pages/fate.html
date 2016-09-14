@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fate ONS移植版 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>Fate ONS移植版</h1>
+</div>
+      <div class="row">
+<section class="main-article">
+<header class="post-info">
+</header>
+<article>
+<div class="entry-content">
+<h2 id="_1">移植作品公共声明</h2>
+<p>自主规制，见谅。</p>
+<script type="text/javascript">
+$('.entry-content').hide();
+$(document).ready(function(){
+    $('.entry-content').children(':gt(1)').hide();
+    $('.entry-content').show();
+});
+</script>
+
+<hr />
+<ol>
+<li>仅供个人研究使用，无担保，谢绝商业行为，包括使用商业化引擎运行。</li>
+<li>转载望注明出处，以方便处理bug.</li>
+<li>求助可在此评论，考虑到大多数bug已有解决方案，请求助前确认自己是否仔细阅读内容。</li>
+<li>请不要让我知道你是从某个贴吧名是ons加两个汉字的贴吧下载的。对彼此心情有好处。</li>
+</ol>
+<hr />
+<p>首发(2009.10.10)：
+<a href="http://bbs.imp3.net/thread-667000-1-1.html">imp3</a>
+<a href="http://www.zhiqifans.com/thread-11574-1-1.html">智器粉丝团</a></p>
+<p>资源：
+<a href="http://bbs.gfan.com/viewthread.php?tid=327827">机锋</a>
+<a href="http://bbs.meizu.com/thread-1329140-1-1.html">魅族</a></p>
+<p>问题解决：
+<a href="http://bbs.acgfuture.com/forum.php?mod=viewthread&amp;tid=10928">ACGF</a></p>
+<p>防止被HX，在自己这里留个备份……</p>
+<hr />
+<h2 id="_2">必要的说明</h2>
+<ol>
+<li>
+<p>Fate/Stay Night是TypeMoon公司出品的文字AVG游戏，民间各种版本的汉化及移植均出于对作品的喜爱和研究，请勿用于非法目的。</p>
+</li>
+<li>
+<p>移植自澄空汉化的fate 中文最终版（补丁版本号B）：<a href="http://bbs.sumisora.org/read.php?tid=10876535">澄空发布页</a>。</p>
+<p>这个版本的Fate是在txle的语音包，台湾汉化组的文字脚本，逍遥客的le结局补丁的基础上整合成的，是在无数同好们共同努力下诞生的。</p>
+<p>向所有因为对Fate的爱而努力的前辈及同好们致敬！</p>
+</li>
+<li>
+<p>这个Fate是基于ONScripter-zh03制作的，是PSP移植界强人John_HE大大修改的支持gbk编码的版本，极少修改下通过Q5下的编译。onscripter是遵守GPL协议的自由软件，请在使用时务必注意。</p>
+</li>
+<li>
+<p>感谢link和304君的协助测试，面对0.30和0.35的各种囧bug也能耐住性子实在辛苦了= =</p>
+<p>感谢夜君的经验交流(夜君的PSP版Fate请参见<a href="http://784255292.blog.163.com/">他的blog</a>)</p>
+<p>感谢澄空学园TM版都谷老大对汉化授权方面的回复。</p>
+</li>
+<li>
+<p>适用于分辨率VGA及以上，支持SDL，可以编译onscripter的任意平台，呃，理论上是这样的，实际上从性能角度考虑可能需要关闭不少动态效果──Fate的演出效果太BT了，真的= =另外预留了更低分辨率的预算，但是不保证好使，PSP党更推荐参考夜君的作品……= =</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">游戏下载</h2>
+<p>感谢炮神的<a href="http://bbs.gfan.com/viewthread.php?tid=327827">分流</a>！</p>
+<ol>
+<li><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807221_1660485860">游戏本体</a></li>
+<li><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807221_4130406788">游戏语音(可选)</a></li>
+<li><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807221_1278623672">CG鉴赏模式补丁</a></li>
+<li><a href="http://pan.baidu.com/netdisk/singlepublic?fid=807221_791635844">最新脚本(2012/02/10更新)</a></li>
+<li><a href="http://pan.baidu.com/share/link?shareid=7669&amp;uk=1124565063/">LastEpisode修正(2012/08/28更新)</a></li>
+</ol>
+<p>请按顺序解压到同一个目录中。
+模拟器请自行搜索下载最新版，推荐使用<a href="http://portal.bakerist.info/node/251">面包工坊的版本</a>。
+并在SD卡建立ONS的文件夹，将游戏目录复制到这里。</p>
+<p>特别需要强调的是，遇到任何问题前，<em>请确保已经使用了CG鉴赏模式补丁和最新脚本</em>。</p>
+<p>另外强调一点，如果你在存档后替换或修改了脚本，然后去读之前的存档，那么<strong><em>什么都有可能发生</em></strong>!</p>
+<p>在 Fate 和其他游戏中曾经见到的由此引发的问题曾有：</p>
+<blockquote>
+<p>读取立刻发生错误；</p>
+<p>在存档所在的章节无限循环；</p>
+<p>之后章节(可能在很多章节后)进入到明显无关的章节；</p>
+<p>在读档后数十个小时后的游戏 ED 处跳出，导致无法打开与该结局有关的特典 (秽翼)；</p>
+<p>……</p>
+</blockquote>
+<p>所以请<em>一开始就替换成最新脚本，不要等遇到问题再换</em>！</p>
+<p>另外，跳转章节功能和存档无关，只依赖于游戏目录下的 NScrflog.dat，即使损失了之前的存档，恢复到原先进度也是容易的。</p>
+<hr />
+<h2 id="_4">常见问题和解决方法</h2>
+<ol>
+<li>
+<p>开头怎么一直在以远坂凛视角进行游戏？</p>
+<p>A: 这是序章。</p>
+</li>
+<li>
+<p>在 UBW 线和 Saber 在道场时， Saber 要求士郎闭眼，随后跳出。</p>
+<p>A: 请更新最新脚本。</p>
+</li>
+<li>
+<p>使用跳过已读章节功能时，部分章节跳过会自动跳出游戏，例如 Rider 与 Saber 在楼顶对决一役。</p>
+<p>A: 请更新最新脚本。</p>
+</li>
+<li>
+<p>Esc 应该调出菜单，但是没有显示。</p>
+<p>A: 请更新脚本并打上鉴赏补丁。</p>
+</li>
+<li>
+<p>HF 最终结局分叉的选择肢跳出。</p>
+<p>A: 请更新最新脚本。</p>
+</li>
+<li>
+<p>无法使用自动阅读模式。</p>
+<p>A: 请更新最新脚本。</p>
+</li>
+<li>
+<p>某些场景无语音。</p>
+<p>A: i) 语音来自 PS2 版 Fate 新星。该版是全年龄版。所以某些地方没有语音是正常的。</p>
+<p>ii) 如果不是“那种场景”的时候，一句话没说完就停止语音播放，请点一下 ONS 界面上那三个按钮中的 “O” .</p>
+</li>
+<li>
+<p>第一章第一次选择后无限循环。(常见被人叫作“十年循环”)</p>
+<p>A: 这是模拟器对中文支持的方式不同的问题。总之最合理的方法是更换模拟器——如果你可以选择的话。</p>
+<p>特别提醒，新的不见得是最好的。</p>
+<p>i) 如果你在使用 iOS 版本的 ONS，请更换模拟器。最早的旧版本表现良好。我正在收集报告，欢迎汇报。</p>
+<p>现在已知有问题的有：20111011(感谢 caspen 汇报)</p>
+<p>现在已知无问题的有：20110624-1(感谢 wtao99cn 汇报)</p>
+<p>ii) Android 只有炮神移植的最早的版本有这个问题，炮神之后移植的版本，以及现在大多数人在用的 natdon 君维护的版本都没有这个问题，所以你几乎不可能还在用有循环问题的版本了。</p>
+<p>iii) 如果你在使用 Symbian 版本的 ONS，应有两个版本的 ONS，一个对声音支持有问题，一个不支持 GBK——很有可能就是你在用的这个。没有特别好的办法——除了下面一段说的那个方法。</p>
+<p>总之，无论你使用哪个版本的模拟器，你都可以选择这样做：使用 PC 版 ONS 进行游戏跳过这段并保存，然后将存档复制过来使用。显然这样就可以跳过这段循环，之后就可以正常继续了。但我无法保证再往后不会继续出现类似的问题。</p>
+<p>如果你正在使用未修改过的2012年2月10日更新的 0.39f 版脚本，这是我打的<a href="http://pan.baidu.com/netdisk/singlepublic?fid=807221_2874030528">存档</a>。</p>
+<p>三个存档都在第一页最开头，分别是循环前和两个选择后的存档。</p>
+</li>
+<li>
+<p>无法存档。</p>
+<p>A: 请检查游戏目录中是否有名为 savedata 的子目录。存档时存档文件直接保存在游戏目录下，但存档缩略图保存在 savedata 中。</p>
+<p>对于 iOS 用户，请注意检查权限问题。</p>
+</li>
+<li>
+<p>有音乐和语音，但是没有音效。</p>
+<p>A: 最早版本的音效是 wav 格式的，后来制作M8版的时候转换成了 ogg, 之后一直都是 ogg 格式的(如果你是从这里下的，也是 ogg 格式的)。如果你下载的资源文件和脚本中的设置不匹配就有可能造成这种后果。</p>
+<p>总之，请搜索并检查 90.txt 中的<code>stralias SND_FORMAT,".ogg"</code>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_5">完成度</h2>
+<ol>
+<li>
+<p>全剧本完成，含序章、三线剧本、PS2剧情、LastEpisode、TigerEnd，没有能力完全测试完，但目前全通人数已经很可观了。</p>
+</li>
+<li>
+<p>普通转场特效完成，大部分动态特效完成，有关色调的特效没有做处理。</p>
+</li>
+<li>
+<p>基本菜单骨架完成。CG鉴赏最早没有做，感谢白翅膀的鼓励，已经补充上了。
+    EDList最早就完成了，动机不明。</p>
+<p>没有做界面的有config、status、weapon、music回放、movie回放、回想模式等，尽管留有接口，但时隔太久我没有信心碰它们。</p>
+</li>
+</ol>
+<hr />
+<h2 id="tips">一些可能有用的 tips</h2>
+<ol>
+<li>
+<p>直接打开全 CG</p>
+<p>A: 打开20.txt，可以查找到两处<code>if fchk $19</code>，将查找到的这几个字符一一替换为空格即可。</p>
+<p>替换成空格是为了保证之前的存档可以继续使用。只要保证该文件大小不变即可。</p>
+</li>
+<li>
+<p>直接打开全大结局(这样就可以直接选择 HF 线，标题画面也会直接出现 Last Episode 了)</p>
+<p>A: 打开10.txt，其中有一行的完整内容恰为<code>*start</code>(只有一处，请善用查找功能)。在该行后添加如下一行：</p>
+<div class="highlight"><pre><span></span>mov %200, 1:mov %201, 1:mov %202, 1:mov %203, 1:mov %204, 1:mov %205, 1:mov %206, 1
+</pre></div>
+
+
+<p>打开游戏，退出游戏。再把10.txt改回去(以保证之前的存档可以使用)。</p>
+</li>
+<li>
+<p>我希望能在所有章节开始时都选择是否跳过，而不是仅对已读章节这样做。</p>
+<p>A: 打开 09.txt，查找：</p>
+<div class="highlight"><pre><span></span>notif lchk $0 goto *fateroute_readscript
+</pre></div>
+
+
+<p>替换为：</p>
+<div class="highlight"><pre><span></span>;otif lchk $0 goto *fateroute_readscript
+</pre></div>
+
+
+<p>即可。</p>
+</li>
+<li>
+<p>这是全年龄版的还是有XX场景版的？</p>
+<p>A: 你的版本是否是全年龄的，在第一次游戏时就被确定并保存在<code>gloval.sav</code>文件中了(如果你下的版本是别人玩过重新打包的版本，那就视对方的<code>gloval.sav</code>文件的内容而定)。
+是否通过XX线也保存在同一个文件中，它们都是无法直接通过替换脚本来切换的。</p>
+<p>如果你用的最新补丁，是有XX场景版的，这个意思是说，如果你在游戏目录中没有<code>gloval.sav</code>时直接使用最新脚本开始第一次游戏，那么它将是有XX场景版的。</p>
+<p>切换全年龄/XX场景版的方法如下：</p>
+<p>在 10.txt 中的<em>单独一行</em>内容为<code>*title</code>(只有一处，请善用查找功能)的后头添加一行：</p>
+<div class="highlight"><pre><span></span>mov %SF_HEXIE, 1
+</pre></div>
+
+
+<p>即为切换到全年龄模式。如果后头是 0 ，则是切换到有XX场景模式。</p>
+<p>这是一次运行永久有效的。因此你可以修改为全年龄后打开游戏(准确地说，是看到标题画面后)再正常退出，然后把添加的这一行删掉(如果仔细看过一楼，你会明白为什么要保持脚本没有变化)，以后打开仍然是全年龄的。</p>
+<p>另外，如果你的存档是在快要进入XX场景的地方存的，就算开头改为全年龄，读取该存档仍然会进入XX场景，因为每个场景都是一个很大的段落。故请确保要读的存档存储在进入该段落之前。</p>
+</li>
+</ol>
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</article>
+</section>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

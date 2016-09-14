@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ONS的两三点评价 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>ONS的两三点评价</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2012-04-23T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2012年04月23日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p class="js-toggle-next alert dropdown">题外</p>
+<div class="alert alert-info">
+<ol>
+<li>
+<p>订的 ClariS 的首专 Birthday 终于到了，圆通在北京市耽搁了一整天……
+好吧虽然里面的歌已经听一周多了……</p>
+</li>
+<li>
+<p>昨晚一点半就早早躺下了，本想好好休息一下今天鼓足精神<em>干上</em>一天，结果被一只蚊子每隔半小时叫醒一次，九点才起床而且各种呵欠，今天一整天都颓过去了……FML</p>
+<p>下午孙老师的 Model Checking 整节课都在离线状态，虽然孙老师因为老婆刚生孩子也睡眠不足离线中。小师妹和 leo 酱倒是表示情绪稳定，何其学术……</p>
+</li>
+<li>
+<p>因为担心下雨早早回来了，然后回宿舍定然是继续颓了，结果这雨还是憋着不下……</p>
+</li>
+<li>
+<p><a href="http://tieba.baidu.com/p/1546632398" rel="tooltip" title="呃，但是因为有基佬在里头聊天，没准啥时候就被删了……">贵圈真有能量</a></p>
+</li>
+</ol>
+</div>
+<hr />
+<h2 id="_1">动机</h2>
+<p>看<a href="http://tieba.baidu.com/p/1544614335">这个帖子</a>有感。
+感觉自己这么个N久不碰移植而且碰的时候对ONS也不算太熟的家伙也没啥可说的，算是吐吐积怨吧。</p>
+<p>首先应该明白的是，ONScripter 是一个基于 SDL 的以模拟 NScripter 为首要目标的开源模拟器。
+所以我想要是对其评价的话，是应该分给 SDL, NScripter 和 ONScripter 三边的。</p>
+<h2 id="onscripter-galgame">ONScripter 是一个好的 GalGame 引擎</h2>
+<ol>
+<li>
+<p>SDL &amp; ONScripter: 可移植性。</p>
+<p>ONScripter 最大的优点就是其高度可移植性，这不仅是由于它基于移植性极佳的 SDL，更是因为它自身就是以高度可移植性为目标编写的。</p>
+<p>ONScripter 的作者原先使用的设备是 Sharp 的 Zaurus.
+这台跑 Linux 的设备性能非常有限，还是很佩服作者下决心去做这件事情的。
+假如它只能跑在 Zaurus 上的话，那么随着 Zaurus 的离去，它也会逐渐化为尘土。
+但是开源和可移植性带给了它更长久的生命力。</p>
+<p>ONScripter 选择 SDL 为其基础是一个很好的决策——SDL 大概是目前能跑的设备最多的图像引擎之一。
+ONScripter 使用的其他库基本也都是移植性比较好的库，对比用了 boost 的 rlvm，移植了后者的设备就少了很多。</p>
+<p>开源的好处就是大家都可以贡献自己的力量。
+在大家的支持下，ONScripter 现在支持的设备越来越多。
+就我所知，国内的设备一但移植上了 SDL，接下来最常见的被移植的游戏就是 opal(开源版仙剑，同样基于 SDL) 和 ONScripter 了。
+这也是为什么十年过去了，ONScripter 仍然被我们所使用的原因。</p>
+<p>对于移植者来说，大家选择 ONScripter 最大的理由就是它实在是太能跨平台了。
+纵使它有这样那样的缺点，很多时候也没有更好的选择。
+对比 ONScripter 一次写成造福万设，能做到这一点的其他引擎实在是找不到了。</p>
+</li>
+<li>
+<p>NScripter: 完善的基本功能。</p>
+<p>ONScripter 的另一大成功之处在于，它的目的在于模拟 NScripter.</p>
+<p>高桥的 NScripter 在当年大受欢迎，现在也有作品在出。
+虽然现在看来功能还是欠缺不少，但不得不承认，
+NScripter 的确是一个合格的 Galgame 引擎。
+它具备实现一个 Galgame 所需要的全部基本功能的能力。</p>
+<p>并且，假如你依照它给的框架走，实现起来也非常精炼。</p>
+<p>大量原版 NScripter 引擎的游戏被移植也使得 ONScripter 大受欢迎，同时也焕发了那些老游戏以及 NScripter 自身的第二生命。</p>
+</li>
+</ol>
+<h2 id="onscripter-galgame_1">ONScripter 不是一个好的 GalGame 引擎</h2>
+<ol>
+<li>
+<p>性能。</p>
+<p>性能问题一方面是 SDL 的问题，一方面是 ONScripter 自己编写的问题。</p>
+<p>SDL 的主要问题在于最初移植过去的时候一般是基于软解的。
+当然该来的总是会来的，硬件加速还是会来的。</p>
+<p>ONScripter 的代码里的确有些写的很“素”的地方。
+<a href="https://plus.google.com/111086731636961623060/posts/N325xpe7DuD">平芜泫的评价</a>一语中的：</p>
+<blockquote>
+<p class="alert alert-info">该说不愧是日本人的思维么？在指定环境下面能够非常好地工作，不是这个环境就糟糕了。。。。</p>
+</blockquote>
+<p>顺提，该贴里的 bug 是 Arch 里的 SDL_ttf 的问题，其实和 ONScripter 关系不大，现已修复。</p>
+<p>我倒不觉得性能是极度重要的问题。当然它确实重要。</p>
+<p>一方面，只要总的框架没有大问题，先保证正确再优化也不为过，毕竟过早优化是万恶之源，开源对这种问题也是一种好的解决方案。</p>
+<p>另一方面，ONScripter 很大的瓶颈还是在 IO 和显示上。
+对于那些 label 用链表 lookup 之类的，倒也真不是什么性能问题。</p>
+</li>
+<li>
+<p>NScripter 的表达能力。</p>
+<p>我想这部分才是我对 ONScripter 意见最大的部分——尽管这部分应该归到 NScripter 的问题上。</p>
+<p>平芜泫的评价在这里仍然适用：
+如果你照着高桥佬的想法走，NScripter 是非常爽快的；
+但如果不是这样的话，你就会觉得 NScripter 处处捆人手脚。</p>
+<p>不幸的是，移植的目的是模仿另一款游戏重新实现它，想完全照着 NScripter 的思路走往往没那么容易。</p>
+<p>高桥是很清楚一款 Galgame 引擎需要什么的，但是除此之外的事情他就懒得管了。NScripter 的语言设计明显是混乱的。命令式的风格，一些计算上的东西又明显是汇编的样式，很多函数明显是后头擦屁股添上的，最终发现这事没法弄了又开始支持 lua……</p>
+<p>总之，NScripter 自己从语言角度而言还是很不灵活的。
+说实在的，很多事情不是不能实现，而是实现太麻烦。</p>
+<ol>
+<li>
+<p>动画效果实现繁琐。</p>
+<p>NScripter 的动画基本要靠自己写循环控制。不讲究时间精确性可以用 for 循环，追求时间卡准可以 while(即 if-goto) 循环靠 timer 精确控制，当然可以抽象到自定义过程中，总归还是麻烦的很。更别提缩放和旋转了。</p>
+<p>要是实现全屏雨点效果呢？那就不得不依赖插件，而那是平台相关的，移植性很差。</p>
+<p>顺提，msp 的移动效率不咋样。</p>
+<p>NScripter 语言的混乱之处还在于，它竟然有lsp、lsp2、drawsp、blt等不同体系的功能去做类似的事情。</p>
+</li>
+<li>
+<p>并行动画实现困难。</p>
+<p>怎样让两个移动共同实现？你不得不在一个循环中同时做两个移动。
+如果你已经把移动抽象到一个过程中了呢？
+如果是全屏震动的同时移动呢？
+如果是移动同时缩放呢？
+上面这些 Fate 里都不少，而且我希望抽象到一个过程中。我当时很头疼。</p>
+<p>对比 Kirikiri2 里解析脚本默认不阻塞动画执行，这边表达起来的确费劲的多。</p>
+<p>但还好，上面起码还算是好表达的。如果想表达类似秽翼序章窗外的雨滴落下，或者魔法使之夜里人物对话时背景缓缓移动的效果呢？</p>
+<p>我目前知道的 NScripter 对话过程中同步画面移动的方法只有利用多帧图片动画，这得做多少张？对魔夜这种大背景图缓慢移动的，恐怕图片都载入不进去。</p>
+</li>
+<li>
+<p>画面再加工能力匮乏。</p>
+<p>很多引擎会对图片加效果，比如通过色调和光线变化可以将一张图重复利用在多个场景。
+也有图片直接翻转和旋转使用的。</p>
+<p>NScripter 倒是支持黑白和反色。如果不需要考虑统一处理，也可以做旋转。
+除此之外就很有限了。</p>
+<p>当然总可以靠图像处理软件预先处理，然后替换文件名(fate 移植时是这么做的)。只是，麻烦。</p>
+</li>
+<li>
+<p>声音部分的控制能力简单。</p>
+<p>一些其他引擎的游戏，有时会将一段音乐分为两段，
+一段是 head 只播放一次，一段是 loop 只循环这部分。
+有些引擎干脆就把两段合并为一个文件，设定好 loop 的时间段即可。</p>
+<p>对语音有时需要更精确的控制时间，比如语音结束的时候触发 XX 效果。</p>
+<p>NScripter 中很难实现这些部分。最大的难点还是在“如果当前正在对话，将无法控制其他部分”。</p>
+</li>
+<li>
+<p>语言表达能力缺乏。</p>
+<p>NScripter 从语言特性上和 php 有部分地方挺有共同之处的，
+比如它们在自己的领域表现都不错，但是语言设计的都挺不考量的。</p>
+<p>NScripter 里真正有的是过程而非函数，注意它定义过程用的是 defsub.
+比如说，对于类似 <code>$2 = str(int($1) + int($0))</code> 这种东西，你就不得不一堆 atoi/itoa 过去，还要产生一堆临时变量，简洁度大打折扣。</p>
+<p>NScripter 最缺乏的是临时变量。
+NScripter 里的所有变量都是全局相关的。
+假如你需要实现很多过程的时候，你就不得不担心变量分配问题了。这实际上是很恶心的。</p>
+<p>NScripter 里没有自定义结构。你需要自己设计地址分配，自己设计接口。</p>
+<p>NScripter 缺乏一些反射功能(也许用这个词不妥)，比如，某层加载的图片文件名是什么？在什么位置？是否真的加载了文件(而不是加载但不显示)？
+如果你需要，那就只好自己保存下来——用自定义的结构。</p>
+<p>拿 NScripter 计算是一件痛苦的事情。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="onscripter">拿什么来替换 ONScripter？</h2>
+<p>ONScripter 已经走过十年了。它的优点无可替代，它的缺点也日益显著。
+假如有其他的选择，我心目中的理想的移植引擎应该是什么样子的？</p>
+<ol>
+<li>
+<p>高度可移植性的开源引擎。</p>
+<p>这条实际上是维持引擎生命力的重要因素。</p>
+<p>我们真的不缺 PC 平台的 Galgame 引擎，真的。</p>
+<p>也许为每个平台单独优化也是可以的，但是我想，基于一个高度可移植的基础上优化会更吸引人。
+就像 ONScripter 自己的进化历程一样，先求有，再求优。
+毕竟，硬件我们还有摩尔定律，软件想从头改架构，成本还是太大。</p>
+<p>国产引擎中兼顾(尤其是数据文件易于跨平台维护) Win、Mac、Android、iOS手机、Linux 的我还没想到，这些算常见的，我这还没提 WM/CE、Symbian、PSP、NDS、MP4 和诺亚舟。当然是不是需要这么跨平台也许每个人有自己的看法，但 ONScripter <strong>已经</strong>做到了。</p>
+<p>这样的话，实现上可选择的余地就不是很大了。也许 C/Cpp/Lua + SDL 还是最好的选择。国产的 NGE 也许也值得期待。</p>
+<p>当然还有 Web，这条路对 Gal 是否合适还有待探索，毕竟 CG 和音乐对 Gal 来说是很重要的部分，这部分要保证高质量，对流量是一个考验。</p>
+<p>当然，开源是保证可移植性的重要要求，毕竟能一个人/团队精通众多设备并长期维护的并不多。</p>
+</li>
+<li>
+<p>完善的 Gal 全套功能。</p>
+<p>特别的，它一定要是一个合格的 <em>PC平台的 Galgame 引擎</em>。
+这句话看上去像是废话，但是应该是值得强调的，因为一些出于移植目的写成的引擎反而并不注重这一点。</p>
+<p>按理说，高度可移植的引擎，至少应该能移植到 PC 上。
+而一个在 PC 平台上的 Galgame 引擎，至少应该有实现一个 Galgame 游戏的全套(基本)要素的能力，比如快进、回想、鉴赏、存读档界面。</p>
+<p>对比 ONScripter，你在写游戏的时候并不需要考虑设备是使用鼠标/触屏还是键盘/按键，这些事情引擎都替你包办了。
+如果你需要基本的回想和快进，都可以利用引擎自己默认的设置。
+虽然很多时候这些东西肯定还是要自己定制，但是起码当你需要一个快速原型的时候，这些原装支持可以让你少操些心。
+对 PC 平台作者也是友善的，它的基本功能的指令集并不复杂，最常见的输出文本也不需要指令，直接打字就是。</p>
+<p>最关键的是，一个有 PC 版实现的引擎才能吸引更多的 Galgame 制作者，毕竟 PC 平台上的 Galgame 作品还是占优势的。
+而一个有丰富的 PC 原版游戏支持的引擎显然会比其他竞争者更具吸引力。
+ONScripter 很吸引人的一点是，至少你可以毫不费力的将基于 NScripter 的 PC 游戏移植过去，并且在 PC 上也可以玩。
+要知道万事开头难，一个移植游戏引擎早期的移植作品数量是很关键的。这一点上很佩服 PyMO 的作者 Chen 大，他独自完成了该引擎的全部早期移植作品。</p>
+</li>
+<li>
+<p>表达力丰富的语言。</p>
+<p>由上一条，最好是一种面向普通 Galgame 制作者的语言。
+最好是<em>基于</em>一种现代语言。现在看到的实现中比较常见的是 lua 或 python.</p>
+<p>这里的“基于”不是“完全借用”。Kirikiri2的 tjs + ks 就是很好的方案，
+ks 面向普通制作者，tjs 实现高级功能。</p>
+<p>它需要有比较好的时间控制模型和高度的可定义性。</p>
+</li>
+</ol>
+<h2 id="_2">结论</h2>
+<p>说实在的，Galgame 界最不缺的就是引擎，然而移植 Galgame 最缺的恰恰又是引擎，这是一个很微妙的现象。
+开源跨平台、完善功能和表达灵活是移植最需要的功能，只可惜现在没有引擎真正做好这些。
+如果有一天有一个引擎能做好这些，这肯定是一件值得高兴的事情。</p>
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/ons.html" class="label"><i class="icon-tag"></i>ons</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

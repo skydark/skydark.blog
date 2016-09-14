@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>用python给图像自动裁边 | Skydark's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Skydark Chen" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="http://blog.skydark.info/theme/css/bootstrap.min.css" type="text/css" />
+    <link href="http://blog.skydark.info/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/pygments.css" rel="stylesheet">
+    <link href="http://blog.skydark.info/theme/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://blog.skydark.info/images/favicon.ico">
+    <link rel="apple-touch-icon" href="http://blog.skydark.info/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://blog.skydark.info/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://blog.skydark.info/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="http://blog.skydark.info/" type="application/atom+xml" rel="alternate" title="Skydark's blog ATOM Feed" />
+    
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://blog.skydark.info/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://blog.skydark.info/theme/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://blog.skydark.info/index.html">Skydark's blog</a>
+          <div class="collapse nav-collapse">
+            <ul class="nav" style="float:none">
+              <li ><a href="/about.html">关于</a></li>
+              <li ><a href="/archives.html">归档</a></li>
+              <li ><a href="/gists.html">Gists</a></li>
+              <li ><a href="/message.html">留言</a></li>
+              <li ><a href="/pages.html">页面</a></li>
+              <li ><a href="/tags.html">标签</a></li>
+              <li ><a href="/tools.html">工具</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ><a href="http://blog.skydark.info/categories.html">All</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/linux.html"><i class="icon-folder-open icon-large"></i>linux</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/mobile.html"><i class="icon-folder-open icon-large"></i>mobile</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/pc.html"><i class="icon-folder-open icon-large"></i>PC</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/programming.html"><i class="icon-folder-open icon-large"></i>programming</a>
+                  </li>
+                  <li class="active">
+                  <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/thinking.html"><i class="icon-folder-open icon-large"></i>thinking</a>
+                  </li>
+                  <li >
+                  <a href="http://blog.skydark.info/category/transplant.html"><i class="icon-folder-open icon-large"></i>transplant</a>
+                  </li>
+                </ul>
+              </li>
+          
+              <li class="nav subscription pull-right" data-subscription="rss">
+                <a href="/atom.xml" rel="nofollow" title="subscribe via RSS">RSS</a>
+              </li>
+              
+              <form class="navbar-search pull-right" method="get" action="http://www.google.com/search" target="google_window">
+              <label for="g_search" class="hidden"></label>
+              <input id="g_search" type="text" class="search-query" placeholder="Search..." name="q" />
+              <input type="submit" name=”btnG” style="display:none" id="searchsubmit" value="Search" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="oe" value="UTF-8" />
+              <input type="hidden" name="hl" value="zh-CN" />
+              <input type="hidden" name="domains" value="http://blog.skydark.info" />
+              <input type="hidden" name="sitesearch" value="http://blog.skydark.info" />
+              </form>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div class="page-header">
+  <h1>用python给图像自动裁边</h1>
+</div>
+      <div class="row">
+          <div class="span8 main-content">
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="2013-07-03T00:00:00+08:00">
+          <i class="icon-calendar"></i>&nbsp;2013年07月03日
+        </span>
+        </header>
+
+        <div class="entry-content">
+        <p>因为最近入了一只kpw的缘故，开始关心以前不大关心的东西了，譬如epub，譬如标题。</p>
+<p>现成的裁边软件是有的，而且还有不少。
+不过秉着热衷于瞎造轮子的优良传统，我还是打算冲动地自己用<a href="http://www.pythonware.com/products/pil">PIL</a>玩一下。
+从某些方面讲不去找文献就动手也是很有问题的，但这里不是都说了是玩么……</p>
+<h2>样本</h2>
+<p>如图：</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWxJ7yH/CPFlR.jpg" alt="样本1"></p>
+<h2>难点</h2>
+<ol>
+<li>本身扫描质量偏低，不是很干净；</li>
+<li>右上角的大片黑色阴影；</li>
+<li>右边的书缝线；</li>
+<li>左边的一列空白不应被裁去；</li>
+<li>最上方的漫画名可选裁去。</li>
+</ol>
+<h2>思路</h2>
+<ol>
+<li><p>找出背景色。</p>
+<p>收集最边缘的一圈宽度为<code>edge</code>(默认为5)个像素的点的颜色，找出最常出现的颜色。</p>
+<p>考虑到漫画的特殊性，直接将颜色转化为灰度，提高重复的次数。</p>
+<p>尝试过将灰度值都近似为5的倍数以进一步提高重复率以及方便之后的处理，但提升不明显就取消了。</p>
+</li>
+<li><p>消除背景色。</p>
+<p>使用<code>ImageChops.difference</code>比较灰度图和纯背景色之间的差别，如下图所示：</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWDgEHe/IjwnE.jpg]" alt="消除背景色后"></p>
+<p>好处是现在背景色已经是黑色了，但直接使用<code>.getbbox</code>取图像边界还是取不出来，因为右上角的大污点还在……</p>
+</li>
+<li><p>取边缘。</p>
+<p>污点是一大团不好处理，想到取边缘使一大团变成一条边，这样消除容易些。</p>
+<p>简单地高斯模糊，然后用PIL自带的边缘检测，最后用中值滤一下噪点，效果如图：</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWDfdPN/nMIIF.jpg" alt="过滤后"></p>
+<p>嗯，污点直接不见了，很赞。虽然右边那条书缝还是很坚持……</p>
+<p>发现PIL里想用canny边缘检测还要自己实现，嫌麻烦外加现在的实验效果还好就懒得弄了，
+ 不清楚会不会效果更好些。</p>
+</li>
+<li><p>取边界。</p>
+<p>现在开始简单粗暴地取边界。现以上边界为例。</p>
+<p>自上而下逐行扫描像素点，参数有四个：</p>
+<ul>
+<li><p><code>threshold</code>: 颜色阈值，当当前点灰度值大于此值时不认为它是背景。这本扫的比较模糊，设在了15上。</p>
+</li>
+<li><p><code>max_error</code>: 当一行中不是背景的点的比例大于此数值时认为这一行应该不是背景，视为error.
+因为已经取过边缘，所以这个值应该很小，这里取了0.01.值太大会把如页码等细节视为背景吃掉。</p>
+</li>
+<li><p><code>suppress</code>: 当连续如此多行都error时认为达到正文区域。
+扫右边缘时超过类似书缝这样的宽度就足够了。</p>
+</li>
+<li><p><code>max_edge_per</code>: 最大边缘百分比，当扫描行数超过此比例时直接停止。</p>
+<p>每次找到一个方向的边界后就把确定是边界的点涂黑，比如右侧的一列如果先检测到并涂黑的话，就不会影响到上下方向的检测了。
+原则上应该每个方向都这样涂黑迭代下去直到稳定的，至少应该来两圈，但是我懒所以只走了一圈，估计两圈的话效果会好些。</p>
+</li>
+</ul>
+</li>
+<li><p>裁！</p>
+<p>咔嚓！</p>
+<p>最终效果如图(<code>max_error=0.01, threshold=15, suppress=5, max_edge_per=0.1</code>):</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWDgm3l/cI0wN.jpg" alt="效果"></p>
+<p>还不错？</p>
+</li>
+</ol>
+<h2>代码</h2>
+<p>源码已放在<a href="https://github.com/skydark/playground/blob/master/autocrop.py">github</a>上。
+如果碰巧有人有兴趣请随意。</p>
+<h2>实验</h2>
+<p>自玩性质，没可能也没兴趣与其他实现比较了……</p>
+<p>下面是几个测试图(原图在上)：</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWDboF/nybWZ.jpg" alt="1"></p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWCUUe/tJupo.jpg" alt="2"></p>
+<hr>
+<p><img src="http://pic.yupoo.com/skydark/CYWWD2wJ/DMaPH.jpg" alt="1"></p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWDbgm/ueamI.jpg" alt="2"></p>
+<hr>
+<p><img src="http://pic.yupoo.com/skydark/CYWWDOl8/wYTDB.jpg" alt="1"></p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWE0Go/Dzajo.jpg" alt="2"></p>
+<hr>
+<p><img src="http://pic.yupoo.com/skydark/CYWWDSmj/u0ZGN.png" alt="1"></p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWDy4z/y4XBa.png" alt="2"></p>
+<hr>
+<p>黑边太大，把suppress提高到了10：</p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWCsMj/QzX9T.jpg" alt="1"></p>
+<p><img src="http://pic.yupoo.com/skydark/CYWWD2oc/dJY6Y.jpg" alt="2"></p>
+<script type="text/javascript">
+$('.entry-content').find('img').css('border', '5px solid lightblue').css('max-width', '685px');
+</script>
+        </div><!-- /.entry-content -->
+<div class="comments">
+<hr>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'skydblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </article>
+</section>
+</div>
+          </div>
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="http://blog.skydark.info/category/acg.html">
+    <i class="icon-folder-open icon-large"></i>ACG
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/life.html">
+    <i class="icon-folder-open icon-large"></i>life
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/linux.html">
+    <i class="icon-folder-open icon-large"></i>linux
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/mobile.html">
+    <i class="icon-folder-open icon-large"></i>mobile
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/pc.html">
+    <i class="icon-folder-open icon-large"></i>PC
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/programming.html">
+    <i class="icon-folder-open icon-large"></i>programming
+</a>
+</li>
+<li class="active">
+<a href="http://blog.skydark.info/category/python.html">
+    <i class="icon-folder-open icon-large"></i>python
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/test.html">
+    <i class="icon-folder-open icon-large"></i>test
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/thinking.html">
+    <i class="icon-folder-open icon-large"></i>thinking
+</a>
+</li>
+<li>
+<a href="http://blog.skydark.info/category/transplant.html">
+    <i class="icon-folder-open icon-large"></i>transplant
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/python.html" class="label"><i class="icon-tag"></i>python</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/programming.html" class="label"><i class="icon-tag"></i>programming</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/dip.html" class="label"><i class="icon-tag"></i>dip</a>
+    </span>
+<div class="clearfix"></div>
+</li>
+</ul>
+</div>
+      </div><!--/row-->
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+
+
+    <script type="text/javascript" src="http://blog.skydark.info/theme/js/utils.js"></script>
+  </body>
+</html>

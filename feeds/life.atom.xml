@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Skydark's blog</title><link href="http://blog.skydark.info/" rel="alternate"></link><link href="http://blog.skydark.info/feeds/life.atom.xml" rel="self"></link><id>http://blog.skydark.info/</id><updated>2016-01-09T00:00:00+08:00</updated><entry><title>2015</title><link href="http://blog.skydark.info/life/2016/01/09/new-post/" rel="alternate"></link><published>2016-01-09T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2016-01-09:life/2016/01/09/new-post/</id><summary type="html">&lt;div id="pec-encrypted-content" style="display:none"&gt;BTlNwyzg06azRmi7oEobBg==;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;^&lt;/div&gt;
+&lt;div id="pec-decrypted-content"&gt;
+    &lt;h4&gt;&lt;i&gt;&lt;/i&gt;&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;form id="pec-decrypt-form" class="form-inline"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="pec-content-password" class="control-label"&gt;请输入密码（提示：第五章标题）&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="pec-content-password" placeholder="Password" /&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;button type="submit" id="pec-decrypt-content" class="btn btn-primary"&gt;解密&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"&gt;&lt;/script&gt;
+
+
+&lt;script type="text/javascript"&gt;
+    (function () {
+        var strip_padding = function (padded_content, padding_char) {
+            /*
+             * Strips the padding character from decrypted content.
+             */
+            for (var i = padded_content.length; i &gt; 0; i--) {
+                if (padded_content[i-1] !== padding_char) {
+                    return padded_content.slice(0, i);
+                }
+            }
+        };
+
+        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
+            /*
+             * Decrypts the content from the ciphertext bundle.
+             */
+            var key = CryptoJS.MD5(password),
+                iv = CryptoJS.enc.Base64.parse(iv_b64),
+                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
+                bundle = {
+                    key: key,
+                    iv: iv,
+                    ciphertext: ciphertext
+                };
+
+            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
+
+            try {
+                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
+            }
+            catch (err) {
+                // encoding failed; wrong password
+                return false;
+            }
+        };
+
+        var init_decryptor = function() {
+            var decrypt_btn = document.getElementById('pec-decrypt-content'),
+                password_input = document.getElementById('pec-content-password'),
+                encrypted_content = document.getElementById('pec-encrypted-content'),
+                decrypted_content = document.getElementById('pec-decrypted-content'),
+                decrypt_form = document.getElementById('pec-decrypt-form');
+
+            decrypt_btn.addEventListener('click', function () {
+                // grab the ciphertext bundle
+                var parts = encrypted_content.innerHTML.split(';');
+
+                // decrypt it
+                var content = decrypt_content(
+                    password_input.value,
+                    parts[0],
+                    parts[1],
+                    parts[2]
+                );
+
+                if (content) {
+                    // success; display the decrypted content
+                    decrypted_content.innerHTML = content;
+                    decrypt_form.parentNode.removeChild(decrypt_form);
+                    encrypted_content.parentNode.removeChild(encrypted_content);
+
+                    // any post processing on the decrypted content should be done here
+                }
+                else {
+                    // ¯\_(ツ)_/¯
+                    password_input.value = '';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', init_decryptor);
+    })();
+&lt;/script&gt;</summary><category term="生活"></category></entry><entry><title>重温 SICP</title><link href="http://blog.skydark.info/life/2012/11/28/back-to-sicp/" rel="alternate"></link><published>2012-11-28T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-11-28:life/2012/11/28/back-to-sicp/</id><summary type="html">&lt;p&gt;感谢&lt;a href="http://weibo.com/u/2042289170"&gt;小师妹&lt;/a&gt;提醒。
+这学期裘老师又开 SICP 课程了，这是我本科最喜欢的课程之一(翘课率最低即是证据之一……呃，我太糟糕了233)。
+感觉本科时过的有点混沌，所以趁这学期小师妹当助教就跟她说到元语言那章的时候叫我一声去蹭蹭。
+没想到小师妹记性这么好今天突然发短信说裘老师讲到这里了就去蹭了，感激不尽啊嗷嗷！&lt;/p&gt;
+&lt;p&gt;不过小师妹的提醒过于突然没有心理准备，因为这周讨论班的报告我还一直拖着没完成，所以我只蹭了第一节就回来了。
+预计今天就是先讲完用 Scheme 实现一个 Scheme 解释器的部分，下周继续吧。&lt;/p&gt;
+&lt;p&gt;这个章节的开头的介绍当时大概没有太大的感触，现在重新听裘老师说的时候就觉得的确如此，比如设计 DSL 的优点等等，当时因为觉得设计语言很麻烦根本就没太在意吧。
+(结果在后来给 V5 做一个媒体中心类工具的时候反而照着这里实现了一个 DSL 2333)&lt;/p&gt;
+&lt;p&gt;在课上也翻了翻 SICP 的前面，感觉自己当年真的错过了很多好东西。
+很多很重要的概念在当时都是“哦，这样，挺自然的”就过去了，在各种地方接触了各种东西后重新回来才发现，原来它们早就在这里了。
+所以说 SICP 确实是一个宝库啊！
+有机会的话下次开课也去申助教好了XD&lt;/p&gt;
+&lt;p&gt;于是随便说两句后马上洗澡继续赶ppt……光速逃……&lt;/p&gt;
+</summary><category term="生活"></category><category term="programming"></category></entry><entry><title>搬离实验室</title><link href="http://blog.skydark.info/life/2012/11/24/the_end_of_lab/" rel="alternate"></link><published>2012-11-24T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-11-24:life/2012/11/24/the_end_of_lab/</id><summary type="html">&lt;p&gt;RT, 老板开学的时候就说考虑到实验室利用率和资金问题(据说和外头写字楼一个价了，学院绝壁故意的)，这学期可能会撤离实验室了。
+大概老板觉得再拖下去就忘了，上周组会的时候终于发话说周一撤出实验室。&lt;/p&gt;
+&lt;p&gt;其他几个师兄还好，我这边书留的略多，略多……
+于是周六中午晚上各一次，每次背一个书包，左手一个包，右手俩包，总算搬的差不多了。
+得到的教训是搬书用普通塑料袋是自寻死路，感觉当天手都被勒成213了……&lt;/p&gt;
+&lt;p&gt;实验室的机器老板说如果想用就搬回去等毕业退还，不想用就直接过到将要搬进来的马老师的学生那里。
+老实说实验室的机器性能挺233的，所以本没有留的意思。
+如果能继续放在实验室的话倒是可以利用它的固定IP当个炮塔用，然则实验室大多数网口才10M所以还是算了吧。&lt;/p&gt;
+&lt;p&gt;不过后来又仔细想想，觉得那个22寸的显示器还是蛮实用的，结果这周一和基友还有师兄一起把机器和显示器搬回宿舍了。
+搬的时候没敢走二号楼的正门，因为感觉从保安的角度来看我们的架势略像小偷233&lt;/p&gt;
+&lt;p&gt;搬回来发现没有DVI线，而且没有音箱的话声音在笔记本那边甚不方便，结果又买了条转接线和一个便宜音箱(事实证明便宜没好货，那声音简直……不过我还能忍，能忍，忍……)。
+买的时候一时冲动(……)又买了个移动硬盘，于是早知道光棍节那天都买了多好23333&lt;/p&gt;
+&lt;p&gt;买线的时候顺便给 AC100 买了个 HDMI 转 VGA 的线，周四动态逻辑课刚好轮我讲就直接用 AC100 上了(用的 ppt 也是用这个 blog 的 slide 功能)。
+结果 AC100 和 LXDE 联合起来黑我，最后只有放弃 AC100 自己的显示屏，把显示全给投影仪才显示正常了，但是一屏保后显示就又走样了是要闹哪样……
+不过总的来说也算是比较顺利的讲完了整节课。&lt;/p&gt;
+&lt;p&gt;P.S.: 等都撤光了才发现还没给实验室留个纪念照……&lt;/p&gt;
+</summary><category term="生活"></category><category term="PC"></category></entry><entry><title>笑傲江湖</title><link href="http://blog.skydark.info/life/2012/08/19/legendary-swordsman/" rel="alternate"></link><published>2012-08-19T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-08-19:life/2012/08/19/legendary-swordsman/</id><summary type="html">&lt;div class='js-toggle-next alert alert-info dropdown'&gt;摘要已经言明了……&lt;/div&gt;
+
+&lt;div&gt;
+&lt;hr /&gt;
+&lt;p&gt;好吧，本想就这么结束了这个post，考虑自己已经一个半月多没有写东西，还是再胡言乱语几句吧。&lt;/p&gt;
+&lt;p&gt;好久没写文字其实也没什么奇怪的，大抵就是因为没什么可写的，也就是说这两个月过的颇为平淡，无论是生活还是学术。&lt;/p&gt;
+&lt;p&gt;老实说我也不好意思用“学术”这个词，毕竟自己在这些方面是个比令狐冲还要随性而为的家伙，平均每日在这方面耗时委实少的很。&lt;/p&gt;
+&lt;p&gt;整个假期倒是花了一点(呃，只好意思用“一点”这个词了，因为在外人眼里看来我的做法其实根本没诚意)时间在控制体重上，比上次写博客倒是减了有8公斤。
+当然家里知道的数据要少4公斤，因为一开始隐瞒不报的缘故，后来家父赶来无法隐瞒……= =\|\|(家母不会开机家父不会上网在这里说说倒无妨……)
+家母现在的说法是，“每次你回家都(因为weight)没法做好吃的给你，干脆这次你就努把力，到中秋回来吧做好吃的吧”。
+对我这种毫无节制(差点打成节操)的家伙来说，这大概是第二次在无监管的情况下体重中幅下降吧。
+那天和师妹跑步，说道自己眼中只有“比自己还胖的”和“瘦子”两种人，倒也真心不假。&lt;/p&gt;
+&lt;p&gt;当然因为固守帝都，好友倒是见了不少，呆子位老大非人锅巴，还有最常见面的某大屎货，短信里和ZM也有联系过，感觉大家都好有活力，自己顿时愈发觉得自己213了。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;已然离题太远，最近睡眠不济，最好还是赶快随便吐槽完再说……&lt;/p&gt;
+&lt;p&gt;大概就是昨晚一时手贱点开了 &lt;code&gt;笑傲江湖.txt&lt;/code&gt;，然后不知不觉花了大约十七八个钟头看完了。&lt;/p&gt;
+&lt;p&gt;我一粗人本来就不怎么读书，至于文学作品那更是唯恐避之不及，武侠更是几乎未沾过(疑，好似有些河图什么的？)。
+笑傲江湖小时似乎曾在书柜里拾到过，应是后半卷，只随意看过数眼，因此剧情完全连不上，
+只记得在令狐冲在地板上习得吸星大法，率众人上少林救盈盈时从暗道逃走，以及和盈盈、向问天、任我行一起成为雪人等几幕，肯定是因为这几处容易形成画面感吧。&lt;/p&gt;
+&lt;p&gt;令狐冲这样的性格是很讨我喜欢的。
+从某些角度讲，如果我大胆外向些，估计是会比这家伙还随性而为的。
+我在绯月一直用着风色幻想SP男主角修的头像，便是因为修和令狐冲性格里有着相仿的地方，若是用一个字形容的话，那便是“风”；若再加一字，那便是“义”(不过这方面修曾遇到过帮挚友还是的保住爱自己的妖精女王的两难局面，就我观察在女性玩家中甚受恶评)。
+在小场面上不愿拘泥于成规，在大关头时则坦坦荡荡，宁可舍生取义；视名利于无物，却视享受人生为真谛。
+令狐冲曾对杀人医生说道，若为苟生数日而不能畅饮自在，那多活又有何意义，这坦然面对生死的潇洒已是大侠之风。
+也只有像他这样潇洒随意之人，才能使的来同样无招无形的独孤九剑吧。&lt;/p&gt;
+&lt;p&gt;持有傲娇和大小姐属性的任盈盈本不应是我喜欢的菜(我才不是因为傲娇喜欢助手的啊嗷嗷&amp;gt; &amp;lt;!)，但读完竟意外觉得真是理想的妻子——考虑到我是打算光棍的，而武侠被我视为三次元，我觉得这算是很高的评价了。
+令狐冲的出场便煞费苦心从各个角度描述他的为人，而盈盈的出场则更是费功夫，先是只闻琴声不闻其人，还一直被当作老婆婆，一直不许令狐冲回头看自己的长相，直到倒影中现露真形，却没想到是一个娇滴滴的少女。
+虽出场甚晚，“她才是女主角”的气场暴露无疑。&lt;/p&gt;
+&lt;p&gt;任盈盈大概是最适合称得上“红颜知己”一词的了。
+她从一开始便知令狐冲对小师妹的迷恋并因此反而恋上令狐冲，却从未将小师妹视之为情敌，反而主动出手相助；
+她用聪慧才智和武艺多次为令狐冲解围，为救令狐冲甚至不惜陷身少林；
+她尊重令狐冲的选择，看起来小气倔强，实则大度包容的很。
+她最让我动容的一句便是，“直到此刻我才相信，在你心中，你终于是念着我多些，念着你小师妹少些。”
+一直无怨无悔地和令狐冲共闯江湖的她，终于用自己的真挚赢得了他的想念。
+到后来更无处不是默契与尽在不言中，这两人合奏一曲笑傲江湖倒真是绝配
+——大概我喜欢助手，也是因为她对冈伦一次次相助与看似斗嘴的默契吧。
+所谓伴侣，所谓知己，不正是如此么。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;另外推荐一个叫&lt;a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli"&gt;shaarli&lt;/a&gt;的个人网址管理工具，
+php 写的，不需要数据库，相当轻巧，我已经放到自己的系主页上代替 delicious 用了，目前正在缓慢转移 ReadItLater(Pocket) 里的链接——由此可见我果然把 ReadItLater 当作 ReadItNever 用了233&lt;/p&gt;
+&lt;/div&gt;</summary><category term="PC"></category><category term="生活"></category></entry><entry><title>dream</title><link href="http://blog.skydark.info/life/2012/04/18/dream/" rel="alternate"></link><published>2012-04-18T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-04-18:life/2012/04/18/dream/</id><summary type="html">&lt;p&gt;昨晚梦见在考数学，然后妹妹有题不会做我在旁边讲思路……=______=||……&lt;/p&gt;
+&lt;p&gt;前晚是梦见某个去日本的死基友，剧情类似夏色奇迹前两话，我当时醒了就觉得想找个地方撞墙……&lt;/p&gt;
+&lt;p&gt;话说回来，小时候总是做梦的，而且记得还很清楚， 还经常试图记下来作为小说素材什么的……(小学蛋疼过，之后完全没有再动过笔233) 上了大学之后似乎就再也记不得梦境，偶尔记得也是刚醒不到三分钟的事。 最近突然开始做梦，难道……是回光返照么……=____________=||||&lt;/p&gt;
+&lt;p&gt;话说回来，老是三点睡八点起竟然还有空做梦，这睡眠质量……&lt;/p&gt;
+&lt;div class="hidden"&gt;
+&lt;p&gt;(另：三点睡是因为两点前在想“今天不能就这么结束”，两点后在用V5看视频……)&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;p&gt;最近北京好热，今天终于阴下来了，希望快点下雨吧……&lt;/p&gt;
+</summary><category term="sister"></category><category term="生活"></category></entry><entry><title>Rate My Life</title><link href="http://blog.skydark.info/life/2012/01/07/rate-my-life/" rel="alternate"></link><published>2012-01-07T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-01-07:life/2012/01/07/rate-my-life/</id><summary type="html">&lt;table style="border: 1px solid #333333; margin: 10px;" cellspacing="0"&gt;
+&amp;lt;tbody&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="border: none; font: bold 16px sans-serif; background: #ffddbb; color: #000000; padding: 5px; margin: 0px; text-align: center;" colspan="2"&amp;gt;This Is My Life, Rated&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 18px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Life:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 18px sans-serif; text-align: left; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/yelgrebar.gif"&gt;http://www.monkeyquiz.com/img/yelgrebar.gif&lt;/a&gt;" alt="" width="98" height="12" /&amp;gt; 4.9&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Mind:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/yelbar.gif"&gt;http://www.monkeyquiz.com/img/yelbar.gif&lt;/a&gt;" alt="" width="92" height="12" /&amp;gt; 4.6&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Body:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/yelgrebar.gif"&gt;http://www.monkeyquiz.com/img/yelgrebar.gif&lt;/a&gt;" alt="" width="106" height="12" /&amp;gt; 5.3&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Spirit:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/yelgrebar.gif"&gt;http://www.monkeyquiz.com/img/yelgrebar.gif&lt;/a&gt;" alt="" width="108" height="12" /&amp;gt; 5.4&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Friends/Family:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/oryelbar.gif"&gt;http://www.monkeyquiz.com/img/oryelbar.gif&lt;/a&gt;" alt="" width="64" height="12" /&amp;gt; 3.2&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Love:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/redbar.gif"&gt;http://www.monkeyquiz.com/img/redbar.gif&lt;/a&gt;" alt="" width="16" height="12" /&amp;gt; 0.8&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="width: 85px; padding: 5px; font: bold 12px sans-serif; text-align: left; background: none repeat scroll 0% 0% #ffffcc; color: #000000;"&amp;gt;Finance:&amp;lt;/td&amp;gt;
+&amp;lt;td style="width: 240px; padding: 5px 5px 5px 0px; font: bold 12px sans-serif; text-align: left; border: medium none; vertical-align: middle; background: none repeat scroll 0% 0% #ffffff; color: #000000;"&amp;gt;&amp;lt;img style="height: 12px; border: 1px solid #000000; border-left: none; vertical-align: middle; padding: 0px; margin: 0px;" src="&lt;a href="http://www.monkeyquiz.com/img/grebar.gif"&gt;http://www.monkeyquiz.com/img/grebar.gif&lt;/a&gt;" alt="" width="116" height="12" /&amp;gt; 5.8&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td style="border: none; border-top: 1px solid #333333; font: bold 14px sans-serif; background: #ffeedd; padding: 5px; margin: 0px; text-align: center;" colspan="2"&amp;gt;&amp;lt;a style="color: #0000ff;" href="&lt;a href="http://www.monkeyquiz.com/life/rate_my_life.html"&amp;gt;Take"&gt;http://www.monkeyquiz.com/life/rate_my_life.html"&amp;gt;Take&lt;/a&gt; the Rate My Life Quiz&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/tbody&amp;gt;&lt;/table&gt;</summary><category term="生活"></category></entry><entry><title>好久没post了，总结下最近的状况</title><link href="http://blog.skydark.info/life/2012/01/07/these-f-days/" rel="alternate"></link><published>2012-01-07T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2012-01-07:life/2012/01/07/these-f-days/</id><summary type="html">&lt;p&gt;主要是最近考试快死了……12月30日至1月3日三门考试一门监考一篇论文一个大项目(吉源君扛住了，泪流满面)……&lt;/p&gt;
+&lt;p&gt;高级逻辑学试着用landslide配合MathJax做了个课件，感觉效果还不错。这课估计大家成绩都不错，一共就那么几个人，虽然没数据库与知识库那么夸张就是了……&lt;/p&gt;
+&lt;p&gt;算法考试被分治法的题压抑了，用O(n)判断n个数中是否有一个出现超过一半，考场上只写了个O(nlog n)的，于是考完只听到耳边飘过了句&amp;ldquo;中位数&amp;rdquo;，然后就是以头抢砖表情了……小师妹一如既往地恶意卖萌，考前说要挂，考后和师兄(助教)交流后对我说&amp;ldquo;哎呀，咱俩都没挂&amp;rdquo;(我回复的原话:&amp;ldquo;喂，你怎么可能挂……&amp;rdquo;)，看到成绩后说考差了，于是不幸地被群众发现这尼玛的在对着屏幕上的98说太差了……&lt;/p&gt;
+&lt;p&gt;模式识别基本是靠吉源君过的，泪流满面……&lt;/p&gt;
+&lt;p&gt;数据库与知识库据说我们实验室的传统是都去选然后都考的很烂，我继续继承发扬此优良传统……嘛，这课其实收获蛮大的，我的意思是，起码成功地督促我补上了没上过的数据库概论……当然如果下学期师弟师妹过来一定要提醒他们选了这课就不要多选课了，这一千多页没有水的ppt想一周看完压力还是很大的……不过贾师兄期末隐身到连考试都没去，大家都联系不到，搞不清楚是啥状况……&lt;/p&gt;
+&lt;p&gt;计算语言学是五门专业课唯一没出分的，也是预计最烂的一门，首先大项目我是1v3失败，然后考试的时候是给解释问名字……要是反过来其实我还记得……当然这年头还出填空题和判断题的真心少见就是了……总之这学期复习啥都觉得时间不够草草了事，下学期坚决不选这么多课了(主要是低估了顶三门课的英语和顶两门课的助教，至于半门课的政治也没出分……)&lt;/p&gt;
+&lt;p&gt;老板出的数理逻辑卷子真心厚道，可惜还是很多同学答的悲剧了，嘛我这个当年也没好好学现在才开始补回来也没啥资格说就是了……当然说是厚道，有些题还是蛮压力的，比如把&amp;ldquo;白日依山尽，黄河入海流，欲穷千里目，更上一层楼&amp;rdquo;翻译成一阶语言啥的……批了一天半好歹批完了，然后批完了和师兄师妹去K歌，好好吼了一下午——然后本学期第一次一点前睡着，真的累了……= =&lt;/p&gt;
+&lt;p&gt;这几天就死宅一下，收拾收拾9号圆润地滚回老家，顺便想想怎么抵抗家母的减肥之怒……&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;最近开始上&lt;a href="https://plus.google.com/117704226616638577311"&gt;G+&lt;/a&gt;了，感觉蛮合胃口的。&lt;/p&gt;
+&lt;p&gt;回家前给系统各个软件update了一下，然后FF的各种扩展都凌乱了……&lt;/p&gt;
+&lt;p&gt;最后，mark: &lt;a href="http://code.google.com/p/onssaver/"&gt;onssaver&lt;/a&gt;&lt;/p&gt;
+</summary><category term="学业"></category><category term="PC"></category><category term="ons"></category></entry><entry><title>我想我是疯了……</title><link href="http://blog.skydark.info/life/2011/12/11/mad/" rel="alternate"></link><published>2011-12-11T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-12-11:life/2011/12/11/mad/</id><summary type="html">&lt;p&gt;RT，计算语言学明天的deadline，其大作业目前没有跑通即没有试验结果，还缺试验结果评估部分和实验报告，而且明天上午有模式识别下午有数理逻辑助教(晚上高级逻辑学取消了)，然则我今天一整天都在悠闲，好吧也许是上一周(这一周)平均睡眠四小时的缘故有点恍惚，总之从结果上讲就是破罐子破摔了……&lt;/p&gt;
+&lt;p&gt;结论：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下学期绝对不选这么多课;&lt;/li&gt;
+&lt;li&gt;选之前打听好情况，准备好照应;&lt;/li&gt;
+&lt;li&gt;禁止拖延——呃，考虑到我一向放纵，需要有人撵一撵，可惜离开高中已经四年半了。本来按理说需要撵的人进这学校甚至bao bo都有问题的，只是我从来不拒绝gift而已。&lt;/li&gt;
+&lt;li&gt;控制情绪。周六表现的心态太糟糕，我想师兄师妹父母还有刚好打电话过来的苡昕都受到了我情绪的影响，反过来也让自己的情绪更糟。必须要反省。&lt;/li&gt;
+&lt;li&gt;总结我现在需要的：自制，责任感，博大宽容，诚实守信。第一个我表现最好的时候是高中买台版风色和追加林的时候，那时控制饮食其实很好，当然不幸的是后来一度关系破裂就放弃了。第二个据说最好的办法是找个老婆，很不幸的是我的二次元因为俗事导致了断层，虽然惭愧但不得不说，最近对自己的二次元本命们有些忽视，可能需要更好的刺激。最后两个是初中时班主任总结的我的优点，再度不幸地，我认为自己已经丢干净了。至少我对成败不如以前淡然，对该完成的工作不如以前守信。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;下周的schedule，计划不如变化，而且做事情耗的时间总是比计划的多一倍，但是现在已经没有多一倍的机会了。&lt;/p&gt;
+&lt;p&gt;周一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上午：模式识别课。之前如果能起床，考虑计算语言学实验评估部分。课上可考虑完成其作业。&lt;/li&gt;
+&lt;li&gt;中午：下午助教的一点准备。完成计算语言学评估部分。&lt;/li&gt;
+&lt;li&gt;下午：老板的数理逻辑助教。考虑课上赶计算语言学报告。&lt;/li&gt;
+&lt;li&gt;晚上：完成并提交计算语言学报告。因为肯定是一个失败性报告，不得不违反自己作风地在报告中尝试说请性言辞。因此提交报告后在实验室阳台罚站。由于时间紧迫，以不感冒为要求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周二：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上午：如果模式识别作业没有完成早上继续。如果完成，开始准备英语作业。之后是小讨论班。&lt;/li&gt;
+&lt;li&gt;中午：完成英语作业。时间估计不够。&lt;/li&gt;
+&lt;li&gt;下午：算法课。虽然这部分应该不考，但该去听了。不能像上周那样以期末堆积为借口。但课上要带上算法导论，作为复习和准备明年的博士资格考试。&lt;/li&gt;
+&lt;li&gt;晚上：计算语言学课。根据通知了解是否需要上。如果不上，完成政治论文。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周三：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上午：早晨的英语课。上午剩下的时间完成英语作业。&lt;/li&gt;
+&lt;li&gt;中午：如果上午没有完成立刻完成。然后批改数理逻辑作业。&lt;/li&gt;
+&lt;li&gt;下午：数据库与知识库。可能是最后几节课了，必去。开始准备复习/预习其千页课件。不能用之前那种慢动作做slide的复习方式了。直接上草图。&lt;/li&gt;
+&lt;li&gt;晚上：继续批改作业。同时这是政治论文的deadline.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周四：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上午：早晨的英语课。接下来是模式识别。&lt;/li&gt;
+&lt;li&gt;中午：政治课，提交论文。&lt;/li&gt;
+&lt;li&gt;下午：模式识别文献阅读。&lt;/li&gt;
+&lt;li&gt;晚上：锻炼。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周五：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上午：算法课。预计因为久违的锻炼不会起床太早。&lt;/li&gt;
+&lt;li&gt;中午：模式识别文献阅读-continue。&lt;/li&gt;
+&lt;li&gt;下午：组会。&lt;/li&gt;
+&lt;li&gt;晚上：模式识别文献阅读-continue。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周六：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全天：和吉源把模式识别的期中文献报告清理掉。如果周一和吉源无法商量好，与前面的部分交换顺序。这一天一定要清理完。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;周日：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全天：休息。忘掉下一周的所有问题。要比今天休息的彻底以保持高效。另，Project Euler今天已经完成预定一周的任务，因此之前除非真的提前完成其它任务(完全不可能)不得打开，因为太耗费时间也太容易上瘾。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;其它的感想：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Google plus 确实蛮有趣。尤其对我这种本来就不怎么上人人的。&lt;/li&gt;
+&lt;li&gt;Google Schemer 这个 idea 真心不错。可惜暂时不敢把想做的事情放上去公开。&lt;/li&gt;
+&lt;li&gt;在实验室渡过晚上是很没有效率的做法，尤其是为了写程序的话。除非deadline，否则不得采用这种做法。&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.bilibili.tv/video/av183186/"&gt;av183186&lt;/a&gt;于是这个视频太内涵了，又附。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;正如松本行弘所言，为一个不明确的事物附上一个（好的）名字有非比寻常的意义，能够发挥超过想象的作用。希望把计划写在这里能起到预期的一点点作用&lt;/p&gt;
+</summary><category term="学业"></category></entry><entry><title>要死了</title><link href="http://blog.skydark.info/life/2011/11/19/dead/" rel="alternate"></link><published>2011-11-19T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-11-19:life/2011/11/19/dead/</id><summary type="html">&lt;p&gt;RT，最近task堆积的过多了……&lt;/p&gt;
+&lt;p&gt;祝存活，略难……&lt;/p&gt;
+</summary><category term="学业"></category></entry><entry><title>那谁，生日快乐，你懂的</title><link href="http://blog.skydark.info/life/2011/10/25/hb-to-zm/" rel="alternate"></link><published>2011-10-25T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-10-25:life/2011/10/25/hb-to-zm/</id><summary type="html">&lt;p&gt;RT, 工作顺利，早找帅哥, XD&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;今天老板的机子又崩了，最后……好吧，清灰+关蜂鸣器之……&lt;/p&gt;
+&lt;p&gt;今天身体颇不适，就这样吧……&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>和师兄战香山</title><link href="http://blog.skydark.info/life/2011/09/24/mountain/" rel="alternate"></link><published>2011-09-24T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-09-24:life/2011/09/24/mountain/</id><summary type="html">&lt;p&gt;RT，没想到我是战斗力比较好的……&lt;/p&gt;
+&lt;p&gt;三国杀啥的完全不会啊嗷！= =||||&lt;/p&gt;
+&lt;p&gt;回来的时候到了饭点于是晚饭也在外头灭的……&lt;/p&gt;
+&lt;p&gt;回来的时候看到实验室已经家具全面替换了，腐师妹辛苦了，于是你今晚坐的位置我预定了……(兔斯基捶地表情)&lt;/p&gt;
+&lt;p&gt;嘛，总之痛苦的是明天……吧……= =&lt;/p&gt;
+&lt;p&gt;另外明天博士班的聚会就不去了，一整周绷着弦，我要个周末不过分吧……= =|&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>入学体检</title><link href="http://blog.skydark.info/life/2011/09/20/i-hate-it/" rel="alternate"></link><published>2011-09-20T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-09-20:life/2011/09/20/i-hate-it/</id><summary type="html">&lt;p&gt;RT,WTF,为了给一个确定的结果补充上过程，结果把两天里为数不多的空闲时间全搭进去了……&lt;/p&gt;
+&lt;p&gt;以后能不进校医院就坚决不进，有心理阴影了……&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>开学相关</title><link href="http://blog.skydark.info/life/2011/08/31/hi-school/" rel="alternate"></link><published>2011-08-31T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-08-31:life/2011/08/31/hi-school/</id><summary type="html">&lt;p&gt;RT，因为这个假期过的无比郁闷，所以这一周都在懒散着……&lt;/p&gt;
+&lt;p&gt;朝圣师兄原来是硕转博，学号和我差一个压力很大，当然一次集体活动都没去也压力很大……&lt;/p&gt;
+&lt;p&gt;班长姓和小胡一样(这句似乎有槽点?……),名和妹妹一样，跟着老裘的，
+而且为了方便收材料写自己联系方式时已经开始写实验室地址了，
+让我这个在同一间实验室占着座位不去的家伙压力山大……
+今天还把我当副班了，原因是副班和我一样是个男的略黑的戴眼镜的胖子
+(我尽力写上了我能想到的共同点……)，
+嘛还好她应该不知道我和她一个实验室，
+另外不知道牟老师的学生是不是已经出现了，总之各种灵压中……&lt;/p&gt;
+&lt;p&gt;最近体重又疯狂的……呃，于是今天去了康美乐，这不是一般的压力……
+在英派斯好歹有减肥的有老头有太太们，在康美乐只剩猛男们了……
+在某臂力器械上我上了50拉了20个做了两组表示压力了
+(&amp;ldquo;不要以为胖子就有劲了!&amp;rdquo;——桶子)，
+然后发现某猛男在背后微笑看我，我知趣闪边，
+于是他顺手就把插槽插到了很靠下的地方狂拉不止，我只知道一定过了100……
+至于跑步机那边，总之就没个低速的，
+还好我本来就不打算跑跑步机，我更喜欢五四的跑道……&lt;/p&gt;
+&lt;p&gt;另外英语入学考63,以我以前的惯例不是60才对么？不是60才对么？
+嘛总之刚好在中间水平，虽然我知道一定是阅读往上拉其它的完全低于平均水平就是了
+虽然这次阅读也垃了压力中……&lt;/p&gt;
+&lt;p&gt;嘛，总结的话，目前所有的感受都是：&lt;strong&gt;压力山大&lt;/strong&gt;……&lt;/p&gt;
+&lt;p&gt;没了……&lt;/p&gt;
+</summary><category term="生活"></category><category term="学业"></category></entry><entry><title>假期在家访问app突然抽搐了……</title><link href="http://blog.skydark.info/life/2011/08/04/app/" rel="alternate"></link><published>2011-08-04T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-08-04:life/2011/08/04/app/</id><summary type="html">&lt;p&gt;然后想起用的ipv6的host……= =&lt;/p&gt;
+&lt;p&gt;这个假期过的无比郁闷，省略号，以上。&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>最近又没啥进展……</title><link href="http://blog.skydark.info/life/2011/07/17/no-progress/" rel="alternate"></link><published>2011-07-17T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-07-17:life/2011/07/17/no-progress/</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;要做的列表很长一张……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;但是啥都没做……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;老板表示让我和范师兄一块儿教他高二升高三的儿子计算机知识，压力山大中……
+他儿子读国际学校用苹果，
+老板表示要找mac下的软件，于是虚拟机装mac花了两天还失败了，压力山大&amp;times;2……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;体重呼呼往上涨中……（兔斯基撞墙表情&amp;times;4）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="生活"></category><category term="学业"></category></entry><entry><title>今天搬宿舍要死了……</title><link href="http://blog.skydark.info/life/2011/07/10/i-am-dead/" rel="alternate"></link><published>2011-07-10T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-07-10:life/2011/07/10/i-am-dead/</id><summary type="html">&lt;p&gt;RT，无力中……&lt;/p&gt;
+&lt;p&gt;P.S.:果然我们本科住的是北大最好的宿舍么……压力巨大中……&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>祝LJL同学生日快乐！</title><link href="http://blog.skydark.info/life/2011/06/26/ljl/" rel="alternate"></link><published>2011-06-26T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-06-26:life/2011/06/26/ljl/</id><summary type="html">&lt;p&gt;RT，咳咳……&lt;/p&gt;
+&lt;p&gt;刚和从米国归来的位老大还有呆子狗屎垚腐败回来，
+和位老大谈起以前奥赛的岁月，突然觉得自己好老啊
+(另外请在讨论我的个人问题之前先讨论某呆子的问题，我是自豪的二次元党谢谢)=.=||&lt;/p&gt;
+&lt;p&gt;结果发短信错过了一个多小时XD= =&lt;/p&gt;
+&lt;p&gt;虽然我承认我本来想买套助手的衣服送她cos的(因为脑补中实在是太般配了XD)，
+但是最终果然还是没有鼓起勇气捶地……= =||||&lt;/p&gt;
+&lt;p&gt;就要去法国了，祝一切顺利，那个，虽然不知道你另一半情况如何，总之祝那方面也顺利XD&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>一张渣桌面</title><link href="http://blog.skydark.info/life/2011/05/27/desktop/" rel="alternate"></link><published>2011-05-27T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-05-27:life/2011/05/27/desktop/</id><summary type="html">&lt;p&gt;&lt;img src="http://skydblog.appspot.com/media/aghza3lkYmxvZ3INCxIFTWVkaWEYyd8CDA/Screenshot.png" alt="一张渣桌面"&gt;&lt;/p&gt;
+&lt;p&gt;RT，几天前截的……&lt;/p&gt;
+&lt;p&gt;毕设玩脱了……&lt;/p&gt;
+&lt;p&gt;每时每刻都想睡觉……&lt;/p&gt;
+&lt;p&gt;想干的事情列表超过十项，必须干的事情加上就二十项了，然则全部没进度……&lt;/p&gt;
+&lt;p&gt;结论：困扰多年的症状的病名终于找到了，叫五月病……(捶地)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;补充下下午流程：&lt;/p&gt;
+&lt;p&gt;去ATM提钱未果*2-&amp;gt;照毕业照-&amp;gt;去ATM提钱未果-&amp;gt;申请老板的数理逻辑助教-&amp;gt;去ATM提钱未果
+……= =……&lt;/p&gt;
+</summary><category term="学业"></category><category term="acg"></category></entry><entry><title>小屋聚了个会……</title><link href="http://blog.skydark.info/life/2011/02/16/600/" rel="alternate"></link><published>2011-02-16T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-02-16:life/2011/02/16/600/</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;某联一如既往的歌神啊，老徐你点歌点的好……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;带着宠物猫（自称老婆）的某人果然还是很气质啊……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;忘了跟冷说带扑克了结果俩姑娘（该说一帅哥一女么XD）去买了副，然后发现俺已经不会打了，郭巴表示和这货一帮打四人保简直是……= =||&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;虽然我已经把所有人类说完了，但还是得说，和某非人比体重差距拉大了，这很不好……&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="生活"></category></entry><entry><title>陪妹妹逛了一天</title><link href="http://blog.skydark.info/life/2011/02/12/my-dear-sister/" rel="alternate"></link><published>2011-02-12T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-02-12:life/2011/02/12/my-dear-sister/</id><summary type="html">&lt;p&gt;RT，好久不见了……还是老样子，虽然我没资格这么说就是了XD……= =&lt;/p&gt;
+&lt;p&gt;约10点在书城门口会合，结果十点过了才发现我在门外她在门里……= =|&lt;/p&gt;
+&lt;p&gt;她买了个奶茶，我买了个咖啡，然后一起去某pizza店聊天……好吧，其实是先去那里的，然后发现那边没开门……显然啊，才10点又不是饭点……&lt;/p&gt;
+&lt;p&gt;然后去佳世客逛了一圈，游戏厅的声音太吵了……她对日本印象不佳，不过也就是"不佳"这层吧……&lt;/p&gt;
+&lt;p&gt;然后去麦凯乐顶楼买了个柚子茶（味道略猎奇）聊了一下午，主要聊了下大学生活和初中回忆，也有聊理想，以及婚嫁的问题（呃，她表示压力，我表示无压力……不过果然瓶子想法相通啊），有时也聊了下国事（……），她比我热血啊XD&lt;/p&gt;
+&lt;p&gt;回来逛了下蛋糕店，虽然还是没买……咱俩对生日都早就淡定了XD&lt;/p&gt;
+&lt;p&gt;3月就要去韩国了，于是身边一个个都飞走了，就咱这个土鳖……= =||&lt;/p&gt;
+&lt;p&gt;P.S.:老实说，和一个不是女朋友的女孩子自然地一块儿边走边聊的感觉真是太好了～（好吧，其实这才是最想表达的心情吧，咳咳……）&lt;/p&gt;
+</summary><category term="生活"></category><category term="sister"></category></entry><entry><title>于是要回家了……</title><link href="http://blog.skydark.info/life/2011/01/15/gohome/" rel="alternate"></link><published>2011-01-15T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-01-15:life/2011/01/15/gohome/</id><summary type="html">&lt;p&gt;嗯，家里断网……于是实验室项目……于是毕业设计……于是资料……于是五和……各种捶地……以上&lt;/p&gt;
+</summary><category term="生活"></category></entry><entry><title>大条了</title><link href="http://blog.skydark.info/life/2011/01/04/cuptool/" rel="alternate"></link><published>2011-01-04T00:00:00+08:00</published><author><name>Skydark Chen</name></author><id>tag:blog.skydark.info,2011-01-04:life/2011/01/04/cuptool/</id><summary type="html">&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;五、资格复审及录取&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在发出录取通知书之前，将对获得初取资格的免试生，按以下要求进行资格复审，通过者方可被录取，未通过者，将被取消录取资格，由学生所在学校本科教务部门按本科学籍管理规定办理相应手续。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;完成本科培养方案规定的所有课程及实践环节（含毕业论文或实习）的学分要求；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;毕业论文或实习成绩应在“良”以上；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;取得初取资格后，本科必修、限选及公选课程不得出现不及格；&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;自取得初取资格至入学报到之日未受过任何处分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;随机过程随机过，是么……&lt;/p&gt;
+&lt;p&gt;自己的习惯是卷子上会的就是会，不会的要么空着(大多数情况)要么是个人看了也知道是胡诌，
+基本答上多少就是多少分，这次答上的分数50～60，
+自己明确其中15～20是明显的胡诌，比第二次考完物理的感觉还糟糕(P.S.:那次68)，
+关键是看着卷子觉得确实都不难(假如是大岳叔那样大家都不会就罢了)，就是都没答上，
+这好似已经不只是湿态的问题了吧……&lt;/p&gt;
+&lt;p&gt;而且这学期的课普遍都感觉糟糕，明天是另一个叫英语的坑，5次考英语三次60一次456的等着被人说保了后玩脱了吧，感觉心态有点像大二下的时候，发力都不知道力跑哪里了，然后就莫名其妙地惨淡了……&lt;/p&gt;
+&lt;p&gt;好似从高二那个11月开始心态就一直有问题了，把它当成随机过程研究下？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;喂，别开玩笑了啊！丢人可以丢习惯么！&lt;/strong&gt;&lt;/p&gt;
+</summary><category term="学业"></category></entry></feed>
