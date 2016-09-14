@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block page_header %}
+<div class="page-header">
+  <h1>{{ article.title }}</h1>
+</div>
+{% endblock %}
+{%- block content %}
+<div class="row">
+<section class="main-article">
+    <article>
+        <header class="post-info">
+        <span class="published" title="{{ article.date.isoformat() }}">
+          <i class="icon-calendar"></i>&nbsp;{{ article.date|strftime('%x') }}
+        </span>
+        {% if PDF_GENERATOR %}
+        <span class="label">
+          <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+        </span>
+        {% endif %}
+        {% include 'translations.html' %}
+        </header>
+
+        {% block article_content_header %}{% endblock %}
+        <div class="entry-content">
+        {% if article.toc %}
+          <nav class="toc">
+            {{ article.toc }}
+          </nav>
+        {% endif %}
+        {{ article.content }}
+        </div><!-- /.entry-content -->
+        {% include 'disqus.html' %}
+    </article>
+</section>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="span4 sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+{% for cat, null in categories %}
+{% if cat == category %}
+<li class="active">
+{% else %}
+<li>
+{% endif %}
+<a href="{{ SITEURL }}/{{ cat.url }}">
+    <i class="icon-folder-open icon-large"></i>{{ cat }}
+</a>
+</li>
+{% endfor %}
+
+{% if 'tag_cloud' in PLUGINS %}
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="sidebar-tags">
+{% for tag in article.tags %}
+    <span class="sidebar-tag">
+        <a href="{{ SITEURL }}/{{ tag.url }}" class="label"><i class="icon-tag"></i>{{tag}}</a>
+    </span>
+{% endfor %}
+<div class="clearfix"></div>
+</li>
+{% endif %}
+</ul>
+</div>
+{% endblock %}
+
+
+{% block page_end %}
+{% if article.mathjax %}
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  /*showProcessingMessages: false,*/
+	  jax: ["input/TeX", "output/HTML-CSS"],
+	  TeX: {
+		TagSide: "left",
+		Macros: {
+		  /*RR: '{\\bf R}',
+		  bold: ['{\\bf #1}',1]*/
+		  sdash: '{|\\!\\!\\!\\sim}'
+		}
+	  },
+	  tex2jax: {
+		  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		  processEscapes: true
+	  }
+	});
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript"
+		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+{% endif %}
+{% endblock %}

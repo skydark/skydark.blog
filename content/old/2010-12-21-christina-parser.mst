@@ -1,0 +1,11 @@
+layout: post
+title: 蛋痛地写了个parser...
+slug: christina-parser
+category: python
+tags: e17, python
+
+
+RT，昨晚加今天早上，今早主要是加上运算及优先级，本来想严格照着编译原理来的，后来心想反正大概意图心里有底，就照着感觉来了，昨晚一口气写了300行，一次运行除了一点syntax error竟然直接通过了，泪流满面啊，这是彩票概率事件么...（捶地）
+
+P.S.:写完了发现果然是激情产物，实际在Project christina中...会用上么...（继续黑子捶地貌）
+

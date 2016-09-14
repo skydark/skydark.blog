@@ -1,0 +1,37 @@
+{% extends "basepage.html" %}
+{% set page_title = "分类" %}
+{% block page_content %}
+<div class="tabcontent-wrapper">
+
+<ul class="nav nav-tabs">
+{% for category, articles in categories %}
+<li><a data-toggle="tab" href="#{{category}}-ref">{{category}} <span class="small-counter">{{ articles|length }}</span></a></li>
+{% endfor %}
+</ul>
+
+<div class="tab-content">
+{% for category, articles in categories %}
+<div id="{{category}}-ref" class="tab-pane">
+<p><a href="/category/{{category|lower}}.html" class="external">单独页面</a></p>
+<ul>
+  {% for article in articles %}
+  <li>
+    <span>{{ article.date|strftime('%x') }}</span>
+    <a data-original-title="" target="_blank" href='{{ article.url }}'>{{ article.title }}</a>
+  </li>
+  {% endfor %}
+</ul></div>
+{% endfor %}
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+$(".tabcontent-wrapper>ul.nav-tabs a:first").tab('show');
+$(document).ready(function(){
+  var href = '#'+decodeURIComponent(window.location.href).split('#').slice(-1);
+  $(".tabcontent-wrapper>ul.nav-tabs a[href='"+href+"']").click();
+});
+</script>
+{% endblock %}

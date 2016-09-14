@@ -1,0 +1,68 @@
+layout: post
+title: Nitrotasks
+slug: nitrotasks
+category: linux
+excerpt: 一款任务管理软件
+tags: linux
+
+
+最早是在 GR 里头看到的来自笨兔兔的[推荐](http://www.bentutu.com/2012/04/nitro-task-management-tool.html/)，当然它也来源自[ubuntuvibes](http://www.bentutu.com/2012/04/nitro-task-management-tool.html/).
+
+![Screenshot for nitrotasks](/images/misc/nitrotasks.jpg)
+
+Ubuntu 用户只需要：
+
+    sudo add-apt-repository ppa:cooperjona/nitrotasks && sudo apt-get update && sudo apt-get install nitrotasks
+
+Arch 用户也只需要：
+
+    yaourt -S nitrotasks
+
+就可以安装了。
+
+分别引用两边的评价和[开发网站的介绍](http://caffeinatedco.de/apps/)：
+
+> Nitro 是一款比较简易的任务管理工具，适合对时间规划和任务安排比较严谨的同学。
+
+> [Nitro](http://nitrotasks.com/) is an eyecandy task manager that comes with a polished easy-to-use interface and properly organized items
+
+> Nitro is an easy way to keep track of your tasks. Combining a beautifully simple interface with advanced features, Nitro stands out from the crowd.
+
+其实 TODO 类软件确实蛮多的。Nitro 本身比较漂亮(eyecandy)也比较简洁，跨平台能力的话…… Linux & Chrome. 总的来说精巧够用，还是挺喜欢的。
+
+关心它其实主要因为它实现这个想法用的工具。
+
+从 AUR 安装的时候提醒我需要依赖 [pywebkitgtk](http://code.google.com/p/pywebkitgtk/).
+PyWebkitGTK 的 Project Description 是这样说的：
+
+> PyWebKitGtk allows Python (Gtk) developers to create software on top of the WebKitGtk rendering engine.
+
+有很多时候写了点脚本但是懒得写 GUI，
+想过用 bottle 自己写一个模板生成器，
+也关注过(坦白地说，其实还没开始尝试) [shovel](https://github.com/seomoz/shovel).
+这些想法的原理都是自己搭建一个本地的 http 服务，然后浏览器浏览。
+
+PyWebkitGTK 则直接在前后端传递消息，不需要服务器，不需要关心 sockets，形式上更像 Ajax 的方式但并不需要真的用 Ajax，是一种更紧致的做法。
+消息传递采用 json, 两边都方便处理。
+
+Nitro 使用 pickle 将数据保存在`~/.nitrodata.pkl`, pickle 里存的是一堆 json 格式的字符串。
+我一开始一看 web 界面就在想它是用什么数据库保存的，然后发现是 pickle 后觉得自己弱爆了……这个时候返璞归真才是最好的。
+
+软件作者一开始在这里有疏忽，在 js 端存储 json 的时候没有对`\n`做转义，
+导致数据中如果有回车的话，读取出来被 eval 解析的时候会发生错误。
+我最初是在写了一个多行 Note 之后发现的。给作者写了封邮件，作者马上就回复并更新了，现在 1.0.2 版已经没有这个问题了。
+
+但现在整理出来思路才发现，实际上应该做转义的自然不止`\n`一个，双引号等都是问题。
+消息传递需要经过 json 包装一次因此会产生一些问题也是这种做 GUI 的思路的一个麻烦的地方吧。
+总而言之我想我应该准备下一封邮件了……
+
+---
+
+OK, 作者已经更新了，对照了一下，在`data/media/src/js/cli.js`里头更新的:
+
+~~~ javascript
+          escape: function(str) {
+            //Regexes a bunch of shit that breaks the Linux version
+~~~
+
+╭╮(╯▽╰)╭╮

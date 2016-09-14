@@ -1,0 +1,110 @@
+layout: post
+title: 升级64位Arch
+slug: arch-64-bit
+category: linux
+excerpt: 结果纠结了一天, FML
+tags: linux, arch
+
+
+上次 `pacman -Syu` 后出现了奇怪的现象，系统会不定时的突然死掉，
+表现为突然程序一个接一个的崩掉，几秒钟后键盘鼠标也崩掉，只能电源键了……
+
+然后查了 message.log, 提示是 *Memory Out*, 我当时狂汗不已，机子内存4G，32位PAE，我记得死机前内存占用都是不到1.5G的……
+
+最后看 `free -l`，猜测是因为我的Low Memory只有不到900M，
+然后不知为何 update 后 Firefox 开始吃 Low Memory，最后 [oom-killer](http://www.redhat.com/archives/taroon-list/2007-August/msg00006.html) 开始大杀特杀:
+
+> When low memory is exhausted, it doesn't matter how much high memory is
+> available, the oom-killer will begin whacking processes to keep the
+> server alive.
+
+最后想了想，还是直接升级64位系统好了:
+
+> If possible, upgrade to 64-bit Linux.  This is the best solution because
+> *all* memory becomes low memory.  If you run out of low memory in this
+> case, then you're *really* out of memory. ;-)
+
+关于迁移到64位系统，照着[Archlinux Wiki](https://wiki.archlinux.org/index.php/Migrating_Between_Architectures_Without_Reinstalling_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#.E6.96.B9.E6.B3.95_2:_.E4.BB.8E.E6.AD.A3.E5.9C.A8.E8.BF.90.E8.A1.8C.E7.9A.84.E7.B3.BB.E7.BB.9F)做：
+
+1. 确认 CPU 支持64位，确认 `/var/cache/pacman/pkg` 空间足够。
+
+2. 保留旧软件包以备回退，并准备好32位的 busybox:
+
+        # pacman -Sw $(comm -23 <(pacman -Qq) <(pacman -Qmq))
+        # pacman -S busybox
+
+3. 改变 pacman 架构:
+
+        # sed -i -e s/'Architecture = auto'/'Architecture = x86_64'/g /etc/pacman.conf #并确认 mirrorlist 中使用 $arch 而不是 i686 指定架构
+        # pacman -Syy
+
+4. 下载新软件包:
+
+        # pacman -Sw $(pacman -Qq|sed '/^lib32-/ d')
+
+5. 安装64位内核和32位glibc兼容:
+
+        # pacman -S linux
+        # pacman -Sf lib32-glibc
+
+    重启检查是否安装64位内核成功:
+
+        $ uname -m
+        x86_64
+
+    64位内核可以运行32位程序，因此系统看起来很正常。
+    但是当更新 x86_64 仓库中的软件的时候会出问题，因此要将现有的软件都替换为64位版本。
+
+6. 安装64位pacman:
+
+        # pactree -l pacman | pacman -S -
+
+    <div class="alert alert-danger">
+    **注意这条命令执行完后整个系统就只有 bash、pacman 和 busybox 可以用了，下面的操作必须一气呵成不能中断！**
+    </div>
+
+    另外如果有人是对照这个文章/wiki原文进行迁移的，*请看完再动手!*
+
+7. 安装其他软件包:
+
+        # pacman -S $(pacman -Qq)
+
+    在我这边这里出了意外，因为 `pacman -Qq` 会将 aur 里的软件包也列出来，这些在 `pacman -S` 的时候显然会引发找不到错误。
+    于是我很正常的想用输出重定向到文件，然后编辑文件删掉多余包的办法——*然而现在vi已经不可用了*。
+    我还看过 wiki 里关于 Arch64 的[FAQ](https://wiki.archlinux.org/index.php/Arch64_FAQ_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29)里面提到的一个[帖子](https://bbs.archlinux.org/viewtopic.php?id=64485)，作者是这样做的:
+
+        # pacman -Qqe | grep -vx "$(pacman -Qqm)" > /backup_dir/pacman.lst
+        # pacman -Qqm > /backup_dir/aur.lst
+
+    然而不幸的是*grep现在也不能用*，所以我就用 busybox 代替 grep，发现 busybox 版的 grep 不支持 -x 参数……
+    (P.S.: 我当时竟然只想到了用 busybox 替代 grep，没想到用 busybox 替代 vi, 也没有想到用 `/lib/ld-linux.so.2` 执行，FML……)
+    总之我也不知道我最后怎么得到了一个这样的 pacman.lst，总之得到了一个，于是我的杯具就是从这里上演的……因为这样得到的 `pacman.lst` 实际上是有问题的，
+
+    <div class="alert alert-danger">
+    **FAQ 里引用的那文的作者是重新装 Arch 64 然后恢复原有软件，我现在是更新系统现有的全部软件包，这两个是有差别的。**
+    </div>
+
+    <div class="alert alert-info">
+    现在让我做的话，我会在步骤6之前就执行 `pacman -Qq | grep -vx "$(pacman -Qqm)" > pacman.lst`, 然后这一步用 `pacman -S $(cat pacman.lst)`.
+    </div>
+
+8. 正常情况下这个时候重启就可以了。我因为上面所说的杯具，重启之后就 Kernel panic 了，
+    提示 No init found，我一开始以为是 grub 配置错了，总之各种乱搞，最后发现 No init found 很有可能不是真的没有 init，而是 init 执行不起来……
+
+    还好这个时候机器上还有个 Ubuntu 10.04 备用，试图 chroot，结果发现32位系统没法 chroot 到64位上……
+
+    于是又赶紧下了一个64位的 ArchISO，grub 挂载进入 live 环境，chroot，发现 /usr/bin 下还有千余个32位程序，/usr/lib 下有万余个32位动态链接库(尽管算上了软链接)。
+    然后试着 `pacman -S gtk`，终于发现问题，底下依赖的动态链接库还是32位的，所以装不上，再对比 pacman.lst，终于发现步骤7里强调的那段。
+    于是这次我是有正常的 vi 和 grep 的(退出 chroot 就有)，重新安装一次，终于成功了……
+
+    另外不得不说 chroot 太方便了，和直接进了那个系统一样。
+
+重启后终于看到了 X，然后就是各种 yaourt，注意64位的 `/etc/makepkg.conf` 和原来有所不同，应对照 `/etc/makepkg.conf.pacnew` 修改，才能正常的用 yaourt 编译 aur 中的软件。
+
+flash 自动装好了，B站无压力。
+rvm 里的 ruby 要重新编译一遍。
+wine 抽搐了，我没有64位win7的dll，正打算回退到32位的wine上……
+
+总之这次迁移64位系统纠结了很久，结果发现是个好傻的问题，人生就是充满了233啊233……
+
+并特别感谢[朱晋玄](https://plus.google.com/106325773445721438941)的帮助！

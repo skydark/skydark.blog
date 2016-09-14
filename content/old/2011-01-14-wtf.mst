@@ -1,0 +1,17 @@
+layout: post
+title: 卧勒个去！
+slug: wtf
+category: python
+tags: e17, python
+
+
+查了一晚上加一上午的bug，然后我现在觉得很有可能是我用的e库太旧了……
+
+V5和PC上不一致就罢了，PC上text_set莫名其妙地段错误算啥，
+关掉后台预分割后还是会在update_screen后0.X秒莫名其妙地段错误，
+而且只有第一次载入并且书签在那里时会这样，
+第二次无事，从头载入无事，GB2312无事(关键是我在内部转过，最终结果都是utf8...)，
+V5上mink的svn版无事……XD
+
+算了……
+

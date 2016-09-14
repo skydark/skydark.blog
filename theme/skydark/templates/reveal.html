@@ -1,0 +1,66 @@
+{% extends "article.html" %}
+{% block base_head_extra %}
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!--[if lt IE 9]>
+<script src="{{ SITEURL }}/theme/reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+{% endblock %}
+
+{% block article_content_header %}
+<p><a class="btn btn-primary" id="lets-reveal">转换为幻灯片</a></p>
+<hr>
+{% endblock %}
+
+{% block page_end %}
+{{ super() }}
+<script src="{{ SITEURL }}/theme/reveal.js/lib/js/head.min.js"></script>
+<script src="{{ SITEURL }}/theme/reveal.js/js/reveal.js"></script>
+
+<script>
+$('#lets-reveal').click(function() {
+  var slides = $('<div class="slides">');
+  $('.entry-content').children('hr,h1,h2,h3,h4').each(function() {
+    var header = $(this);
+    var section = header.is('hr') ? header.nextUntil('hr,h1,h2,h3,h4'): header.nextUntil('hr,h1,h2,h3,h4').andSelf();
+    section.wrapAll('<section>').parent().appendTo(slides);
+  });
+  var theme = "{% if article.theme %}{{article.theme}}{% else %}black{% endif %}";
+  $('head')
+    .append('<link rel="stylesheet" href="{{ SITEURL }}/theme/reveal.js/css/reveal.css" type="text/css" />')
+    .append('<link rel="stylesheet" href="{{ SITEURL }}/theme/reveal.js/css/theme/'+theme+'.css" type="text/css" id="theme" />')
+    .append('<link rel="stylesheet" href="{{ SITEURL }}/theme/reveal.js/lib/css/zenburn.css" type="text/css" />')
+    .append('<link rel="stylesheet" href="{{ SITEURL }}/theme/css/slide.css" type="text/css" />');
+
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? '{{ SITEURL }}/theme/reveal.js/css/print/pdf.css' : '{{ SITEURL }}/theme/reveal.js/css/print/paper.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+	
+  $('body').html(slides.wrap($('<div class="reveal">')).parent());
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true },
+			{ src: 'plugin/notes/notes.js', async: true }
+		]
+	});
+});
+</script>
+{% endblock %}

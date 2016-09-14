@@ -1,0 +1,22 @@
+layout: post
+title: 结果又和mink大撞上了……
+slug: hi-mink
+category: python
+tags: pyside, python
+
+
+RT，最早在智器粉丝团碰到mink大的时候，他在研究E17,于是我也蛋疼的写了点东西……
+
+结果最近在研究PySide+QML的时候，又撞回[mink大的博客](http://blog.csdn.net/mink365)了XD……
+
+好吧，顺便汗一个下午一直在想怎样在Python中返回一个dict给QML用，
+结果各种不幸，竟然还碰到了Segment fault……
+然后一下午的成果是发现自己被坑了：
+[http://groups.google.com/group/pyside/browse_thread/thread/cc6b07c89dd67be0](http://groups.google.com/group/pyside/browse_thread/thread/cc6b07c89dd67be0)
+
+……= =||||
+
+P.S.:发现自己的拖延症和逃避心理越来越严重了，
+昨晚在Netwalker上过了夜明的菲娜线（好吧，221这个到底裁了没……），
+还在为两位的认真和坚决感动，今天瞧瞧自己……还是如故么……
+

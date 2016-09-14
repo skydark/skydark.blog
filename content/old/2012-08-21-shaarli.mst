@@ -1,0 +1,29 @@
+---
+layout: post
+title: shaarli
+slug: shaarli
+category: programming
+excerpt: 一个个人网址管理工具
+tags: [programming, php]
+---
+
+上篇的最后推荐了一个叫[shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli)的个人网址管理工具。
+
+![Screenshot for shaarli](/images/misc/shaarli.jpg)
+
+优点就是 Simple & Fast, 找个能跑 php 的地方就成，支持 Tag, Picture Wall, RSS, 带 QRCode 的 Permalink, Private Link...
+
+在系主页上布置的时候遇到的一点问题，记录一下：
+
+1. 需要有写权限。系里的主页大家都公用，彼此都能看到对方的家目录因此默认755, 部署的时候至少要把 data, tmp, cache 三个目录打开写权限，不然第一次登录的页面都看不到;
+
+2. Shaarli 自带了一个书签，在 tools 里，放到书签栏可以快速保存。不过我这边一般都不显示书签栏……照着[帮助](https://addons.mozilla.org/zh-CN/developers/docs/how-to/getting-started)做了个右键菜单扩展，不过工具栏按钮不知为何怎么也做不上……[这个](http://blog.csdn.net/z6482/article/details/7433460)中文帮助看起来写的不错。自用所以直接把地址写死了就不放出来丢人了。
+
+3. Picture Wall 功能对 U2B, flickr 之类的国外站点支持不错，国内显然是无视的。为了方便收藏 B 站视频试图给 shaarli 添加 B 站缩略图支持。
+B 站的 api 可以在<http://www.bilibili.tv/api.txt>看到，appkey 不用申请其实也能用。
+
+    Shaarli 使用函数 `computeThumbnail` 求缩略图地址，对 U2B 这类的站点可以直接从网址求出来缩略图地址；
+对 flickr 这样要通过 api 得到缩略图地址的(作者在注释里还对此狠命吐槽了一番……)，就先返回 `index.php?do=genthumbnail` 这样的地址再进行 Ajax 调用，当然这样可以把缩略图 cache 到 cache 目录中。
+
+    本地测试OK，然后实际部署时发现系里的服务器没有连上外网，而且连 ipv6 都没有233……最后只好又重新布置到实验室的电脑上了……
+

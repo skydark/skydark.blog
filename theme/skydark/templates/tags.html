@@ -1,0 +1,37 @@
+{% extends "basepage.html" %}
+{% set page_title = "标签" %}
+{% block page_content %}
+<div class="tabcontent-wrapper">
+
+<ul class="nav nav-tabs">
+{% for tag in tag_cloud %}
+<li><a data-toggle="tab" href="#{{tag.0}}-ref">{{tag.0}} <span class="small-counter">{{ tag.2 }}</span></a></li>
+{% endfor %}
+</ul>
+
+<div class="tab-content">
+{% for tag in tag_cloud %}
+<div id="{{tag.0}}-ref" class="tab-pane">
+<p><a href="{{tag.0.url}}" class="external">单独页面</a></p>
+<ul>
+  {% for article in articles if tag.0 in article.tags %}
+  <li>
+    <span>{{ article.date|strftime('%x') }}</span>
+    <a data-original-title="" target="_blank" href='{{ article.url }}'>{{ article.title }}</a>
+  </li>
+  {% endfor %}
+</ul></div>
+{% endfor %}
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+$(".tabcontent-wrapper>ul.nav-tabs a:first").tab('show');
+$(document).ready(function(){
+  var href = '#'+decodeURIComponent(window.location.href).split('#').slice(-1);
+  $(".tabcontent-wrapper>ul.nav-tabs a[href='"+href+"']").click();
+});
+</script>
+{% endblock %}

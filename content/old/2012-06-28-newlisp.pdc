@@ -1,0 +1,370 @@
+---
+layout: post
+title: "newLISP 是如何令我惊愕忘形的"
+slug: newlisp
+category: programming
+excerpt: "我不懂翻译，下面都是我瞎编的，现在我编不下去了……"
+tags: [lisp, programming]
+---
+
+偶然看到[这篇文章](http://www.taoeffect.com/blog/2010/01/how-newlisp-took-my-breath-and-syntax-away/)，
+<a rel="tooltip" title="不然一个英语爆烂的非 Lisper 怎么会翻译一篇 Lisp 文章呢">感到非常有意思</a>，忍不住想翻译一下。
+
+原文标题是“How newLISP Took My Breath (And Syntax) Away”，非常漂亮的一个标题，但是不知道怎么翻译好，就随便编了一个句子上来了……= =
+
+newLISP 是一种奇特的 LISP 方言，有非常鲜明和有趣的特点，这篇文章的作者以亲身经历对这些特点做了一个简要的概述。
+
+另外必须强调的是，尽管我清楚我英文(和汉语)是如此之烂(从高二高三没上过课到大学没翻过书)，但是因为确实感到很有趣，我还是忍不住想编一下……
+所以，如果**英文水平在高一以上，或者熟悉 Lisp，推荐直接看原文好了**。
+
+当然欢迎指正，如果这自High的私家地有人看的话……
+
+废话少说，***下面开始正文***。
+
+---
+
+<div class="alert alert-danger">
+***Warning:***
+
+**我不懂翻译，下面都是我瞎编的，现在我编不下去了……**
+</div>
+
+---
+
+## newLISP 是如何令我惊愕忘形的
+
+作者：[taoeffect](http://www.taoeffect.com/blog/2010/01/how-newlisp-took-my-breath-and-syntax-away/)
+
+几年前，一个鲜为人知的名为 **newLISP** 的语言彻底地改变了我对什么样的程序语言才是“好的”的理解。
+
+### 为何是 newLISP?
+
+在说其它话之前，我愿意提出一个我的一些熟悉 LISP 的读者们可能会立刻询问的问题：
+**为何是 newLISP? 为何不是 Clojure, Scheme, 或者 Common LISP?**
+
+答案是，在评估这些 LISP 方言之后，我得出的结论是，
+*newLISP有几处重要的优势超过了其它 LISP*。
+
+在今天，不幸地是，每当有人在其它 LISP 的信徒们经常光顾的在线论坛上提及 newLISP 的时候，总是会爆发一场帮派战火。
+一种特定方言的信徒(通常从没用过 newLISP)，会用污秽的话语吼叫，
+**“newLISP 背弃了 LISP 取得的几乎所有优点”**，或者
+**“动态作用域是邪恶的！”**
+
+这些情绪诞生的历史背景对那些观战者来说大多是未知的。
+进而真相淹没于尘埃，讨论就此崩溃，混战因而散去，旁观者们继续回去啜饮他们的<a rel="tooltip" title="Java是一种咖啡">Java</a>，或者吃它们的<a rel="tooltip" title="Python的原意是蟒蛇">Python</a>.
+
+我想值得庆幸的是，我对这门语言的介绍并没有从这些战斗中突然冒出来。
+它在大多数部分上是基本没有偏见的。
+
+### 被称作 LISP 的东西
+
+在就读于佛罗里达大学的时候，我选了一门有关人工智能的课程。
+我们的教授不出所料地给班级介绍了一门名为 [LISP](http://en.wikipedia.org/wiki/Lisp_(programming_language)) 的程序语言。
+
+到那时为止，常见的那些不熟悉这门语言的人的传言和训诫构成了我对 LISP 的认识：
+
+> “喜欢它的人都是疯狂的痴迷者，认为自己超于常人！”
+>
+> “它主要用于人工智能方面的工作。”
+>
+> “没人把它用在实际用途中。”
+>
+> “它主要当作一门研究语言来使用。”
+>
+> “它代表‘<a rel="tooltip" title="这句话的缩写恰好是 LISP">许多令人愤怒的愚蠢的括号</a>’。哈哈！”
+
+你想的对。
+我对于它到底是什么没有丝毫头绪，但令我激动的是，我最终被迫到不得不揭示它的地步。
+毕竟，我的成绩依赖它。
+
+我的发现是， LISP 实际上不负于其狂信者赋予它的令人畏惧的盛名。
+简单地接触一些 LISP 的基本概念和哲学立刻对我作为一个程序员的能力产生了积极的影响。
+
+### 语法：程序员的头号敌人
+
+LISP [相对缺乏语法][Lisp's syntax]可能是其最深刻的见解，因为我立刻对此感到如释重负。
+我意识到绝大多数程序错误的根源正是语法。
+语法创造了我简直未意识到的下意识的负担：
+它引发错误、缺陷，并且使得将我的想法转换为代码的工作变得困难。
+尽管我有多年使用基于 C 的语言的经历，并且密切熟悉它们的语法，
+我仍然意识到它依然是拖慢我和其他每个人的完全无必要的负担。
+
+> 这是像 Lisp 一样的语言的一个巨大优势：
+> 它们仅有非常少的方式构造复合表达式，并且几乎没有语法结构……
+> 在我们忘记语言的语法细节(因为没有)后不久便在实际问题上取得了进展。
+>
+> ——Abelson 和 Sussman
+
+这里的关键不是语法的大小，而是你能拿它做什么。
+LISP 能使用其列表、函数、符号等基本概念做的事情，在像 PHP、Python 和 Ruby 这样的语言中需要一层特殊的语法。
+它能用更优雅的方式做其它语言能做的任何事情，
+并且仍然有足够的技巧去挽起袖管完成在其它语言中根本*不可能*做到的壮举。
+
+### Common LISP: 一系列不幸的错误
+
+尽管有所有这些令人激动的发现，我仍然有一种不安的感觉。
+
+Common LISP (CL) 是对我之前认识的一种巨大偏离，
+但它充满了文物的恶臭；
+更糟糕的是，它的语法简直没有很好地考虑过。
+它所渴求的“禅”一样的完美消失了。
+这是一种 Mac 用户都太熟悉了的感觉：
+**有太多的按钮，而且其中大多数都没必要**。
+
+![CommonLisp's syntax][CommonLisp's syntax]
+
+对比 C++，这很美妙。话又说回来，与 C++ 相比，*大多数*语言都显得值得称赞。
+在尝过丢弃 C/C++/Java 的语法转到 CL 所提供的自由的味道后，我看不出来*为何*所有这些语法都是必要的，而且事实上，大多不是的。
+
+每一小段引入语言的语法都增加了程序员的精神负担，无论他是否意识的到。
+我并不打算花费精力学习 Common Lisp ——如果能找到更好的选择的话。
+
+<div class="well">
+#### 你说的“语法”是什么意思？
+
+你可能反对我将函数`defvar`,`=`,`eq`,`eql`等列入其中，因为它们是*函数*。
+我包括它们是因为它们构成了不能被 LISP 自身语法表达的低级功能。
+换句话说，函数`=`和`eq`是必须在 LISP 语言的自身实现中定义的低级原语，
+它们的含义和用法是不能从其它已有的 LISP 语法中演绎出来的。
+
+考虑 PHP 的`!=`和`!==`，它们都是*运算符*，并且用相同的方式使用，然而这并没有告诉你任何有关它们之间的区别是什么的事情。
+没有办法从语言的现有语义演绎出它们的含义，因此它们分别表示一种必须习得的新的语法。
+</div>
+
+### 我是怎样发现 newLISP 的
+
+教授向我们透露了我们的“主要课程项目”：我们要实现一个文字版本的<a rel="tooltip" title="Chainshot">消同色</a>游戏。
+
+![一个消同色游戏的实现](http://www.taoeffect.com/blog/wp-content/uploads/2009/12/chainshot.png)
+
+消同色从一个充满带颜色的格子的网格开始。
+你的目标是通过点击每个格子来清空盘面。
+如果有与被点击的格子临近的同样颜色的格子，它们会一起消失。
+这种效果会扩散到所有那些与它们相邻的格子上，如此下去。
+接下来其它格子会掉落到消失的格子所留下的空档中。
+如果有一整列消失了，那么所有该列右侧的格子都会左移来填补它。
+在 OS X 上，有它的一个美妙和免费的实现叫做 [Otis](http://www.macupdate.com/info.php/id/24493/otis).
+
+在期中时我们要做一个能让人玩的版本，然后到期末时我们得写一个 AI 来玩这个游戏。
+
+> “多说一句……”他说，“如果你用 LISP 完成它，你会得到 10% 的奖励。”
+
+然而问题在于，大多数课程关注于 AI 的不同的算法和理论。
+那些想得到这 10% 的奖励的人将不得不自学这门语言。
+
+多数学生选择放弃奖励而去使用一门他们已经熟悉的语言，
+和大多数学生一样，我只有很少的时间，
+所以我也偏向于那种情绪。
+然而，我还是决定去 Google 搜索一下，看看我能不能发现一种更开胃的 Common LISP 的替代品。
+
+令我高兴的是我找到了一种似乎在所有选项上都符合的语言，
+而且令人惊讶的是它竟然不是 [Scheme](http://en.wikipedia.org/wiki/Scheme_(programming_language)) (尽管那也是一门美妙的语言)。
+像 Scheme 一样，这门语言极大地简化了 Common LISP 的语法，
+但它同时又带有一个满载着用来完成现代化脚本任务的实用函数的标准库，
+而且你运行它时所需要的所有东西就是单个轻巧的可执行文件！
+
+## 探索 newLISP
+
+这是最终使我转为一个 [newLISP](http://www.newlisp.org/) 爱好者的原因。
+
+![NewLispLogo](http://www.taoeffect.com/blog/wp-content/uploads/2009/12/newlisp-logo-horizontal-240x100.png)
+
+我们有几个月的时间完成项目的第一部分，
+在截止日期前的晚上，我还没有完成它的任何一个完整的*单个部分*。
+我在其它事情上花了一晚上，然后花了大概一小时那么些的时间去查看 newLISP 的网站并了解它。
+
+第二天，在我要提交我的可玩的完成版消同色的大约四个小时前，我在桌前坐下，戴上我的耳机，并着手在使用 newLISP 制作这款游戏的*同时*学习它。
+
+我大约在 **3 小时**内完成了，其中只有大约十分钟花在调试上。
+我傻眼了。我发现了一种新东西，一门允许我迅速地写出(在多年与基于 C 的语言打交道之后)看似*恰好够用的几乎“无缺陷的代码”*的语言。
+这是一门我在短短数分钟内就接近*掌握*的语言，而我在此之前从来没使用过它！
+在我学完 newLISP 而且用它写一个基于文本的游戏的时间里，我大概只够学完 Ruby 或 Python 的教程。
+
+### newLISP 的力量
+
+我在这篇文章的开头声称newLISP有几处重要的优势超过了其它 LISP.
+这些优势都可以总结为下面的话：
+**如果你想要一门基于 Lisp 的脚本语言，选择 newLISP.**
+
+在深入到细节之前，让我先警告一下：
+
+<div class="well">
+**newLISP <em>不</em>是一门通用用途的程序语言。**
+</div>
+
+你不会用 JavaScript 去写一个 iPhone 应用(有人[持不同的看法](http://www.nimblekit.com/))，同样意义下，
+你也不会用 newLISP 去写一个操作系统，或一个像 iTunes 一样的音乐播放器，或者一个像 Firefox 一样的网页浏览器。
+对于这样的努力，我毫不犹豫地推荐 Clojure, Scheme, C, Objective-C 或者其它的语言——换句话说，那些适合于解决复杂、低层次问题，越快越好的语言。
+
+在 newLISP 的站点上最开头的话陈述道(强调部分是我自己添加的)：
+
+<div class="well">
+**newLISP 是一门类 LISP 的，通用用途的*脚本*语言。**
+</div>
+
+在很久以前，计算机还很慢的时候，LISP 社区被那些使用 C 和汇编的同行们所无情的嘲笑，因为它那*太慢*的罪过。
+自那以后性能问题一直是 LISP 社区的痛处，我敢说，这点仍然有待于完全恢复。
+其焦点转向编译，并以此向世界证明它一样可以很快。
+结果，似乎很少有人注意到对解释型和脚本化的通用用途的 LISP 的需求。
+
+幸运的是，newLISP 似乎相当适合这种角色。
+它是一个通用用途的解释型脚本语言。
+我个人的理解是，因为它是如此的动态，使得它甚至不能被编译为字节码(尽管这并不意味着它不快)。
+
+离开这种见解，它的一些设计决策将没有意义。
+为何选择 f表达式替代宏？为何使用动态作用域而非词法作用域？
+为何使用<a rel="tooltip" title="One-Reference-Only" href="http://www.newlisp.org/MemoryManagement.html">唯一引用</a>的内存管理方式，而不是垃圾收集？
+
+### 设计与语法
+
+newLISP 包含在单个轻巧的 200+KB 的二进制文件中。
+在我尝试过的所有 LISP 的派生中，它是最容易安装、部署和开发的。
+不知为何这么轻巧的包中不仅囊括了完整的语言，还包括各种函数，如读写文件、解析文本、正则表达式、并行运行代码、网络等等。
+我是班上唯一一个在期末项目中提交了完全并行求解每个格子的 AI (可伸缩到任意数量的核心)的人。
+我实现了它的唯一理由是因为我可以毫不费力地做到。
+newLISP 实现它简单到令人乏味，这是因为它拥有
+[actor](http://www.newlisp.org/downloads/CodePatterns.html#toc-19) 和
+[Cilk](http://www.newlisp.org/downloads/CodePatterns.html#toc-18) 的功能。
+
+newLISP 的语法简约而深思熟虑。
+为了与 Common LISP 的语法卡片对比，我已保持大多数属性(例如字号)一致：
+
+![NewLisp's syntax][NewLisp's syntax]
+
+函数不需要任何 `&rest`, `&optional` 的标记。
+简单地传进变量或反之，没有得到值的形参将置为 `nil`，多余的部分可以通过函数 `(args)` 或符号 `$args` 获取到。
+
+函数像大多数其它东西那样对自己求值。
+你不需要一个特殊的 `#’` 语法来存取它们。
+函数也是*真正的列表*。
+这意味着你可以在它们已经被定义好后取得它们的[源码](http://www.newlisp.org/downloads/newlisp_manual.html#source)，甚至*[在它们正在执行时修改它们](http://kazimirmajorinc.blogspot.com/2009/04/crawler-tractor.html)*。
+
+### f表达式与求值
+
+作为宏的替代，newLISP 选择使用 [f表达式](http://en.wikipedia.org/wiki/Fexpr)——根本不对其参数进行求值的函数(尽管有些令人懊恼的是，newLISP 称呼它们为宏)。
+这项决定是有道理的，因为在一个解释型 LISP 中，几乎每件事情都在运行时发生，
+在有些情况下 f表达式比宏执行的要快很多。
+这也意味着 newLISP 的“宏”不需要特殊的反引号语法，使得它们更容易读写。
+
+你可能听说过在其它语言中反对使用 `eval` 的训诫。
+在 newLISP 中这是不适用的。
+newLISP 的 [eval 比其它 LISP 都要快](http://kazimirmajorinc.blogspot.com/2008/12/speed-of-newlisp-eval-test-v100.html)。
+
+这导致了许多后果，其中一个是有时 newLISP 的 f表达式可以[比在其它 LISP 中编译后的宏还要快](http://kazimirmajorinc.blogspot.com/2009/04/on-macro-expansion-evaluation-and.html)，
+而这也意味着使用 `eval` 不再是令人皱眉的事情，这开辟了各种编码的可能性。
+
+### 相等与内存管理
+
+值得注意的是，只有一种相等算符——等号。
+newLISP 能够逃脱是因为其称为[唯一引用(ORO)](http://www.newlisp.org/MemoryManagement.html)的内存管理模型。
+
+简而言之，大多数东西都是*传值*的，所以你最终不再需要那些荒谬的比较函数。
+如果两个东西有相同的值，它们就是相等的——就是这样(除了 [Objective newLISP][Objective newLISP] 的情况)。
+
+这并不像听起来那样疯狂。
+在内部， newLISP 通过引用在内建函数中传递数据，并且还做其它的优化。
+你可以通过[上下文和符号](http://www.newlisp.org/downloads/CodePatterns.html#toc-3)来使用引用传递数据，或者使用 [Objective newLISP][Objective newLISP].
+newLISP 的 ORO 也意味着<a rel="tooltip" title="newLISP’s ORO also means repeatable code execution times">可重复的代码执行次数</a>；
+你永远也不会经历“垃圾收集地狱”，因为根本没有垃圾收集器。
+
+### 动态作用域
+
+newLISP 对[动态作用域](http://en.wikipedia.org/wiki/Scope_%28programming%29#Dynamic_scoping)的使用经常被小题大作。
+的确，动态作用域*可以是危险的！*
+
+在相同意义下，*指针和酒精也可以是危险的！*
+但这不意味着你永远不应该使用 C 编程或者在聚会上享受。
+你应当检查 `NULL`，不要酒后驾车，并且当心“自由变量”。
+
+记住，newLISP 是一门解释语言。
+newLISP 的作者 Lutz Mueller 做了一个简单的成本/收益分析，然后选择了动态作用域，因为它比词法作用域更快，而且动态作用域的潜在陷阱很容易被避免。
+比起这样做：
+
+~~~ scheme
+(define (my-unsafe-func)
+    (println my-var)
+)
+~~~
+
+替代为这样做：
+
+~~~ scheme
+(define (my-safe-func my-var)
+    (println my-var)
+)
+~~~
+
+这是一个很小的用来改善性能的代价，并且通常情况下拥有动态作用域的确是相当方便的(特别是在与不再被忌讳的 `eval` 组合的时候)。
+如果你仍然需要词法作用域，newLISP 也[照顾](http://www.newlisp.org/downloads/newlisp_manual.html#expand)[到了](http://www.newlisp.org/downloads/newlisp_manual.html#letex)[你](http://www.newlisp.org/downloads/newlisp_manual.html#contexts)。
+
+### 并行处理
+
+newLISP 使用一种有趣的方式并行运行代码。
+Clojure 使用[高级方法来使用多线程和确保安全性](http://clojure.org/refs)，
+而 newLISP 则简单地利用其小巧的体积来让操作系统完成所有该做的事情！
+
+没有线程。
+通过 [actor](http://www.newlisp.org/downloads/CodePatterns.html#toc-19) 和 [spawn/sync](http://www.newlisp.org/downloads/CodePatterns.html#toc-18) 很容易写出安全的并发代码，因为 newLISP *简单地 
+<a rel="tooltip" title="UNIX 中用 fork 来复制当前进程产生新进程，并用写时复制来减少其开销。不知道如何翻译，感觉直接叫原名大家更熟悉……">fork</a> 它自己*。
+其谦逊的身材使得这项操作变的相当的低廉，并允许操作系统处理调度和内存保护。
+试试 fork 一个 JVM…… :P
+
+### 优秀的文档和社区
+
+newLISP 的文档是[我曾见过的优秀文档中最好的范例之一](http://www.newlisp.org/downloads/manual_frame.html)，简直超越了我所意识到的所有其它 LISP 的文档。
+你不需要掏钱买一本书学习它，因为它不需要书！
+包括参考文档在内的简短手册是你学习这门语言所需要的所有东西。
+它的文档是我能够成功拖延我的期中考试的主要原因之一。
+
+如果我不得不挑一个词来描述 [newLISP 的社区](http://newlispfanclub.alh.net/forum/index.php)，这个词可能会是**“惬意”**(对 Common LISP而言，这个词可能是“粗暴”)。
+每个人的问题都会被听取并且快速而友善地回答，不需要拘谨。
+Lutz Mueller 往往会回答你的问题或者直接将你的建议采纳到语言中。
+这是一个小社区，没错，但它也是敏捷的，并且能够快速地变化而不需要什么政策约束。
+
+### 其它优点
+
+还有**其它许多优点**，我将不会详细地论述它们：
+
+<div class="well">
+* [两种逐字字符串的语法](http://www.newlisp.org/downloads/newlisp_manual.html#eval_rules)
+
+* [REPL 中带 tab 补全的 Readline 支持](http://newlispfanclub.alh.net/forum/viewtopic.php?f=16&t=2770&p=15571#p15571)
+
+* [完整的 Unicode 支持，字符串为 UTF8](http://www.newlisp.org/downloads/newlisp_manual.html#unicode_utf8)
+
+* [简单强大的分布式计算](http://www.newlisp.org/downloads/CodePatterns.html#toc-21)
+
+* [内置的 web 服务器](http://www.newlisp.org/downloads/CodePatterns.html#toc-22)
+
+* [数组、列表和字符串的隐式索引与切片](http://www.newlisp.org/downloads/newlisp_manual.html#indexing)
+
+* [简单的状态存储与读取](http://www.newlisp.org/downloads/newlisp_manual.html#loading_contexts)
+
+* [简单的 C 接口](http://www.newlisp.org/downloads/CodePatterns.html#toc-23)(意味着你绝不会错过高速的库)
+</div>
+
+## 结论 + 相关链接
+
+newLISP 是一块货真价实的璞玉，尽管它缺乏炒作，但仍然美丽动人。
+
+如果你觉得这篇文章很有趣，你可能会觉得下面这些链接值得一看：
+
+<div class="well">
+* [newLISP 的主页](http://www.newlisp.com/)
+
+* [Dragonfly——一个 newLISP 网页框架](http://www.rundragonfly.com/)
+
+* [Kazimir Majorinc 的博客](http://kazimirmajorinc.blogspot.com/)
+
+* [Cormullion 的博客](http://unbalanced-parentheses.nfshost.com/)
+
+* [更大的一张 newLISP 相关链接的清单](http://www.newlisp.org/index.cgi?Code_Contributions)
+
+* Twitter: @[newlisp](http://twitter.com/newlisp), @[taoeffect](http://twitter.com/taoeffect)
+</div>
+
+
+[Lisp's syntax]: http://www.taoeffect.com/blog/wp-content/uploads/2009/12/LISP-in-a-nutshell2.gif
+[CommonLisp's syntax]: http://www.taoeffect.com/blog/wp-content/uploads/2010/01/CL-in-a-nutshell.gif
+[NewLisp's syntax]: http://www.taoeffect.com/blog/wp-content/uploads/2009/12/newLISP-in-a-nutshell2.gif
+[Objective newLISP]: http://www.taoeffect.com/blog/2009/12/introducing-objective-newlisp/

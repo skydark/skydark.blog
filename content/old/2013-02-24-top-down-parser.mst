@@ -1,0 +1,1198 @@
+layout: post
+title: 使用 Python 简单的自顶向下解析
+slug: top-down-parser
+category: programming
+excerpt: 我不懂翻译，下面都是我瞎编的，现在我编不下去了……
+tags: python, programming
+
+
+译自<http://effbot.org/zone/simple-top-down-parsing.htm>, 一篇老文章了，好像没人译(因为很好懂大概)。
+自己弄一遍希望能更清楚一些。
+
+Douglas Crockford 大牛的[文章][DC's tdop]似乎更出名些， [翻译][DC's trans]也挺不错的。
+不过那篇文章因为要实现一个 JavaScript 解析器，除了解析技术外其它部分稍有点分神。
+这篇文章则更加关注于解析技术，并且更为循序渐进些。
+
+除此之外，[这篇相关文章](http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/)也是很不错的。
+
+---
+
+<div markdown="1" class="alert alert-danger">
+***Warning:***
+**我不懂翻译，下面都是我瞎编的，现在我编不下去了……**
+</div>
+
+---
+
+<div id='toc-here'></div>
+
+---
+
+## 使用 Python 简单的自顶向下解析
+
+<http://effbot.org/zone/simple-top-down-parsing.htm>
+by Fredrik Lundh, July 2008
+
+在[简单的基于迭代器解析](http://effbot.org/zone/simple-iterator-parser.htm)一文中，
+我描述了在 Python 中通过传递当前词素和词素生成函数的方式来编写简单递归下降解析器的一种方法。
+
+一个递归下降解析器由一系列函数构成，通常每个函数对应一条语法规则。
+这类解析器容易编写，并且足够有效率，只要语法是“前缀密集的”；
+即，通过查看一个构造最开头的词素便往往足够断定该去调用哪个解析函数。
+举例来说，如果你在解析 Python 代码，通过查看首个词素便可简单地识别绝大多数语句。
+
+然而，递归下降法用于表达式语法是低效的，特别对有许多不同优先级的运算符的语言来说。
+介于每条规则对应一个函数，你很容易陷入重重调用中，甚至对简短、平凡的表达式亦是如此，仅仅为了达到语法中合适的层级。
+
+举例而言，这儿是 Python 的表达式语法的一个片段。
+“test” 规则是一个基本表达式元素：
+
+    test: or_test ['if' or_test 'else' test] | lambdef
+    or_test: and_test ('or' and_test)*
+    and_test: not_test ('and' not_test)*
+    not_test: 'not' not_test | comparison
+    comparison: expr (comp_op expr)*
+    expr: xor_expr ('|' xor_expr)*
+    xor_expr: and_expr ('^' and_expr)*
+    and_expr: shift_expr ('&' shift_expr)*
+    shift_expr: arith_expr (('<<'|'>>') arith_expr)*
+    arith_expr: term (('+'|'-') term)*
+    term: factor (('*'|'/'|'%'|'//') factor)*
+    factor: ('+'|'-'|'~') factor | power
+    power: atom trailer* ['**' factor]
+    trailer: '(' [arglist] ')' | '[' subscriptlist ']' | '.' NAME
+
+对于这个文法的一个原始的递归下降实现，为了解析一个简单的函数调用(具有形式“expression(arglist)”)，解析器将不得不一路从“test”下降到“trailer”。
+
+在七十年代初期，Vaughan Pratt 在他的论文[自顶向下算符优先级(Top-down Operator Precedence)][tdop paper]中发表了一种对递归下降法的优雅改进。
+Pratt 的算法将语义与词素(而不是语法规则)相关联，
+并使用一种简单的“绑定力(binding power)”机制来处理优先级。
+传统的递归下降解析则用来处理语法中奇特或不规则的部分。
+
+在与之同名的[文章][DC's tdop] (以及[图书章节][Oreilly's book]) 中，
+Douglas Crockford 展示了怎样在 JavaScript 的一个子集中实现这个算法，
+并在此过程中用它来开发一个能够解析自己的解析器。
+
+在这篇文章中，我会稍微谦逊一些：我将简要地解释算法如何工作，讨论在 Python 中通过它实现解释器和翻译器的不同方法，
+并最终使用它实现一个 Python 的表达式语法的解析器。
+并且当然，还会有基准测试。
+
+
+## 介绍算法
+
+和其它大多数解析器一样，自顶向下解析器操作一个不同语法单元/词素构成的流。
+例如，表达式`1 + 2`可以对应于如下词素：
+
+    值为 1 的字面量
+    运算符 +
+    值为 2 的字面量
+    程序结束
+
+在自顶向下算法中，每个词素有两个相关的函数，称作“nud”和“led”；还有一个整值称作“lbp”。
+
+`nud`函数(空指称)在词素于某个语言构造的开头出现时使用，
+而`led`函数(左指称)则用于词素出现在构造中间时(即，相对于它在结构中剩余部分的左侧)。
+
+`lbp`值指绑定力，它控制算符优先级；
+该值越高，词素与其紧随的词素间的绑定就越紧密。
+
+给出这样简短的介绍后，我们已经做好了观察 Pratt 的算法核心——表达式解析器的准备：
+
+~~~ python
+def expression(rbp=0):
+    global token
+    t = token
+    token = next()
+    left = t.nud()
+    while rbp < token.lbp:
+        t = token
+        token = next()
+        left = t.led(left)
+    return left
+~~~
+
+(Pratt 将这个函数称作`parse`, 但我们将替而使用 Crockford 的文章中使用的名字。)
+
+这里，`token`是一个包含当前词素的全局变量，
+`next`则是一个获取下一个词素的全局助手函数。
+`nud`和`led`函数被描述为方法，`lbp`则是一个属性。
+最后，`left`变量被用于将表示表达式左半部分的值传递到`led`方法；
+这可以是任何对象，例如中间结果(对解释器来说)或者一部分解析树(对编译器来说)。
+
+如果将解析器应用到之前展示的简单表达式上，它将从调用第一个词素的`nud`方法开始。
+在我们的例子中，该词素是一个字面量，可以被类似如下的类表示：
+
+~~~ python
+class literal_token:
+    def __init__(self, value):
+        self.value = int(value)
+    def nud(self):
+        return self.value
+~~~
+
+接下来，解析器检查下一个词素的绑定力是否至少有给定的绑定力(即`rbp`实参，代表“右绑定力”)那么大。
+如果有，则调用该词素的`led`方法。
+在这里，右绑定力是零，并且下一个词素是一个如下实现的算符：
+
+~~~ python
+class operator_add_token:
+    lbp = 10
+    def led(self, left):
+        right = expression(10)
+        return left + right
+~~~
+
+该算符有绑定力10, 且有一个`led`方法再次调用表达式解析器，该方法传递与该算符自己绑定力相同的右绑定力。
+这导致表达式解析器对子表达式使用更高的绑定力对待，并返回其值。
+该方法接着将`left`的值(在此情况下它来自字面量)与表达式解析器的返回值相加，并返回结果。
+
+程序结束由一个绑定力为零(低于所有其他词素)的特殊标记词素指示。
+这确保表达式解析器在达到程序末尾时停止。
+
+~~~ python
+class end_token:
+    lbp = 0
+~~~
+
+这就是整个解析器。
+为了使用它，我们需要一个能够对给定源程序生成正确类别的词素对象的词法分析器。
+这里是一个简单的基于正则表达式的版本，能处理我们此时已用到的最小语言：
+
+~~~ python
+import re
+
+token_pat = re.compile("\s*(?:(\d+)|(.))")
+
+def tokenize(program):
+    for number, operator in token_pat.findall(program):
+        if number:
+            yield literal_token(number)
+        elif operator == "+":
+            yield operator_add_token()
+        else:
+            raise SyntaxError("unknown operator")
+    yield end_token()
+~~~
+
+现在，让我们接通并试验它吧：
+
+~~~ python
+def parse(program):
+    global token, next
+    next = tokenize(program).next
+    token = next()
+    return expression()
+
+>>> parse("1 + 2")
+3
+~~~
+
+不计入调用词法分析器的次数的话，解析器算法为解析这个表达式将总共进行四次调用；
+每个词素调用一次，表达式解析器在`led`方法中还有一次额外的递归调用。
+
+### 扩充解析器
+
+为了理解怎样扩充它，我们再来添加一点数学运算符。
+我们需要更多一点类：
+
+~~~ python
+class operator_sub_token:
+    lbp = 10
+    def led(self, left):
+        return left - expression(10)
+
+class operator_mul_token:
+    lbp = 20
+    def led(self, left):
+        return left * expression(20)
+
+class operator_div_token:
+    lbp = 20
+    def led(self, left):
+        return left / expression(20)
+~~~
+
+注意`mul`和`div`比起其它运算符使用更高的绑定力；
+这保证当`mul`运算符在表达式`1 * 2 + 3`中被调用时，它仅得到字面量`2`,而不是将`2 + 3`视为子表达式对待。
+
+我们还需要添加词法分析器的类别：
+
+~~~ python
+def tokenize(program):
+    for number, operator in token_pat.findall(program):
+        if number:
+            yield literal_token(number)
+        elif operator == "+":
+            yield operator_add_token()
+        elif operator == "-":
+            yield operator_sub_token()
+        elif operator == "*":
+            yield operator_mul_token()
+        elif operator == "/":
+            yield operator_div_token()
+        else:
+            raise SyntaxError("unknown operator)
+    yield end_token()
+~~~
+
+然后这就成了。
+解析器现在理解了四种基本数学运算，并且正确地处理它们的优先顺序。
+
+~~~ python
+>>> parse("1+2")
+3
+>>> parse("1+2*3")
+7
+>>> parse("1+2-3*4/5")
+1
+~~~
+
+尽管事实上我们添加了更多的语法规则，解析器仍然和以前一样产生相同数量的函数调用；
+在解析器中表达式`1 + 2`仍然由四次调用处理。
+
+然而，从代码角度来说，这与递归下降解析器相比并没那么不同。
+我们仍然需要为每个词素类编写代码，并且尽管我们从表达式解析器的单独的规则中移除了大多数分发代码，
+这些代码大多最终出现在词法分析器的庞大的`if/else`语句中。
+
+在我们关注避免这类代码的方法之前，让我们给解析器再添加两个特性：
+一元加/减算符，以及 Python 样式的幂算符(`**`).
+
+为了支持一元运算符，我们所需的一切仅仅是为相关词素添加`nud`实现：
+
+~~~ python
+class operator_add_token:
+    lbp = 10
+    def nud(self):
+        return expression(100)
+    def led(self, left):
+        return left + expression(10)
+
+class operator_sub_token:
+    lbp = 10
+    def nud(self):
+        return -expression(100)
+    def led(self, left):
+        return left - expression(10)
+~~~
+
+注意对`expression`的递归调用使用了高绑定力，以保证一元运算符绑定到右边紧邻的词素上，而不是表达式的剩余部分(`(-1)-2`和`-(1-2)`是不同的)。
+
+添加幂运算有一点小技巧；首先，我们需要调整词法分析器来识别两个字符的运算符：
+
+~~~ python
+token_pat = re.compile("\s*(?:(\d+)|(\*\*|.))")
+
+...
+
+elif operator == "**":
+    yield operator_div_token()
+
+...
+~~~
+
+一个稍大的问题是该运算符是右结合性的(即它绑定到右边)。
+如果你在 Python 提示符中输入`2**3**4`，Python 将首先求值`3**4`那部分：
+
+~~~ python
+>>> 2**3**4
+2417851639229258349412352L
+>>> (2**3)**4
+4096
+>>> 2**(3**4)
+2417851639229258349412352L
+>>>
+~~~
+
+幸运地是，绑定力机制很容易实现这个；
+为了得到右结合性，只需在递归调用时将运算符的绑定力减一：
+
+~~~ python
+class operator_pow_token:
+    lbp = 30
+    def led(self, left):
+        return left ** expression(30-1)
+~~~
+
+通过这种方式，解析器将把随后的幂运算符(有绑定力30)视作当前表达式的子表达式，这正是我们想要的。
+
+## 构建解析树
+
+自顶向下方案的一个很好的侧效应是它很容易构建解析树而不带来很多额外的开销；
+由于词法分析器为每个词素创建一个新对象，我们可以将这些对象重用为解析树的节点。
+
+为了实现这个，`nud`和`led`方法得在对象上添加语法树信息，并返回对象本身。
+在接下来的例子中，字面量叶节点有属性`value`，运算符节点有属性`first`和`second`。
+类也有`__repr__`方法用于使结果树更容易被查看：
+
+~~~ python
+class literal_token:
+    def __init__(self, value):
+        self.value = value
+    def nud(self):
+        return self
+    def __repr__(self):
+        return "(literal %s)" % self.value
+
+class operator_add_token:
+    lbp = 10
+    def nud(self):
+        self.first = expression(100)
+        self.second = None
+        return self
+    def led(self, left):
+        self.first = left
+        self.second = expression(10)
+        return self
+    def __repr__(self):
+        return "(add %s %s)" % (self.first, self.second)
+
+class operator_mul_token:
+    lbp = 20
+    def led(self, left):
+        self.first = left
+        self.second = expression(20)
+        return self
+    def __repr__(self):
+        return "(mul %s %s)" % (self.first, self.second)
+~~~
+
+(实现`sub`, `div`和`pow`被留作练习。)
+
+在新的词素实现下，解析器将返回解析树：
+
+~~~ python
+>>> parse("1")
+(literal 1)
+>>> parse("+1")
+(add (literal 1) None)
+>>> parse("1+2+3")
+(add (add (literal 1) (literal 2)) (literal 3))
+>>> parse("1+2*3")
+(add (literal 1) (mul (literal 2) (literal 3)))
+>>> parse("1*2+3")
+(add (mul (literal 1) (literal 2)) (literal 3))
+~~~
+
+一元加在树中插入一个“一元加”节点(`second`属性被设置为`None`)。
+如果你愿意，你可以跳过额外的节点，在`nud`中简单返回内部表达式：
+
+~~~ python
+class operator_add_token:
+    lbp = 10
+    def nud(self):
+        return expression(100)
+
+    ...
+
+>>> parse("1")
+(literal 1)
+>>> parse("+1")
+(literal 1)
+~~~
+
+这是否是个好主意有赖于你的语言定义(比方说Python, 一般情况下就不会把它们优化掉，以防你在不是数字的东西上使用一元加)。
+
+## 简化词素类生成
+
+我们至今为止使用的简单解析器都由许多类构成，每个词素各一个，词法分析器对它们则全都了解。
+Pratt 替而使用关联数组，并将运算符与其词素关联起来。
+在 Python 中，这看起来类似于：
+
+~~~ python
+nud = {}; led = {}; lbp = {}
+
+nud["+"] = lambda: +expression(100)
+led["+"] = lambda left: left + expression(10)
+lbp["+"] = 10
+~~~
+
+这有点笨拙，并且从 Python 的角度看有那么点倒退。
+Crockford 的 JavaScript 实现使用了不同的方法：
+他使用单独的“词素类注册表”(他将其称作“符号表”)，和一个在线创建新类的工厂函数。
+JavaScript 的原型模型使得这样做不可思议地简单，但在 Python 中在线生成类也不那么难。
+
+首先，让我们引入词素类型的基类，用于留个地方来塞公共行为。
+我添加了用于存储词素类型名(`id`属性)和词素值(对字面量和命名词素)的默认属性，还有一些用于语法树的属性。
+这个类也是个给`nud`和`led`方法提供默认实现的合适场所。
+
+~~~ python
+class symbol_base(object):
+
+    id = None # node/token type name
+    value = None # used by literals
+    first = second = third = None # used by tree nodes
+
+    def nud(self):
+        raise SyntaxError(
+            "Syntax error (%r)." % self.id
+        )
+
+    def led(self, left):
+        raise SyntaxError(
+            "Unknown operator (%r)." % self.id
+        )
+
+    def __repr__(self):
+        if self.id == "(name)" or self.id == "(literal)":
+            return "(%s %s)" % (self.id[1:-1], self.value)
+        out = [self.id, self.first, self.second, self.third]
+        out = map(str, filter(None, out))
+        return "(" + " ".join(out) + ")"
+~~~
+
+接下来，我们需要一个词素类型工厂：
+
+~~~ python
+symbol_table = {}
+
+def symbol(id, bp=0):
+    try:
+        s = symbol_table[id]
+    except KeyError:
+        class s(symbol_base):
+            pass
+        s.__name__ = "symbol-" + id # for debugging
+        s.id = id
+        s.lbp = bp
+        symbol_table[id] = s
+    else:
+        s.lbp = max(bp, s.lbp)
+    return s
+~~~
+
+这个函数接受一个词素标识符和一个可选的绑定力，并在必要时创建一个新类。
+标识符和绑定力被作为类属性插入，并将在该类的所有实例中有效。
+如果该函数为一个已注册的符号调用，它仅仅更新绑定力；
+这允许我们在不同的地方定义符号之行为的不同部分，我们将稍后看到。
+
+现在我们可以向注册表填入我们将要使用的符号：
+
+~~~ python
+symbol("(literal)")
+symbol("+", 10); symbol("-", 10)
+symbol("*", 20); symbol("/", 20)
+symbol("**", 30)
+symbol("(end)")
+~~~
+
+为了简化分发，我们使用词素字符串作为标识符；
+符号`(literal)`和`(end)`(分别代替之前使用的`literal_token`和`end_token`类)的标识符是不会作为原始词素出现的字符串。
+
+我们还需要更新词法分析器，来使之使用注册表中的类：
+
+~~~ python
+def tokenize(program):
+    for number, operator in token_pat.findall(program):
+        if number:
+            symbol = symbol_table["(literal)"]
+            s = symbol()
+            s.value = number
+            yield s
+        else:
+            symbol = symbol_table.get(operator)
+            if not symbol:
+                raise SyntaxError("Unknown operator")
+            yield symbol()
+    symbol = symbol_table["(end)"]
+    yield symbol()
+~~~
+
+和之前一样，字面量类用作所有字面量值的公共类。
+所有其他词素拥有自己的类。
+
+现在，所有剩下的事情就是为需要附加行为的符号定义`nud`和`led`方法。
+为了完成它，我们可以将它们定义为普通函数，然后简单地将其一个个塞入符号类。
+例如，这是加法的`led`方法：
+
+~~~ python
+def led(self, left):
+    self.first = left
+    self.second = expression(10)
+    return self
+symbol("+").led = led
+~~~
+
+最后一行从符号注册表中取得类，并将函数添加给它。
+这里是更多一点`led`方法：
+
+~~~ python
+def led(self, left):
+    self.first = left
+    self.second = expression(10)
+    return self
+symbol("-").led = led
+
+def led(self, left):
+    self.first = left
+    self.second = expression(20)
+    return self
+symbol("*").led = led
+
+def led(self, left):
+    self.first = left
+    self.second = expression(20)
+    return self
+symbol("/").led = led
+~~~
+
+它们看起来都相当相似，不是吗？唯一不同的是绑定力，所以我们可以通过将重复代码移入一个助手函数来把事情再简化一些：
+
+~~~ python
+def infix(id, bp):
+    def led(self, left):
+        self.first = left
+        self.second = expression(bp)
+        return self
+    symbol(id, bp).led = led
+~~~
+
+通过给出这个助手函数，我们现在可以将上面的`led`函数替换为四个简单调用：
+
+~~~ python
+infix("+", 10); infix("-", 10)
+infix("*", 20); infix("/", 20)
+~~~
+
+类似地，我们可以为`nud`方法和右结合性提供助手函数：
+
+~~~ python
+def prefix(id, bp):
+    def nud(self):
+        self.first = expression(bp)
+        self.second = None
+        return self
+    symbol(id).nud = nud
+
+prefix("+", 100); prefix("-", 100)
+
+def infix_r(id, bp):
+    def led(self, left):
+        self.first = left
+        self.second = expression(bp-1)
+        return self
+    symbol(id, bp).led = led
+
+infix_r("**", 30)
+~~~
+
+最后，字面量符号必须符合一个返回符号自身的`nud`方法。
+为此我们可以使用一个平坦的`lambda`：
+
+~~~ python
+symbol("(literal)").nud = lambda self: self
+~~~
+
+注意到以上大部分都是一般用途的管道装置：通过给出助手函数，实际的解析器定义浓缩为以下六行：
+
+~~~ python
+infix("+", 10); infix("-", 10)
+infix("*", 20); infix("/", 20)
+infix_r("**", 30)
+prefix("+", 100); prefix("-", 100)
+
+symbol("(literal)").nud = lambda self: self
+symbol("(end)")
+~~~
+
+运行它将产生和之前相同的结果：
+
+~~~ python
+>>> parse("1")
+(literal 1)
+>>> parse("+1")
+(+ (literal 1))
+>>> parse("1+2")
+(+ (literal 1) (literal 2))
+>>> parse("1+2+3")
+(+ (+ (literal 1) (literal 2)) (literal 3))
+>>> parse("1+2*3")
+(+ (literal 1) (* (literal 2) (literal 3)))
+>>> parse("1*2+3")
+(+ (* (literal 1) (literal 2)) (literal 3))
+~~~
+
+## 解析 Python 表达式
+
+为了给出稍微大点的例子，让我们调整解析器使之能解析 Python 的表达式语法的一个子集，类似于本文开始时的语法片段给出的语法。
+
+为了做到这个，我们首先需要一个更时髦的词法分析器。
+基于 Python 的`tokenize`模块是显然的选择：
+
+~~~ python
+def tokenize_python(program):
+    import tokenize
+    from cStringIO import StringIO
+    type_map = {
+        tokenize.NUMBER: "(literal)",
+        tokenize.STRING: "(literal)",
+        tokenize.OP: "(operator)",
+        tokenize.NAME: "(name)",
+        }
+    for t in tokenize.generate_tokens(StringIO(program).next):
+        try:
+            yield type_map[t[0]], t[1]
+        except KeyError:
+            if t[0] == tokenize.ENDMARKER:
+                break
+            else:
+                raise SyntaxError("Syntax error")
+    yield "(end)", "(end)"
+
+def tokenize(program):
+    for id, value in tokenize_python(program):
+        if id == "(literal)":
+            symbol = symbol_table[id]
+            s = symbol()
+            s.value = value
+        else:
+            # name or operator
+            symbol = symbol_table.get(value)
+            if symbol:
+                s = symbol()
+            elif id == "(name)":
+                symbol = symbol_table[id]
+                s = symbol()
+                s.value = value
+            else:
+                raise SyntaxError("Unknown operator (%r)" % id)
+        yield s
+~~~
+
+这个词法分析器分为两部分；
+一个语言特定的解析器将源程序转换为字面量、命名和运算符的流，第二部分再将它们转换为词素实例。
+后者同时在符号表中核对运算符和命名(为了处理关键字运算符)，并为所有其他命名使用伪符号(`(name)`).
+
+你可以将两个任务合并为一个函数，但是分隔开使得测试解析器变得稍微容易些，而且还使得为其它语法重用第二部分成为可能。
+
+我们可以使用老的解析器定义测试新的词法分析器：
+
+~~~ python
+>>> parse("1+2")
+(+ (literal 1) (literal 2))
+>>> parse("1+2+3")
+(+ (+ (literal 1) (literal 2)) (literal 3))
+>>> parse("1+2*3")
+(+ (literal 1) (* (literal 2) (literal 3)))
+>>> parse("1.0*2+3")
+(+ (* (literal 1.0) (literal 2)) (literal 3))
+>>> parse("'hello'+'world'")
+(+ (literal 'hello') (literal 'world'))
+~~~
+
+新的词法分析器支持更多种类的字面量，所以我们的解析器不必做任何额外工作也能支持了。
+而且我们仍然在使用我们在本文开头介绍的 10 行的表达式实现。
+
+### Python 表达式语法
+
+好，让我们对语法做点什么。
+我们可以从之前展示的语法片段中推出正确的表达式语法，但在 Python 的语言参考的“求值顺序”一节中还有更实用的描述。
+该节中的表格按优先顺序从低至高地列出了所有表达式运算符。
+这儿是对应的定义(绑定力从20开始)。
+
+~~~ python
+symbol("lambda", 20)
+symbol("if", 20) # 三元形式
+
+infix_r("or", 30); infix_r("and", 40); prefix("not", 50)
+
+infix("in", 60); infix("not", 60) # in, not in
+infix("is", 60) # is, is not
+infix("<", 60); infix("<=", 60)
+infix(">", 60); infix(">=", 60)
+infix("<>", 60); infix("!=", 60); infix("==", 60)
+
+infix("|", 70); infix("^", 80); infix("&", 90)
+
+infix("<<", 100); infix(">>", 100)
+
+infix("+", 110); infix("-", 110)
+
+infix("*", 120); infix("/", 120); infix("//", 120)
+infix("%", 120)
+
+prefix("-", 130); prefix("+", 130); prefix("~", 130)
+
+infix_r("**", 140)
+
+symbol(".", 150); symbol("[", 150); symbol("(", 150)
+~~~
+
+这16行定义了35个运算符的语法，并且还提供了它们中绝大多数的行为。
+
+尽管如此，符号助手定义的词素并没有固有的行为；
+为了使之运转，还需要添加代码。
+还有一些由于 Python 的词法分析器的限制引起的复杂性。
+更多这方面的事情稍后再说。
+
+但在我们开始忙活那些符号前，我们还需要给伪词素们添加行为：
+
+~~~ python
+symbol("(literal)").nud = lambda self: self
+symbol("(name)").nud = lambda self: self
+symbol("(end)")
+~~~
+
+现在我们可以做一个快速的完整性检查：
+
+~~~ python
+>>> parse("1+2")
+(+ (literal 1) (literal 2))
+>>> parse("2<<3")
+(<< (literal 2) (literal 3))
+~~~
+
+### 括号表达式
+
+让我们把关注点转移到剩下的符号，并从简单的事情开始：括号表达式。
+它们可以通过在`(`词素上的`nud`方法实现：
+
+~~~ python
+def nud(self):
+    expr = expression()
+    advance(")")
+    return expr
+symbol("(").nud = nud
+~~~
+
+这里用到的`advance`函数是一个在获取下一个词素前检查当前词素拥有给定值的助手函数。
+
+~~~ python
+def advance(id=None):
+    global token
+    if id and token.id != id:
+        raise SyntaxError("Expected %r" % id)
+    token = next()
+~~~
+
+词素`)`必须被注册；若不然，词法分析器将把它报告成一个无效词素。
+为了注册它，只需要调用`symbol`函数：
+
+~~~ python
+symbol(")")
+~~~
+
+让我们来试验一下：
+
+~~~ python
+>>> parse("1+2*3")
+(+ (literal 1) (* (literal 2) (literal 3)))
+>>> parse("(1+2)*3")
+(* (+ (literal 1) (literal 2)) (literal 3))
+~~~
+
+注意到`nud`方法返回内部表达式，所以`(`节点不会出现在结果语法树中。
+
+同样提醒一下，我们在这里暂时作了个弊：
+前缀`(`在 Python 中有两种含义；
+它既可以像上面那样用来分组，也可以用来创建元组。
+我们下面再修复这个问题。
+
+### 三元运算符
+
+大多数定制方法看起来多少就像它们在递归下降法中对应的部分，行内`if-else`的代码也没有什么不同：
+
+~~~ python
+def led(self, left):
+    self.first = left
+    self.second = expression()
+    advance("else")
+    self.third = expression()
+    return self
+symbol("if").led = led
+~~~
+
+再一次，在我们可以试验它之前我们需要注册额外的词素：
+
+~~~ python
+symbol("else")
+
+>>> parse("1 if 2 else 3")
+(if (literal 1) (literal 2) (literal 3))
+~~~
+
+### 属性与项查找
+
+为了处理属性查找，“.”运算符需要一个`led`方法。
+为了方便，这个版本验证点号随后的是合适的命名词素(这项检查也可以在之后的步骤中进行)：
+
+~~~ python
+def led(self, left):
+    if token.id != "(name)":
+        SyntaxError("Expected an attribute name.")
+    self.first = left
+    self.second = token
+    advance()
+    return self
+symbol(".").led = led
+
+>>> parse("foo.bar")
+(. (name foo) (name bar))
+~~~
+
+项访问是类似的；只需要为`[`运算符添加`led`方法。
+由于`]`是语法的一部分，我们还需要注册它。
+
+~~~ python
+symbol("]")
+
+def led(self, left):
+    self.first = left
+    self.second = expression()
+    advance("]")
+    return self
+symbol("[").led = led
+
+>>> parse("'hello'[0]")
+([ (literal 'hello') (literal 0))
+~~~
+
+注意到我们正陷入大量这种形式的代码：
+
+~~~ python
+def led(self, left):
+    ...
+symbol(id).led = led
+~~~
+
+这有点不方便，不是因为别的而是因为它违背了“不要重复你自己”的规则(方法名出现了三次)。
+用一个简单的装饰器解决之：
+
+~~~ python
+def method(s):
+    assert issubclass(s, symbol_base)
+    def bind(fn):
+        setattr(s, fn.__name__, fn)
+    return bind
+~~~
+
+这个装饰器手机函数名，并将其附加到给定符号上。
+它将符号名放在方法定义之前，并仅需要你写一次方法名。
+
+~~~ python
+@method(symbol(id))
+def led(self, left):
+    ...
+~~~
+
+我们在接下来的例子中将使用它。
+由于另一种方式并不长多少，所以如果你需要针对 Python 2.3 或更老的版本你仍然可以使用它。
+就是要小心打字错误。
+
+### 函数调用
+
+一个函数调用由一个表达式和一个在括号中的由逗号分隔的表达式列表构成。
+通过将左括号视为二元运算符，解析起这个来简单易懂：
+
+~~~ python
+symbol(")"); symbol(",")
+
+@method(symbol("("))
+def led(self, left):
+    self.first = left
+    self.second = []
+    if token.id != ")":
+        while 1:
+            self.second.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance(")")
+    return self
+
+>>> parse("hello(1,2,3)")
+(( (name hello) [(literal 1), (literal 2), (literal 3)])
+~~~
+
+这里稍微简化了点；这个版本并不支持关键字实参和`*`与`**`形式。
+为了处理关键字实参，在第一个表达式后查找`=`，要是找到了，检查子树是否是一个平坦的命名，接下来再次调用`expression`以取得默认值。
+另一种形式可以被对应运算符的`nud`方法处理，但在这个方法中处理这些大概更容易。
+
+### Lambdas
+
+Lambdas 也相当简单。
+由于`lambda`关键字是前缀运算符，我们将通过`nud`方法实现它：
+
+~~~ python
+symbol(":")
+
+@method(symbol("lambda"))
+def nud(self):
+    self.first = []
+    if token.id != ":":
+        argument_list(self.first)
+    advance(":")
+    self.second = expression()
+    return self
+
+def argument_list(list):
+    while 1:
+        if token.id != "(name)":
+            SyntaxError("Expected an argument name.")
+        list.append(token)
+        advance()
+        if token.id != ",":
+            break
+        advance(",")
+
+>>> parse("lambda a, b, c: a+b+c")
+(lambda [(name a), (name b), (name c)]
+    (+ (+ (name a) (name b)) (name c)))
+~~~
+
+再一次，实参列表有一点简化；
+它并不处理默认值和`*`, `**`形式。
+实现提示参考上面。
+同样提醒在这个实现中没有解析器层面的作用域处理。
+这个话题从 Crockford 的文章中可以了解更多。
+
+### 常量
+
+常量可以被当作字面量处理；接下来的`nud`方法将词素实例更改为字面量节点，并把词素自己作为字面量的值插入：
+
+~~~ python
+def constant(id):
+    @method(symbol(id))
+    def nud(self):
+        self.id = "(literal)"
+        self.value = id
+        return self
+
+constant("None")
+constant("True")
+constant("False")
+
+>>> parse("1 is None")
+(is (literal 1) (literal None))
+>>> parse("True or False")
+(or (literal True) (literal False))
+~~~
+
+### 多词素运算符
+
+Python 有两个多词素运算符，`is not` 和 `not in`, 但我们的解析器并没有完全正确地对待它们：
+
+~~~ python
+>>> parse("1 is not 2")
+(is (literal 1) (not (literal 2)))
+~~~
+
+问题在于标准的`tokenize`模块并不理解这种语法，所以它很高兴地将这些运算符返回为两个分隔的词素：
+
+~~~ python
+>>> list(tokenize("1 is not 2"))
+[(literal 1), (is), (not), (literal 2), ((end))]
+~~~
+
+换句话说，`1 is not 2`被处理为`1 is (not 2)`，而这并不是同一件事：
+
+~~~ python
+>>> 1 is not 2
+True
+>>> 1 is (not 2)
+False
+~~~
+
+一种修复它的方式是调整词法分析器(即，通过在原生的 Python 解析器与词素实例工厂之间插入一个组合过滤器)，
+但在`is`和`not`运算符上通过定制`led`方法来修复大概更容易些：
+
+~~~ python
+@method(symbol("not"))
+def led(self, left):
+    if token.id != "in":
+        raise SyntaxError("Invalid syntax")
+    advance()
+    self.id = "not in"
+    self.first = left
+    self.second = expression(60)
+    return self
+
+@method(symbol("is"))
+def led(self, left):
+    if token.id == "not":
+        advance()
+        self.id = "is not"
+    self.first = left
+    self.second = expression(60)
+    return self
+
+>>> parse("1 in 2")
+(in (literal 1) (literal 2))
+>>> parse("1 not in 2")
+(not in (literal 1) (literal 2))
+>>> parse("1 is 2")
+(is (literal 1) (literal 2))
+>>> parse("1 is not 2")
+(is not (literal 1) (literal 2))
+~~~
+
+这意味着`not`运算符能同时处理一元`not`和二元`not in`.
+
+### 元组，列表和词典表示
+
+正如上面提醒的那样，`(`前缀在 Python 中担当两种作用；
+它被用于分组，还被用于创建元组(它也在函数调用中被用作二元运算符)。
+为了处理元组，我们需要将`nud`方法替换为能够区分元组和平坦括号表达式的版本。
+
+Python 的元组构成规则很简单；如果一对括号是空的，或者包括至少一个逗号，它是一个元组。
+否则，它是一个表达式。或者换句话说：
+
+* () 是一个元组
+* (1) 是一个括号表达式
+* (1,) 是一个元组
+* (1, 2) 是一个元组
+
+这儿是实现这些规则的一个用于替换的`nud`：
+
+~~~ python
+@method(symbol("("))
+def nud(self):
+    self.first = []
+    comma = False
+    if token.id != ")":
+        while 1:
+            if token.id == ")":
+                break
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            comma = True
+            advance(",")
+    advance(")")
+    if not self.first or comma:
+        return self # tuple
+    else:
+        return self.first[0]
+
+>>> parse("()")
+(()
+>>> parse("(1)")
+(literal 1)
+>>> parse("(1,)")
+(( [(literal 1)])
+>>> parse("(1, 2)")
+(( [(literal 1), (literal 2)])
+~~~
+
+列表和词典稍微容易点；它们仅仅是平坦的表达式列表或表达式对。
+别忘了注册额外的词素。
+
+~~~ python
+symbol("]")
+
+@method(symbol("["))
+def nud(self):
+    self.first = []
+    if token.id != "]":
+        while 1:
+            if token.id == "]":
+                break
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance("]")
+    return self
+
+>>> parse("[1, 2, 3]")
+([ [(literal 1), (literal 2), (literal 3)])
+
+symbol("}"); symbol(":")
+
+@method(symbol("{"))
+def nud(self):
+    self.first = []
+    if token.id != "}":
+        while 1:
+            if token.id == "}":
+                break
+            self.first.append(expression())
+            advance(":")
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance("}")
+    return self
+
+>>> {1: 'one', 2: 'two'}
+({ [(literal 1), (literal 'one'),
+    (literal 2), (literal 'two')])
+~~~
+
+注意 Python 在创建列表、元组与词典时允许你使用可选的尾部逗号；
+在收集循环开头的一个额外的`if`语句能照顾到那种情况。
+
+## 总结
+
+尽管在我们可以声称完全支持 Python 2.5 的表达式语法前我们仍然还剩下一点要添加的东西，
+但我们已经通过非常少的工作覆盖了语法中相当大的部分——大约 250 行代码(包含整个解析器机器)。
+
+而且正如我们贯穿本文所看到的那样，使用这种算法和实现方法的解析器是可读的，容易扩充，并且，如同我们一会儿将要看到的那样，令人惊讶地快。
+尽管这篇文章关注于表达式，这种算法可以很容易地扩充到面向语句的语法上。
+通过 Crockford 的文章可以了解一种完成它的方法。
+
+总而言之，Pratt 的解析算法是 Python 解析工具箱的很好的补充，本文中概括的实现策略则是快速实现那样的解析器的一种简单方式。
+
+## 性能
+
+如同我们已经看到的，解析器对每个词素仅使用很少的 Python 函数调用，这意味着它应该相当高效(或者像 Pratt 记录的，“假如不是理论上高效的话，至少实际上如此”)。
+
+为了测试实际性能，我从 Python FAQ 中挑选了一个 456 个字符长的 Python 表达式(大约 300 个词素)，并使用许多不同工具解析它。
+这儿是在 Python 2.5 下的一些典型结果：
+
+    自顶向下解析(到抽象语法树): 4.0 ms
+    内建解析(到元组树): 0.60 ms
+    内建编译(到 code 对象): 0.68 ms
+    编译器解析(到抽象语法树): 4.8 ms
+    编译器编译(到 code 对象): 18 ms
+
+如果我们调整解析器使之能处理预先计算好的词素列表(通过运行`list(tokenize_python(program))`获得)，
+解析时间将降到仅仅 0.9 ms 以下。
+换句话说，完全解析中仅有大约四分之一的时间花在了词素实例的创建、解析、构建树上。
+剩下的几乎完全消耗在 Python 的`tokenize`模块上。
+通过更快的词法分析器，这个算法将达到与 Python 内置的词法分析器/解析器相比的2倍以内或差不多的时间。
+
+内建的解析测试本身相当有趣；它使用 Python 内部的词法分析器和解析器模块(二者都是用 C 写成的)，
+并使用`parser`模块(也是用 C 写成的)将内部语法树对象转换为元组树。
+这很快，但结果是一个显然不可读的低级树：
+
+~~~ python
+>>> parser.st2tuple(parser.expr("1+2"))
+(258, (326, (303, (304, (305, (306, (307, (309,
+(310, (311, (312, (313, (314, (315, (316, (317,
+(2, '1'))))), (14, '+'), (314, (315, (316, (317,
+(2, '2')))))))))))))))), (4, ''), (0, ''))
+~~~
+
+(在这个例子中，2 表示数字，14 表示加，4 表示换行，0 是程序末尾。三位数表示 Python 语法的中间规则。)
+
+编译器解析测试替而使用`compiler`包中的`parse`函数；
+这个函数使用 Python 内部的词法分析器和解析器，然后将返回的低级结构转化为更漂亮的抽象树：
+
+~~~ python
+>>> import compiler
+>>> compiler.parse("1+2", "eval")
+Expression(Add((Const(1), Const(2))))
+~~~
+
+这种转换(由 Python 完成)所需的工作被证明比用自顶向下解析器解析表达式还要多；
+使用本文中的代码，我们可以使用 85% 的时间获得抽象语法树，尽管在用着一个相当慢的词法分析器。
+
+## 代码注解
+
+本文中的代码使用全局变量来维持解析器的状态(`token`变量和`next`助手函数)。
+如果你需要一个线程安全的解析器，这些应该移动到一个上下文对象中。
+这会导致轻微的性能损失，但有一些令人惊讶的为性能付出一点内存作的代价的方法来补偿。
+更多这方面的内容见之后的文章。
+
+本文中展示的所有解释器和翻译器的代码都包含在本文当中了。
+配套的代码范例也可以从这里获得：
+
+<http://svn.effbot.org/public/stuff/sandbox/topdown>
+
+
+
+[DC's tdop]: http://javascript.crockford.com/tdop/tdop.html
+[DC's trans]: http://ghsky.com/2012/03/tdop.html
+[tdop paper]: http://doi.acm.org/10.1145/512927.512931
+[Oreilly's book]: http://oreilly.com/catalog/9780596510046/

@@ -1,0 +1,16 @@
+layout: post
+title: RIP, R
+slug: rip,-r
+category: programming
+tags: programming
+
+
+~~~ c
+#include <stdio.h>
+int main()
+{
+	printf("Bye, Ritchie!");
+	return 0;
+}
+~~~
+

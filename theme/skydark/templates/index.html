@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block page_header %}
+<div class="page-header">
+  <h1>{{ SITESUBTITLE }}  <small>{{ SITESLOGAN }}</small></h1>
+</div>
+{% endblock %}
+{% block logo %}
+<div class="logo"><img src="{{LOGO}}"></div>
+{% endblock %}
+{%- block content %}
+<div class="row">
+<h2 id="index-slogan">{{ INDEXSLOGAN }}</h2>
+<hr id="index-line" />
+{% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+    <div class="span8">
+        <div class="article">
+            <h1 class="article-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+            <footer class="index-post-info">
+            {% if PDF_GENERATOR %}
+            <span class="label">
+                <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+            </span>
+            {% endif %}
+
+            {% include 'translations.html' %}
+            <span class="published" title="{{ article.date.isoformat() }}">
+                {{ article.date|strftime('%x') }}
+            </span>
+            </footer><!-- /.post-info -->
+            <div class="clearfix"></div>
+            <div class="index-excerpt"><p>{{ article.excerpt }}</p></div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="span8">
+{% if articles_page and articles_paginator.num_pages > 1 %}
+<div class="pagination pull-right">
+<ul>
+    {% if articles_page.has_previous() %}
+        {% set num = articles_page.previous_page_number() %}
+        <li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr; Previous</a></li>
+    {% else %}
+        <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+    {% endif %}
+    {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+        <li class="{{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+    {% endfor %}
+    {% if articles_page.has_next() %}
+        <li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a></li>
+    {% else %}
+        <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    {% endif %}
+</ul>
+</div>
+{#
+{% else %}
+    {% if PAGES %}
+        <section id="content" class="body">
+        <h3>Pages</h3>
+        <ul class="nav nav-list">
+        {% for page in PAGES %}
+            <li><div><i class="icon-external-link"></i><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></div></li>
+        {% endfor %}
+        </ul>
+        </section>
+    {% endif %}
+#}
+{% endif %}
+</div>
+</div>
+{% endblock content %}
+{% block sidebar %}
+<div class="span4 well sidebar-nav" id="sidebar">
+    {% include 'sidebar.html' %}
+</div>
+{% endblock %}

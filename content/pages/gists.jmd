@@ -1,0 +1,105 @@
+title: Gists
+
+<link type="text/css" href="https://gist.github.com/stylesheets/gist/embed.css">
+
+<script type="text/javascript">
+var gist_callback = function(){
+  var re_tag_begin = /^\s*#(\S+?)\b(.*)$/;
+  var re_tag_end = /^(.*)#(\S+?)\s*$/;
+  var gists = {};
+  $('#github_gists').children('li').each(function(){
+    var $this = $(this);
+    var link = $this.children('a:first');
+    var desc = $this.children('p.gist-desc').text();
+    var ret = true;
+    var tags = [];
+    while (ret) {
+      ret = re_tag_begin.exec(desc);
+      if (ret) {
+        tags.push(ret[1]);
+        desc = ret[2];
+      } else {
+        ret = re_tag_end.exec(desc);
+        if (ret) {
+          tags.push(ret[2]);
+          desc = ret[1];
+        }
+      }
+    }
+    var data = {
+      id: $this.data('id'),
+      link: link,
+      desc: desc
+    };
+    for (var tag in tags) {
+      name = tags[tag];
+      if (!gists[name]) gists[name] = [];
+      gists[name].push(data);
+    }
+  });
+
+  var header = $('#tabcontent-wrapper').children('li.nav-header').children('a:first').clone();
+  var navtab = $('<ul class="nav nav-tabs" id="tabs"></ul>');
+  var navcontainer = $('<div class="tab-content"></div>');
+  for (var tag in gists) {
+    navtab.append('<li><a href="#gist_tag_'+tag+'">'+tag+'</a></li>');
+    var tagged_gists = gists[tag];
+    var nav_gists_ul = $('<ul>');
+    for (var name in tagged_gists) {
+      var gist = tagged_gists[name];
+      $('<li>').append(gist.link.clone()).append(
+        $('<a class="btn btn-primary btn-mini js-gist-raw" data-id="'+gist.id+'" style="margin-left: 5px">查看</a><p class="gist-desc">'+gist.desc+'</p>')
+        ).appendTo(nav_gists_ul);
+    }
+    $('<div id="gist_tag_'+tag+'"></div>').append(nav_gists_ul).appendTo(navcontainer);
+  }
+  header.addClass('btn btn-large btn-success').css('margin-bottom', '20px');
+  $('#tabcontent-wrapper').empty().append(header).append(navtab).append(navcontainer);
+  $('.tab-content .js-gist-raw').each(function(){
+    var $this = $(this);
+    $this.click(function(){
+      var id = $this.data('id');
+      var emb = $this.siblings('div.embbed_gist')[0];
+      if (emb) {
+        $(emb).toggle();
+      } else {
+        var emb = $('<div class="embbed_gist">');
+        emb.html('<div class="label label-info">Loading...</div>').appendTo($this.parent());
+        $.ajax({
+          url: 'https://gist.github.com/'+id+'.json?callback=?',
+          dataType: 'jsonp',
+          success: function(data){
+            var text = '<link href="'+data.stylesheet+'" media="screen" rel="stylesheet" />';
+            text += data.div;
+            emb.html(text);
+          }
+        });
+      }
+    });
+  });
+  if (!($.browser.msie && ($.browser.version == "6.0"))) {
+    $("#tabs>li>a").attr("data-toggle", "tab");
+    $(".tab-content>div").addClass("tab-pane");
+    $("#tabs a:first").tab('show');
+  }
+};
+</script>
+
+<ul id="tabcontent-wrapper" class="nav nav-tabs">
+  <li class="nav-header"><a href="https://gist.github.com/{{ GITHUB_USERNAME }}">My Gists</a></li>
+  <li>
+    <ul id="github_gists">
+      <li class="loading">Gists updating&#8230;</li>
+    </ul>
+  </li>
+  <script type="text/javascript" src="/theme/js/gist.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        github_gist.showGists({
+        user: "{{ GITHUB_USERNAME }}",
+        target: '#github_gists',
+        callback: gist_callback
+      });
+    });
+  </script>
+</ul>

@@ -1,0 +1,55 @@
+{% extends "basepage.html" %}
+{% set page_title = "归档" %}
+{% block page_content %}
+<div class="tabcontent-wrapper">
+
+{% set archives_last_year = '' %}
+{% set archives_last_month = '' %}
+<ul id="archives-tabs" class="nav nav-tabs">
+{% for article in articles %}
+  {% set archives_current_year = article.date|strftime('%Y') %}
+  {% if archives_last_year != archives_current_year %}
+    <li><a data-toggle="tab" href="#tab-{{archives_current_year}}">{{archives_current_year}}</a></li>
+    {% set archives_last_year = archives_current_year %}
+  {% endif %}
+{% endfor %}
+</ul>
+
+<div class="tab-content">
+{% set archives_last_year = '' %}
+{% set archives_last_month = '' %}
+{% for article in articles %}
+  {% set archives_current_year = article.date|strftime('%Y') %}
+  {% set archives_current_month = article.date|strftime('%b') %}
+  {% if archives_last_year != archives_current_year %}
+    {% if archives_last_year != '' %}</ul></div>{% endif %}
+    <div id="tab-{{archives_current_year}}" class="tab-pane">
+    <h3 class="js-toggle-next dropdown show">{{ archives_current_month }}</h3>
+    <ul>
+    {% set archives_last_year = archives_current_year %}
+    {% set archives_last_month = archives_current_month %}
+  {% else %}
+    {% if archives_last_month != archives_current_month %}
+      </ul>
+      <h3 class="js-toggle-next dropdown show">{{ archives_current_month }}</h3>
+      <ul>
+      {% set archives_last_month = archives_current_month %}
+    {% endif %}
+  {% endif %}
+  <li>
+    <span>{{ article.date|strftime('%x') }}</span>
+    <a data-original-title="" target="_blank" href='{{ article.url }}'>{{ article.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+</div>
+</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+$(".tabcontent-wrapper>ul.nav-tabs a:first").tab('show');
+</script>
+{% endblock %}

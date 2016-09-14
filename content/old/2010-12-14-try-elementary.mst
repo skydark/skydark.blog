@@ -1,0 +1,21 @@
+layout: post
+title: 被Elementary折腾的虚了……
+slug: try-elementary
+category: python
+tags: e17, python, 数码
+
+RT，test blog......
+
+最近在用Python-elementary写给SmartQ V5测试玩的东西，
+被折磨的一塌糊涂，各种奇怪的bug
+（Button的on_mouse_up_add会收到三个完全相同的event，
+table没有unpack，progressbar只有方向为垂直的时候才能全条捕获mouse event，
+etc......），各种文档丢失......
+
+另外连VLC的时候也各种欢乐，V5和PC上的VLC用的rc还不一样，相比而言V5的倒是好处理的多......
+
+相比之下此前各种连不上还算小事了XD：
+[在Ubuntu中文的提问](http://forum.ubuntu.org.cn/viewtopic.php?f=63&t=308440)
+
+嘛，虽然说折腾也是乐趣嘛，囧。
+

@@ -1,0 +1,5 @@
+pelican.pid
+srv.pid
+Makefile
+output
+content/private

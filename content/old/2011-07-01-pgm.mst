@@ -1,0 +1,66 @@
+layout: post
+title: 昨天在PGM上耗的时间太多了……
+slug: pgm
+category: transplant
+tags: ons, pgm
+
+
+RT,昨天唯一比较学术(?)的是找老板讨论下学期ML课件的样式问题……
+(呃，等下，学术么……再等下，时间范围只是&ldquo;昨天&rdquo;么……= =)
+
+首先编译出了Linux版，对我来说这是一切的前提……= =
+
+libnge2用git最新版，更新cmake才能编译通过，
+之前因为这个浪费了不少时间，感谢snowman和NC叔……
+PGM是要修改不少地方才能过去的，PGM默认是开着PSP支持的这点很那啥……
+另外那个makefile写的太不照顾我这种非IDE用户了……
+
+然后Android版一番折腾编译过去了，但是qemu里一跑就no respond是闹哪样……
+好吧我猜是你找不到pgm.ini还是……但是stderr在哪里……= =
+总之Android开发实在不熟，还是拜托给natdon君好了……
+
+-----
+
+然后关于libnge2和PGM的一点初印象：
+
+1. libnge2是个看上去还不错的项目。
+依NC叔的说法，出发点比较赞，API也稳定了，LGPL也比较方便，现在也逐渐脱离SDL了。
+比较不爽的是nge_timer.c里那个```timer_create```和```<timer.h>```里的同名函数冲突。
+另外linux版和android版目前似乎还是缺点功能……
+linux版还好说
+(还是说，用git最新版，结果搞得我不得不在虚拟机里装了个win版git……万恶的教育网)，
+android版image_ext那些类似image_conv之类的似乎都找不到了……
+
+2. PGM个人不能说太欣赏。
+	
+	还是这么说，首先PGM就是针对PSP设计的，
+	且不说代码里用```#if !defined(WIN) && !defined(IPHONEOS)```来表示```#ifdef PSP```的语义，
+	单说不支持鼠标操作就泪流满面了，连开发win版GAL也是不够的
+	(另外在随意翻贴时发现有人抱怨没有回想模式)……
+	当然我相信这个要弥补不是大问题，但是这是个设计理念的问题。
+	
+	PGM的c/cpp代码的主要的作用是为libnge2做了一个lua的wrapper和一个package支持
+	(呃，我不大喜欢这种非要pack起来才能run的方式，test和patch很累的……)，
+	然后在lua代码层上整合了一整套函数，
+	相比而言lua那边才算重头，毕竟前身AMP是AVGMakerTemplate，其Template其实在lua这边。
+	
+	但是lua那边提供的那套函数给人感觉又有些……
+	怎么说呢，以nscripter比较，
+	虽然nscripter对移植者而言有这样那样的麻烦，但它还是works的，
+	PGM没有给我一种&ldquo;换后会改善生活&rdquo;的感觉，
+	尽管它有lua支持这一利器，但上面搭建的这层给我的却是更加不灵活的感觉，
+	我相信这是我的错觉，但是这里谈的是第一印象所以就无所谓了。
+	
+	还有一个类似找茬的……
+	来自[NC叔的征召](http://www.iacger.com/forum.php?mod=viewthread&tid=39266)
+	
+	> &ldquo;PGM的目标是打败ons，krkr引擎，从稳定性和易用性上，psp平台已经达到了。
+	> （市场占有率）&rdquo;
+
+	我承认我看完后感觉很违和……
+	我不喜欢以打败别人为目标的system，至于后半句还是不评价了……
+
+-----
+
+嘛，不过我这其实是属于站着说话不腰疼的那种我懂的，反正我一向只会去碰上层的东西……= =
+

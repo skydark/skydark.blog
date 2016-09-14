@@ -1,0 +1,132 @@
+layout: post
+title: 用python给图像自动裁边
+slug: autocrop
+category: python
+excerpt: 瞎搞的，有些人有现成的都不用简直蛋疼
+tags: python, programming, dip
+
+
+因为最近入了一只kpw的缘故，开始关心以前不大关心的东西了，譬如epub，譬如标题。
+
+现成的裁边软件是有的，而且还有不少。
+不过秉着热衷于瞎造轮子的优良传统，我还是打算冲动地自己用[PIL](http://www.pythonware.com/products/pil)玩一下。
+从某些方面讲不去找文献就动手也是很有问题的，但这里不是都说了是玩么……
+
+## 样本
+
+如图：
+
+![样本1](http://pic.yupoo.com/skydark/CYWxJ7yH/CPFlR.jpg)
+
+## 难点
+
+1. 本身扫描质量偏低，不是很干净；
+2. 右上角的大片黑色阴影；
+3. 右边的书缝线；
+4. 左边的一列空白不应被裁去；
+5. 最上方的漫画名可选裁去。
+
+## 思路
+
+1. 找出背景色。
+
+    收集最边缘的一圈宽度为`edge`(默认为5)个像素的点的颜色，找出最常出现的颜色。
+
+    考虑到漫画的特殊性，直接将颜色转化为灰度，提高重复的次数。
+
+    尝试过将灰度值都近似为5的倍数以进一步提高重复率以及方便之后的处理，但提升不明显就取消了。
+
+2. 消除背景色。
+
+    使用`ImageChops.difference`比较灰度图和纯背景色之间的差别，如下图所示：
+
+    ![消除背景色后](http://pic.yupoo.com/skydark/CYWDgEHe/IjwnE.jpg])
+
+    好处是现在背景色已经是黑色了，但直接使用`.getbbox`取图像边界还是取不出来，因为右上角的大污点还在……
+
+3. 取边缘。
+
+    污点是一大团不好处理，想到取边缘使一大团变成一条边，这样消除容易些。
+
+    简单地高斯模糊，然后用PIL自带的边缘检测，最后用中值滤一下噪点，效果如图：
+
+    ![过滤后](http://pic.yupoo.com/skydark/CYWDfdPN/nMIIF.jpg)
+
+    嗯，污点直接不见了，很赞。虽然右边那条书缝还是很坚持……
+
+    发现PIL里想用canny边缘检测还要自己实现，嫌麻烦外加现在的实验效果还好就懒得弄了，
+    不清楚会不会效果更好些。
+
+4. 取边界。
+
+    现在开始简单粗暴地取边界。现以上边界为例。
+
+    自上而下逐行扫描像素点，参数有四个：
+
+    * `threshold`: 颜色阈值，当当前点灰度值大于此值时不认为它是背景。这本扫的比较模糊，设在了15上。
+
+    * `max_error`: 当一行中不是背景的点的比例大于此数值时认为这一行应该不是背景，视为error.
+      因为已经取过边缘，所以这个值应该很小，这里取了0.01.值太大会把如页码等细节视为背景吃掉。
+
+    * `suppress`: 当连续如此多行都error时认为达到正文区域。
+      扫右边缘时超过类似书缝这样的宽度就足够了。
+
+    * `max_edge_per`: 最大边缘百分比，当扫描行数超过此比例时直接停止。
+
+    每次找到一个方向的边界后就把确定是边界的点涂黑，比如右侧的一列如果先检测到并涂黑的话，就不会影响到上下方向的检测了。
+    原则上应该每个方向都这样涂黑迭代下去直到稳定的，至少应该来两圈，但是我懒所以只走了一圈，估计两圈的话效果会好些。
+
+5. 裁！
+
+    咔嚓！
+
+    最终效果如图(`max_error=0.01, threshold=15, suppress=5, max_edge_per=0.1`):
+
+    ![效果](http://pic.yupoo.com/skydark/CYWDgm3l/cI0wN.jpg)
+
+    还不错？
+
+## 代码
+
+源码已放在[github](https://github.com/skydark/playground/blob/master/autocrop.py)上。
+如果碰巧有人有兴趣请随意。
+
+## 实验
+
+自玩性质，没可能也没兴趣与其他实现比较了……
+
+下面是几个测试图(原图在上)：
+
+![1](http://pic.yupoo.com/skydark/CYWWDboF/nybWZ.jpg)
+
+![2](http://pic.yupoo.com/skydark/CYWWCUUe/tJupo.jpg)
+
+---
+
+![1](http://pic.yupoo.com/skydark/CYWWD2wJ/DMaPH.jpg)
+
+![2](http://pic.yupoo.com/skydark/CYWWDbgm/ueamI.jpg)
+
+---
+
+![1](http://pic.yupoo.com/skydark/CYWWDOl8/wYTDB.jpg)
+
+![2](http://pic.yupoo.com/skydark/CYWWE0Go/Dzajo.jpg)
+
+---
+
+![1](http://pic.yupoo.com/skydark/CYWWDSmj/u0ZGN.png)
+
+![2](http://pic.yupoo.com/skydark/CYWWDy4z/y4XBa.png)
+
+---
+
+黑边太大，把suppress提高到了10：
+
+![1](http://pic.yupoo.com/skydark/CYWWCsMj/QzX9T.jpg)
+
+![2](http://pic.yupoo.com/skydark/CYWWD2oc/dJY6Y.jpg)
+
+<script type="text/javascript">
+$('.entry-content').find('img').css('border', '5px solid lightblue').css('max-width', '685px');
+</script>

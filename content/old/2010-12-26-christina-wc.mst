@@ -1,0 +1,33 @@
+layout: post
+title: 无勒个题
+slug: christina-wc
+category: python
+tags: e17
+
+
+~~~ sh
+skydark@skydark-laptop:~/projects/christina$ wc *.py cmodel/*.py *.xml
+  250   659  7627 animator.py
+  42   108  1385 ChAppFrame.py
+  74   201  2738 ChAppView.py
+  98   240  3133 ChButtonBar.py
+  202   553  7141 ChWindow.py
+  9     7   124 common.py
+  14    16   156 error.py
+  15    32   314 model.py
+  197   679  7648 mouser.py
+  437  1301 14027 parser.py
+  163   393  4908 player.py
+  67   371  3111 test_parser.py
+  121   409  3843 util.py
+  358   944 12473 widget.py
+  193   519  6610 cmodel/fs.py
+  221   745  7408 cmodel/image.py
+  0     0     0 cmodel/__init__.py
+  117   233  3766 cmodel/media.py
+  29   102  1475 fs.xml
+  37   120  1830 image.xml
+  36   125  1539 media.xml
+  35    81  1070 test.xml
+  2715  7838 92326 总用量
+~~~

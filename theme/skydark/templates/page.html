@@ -1,0 +1,13 @@
+{% extends "basepage.html" %}
+{% set page_title = page.title %}
+{% block page_info %}
+{% if PDF_GENERATOR %}
+<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get the pdf</a>
+{% endif %}
+{% endblock %}
+{% block page_content %}
+{{ page.content }}
+{% if page.allow_comment %}
+{% include 'disqus.html' %}
+{% endif %}
+{% endblock %}
