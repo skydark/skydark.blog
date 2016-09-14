@@ -56,7 +56,7 @@ ARTICLE_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 PAGE_SAVE_AS = PAGE_URL = '{slug}.html'
 ARCHIVES_URL = 'archives.html'
 
-STATIC_PATH = ['images', 'extra/CNAME']
+STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
         }
