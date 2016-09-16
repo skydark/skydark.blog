@@ -63,8 +63,8 @@ EXTRA_PATH_METADATA = {
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['external_reader', 'mistune_reader', 'tag_cloud', 'jinja2content',
-        'yamlmarkdown_reader', 'encrypt_content']
-MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'toc']
+           'encrypt_content']
+MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'toc', 'meta', 'meta_yaml']
 
 import os
 import sys
