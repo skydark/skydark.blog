@@ -55,7 +55,7 @@ var gist_callback = function(){
     }
     $('<div id="gist_tag_'+tag+'"></div>').append(nav_gists_ul).appendTo(navcontainer);
   }
-  header.addClass('btn btn-large btn-success').css('margin-bottom', '20px');
+  header.addClass('btn-success').css('margin-bottom', '20px');
   $('#tabcontent-wrapper').empty().append(header).append(navtab).append(navcontainer);
   $('.tab-content .js-gist-raw').each(function(){
     var $this = $(this);
@@ -88,7 +88,7 @@ var gist_callback = function(){
 </script>
 
 <ul id="tabcontent-wrapper" class="nav nav-tabs">
-  <li class="nav-header"><a href="https://gist.github.com/{{ github_username or site.GITHUB_USERNAME }}">My Gists</a></li>
+  <li class="nav-header"><a class="btn btn-large" href="https://gist.github.com/{{ github_username or site.GITHUB_USERNAME }}">My Gists</a></li>
   <li>
     <ul id="github_gists">
       <li class="loading">Gists updating&#8230;</li>
