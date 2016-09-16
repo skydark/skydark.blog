@@ -6,11 +6,12 @@
 <script type="text/javascript">
 $('.entry-content').hide();
 $(document).ready(function(){
-	$('.entry-content').children(':gt(1)').hide();
+	$('.entry-content').children(':gt(0)').hide();
 	$('.entry-content').show();
 });
 </script>
 
+<!--
 ---
 
 1. 仅供个人研究使用，无担保，谢绝商业行为，包括使用商业化引擎运行。
@@ -19,3 +20,4 @@ $(document).ready(function(){
 4. 请不要让我知道你是从某个贴吧名是ons加两个汉字的贴吧下载的。对彼此心情有好处。
 
 ---
+-->

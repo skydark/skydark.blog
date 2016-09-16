@@ -1,8 +1,9 @@
 title: 3days ONS 移植版
 slug: pages/3days
 allow_comment: True
+jinja: true
 
-{% include 'transplant.inc' %}
+<div>{% filter md %}{% include 'transplant.inc' %}{% endfilter %}</div>
 
 首发：
 [机锋](http://bbs.gfan.com/viewthread.php?tid=637440)

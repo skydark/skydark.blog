@@ -1,8 +1,9 @@
 title: 实妹相伴的大泉君 ONS移植版
 slug: pages/realsister
 allow_comment: True
+jinja: true
 
-{% include 'transplant.inc' %}
+<div>{% filter md %}{% include 'transplant.inc' %}{% endfilter %}</div>
 
 首发：
 [机锋](http://bbs.gfan.com/viewthread.php?tid=1289754)

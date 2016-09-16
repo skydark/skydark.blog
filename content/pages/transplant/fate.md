@@ -1,8 +1,9 @@
 title: Fate ONS移植版
 slug: pages/fate
 allow_comment: True
+jinja: true
 
-{% include 'transplant.inc' %}
+<div>{% filter md %}{% include 'transplant.inc' %}{% endfilter %}</div>
 
 首发(2009.10.10)：
 [imp3](http://bbs.imp3.net/thread-667000-1-1.html)

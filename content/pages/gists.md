@@ -1,4 +1,6 @@
 title: Gists
+jinja: true
+github_username: skydark
 
 <link type="text/css" href="https://gist.github.com/stylesheets/gist/embed.css">
 
@@ -86,7 +88,7 @@ var gist_callback = function(){
 </script>
 
 <ul id="tabcontent-wrapper" class="nav nav-tabs">
-  <li class="nav-header"><a href="https://gist.github.com/{{ GITHUB_USERNAME }}">My Gists</a></li>
+  <li class="nav-header"><a href="https://gist.github.com/{{ github_username or site.GITHUB_USERNAME }}">My Gists</a></li>
   <li>
     <ul id="github_gists">
       <li class="loading">Gists updating&#8230;</li>
@@ -96,7 +98,7 @@ var gist_callback = function(){
   <script type="text/javascript">
     $(document).ready(function(){
         github_gist.showGists({
-        user: "{{ GITHUB_USERNAME }}",
+        user: "{{ github_username or site.GITHUB_USERNAME }}",
         target: '#github_gists',
         callback: gist_callback
       });

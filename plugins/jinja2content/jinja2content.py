@@ -13,49 +13,54 @@ from pelican.utils import pelican_open
 from jinja2 import Environment, FileSystemLoader, ChoiceLoader
 
 
-class JinjaMarkdownReader(MarkdownReader):
-    enabled = True
-    file_extensions = ('jmd',)
+jinja_generator = None
 
-    def __init__(self, *args, **kwargs):
-        super(JinjaMarkdownReader, self).__init__(*args, **kwargs)
 
+def pelican_initialized(pelican_obj):
+    global jinja_generator
+    jinja_generator = Jinja2Content(pelican_obj)
+
+
+class Jinja2Content(object):
+    def __init__(self, pelican_obj):
         # will look first in 'JINJA2CONTENT_TEMPLATES', by default the
         # content root path, then in the theme's templates
         # local_templates_dirs = self.settings.get('JINJA2CONTENT_TEMPLATES', ['.'])
         # local_templates_dirs = path.join(self.settings['PATH'], local_templates_dirs)
-        local_dirs = self.settings.get('JINJA2CONTENT_TEMPLATES', ['.'])
-        local_dirs = [path.join(self.settings['PATH'], folder)
+        self.pelican_obj = pelican_obj
+        self.settings = {}
+        try:
+            self.settings.update(pelican_obj.settings['JINJA2CONTENT_SETTINGS'])
+        except KeyError:
+            pass
+        self.settings['site'] = pelican_obj.settings
+        local_dirs = pelican_obj.settings.get('JINJA2CONTENT_TEMPLATES', ['.'])
+        local_dirs = [path.join(pelican_obj.settings['PATH'], folder)
                       for folder in local_dirs]
-        theme_dir = path.join(self.settings['THEME'], 'templates')
+        theme_dir = path.join(pelican_obj.settings['THEME'], 'templates')
 
         loaders = [FileSystemLoader(_dir) for _dir
                    in local_dirs + [theme_dir]]
         self.env = Environment(trim_blocks=True, lstrip_blocks=True,
-                               extensions=self.settings['JINJA_EXTENSIONS'],
+                               extensions=pelican_obj.settings['JINJA_EXTENSIONS'],
                                loader=ChoiceLoader(loaders))
 
-    def read(self, source_path):
-        """Parse content and metadata of markdown files.
+        custom_filters = pelican_obj.settings['JINJA_FILTERS']
+        self.env.filters.update(custom_filters)
 
-        Rendering them as jinja templates first.
-
-        """
-        self._source_path = source_path
-        self._md = Markdown(extensions=self.extensions)
-
-        with pelican_open(source_path) as text:
-            text = self.env.from_string(text).render(self.settings)
-            content = self._md.convert(text)
-
-        metadata = self._parse_metadata(self._md.Meta)
-        return content, metadata
+    def render(self, content):
+        settings = {}
+        settings.update(self.settings)
+        settings.update(content.metadata)
+        content._content = self.env.from_string(content._content).render(settings)
 
 
-def add_reader(readers):
-    for ext in JinjaMarkdownReader.file_extensions:
-        readers.reader_classes[ext] = JinjaMarkdownReader
+def pelican_content_object_init(content):
+    if getattr(content, 'jinja', False):
+        # print("[JINJA] Jinjalizing %s" % content.title)
+        jinja_generator.render(content)
 
 
 def register():
-    signals.readers_init.connect(add_reader)
+    signals.initialized.connect(pelican_initialized)
+    signals.content_object_init.connect(pelican_content_object_init)

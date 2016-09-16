@@ -66,6 +66,12 @@ PLUGINS = ['external_reader', 'mistune_reader', 'tag_cloud', 'jinja2content',
         'yamlmarkdown_reader', 'encrypt_content']
 MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'toc']
 
+import os
+import sys
+sys.path.append(os.curdir)
+from extra import get_jinja_filters
+JINJA_FILTERS = get_jinja_filters(MD_EXTENSIONS)
+
 JINJA2CONTENT_TEMPLATES = ['jinja2']
 
 TAG_CLOUD_BADGE = True
