@@ -118,3 +118,9 @@ a.external:hover {background-position:right -18px;}
     width: 400px;
     margin: 0 auto;
 }
+.dropdown-caret {
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    margin-top: 0px !important;
+}

@@ -29,7 +29,7 @@ class ToggleDirective(SimpleDirective):
     def run(self, markdown, name, argument, arguments, options, content, **kwargs):
         e = etree.Element('section')
         h = etree.SubElement(e, 'header', CLASS('js-toggle-next dropdown'))
-        h.text = arguments[0]
+        h.append(self.markdownize(markdown, argument)[0])
         self.parseAttr(markdown, h, options.get('header', ''))
         a = etree.SubElement(e, 'article', CLASS(''))
         self.parseAttr(markdown, a, options.get('body', ''))
