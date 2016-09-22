@@ -5,7 +5,9 @@ category: life
 excerpt: 我竟然会去看武侠小说……
 tags: PC, 生活
 
-.. toggle :: 摘要已经言明了…… {.alert .alert-info}
+.. toggle :: 摘要已经言明了…… 
+
+    :header: .alert .alert-info
 
     ----
 

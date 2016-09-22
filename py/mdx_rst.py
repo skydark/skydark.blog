@@ -208,6 +208,10 @@ class MDDirective(object):
     def stringToElm(self, text):
         return etree.fromstring(text)
 
+    def parseAttr(self, markdown, elm, attr):
+        attr_list_helper = attr_list.AttrListTreeprocessor(markdown)
+        attr_list_helper.assign_attrs(elm, attr)
+
 
 class SimpleDirective(MDDirective):
     def __init__(self, template='', has_content=True, marked=True):
@@ -222,10 +226,19 @@ class SimpleDirective(MDDirective):
             marked = content
         _options = defaultdict(lambda : '')
         _options.update(options)
-        output = self.template.format(
+        if hasattr(self.template, 'format'):
+            call = self.template.format
+        elif callable(self.template):
+            call = self.template
+        else:
+            raise Exception("Template is not callable")
+        output = call(
+            markdown=markdown,
             name=name, argument = arguments[0] if len(arguments) > 0 else '',
             arguments=arguments, options=_options, content=content, marked=marked)
-        self.replace_element(elm, self.stringToElm(output))
+        if isinstance(output, str):
+            output = self.stringToElm(output)
+        self.replace_element(elm, output)
 
 
 class RstExtension(Extension):

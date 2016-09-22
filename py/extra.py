@@ -21,15 +21,20 @@ def CLASS(v):
     return {'class': v}
 
 class ToggleDirective(SimpleDirective):
-    def __call__(self, markdown, elm, parent, name, arguments, options, content):
+    def __init__(self, *kargs, **kwargs):
+        super(ToggleDirective, self).__init__(*kargs, **kwargs)
+        self.template = self.run
+        self.marked = False
+
+    def run(self, markdown, name, argument, arguments, options, content, **kwargs):
         e = etree.Element('section')
         h = etree.SubElement(e, 'header', CLASS('js-toggle-next dropdown'))
         h.text = arguments[0]
-        a = etree.SubElement(e, 'article', {})
+        self.parseAttr(markdown, h, options.get('header', ''))
+        a = etree.SubElement(e, 'article', CLASS(''))
+        self.parseAttr(markdown, a, options.get('body', ''))
         a.append(self.markdownize(markdown, content))
-        self.replace_element(elm, e)
-        h.attrib['class'] += ' ' + elm.attrib.get('class', '')
-        elm.attrib['class'] = ''
+        return e
 
 
 MD_EXTENSIONS = [
