@@ -2,7 +2,7 @@
 $('.js-toggle-next').click(function(){
 	$(this).next().slideToggle('normal');
 }) ;
-$('.js-toggle-next').filter('.dropdown').append($('<b class="caret"></b>'));
+$('.js-toggle-next').filter('.dropdown').append($('<b class="caret dropdown-caret"></b>'));
 $('.js-toggle-next').not('.show').next().hide();
 $('.main-article a:not(.btn)').each(function(){
 	var href = $(this).attr('href');
