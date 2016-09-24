@@ -1,9 +1,8 @@
 title: 秽翼的尤斯蒂娅 ONS移植版
 slug: pages/eustia
 allow_comment: True
-jinja: true
 
-<div>{% filter md %}{% include 'transplant.inc' %}{% endfilter %}</div>
+.. include :: transplant.md
 
 首发：
 [澄空](http://bbs.sumisora.org/read.php?tid=11004749)

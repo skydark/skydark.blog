@@ -1,6 +1,8 @@
+import os
 from markdown import Markdown
 from role_emoji import EmojiRule
 from mdx_rst import SimpleDirective, SimpleRule, etree
+import pelicanconf
 
 
 class MarkdownFilter(object):
@@ -21,12 +23,9 @@ def CLASS(v):
     return {'class': v}
 
 class ToggleDirective(SimpleDirective):
-    def __init__(self, *kargs, **kwargs):
-        super(ToggleDirective, self).__init__(*kargs, **kwargs)
-        self.template = self.run
-        self.marked = False
+    marked = False
 
-    def run(self, markdown, name, argument, arguments, options, content, **kwargs):
+    def template(self, markdown, name, argument, arguments, options, content, **kwargs):
         e = etree.Element('section')
         h = etree.SubElement(e, 'header', CLASS('js-toggle-next dropdown'))
         h.append(self.markdownize(markdown, argument)[0])
@@ -35,6 +34,25 @@ class ToggleDirective(SimpleDirective):
         self.parseAttr(markdown, a, options.get('body', ''))
         a.append(self.markdownize(markdown, content))
         return e
+
+
+class IncludeDirective(SimpleDirective):
+    has_content = False
+    marked = False
+    DIRECTIVE_INCLUDE_DIR = 'include'
+
+    def template(self, markdown, name, argument, arguments, options, content, **kwargs):
+        inpath = os.path.join(
+                pelicanconf.PATH,
+                self.DIRECTIVE_INCLUDE_DIR,
+                argument)
+        with open(inpath) as infile:
+            included = infile.read()
+            e = etree.Element('section')
+            if options.get('raw', '').lower() not in ('true', '1'):
+                included = self.markdownize(markdown, included)
+            e.append(included)
+            return e
 
 
 MD_EXTENSIONS = [
@@ -57,6 +75,7 @@ MD_EXTENSION_CONFIGS = {
             'emoji': EmojiRule(),
         },
         'directives': {
+            'include': IncludeDirective(),
             'toggle': ToggleDirective(),
             'danger': SimpleDirective('''
                 <div class="alert alert-danger"><header>{argument}</header><div>{marked}</div></div>

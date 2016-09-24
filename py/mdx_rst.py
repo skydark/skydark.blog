@@ -214,10 +214,17 @@ class MDDirective(object):
 
 
 class SimpleDirective(MDDirective):
-    def __init__(self, template='', has_content=True, marked=True):
-        self.template = template
-        self.marked = marked
-        self.has_content = has_content
+    has_content = True
+    marked = True
+    template = ''
+
+    def __init__(self, template=None, has_content=None, marked=None):
+        if template:
+            self.template = template
+        if has_content is not None:
+            self.has_content = has_content
+        if marked is not None:
+            self.marked = marked
 
     def __call__(self, markdown, elm, parent, name, arguments, options, content):
         if self.marked:
@@ -236,9 +243,10 @@ class SimpleDirective(MDDirective):
             markdown=markdown,
             name=name, argument = arguments[0] if len(arguments) > 0 else '',
             arguments=arguments, options=_options, content=content, marked=marked)
-        if isinstance(output, str):
-            output = self.stringToElm(output)
-        self.replace_element(elm, output)
+        if output:
+            if isinstance(output, str):
+                output = self.stringToElm(output)
+            self.replace_element(elm, output)
 
 
 class RstExtension(Extension):

@@ -60,6 +60,7 @@ STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {
         'extra/CNAME': {'path': 'CNAME'},
         }
+ARTICLE_EXCLUDES = ['include']
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['external_reader', 'mistune_reader', 'tag_cloud', 'jinja2content',
