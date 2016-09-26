@@ -55,6 +55,58 @@ class IncludeDirective(SimpleDirective):
             return e
 
 
+class SlideDirective(SimpleDirective):
+    slide_id = 1
+    marked = False
+
+    def template(self, markdown, name, argument, arguments, options, content, marked, **kwargs):
+        div = etree.Element('div', CLASS("carousel slide"))
+        div.attrib['data-ride'] = 'carousel'
+        slide_id = div.attrib['id'] = 'carousel-slide-%s' % SlideDirective.slide_id
+        SlideDirective.slide_id += 1
+        marked = self.markdownize(markdown, content)
+        if len(marked) != 1 or marked[0].tag != 'ul':
+            raise Exception("Slide directive requires unordered list!")
+        marked = marked[0]
+        count = len(marked)
+        indicators = etree.SubElement(div, 'ol', CLASS('carousel-indicators'))
+        for i in range(count):
+            indicator = etree.SubElement(indicators, 'li', {
+                'data-target':'#%s' % slide_id,
+                'data-slide-to': str(i),
+                })
+            if i == 0:
+                indicator.attrib['class'] = 'active'
+        inner = etree.SubElement(div, 'div', {
+                    'class': 'carousel-inner',
+                    'role':'listbox',
+                })
+        for i, item in enumerate(marked):
+            c = 'item' if i > 0 else 'item active'
+            item.tag = 'div'
+            item.attrib['class'] = c
+            inner.append(item)
+        control_prev = etree.SubElement(div, 'a', {
+            'class': "left carousel-control",
+            'href': '#%s' % slide_id,
+            'role': "button",
+            'data-slide':"prev",
+            })
+        control_prev.text = '&lsaquo;'
+        control_next = etree.SubElement(div, 'a', {
+            'class': "right carousel-control",
+            'href': '#%s' % slide_id,
+            'role': "button",
+            'data-slide':"next",
+            })
+        control_next.text = '&rsaquo;'
+        script = etree.SubElement(div, 'script', {
+            'type': 'text/javascript',
+            })
+        script.text = '$("#%s").carousel();' % slide_id
+        return div
+
+
 MD_EXTENSIONS = [
         'codehilite(css_class=highlight)', 'extra', 'toc',
         'meta', 'meta_yaml',
@@ -76,6 +128,7 @@ MD_EXTENSION_CONFIGS = {
         },
         'directives': {
             'include': IncludeDirective(),
+            'slide': SlideDirective(),
             'toggle': ToggleDirective(),
             'danger': SimpleDirective('''
                 <div class="alert alert-danger"><header>{argument}</header><div>{marked}</div></div>
