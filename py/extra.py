@@ -117,6 +117,7 @@ class TooltipRule(object):
         e.attrib['title'] = r[1]
         return e
 
+
 MD_EXTENSIONS = [
         'codehilite(css_class=highlight)', 'extra', 'toc',
         'meta', 'meta_yaml',
@@ -126,6 +127,7 @@ MD_EXTENSION_CONFIGS = {
     'rst':{
         'roles':{
             'tooltip': TooltipRule(),
+            'bq': SimpleRule('img', text=None, attrib={'src':'/images/bq/{content}.gif'}),
             'kbd': SimpleRule('kbd', raw=True, _class='') ,
             'label': SimpleRule(attrib={'class':'label'}),
             'label-default': SimpleRule(attrib={'class':'label'}),
