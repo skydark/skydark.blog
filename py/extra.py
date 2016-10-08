@@ -106,6 +106,16 @@ class SlideDirective(SimpleDirective):
         script.text = '$("#%s").carousel();' % slide_id
         return div
 
+class TooltipRule(object):
+    def __call__(self, role, content):
+        r = content.split(':', 1)
+        if len(r) != 2:
+            raise Exception("Tooltips should be splitted by colon")
+        e = etree.Element('a')
+        e.attrib['rel'] = 'tooltip'
+        e.text = r[0]
+        e.attrib['title'] = r[1]
+        return e
 
 MD_EXTENSIONS = [
         'codehilite(css_class=highlight)', 'extra', 'toc',
@@ -115,6 +125,7 @@ MD_EXTENSIONS = [
 MD_EXTENSION_CONFIGS = {
     'rst':{
         'roles':{
+            'tooltip': TooltipRule(),
             'kbd': SimpleRule('kbd', raw=True, _class='') ,
             'label': SimpleRule(attrib={'class':'label'}),
             'label-default': SimpleRule(attrib={'class':'label'}),
