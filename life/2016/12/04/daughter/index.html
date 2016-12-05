@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title> 测试密码功能 | Skydark's blog</title>
+    <title>领养女儿了 | Skydark's blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="" />
     <meta name="author" content="Skydark Chen" />
@@ -61,7 +61,7 @@
                   <li >
                   <a href="http://blog.skydark.info/category/acg.html"><i class="icon-folder-open icon-large"></i>ACG</a>
                   </li>
-                  <li >
+                  <li class="active">
                   <a href="http://blog.skydark.info/category/life.html"><i class="icon-folder-open icon-large"></i>life</a>
                   </li>
                   <li >
@@ -79,7 +79,7 @@
                   <li >
                   <a href="http://blog.skydark.info/category/python.html"><i class="icon-folder-open icon-large"></i>python</a>
                   </li>
-                  <li class="active">
+                  <li >
                   <a href="http://blog.skydark.info/category/test.html"><i class="icon-folder-open icon-large"></i>test</a>
                   </li>
                   <li >
@@ -114,7 +114,7 @@
 
     <div class="container">
 <div class="page-header">
-  <h1> 测试密码功能</h1>
+  <h1>领养女儿了</h1>
 </div>
       <div class="row">
           <div class="span8 main-content">
@@ -122,115 +122,16 @@
 <section class="main-article">
     <article>
         <header class="post-info">
-        <span class="published" title="2012-03-15T00:00:00+08:00">
-          <i class="icon-calendar"></i>&nbsp;2012年03月15日
+        <span class="published" title="2016-12-04T22:51:57+08:00">
+          <i class="icon-calendar"></i>&nbsp;2016年12月04日
         </span>
         </header>
 
         <div class="entry-content">
-        <div id="pec-encrypted-content" style="display:none">mN5/LtiBHiu/lOlQIHRHLQ==;iv1LR3mC9F18rG1j9lZzx5Zd+ZAVln4eiaUXUcvZ8fefTl+us/X3Y5pG0NGhJ6ZWEVC3Rpm7j62ChzlKhzxC4cecQeVcvdFgS9/49fHyxkNr556tH2UYwxEArjBSTq1hPkvXT+VmK/Lmx6R4Th9x1JN57y2YKpMtmjjBbCxFSrnO4G2XYavTGVJXKAYRemJUkIJGRv/lcFzoE3DuoatY96Y8VEmburiStotzbvt+brUeDhlFaNceF6dIRZS7n2QJe7IkkSqmTAvVorsCmIH2BvTs221QoryDzpyNfjmPYewjI0BxHrfN5uU4piQcciSg2+rYw1a3SsPiiFvsozBZK6+ZQmZPhO1prTQK4Rfp1GL645KY0m/DLaALGxA2dSnDtk3FpM2tqyNYHjVBxtzBgzVqoPvNbzhgC8Q29v4aa1iac1hJ3uG1sTl7DwMcXqQyA6Kl+pI5EFDPXom/jPHTmqAv8sGhAPkJoBxXfK8lxqK01Ptk/YdgWvScni1iqMSRQpcFJ9eI77njdoqi/EW5Bn48htDha6qcVh7hkt/ZxfTUHvA08qEbgb5IWLu+mj29yJDa0dCMCPaILlRKOO+z39uF+4W5wEVjk4vnfMIdnaqUDa2u9lLFP6N0CNt/BCf7W4GBMXkqxR0aTCAiheFhTALhnfp+Nnfo9qgmzrolntY=;^</div>
-<div id="pec-decrypted-content">
-    <h4><i></i></h4>
-</div>
-
-<form id="pec-decrypt-form" class="form-inline">
-  <div class="form-group">
-    <label for="pec-content-password" class="control-label">请输入密码（提示：密码是test）</label>
-    <input type="password" class="form-control" id="pec-content-password" placeholder="Password" />
-  </div>
-  <div class="form-group">
-    <button type="submit" id="pec-decrypt-content" class="btn btn-primary">解密</button>
-  </div>
-</form>
-
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"></script>
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js"></script>
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js"></script>
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js"></script>
-
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js"></script>
-
-
-<script type="text/javascript">
-    (function () {
-        var strip_padding = function (padded_content, padding_char) {
-            /*
-             * Strips the padding character from decrypted content.
-             */
-            for (var i = padded_content.length; i > 0; i--) {
-                if (padded_content[i-1] !== padding_char) {
-                    return padded_content.slice(0, i);
-                }
-            }
-        };
-
-        var decrypt_content = function (password, iv_b64, ciphertext_b64, padding_char) {
-            /*
-             * Decrypts the content from the ciphertext bundle.
-             */
-            var key = CryptoJS.MD5(password),
-                iv = CryptoJS.enc.Base64.parse(iv_b64),
-                ciphertext = CryptoJS.enc.Base64.parse(ciphertext_b64),
-                bundle = {
-                    key: key,
-                    iv: iv,
-                    ciphertext: ciphertext
-                };
-
-            var plaintext = CryptoJS.AES.decrypt(bundle, key, {iv: iv, padding: CryptoJS.pad.NoPadding});
-
-            try {
-                return strip_padding(plaintext.toString(CryptoJS.enc.Utf8), padding_char);
-            }
-            catch (err) {
-                // encoding failed; wrong password
-                return false;
-            }
-        };
-
-        var init_decryptor = function() {
-            var decrypt_btn = document.getElementById('pec-decrypt-content'),
-                password_input = document.getElementById('pec-content-password'),
-                encrypted_content = document.getElementById('pec-encrypted-content'),
-                decrypted_content = document.getElementById('pec-decrypted-content'),
-                decrypt_form = document.getElementById('pec-decrypt-form');
-
-            decrypt_btn.addEventListener('click', function () {
-                // grab the ciphertext bundle
-                var parts = encrypted_content.innerHTML.split(';');
-
-                // decrypt it
-                var content = decrypt_content(
-                    password_input.value,
-                    parts[0],
-                    parts[1],
-                    parts[2]
-                );
-
-                if (content) {
-                    // success; display the decrypted content
-                    decrypted_content.innerHTML = content;
-                    decrypt_form.parentNode.removeChild(decrypt_form);
-                    encrypted_content.parentNode.removeChild(encrypted_content);
-
-                    // any post processing on the decrypted content should be done here
-                }
-                else {
-                    // ¯\_(ツ)_/¯
-                    password_input.value = '';
-                }
-            });
-        };
-
-        document.addEventListener('DOMContentLoaded', init_decryptor);
-    })();
-</script>
+        <p>气质一见钟情XD</p>
+<p>但是不会拍照……T_T</p>
+<p><img alt="Lilia1" src="/images/lilia/1.jpg" /></p>
+<p><img alt="Lilia2" src="/images/lilia/2.jpg" /></p>
         </div><!-- /.entry-content -->
 <div class="comments">
 <hr>
@@ -261,7 +162,7 @@
     <i class="icon-folder-open icon-large"></i>ACG
 </a>
 </li>
-<li>
+<li class="active">
 <a href="http://blog.skydark.info/category/life.html">
     <i class="icon-folder-open icon-large"></i>life
 </a>
@@ -291,7 +192,7 @@
     <i class="icon-folder-open icon-large"></i>python
 </a>
 </li>
-<li class="active">
+<li>
 <a href="http://blog.skydark.info/category/test.html">
     <i class="icon-folder-open icon-large"></i>test
 </a>
@@ -310,7 +211,10 @@
 <li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
 <li class="sidebar-tags">
     <span class="sidebar-tag">
-        <a href="http://blog.skydark.info/tag/test.html" class="label"><i class="icon-tag"></i>test</a>
+        <a href="http://blog.skydark.info/tag/sheng-huo.html" class="label"><i class="icon-tag"></i>生活</a>
+    </span>
+    <span class="sidebar-tag">
+        <a href="http://blog.skydark.info/tag/azone.html" class="label"><i class="icon-tag"></i>azone</a>
     </span>
 <div class="clearfix"></div>
 </li>
